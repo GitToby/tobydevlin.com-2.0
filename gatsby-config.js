@@ -6,7 +6,10 @@
 
 module.exports = {
     siteMetadata: {
-        title: `MY Title from siteMetadata`,
+        title: `MY Title from siteMetadata`
     },
-    plugins: [`gatsby-plugin-typescript`,`gatsby-plugin-graphql-codegen`]
+    plugins: [
+        `gatsby-plugin-typescript`, // will use the tsconfig.json to compile
+        `gatsby-plugin-graphql-codegen` // creates the graphql-types.ts file with our graphql types if the graphql query is named
+    ]
 };

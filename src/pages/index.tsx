@@ -2,9 +2,10 @@ import React from "react"
 import {Link, useStaticQuery} from "gatsby";
 import {graphql} from "gatsby"
 import Layout from "../containers/layout";
+import {IndexQueryQuery} from "../../graphql-types";
 
 interface IndexProps {
-    data: any
+    data: IndexQueryQuery
 }
 
 function Index(props: IndexProps) {
