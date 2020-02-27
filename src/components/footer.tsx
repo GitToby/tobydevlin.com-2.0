@@ -2,7 +2,7 @@ import React from 'react';
 import {graphql, useStaticQuery} from "gatsby";
 import {FooterDataQuery} from "../../graphql-types";
 
-export interface FooterProps {
+interface FooterProps {
 }
 
 function Footer(props: FooterProps) {

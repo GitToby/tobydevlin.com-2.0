@@ -1,17 +1,17 @@
 import React from 'react';
 // @ts-ignore
-import layoutStyles from '../styles/content.module.css'
+import contentStyles from '../styles/content.module.css'
 import {graphql, useStaticQuery} from "gatsby";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import {ContentDataQuery} from "../../graphql-types";
 
-export interface LayoutProps {
+interface ContentProps {
     test_value?: string;
     children: React.ReactNode
 }
 
-function Content(props: LayoutProps) {
+function Content(props: ContentProps) {
     const contentData: ContentDataQuery = useStaticQuery(graphql`
         query contentData {
             site {
@@ -22,7 +22,7 @@ function Content(props: LayoutProps) {
         }
     `);
     return (
-        <div className={layoutStyles.container}>
+        <div className={contentStyles.container}>
             <h2>{contentData.site.siteMetadata.title}</h2>
             <Header/>
             {props.children}

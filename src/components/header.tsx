@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "gatsby";
 
-export interface HeaderProps {
+interface HeaderProps {
 }
 
 function Header(props: HeaderProps) {
