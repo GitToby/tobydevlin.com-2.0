@@ -6,7 +6,7 @@
 
 module.exports = {
     siteMetadata: {
-        title: `MY Title from siteMetadata`
+        title: `TobyDevlin.com 2.0`
     },
     plugins: [
         `gatsby-plugin-typescript`, // will use the tsconfig.json to compile
