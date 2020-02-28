@@ -1,6 +1,6 @@
 import React from 'react';
 // @ts-ignore
-import contentStyles from '../styles/content.module.sass';
+import contentStyles from '../styles/content.module.scss';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
