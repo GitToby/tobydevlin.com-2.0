@@ -22,8 +22,8 @@ function Header(_props: HeaderProps) {
             <h2>{headerData.site.siteMetadata.title}</h2>
             {headerData.allSitePage.distinct.map((location: string, idx: number) => {
                 return (
-                    <div>
-                        <Link to={location} key={idx}>
+                    <div key={idx}>
+                        <Link to={location}>
                             {location}
                         </Link>
                     </div>
