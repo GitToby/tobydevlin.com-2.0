@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "gatsby";
 import Content from "../containers/content";
 
 interface AboutProps {
@@ -7,9 +6,8 @@ interface AboutProps {
 
 function About(props: AboutProps) {
     return (
-        <Content test_value='hello world'>
+        <Content>
             about me!
-            <Link to={"/"}>home</Link>
         </Content>
     );
 }

@@ -9,17 +9,17 @@ function Footer(props: FooterProps) {
     const footerData: FooterDataQuery = useStaticQuery(graphql`
         query footerData {
             site {
-                buildTime
-                siteMetadata{
+                buildTime(formatString: "dddd, MMMM Do YYYY, h:mm:ss a")
+                siteMetadata {
                     title
+                    version
                 }
             }
         }`);
 
     return (
         <div>
-            footer
-            <pre>Built: {footerData.site.buildTime.toString()}</pre>
+            <pre>Built: {footerData.site.buildTime.toString()} | Version: {footerData.site.siteMetadata.version} </pre>
         </div>
     );
 }
