@@ -1,19 +1,19 @@
 import React from 'react';
 // @ts-ignore
-import contentStyles from '../styles/content.module.sass'
-import Header from "../components/header";
-import Footer from "../components/footer";
+import contentStyles from '../styles/content.module.sass';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 interface ContentProps {
-    children: React.ReactNode
+    children: React.ReactNode;
 }
 
 function Content(props: ContentProps) {
     return (
         <div className={contentStyles.container}>
-            <Header/>
+            <Header />
             {props.children}
-            <Footer/>
+            <Footer />
         </div>
     );
 }

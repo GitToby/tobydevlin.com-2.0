@@ -1,11 +1,11 @@
 ---
 layout: post
 title: What Even Is Mongo?
-date: "2018-10-06 16:31:55"
+date: '2018-10-06 16:31:55'
 image: /assets/images/posts/2017-10-06-mongodb.jpg
 tags:
-  - code
-  - not code
+    - code
+    - not code
 ---
 
 # This is a POC for a MongoDB interface
@@ -36,9 +36,9 @@ connection = Connect.get_connection()
 
 This connection is to our database now, were able to perform CRUD operations using it. Data is stored as documents in connections in databases. The connection is to the mongo client, so from here we have 3 levels of structure to go:
 
-- database
-- collection
-- document
+-   database
+-   collection
+-   document
 
 All of these can be accessed using the python accessor notation. Lets first access a (new) database:
 
@@ -102,8 +102,8 @@ Again note the casting to list, this is because the `find` methods return a curs
 
 There's a few things we need to understand about mongo to understand how updating works. These will make things much more simple after continued use.
 
-- always specify if you want to update **one** or **many**. Using `update_one()` will only update the first document it finds with the search criteria, whereas many will `update_many()` that match the criteria.
-- the special keys `$...` will be very useful as they determine how the [searching](https://docs.mongodb.com/manual/reference/operator/query/) and [adding](https://docs.mongodb.com/manual/reference/operator/update/) of values is executed in different ways.
+-   always specify if you want to update **one** or **many**. Using `update_one()` will only update the first document it finds with the search criteria, whereas many will `update_many()` that match the criteria.
+-   the special keys `$...` will be very useful as they determine how the [searching](https://docs.mongodb.com/manual/reference/operator/query/) and [adding](https://docs.mongodb.com/manual/reference/operator/update/) of values is executed in different ways.
 
 The `update_one()` method will search with the first param and update the document with the second:
 

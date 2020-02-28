@@ -4,7 +4,7 @@ title: Kubernetes Setup on a Raspberry Pi
 date: 2019-04-27T17:06:57.778Z
 image: /assets/images/cms/k8s-im.jpg
 tags:
-  - code
+    - code
 ---
 
 I want to be able to develop apps in my spare time. Modern, scalable, disposable apps. The current _hip_ thing (other than serverless functions, but I'm more of a back end dev so here we are) is to build a containerised app. I'm looking to leverage [docker](https://www.docker.com/) and [kubernetes](https://kubernetes.io/) to build an app which can scale almost infinitely depending on how much money I throw at it.

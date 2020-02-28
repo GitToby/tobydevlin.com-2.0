@@ -1,21 +1,21 @@
 ---
 layout: post
 title: Installing LaTeX on Windows
-date: "2018-02-24 22:04:51"
+date: '2018-02-24 22:04:51'
 image: /assets/images/posts/2018-02-24-latex-ex.jpg
 tags:
-  - getting-started
-  - maths
-  - code
+    - getting-started
+    - maths
+    - code
 ---
 
 MiKTex + VS Code + Git = a semi working, compiling, version controlled version of LaTex. Try not to break anything on your journey tho; this worked for me so it will probably work for you... Heres how to do it:
 
 ### First Thing: Get The Stuff:
 
-- [MiKTeX](https://miktex.org/download)
-- [Git](https://git-scm.com/)
-- [VS Code](https://code.visualstudio.com/)
+-   [MiKTeX](https://miktex.org/download)
+-   [Git](https://git-scm.com/)
+-   [VS Code](https://code.visualstudio.com/)
 
 Install both of these to wherever your preferred location is; Once this is done it might be useful to add them to your path. Control Panel > System and Security > System > Advanced System Settings > Environment Variables. You should restart your machine before step 2.
 
@@ -90,7 +90,7 @@ Save this and now go to your file you want to compile (if you want an example th
 Building your project should be easy enough; either run the build with `Right Click > Build LaTeX project` or `Ctrl + Alt + L > Build LaTeX project` or just save the file after editing it. Then, if settings were changed then 4 steps should run and everything should work:
 ![failed](..assets/img/content/2018/03/failed.png)
 If it fails checking the compiler logs will tell you why. Its probably a syntax error (them pesky buggers get me every time), or a an issue with packages (make sure you tab over and install them the first time they're being used).
-  
+
 **GOOD LUCK!**
 
 ---

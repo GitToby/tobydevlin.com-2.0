@@ -1,14 +1,15 @@
-import React from "react"
-import Content from "../containers/content";
+import React from 'react';
+import Content from '../containers/content';
 
-interface IndexProps {
-}
+interface IndexProps {}
 
-function Index(props: IndexProps) {
+function Index(_props: IndexProps) {
     return (
         <Content>
-            <h2 style={{color: "red"}}>Hello world! itsa me, toby!</h2>
-            <img src="https://source.unsplash.com/random/100x100" alt=""/>
+            <h2 style={{color: 'red'}}>
+                Hello<i> world!</i> itsa me, toby!
+            </h2>
+            <img src="https://source.unsplash.com/random/100x100" alt="" />
         </Content>
     );
 }

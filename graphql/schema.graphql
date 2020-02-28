@@ -16,21 +16,21 @@ type Directory implements Node {
     absolutePath: String!
     accessTime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
     atime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
@@ -38,36 +38,36 @@ type Directory implements Node {
     base: String!
     birthTime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
-    birthtime: Date @deprecated(reason : "Use `birthTime` instead")
-    birthtimeMs: Float @deprecated(reason : "Use `birthTime` instead")
+    birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+    birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
     blksize: Int
     blocks: Int
     changeTime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
     children: [Node!]!
     ctime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
@@ -83,21 +83,21 @@ type Directory implements Node {
     mode: Int!
     modifiedTime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
     mtime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
@@ -143,21 +143,21 @@ type File implements Node {
     absolutePath: String!
     accessTime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
     atime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
@@ -165,25 +165,25 @@ type File implements Node {
     base: String!
     birthTime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
-    birthtime: Date @deprecated(reason : "Use `birthTime` instead")
-    birthtimeMs: Float @deprecated(reason : "Use `birthTime` instead")
+    birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+    birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
     blksize: Int
     blocks: Int
     changeTime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
@@ -191,11 +191,11 @@ type File implements Node {
     children: [Node!]!
     ctime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
@@ -211,21 +211,21 @@ type File implements Node {
     mode: Int!
     modifiedTime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
     mtime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date!
@@ -326,11 +326,11 @@ type MarkdownRemarkFields {
 type MarkdownRemarkFrontmatter {
     date(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date
@@ -371,22 +371,153 @@ type Query {
     allSite(filter: SiteFilterInput, limit: Int, skip: Int, sort: SiteSortInput): SiteConnection!
     allSitePage(filter: SitePageFilterInput, limit: Int, skip: Int, sort: SitePageSortInput): SitePageConnection!
     allSitePlugin(filter: SitePluginFilterInput, limit: Int, skip: Int, sort: SitePluginSortInput): SitePluginConnection!
-    directory(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): Directory
-    file(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, childMarkdownRemark: MarkdownRemarkFilterInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, publicURL: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): File
-    markdownRemark(children: NodeFilterListInput, excerpt: StringQueryOperatorInput, excerptAst: JSONQueryOperatorInput, fields: MarkdownRemarkFieldsFilterInput, fileAbsolutePath: StringQueryOperatorInput, frontmatter: MarkdownRemarkFrontmatterFilterInput, headings: MarkdownHeadingFilterListInput, html: StringQueryOperatorInput, htmlAst: JSONQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, rawMarkdownBody: StringQueryOperatorInput, tableOfContents: StringQueryOperatorInput, timeToRead: IntQueryOperatorInput, wordCount: MarkdownWordCountFilterInput): MarkdownRemark
-    site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput): Site
-    sitePage(children: NodeFilterListInput, component: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, componentPath: StringQueryOperatorInput, context: SitePageContextFilterInput, id: StringQueryOperatorInput, internal: InternalFilterInput, internalComponentName: StringQueryOperatorInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, matchPath: StringQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput): SitePage
-    sitePlugin(children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, nodeAPIs: StringQueryOperatorInput, packageJson: SitePluginPackageJsonFilterInput, parent: NodeFilterInput, pluginFilepath: StringQueryOperatorInput, pluginOptions: SitePluginPluginOptionsFilterInput, resolve: StringQueryOperatorInput, version: StringQueryOperatorInput): SitePlugin
+    directory(
+        absolutePath: StringQueryOperatorInput
+        accessTime: DateQueryOperatorInput
+        atime: DateQueryOperatorInput
+        atimeMs: FloatQueryOperatorInput
+        base: StringQueryOperatorInput
+        birthTime: DateQueryOperatorInput
+        birthtime: DateQueryOperatorInput
+        birthtimeMs: FloatQueryOperatorInput
+        blksize: IntQueryOperatorInput
+        blocks: IntQueryOperatorInput
+        changeTime: DateQueryOperatorInput
+        children: NodeFilterListInput
+        ctime: DateQueryOperatorInput
+        ctimeMs: FloatQueryOperatorInput
+        dev: IntQueryOperatorInput
+        dir: StringQueryOperatorInput
+        ext: StringQueryOperatorInput
+        extension: StringQueryOperatorInput
+        gid: IntQueryOperatorInput
+        id: StringQueryOperatorInput
+        ino: FloatQueryOperatorInput
+        internal: InternalFilterInput
+        mode: IntQueryOperatorInput
+        modifiedTime: DateQueryOperatorInput
+        mtime: DateQueryOperatorInput
+        mtimeMs: FloatQueryOperatorInput
+        name: StringQueryOperatorInput
+        nlink: IntQueryOperatorInput
+        parent: NodeFilterInput
+        prettySize: StringQueryOperatorInput
+        rdev: IntQueryOperatorInput
+        relativeDirectory: StringQueryOperatorInput
+        relativePath: StringQueryOperatorInput
+        root: StringQueryOperatorInput
+        size: IntQueryOperatorInput
+        sourceInstanceName: StringQueryOperatorInput
+        uid: IntQueryOperatorInput
+    ): Directory
+    file(
+        absolutePath: StringQueryOperatorInput
+        accessTime: DateQueryOperatorInput
+        atime: DateQueryOperatorInput
+        atimeMs: FloatQueryOperatorInput
+        base: StringQueryOperatorInput
+        birthTime: DateQueryOperatorInput
+        birthtime: DateQueryOperatorInput
+        birthtimeMs: FloatQueryOperatorInput
+        blksize: IntQueryOperatorInput
+        blocks: IntQueryOperatorInput
+        changeTime: DateQueryOperatorInput
+        childMarkdownRemark: MarkdownRemarkFilterInput
+        children: NodeFilterListInput
+        ctime: DateQueryOperatorInput
+        ctimeMs: FloatQueryOperatorInput
+        dev: IntQueryOperatorInput
+        dir: StringQueryOperatorInput
+        ext: StringQueryOperatorInput
+        extension: StringQueryOperatorInput
+        gid: IntQueryOperatorInput
+        id: StringQueryOperatorInput
+        ino: FloatQueryOperatorInput
+        internal: InternalFilterInput
+        mode: IntQueryOperatorInput
+        modifiedTime: DateQueryOperatorInput
+        mtime: DateQueryOperatorInput
+        mtimeMs: FloatQueryOperatorInput
+        name: StringQueryOperatorInput
+        nlink: IntQueryOperatorInput
+        parent: NodeFilterInput
+        prettySize: StringQueryOperatorInput
+        publicURL: StringQueryOperatorInput
+        rdev: IntQueryOperatorInput
+        relativeDirectory: StringQueryOperatorInput
+        relativePath: StringQueryOperatorInput
+        root: StringQueryOperatorInput
+        size: IntQueryOperatorInput
+        sourceInstanceName: StringQueryOperatorInput
+        uid: IntQueryOperatorInput
+    ): File
+    markdownRemark(
+        children: NodeFilterListInput
+        excerpt: StringQueryOperatorInput
+        excerptAst: JSONQueryOperatorInput
+        fields: MarkdownRemarkFieldsFilterInput
+        fileAbsolutePath: StringQueryOperatorInput
+        frontmatter: MarkdownRemarkFrontmatterFilterInput
+        headings: MarkdownHeadingFilterListInput
+        html: StringQueryOperatorInput
+        htmlAst: JSONQueryOperatorInput
+        id: StringQueryOperatorInput
+        internal: InternalFilterInput
+        parent: NodeFilterInput
+        rawMarkdownBody: StringQueryOperatorInput
+        tableOfContents: StringQueryOperatorInput
+        timeToRead: IntQueryOperatorInput
+        wordCount: MarkdownWordCountFilterInput
+    ): MarkdownRemark
+    site(
+        buildTime: DateQueryOperatorInput
+        children: NodeFilterListInput
+        host: StringQueryOperatorInput
+        id: StringQueryOperatorInput
+        internal: InternalFilterInput
+        parent: NodeFilterInput
+        port: IntQueryOperatorInput
+        siteMetadata: SiteSiteMetadataFilterInput
+    ): Site
+    sitePage(
+        children: NodeFilterListInput
+        component: StringQueryOperatorInput
+        componentChunkName: StringQueryOperatorInput
+        componentPath: StringQueryOperatorInput
+        context: SitePageContextFilterInput
+        id: StringQueryOperatorInput
+        internal: InternalFilterInput
+        internalComponentName: StringQueryOperatorInput
+        isCreatedByStatefulCreatePages: BooleanQueryOperatorInput
+        matchPath: StringQueryOperatorInput
+        parent: NodeFilterInput
+        path: StringQueryOperatorInput
+        pluginCreator: SitePluginFilterInput
+        pluginCreatorId: StringQueryOperatorInput
+    ): SitePage
+    sitePlugin(
+        children: NodeFilterListInput
+        id: StringQueryOperatorInput
+        internal: InternalFilterInput
+        name: StringQueryOperatorInput
+        nodeAPIs: StringQueryOperatorInput
+        packageJson: SitePluginPackageJsonFilterInput
+        parent: NodeFilterInput
+        pluginFilepath: StringQueryOperatorInput
+        pluginOptions: SitePluginPluginOptionsFilterInput
+        resolve: StringQueryOperatorInput
+        version: StringQueryOperatorInput
+    ): SitePlugin
 }
 
 type Site implements Node {
     buildTime(
         #Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".
-        difference: String,
+        difference: String
         #Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.
-        formatString: String,
+        formatString: String
         #Returns a string generated with Moment.js' `fromNow` function
-        fromNow: Boolean,
+        fromNow: Boolean
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date
@@ -681,64 +812,64 @@ enum FileFieldsEnum {
     blksize
     blocks
     changeTime
-    childMarkdownRemark___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___children___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___excerpt @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___excerptAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___fields___slug @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___fileAbsolutePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___excerpt @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___excerptAst @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___fields___slug @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___fileAbsolutePath @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
     childMarkdownRemark___frontmatter___date
     childMarkdownRemark___frontmatter___image
     childMarkdownRemark___frontmatter___layout
     childMarkdownRemark___frontmatter___tags
     childMarkdownRemark___frontmatter___title
-    childMarkdownRemark___headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___headings___depth @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___headings___value @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___html @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___htmlAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___headings @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___headings___depth @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___headings___value @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___html @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___htmlAst @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
     childMarkdownRemark___id
-    childMarkdownRemark___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___parent___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___rawMarkdownBody @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___tableOfContents @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___timeToRead @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___wordCount___paragraphs @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___wordCount___sentences @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childMarkdownRemark___wordCount___words @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___rawMarkdownBody @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___tableOfContents @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___timeToRead @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___wordCount___paragraphs @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___wordCount___sentences @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    childMarkdownRemark___wordCount___words @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
     children
     children___children
     children___children___children
@@ -866,112 +997,112 @@ enum MarkdownHeadingLevels {
 }
 
 enum MarkdownRemarkFieldsEnum {
-    children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___children___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    children___parent___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    excerpt @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    excerptAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    fields___slug @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    fileAbsolutePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    excerpt @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    excerptAst @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    fields___slug @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    fileAbsolutePath @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
     frontmatter___date
     frontmatter___image
     frontmatter___layout
     frontmatter___tags
     frontmatter___title
-    headings @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    headings___depth @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    headings___value @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    html @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    htmlAst @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    headings @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    headings___depth @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    headings___value @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    html @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    htmlAst @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
     id
-    internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___children___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    parent___parent___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    rawMarkdownBody @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    tableOfContents @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    timeToRead @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    wordCount___paragraphs @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    wordCount___sentences @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    wordCount___words @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    rawMarkdownBody @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    tableOfContents @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    timeToRead @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    wordCount___paragraphs @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    wordCount___sentences @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+    wordCount___words @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
 }
 
 enum SiteFieldsEnum {
@@ -1684,7 +1815,6 @@ input StringQueryOperatorInput {
     nin: [String]
     regex: String
 }
-
 
 "A date string, such as 2007-12-03, compliant with the ISO 8601 standard for representation of dates and times using the Gregorian calendar."
 scalar Date

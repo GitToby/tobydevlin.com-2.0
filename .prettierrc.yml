@@ -1,0 +1,15 @@
+# tabbing and spacing
+tabWidth: 4
+semi: true
+endOfLine: crlf
+printWidth: 200
+
+# code style
+singleQuote: true
+bracketSpacing: false
+htmlWhitespaceSensitivity: css
+
+# code formatting
+jsxBracketSameLine: false
+trailingComma: 'es5'
+arrowParens: always

@@ -1,15 +1,10 @@
 import React from 'react';
-import Content from "../containers/content";
+import Content from '../containers/content';
 
-interface AboutProps {
-}
+interface AboutProps {}
 
-function About(props: AboutProps) {
-    return (
-        <Content>
-            about me!
-        </Content>
-    );
+function About(_props: AboutProps) {
+    return <Content>about me!</Content>;
 }
 
 export default About;

@@ -1,34 +1,37 @@
 import React from 'react';
-import {graphql, Link, useStaticQuery} from "gatsby";
-import {HeaderDataQuery} from "../../graphql-types";
+import {graphql, Link, useStaticQuery} from 'gatsby';
+import {HeaderDataQuery} from '../../graphql-types';
 
-interface HeaderProps {
-}
+interface HeaderProps {}
 
-function Header(props: HeaderProps) {
+function Header(_props: HeaderProps) {
     const headerData: HeaderDataQuery = useStaticQuery(graphql`
         query headerData {
             allSitePage {
                 distinct(field: path)
             }
             site {
-                siteMetadata{
+                siteMetadata {
                     title
                 }
             }
         }
     `);
-    return <div>
-        <h2>{headerData.site.siteMetadata.title}</h2>
-        {headerData.allSitePage.distinct.map((location: string, idx: number) => {
-            return <div>
-                <Link to={location} key={idx}>
-                    {location}
-                </Link>
-            </div>;
-        })}
-        <hr/>
-    </div>;
+    return (
+        <div>
+            <h2>{headerData.site.siteMetadata.title}</h2>
+            {headerData.allSitePage.distinct.map((location: string, idx: number) => {
+                return (
+                    <div>
+                        <Link to={location} key={idx}>
+                            {location}
+                        </Link>
+                    </div>
+                );
+            })}
+            <hr />
+        </div>
+    );
 }
 
 export default Header;

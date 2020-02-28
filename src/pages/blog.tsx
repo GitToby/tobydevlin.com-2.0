@@ -1,27 +1,29 @@
 import React from 'react';
-import {graphql, Link} from "gatsby";
-import Content from "../containers/content";
-import {BlogHomeQuery} from "../../graphql-types";
+import {graphql, Link} from 'gatsby';
+import Content from '../containers/content';
+import {BlogHomeQuery} from '../../graphql-types';
 
 interface BlogProps {
-    data: BlogHomeQuery
+    data: BlogHomeQuery;
 }
 
 function Blog(props: BlogProps) {
     return (
         <Content>
             {props.data.allMarkdownRemark.totalCount} posts, Blog me!
-            <br/>
-            <br/>
+            <br />
+            <br />
             {props.data.allMarkdownRemark.edges.map((edge, idx: number) => {
                 const node = edge.node;
-                return < div>
-                    <Link to={node.fields.slug}> {node.frontmatter.title}
-                    </Link> - {node.frontmatter.date}<br/>
-                    {node.excerpt}
-                    <hr/>
-                </div>
-            } )}
+                return (
+                    <div key={idx}>
+                        <Link to={node.fields.slug}> {node.frontmatter.title}</Link> - {node.frontmatter.date}
+                        <br />
+                        {node.excerpt}
+                        <hr />
+                    </div>
+                );
+            })}
         </Content>
     );
 }

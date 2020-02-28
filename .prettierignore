@@ -1,0 +1,15 @@
+.cache
+.idea
+dist
+node_modules
+public
+
+# image files
+*.jpg
+*.png
+*.ico
+
+# no extention code
+.gitignore
+.prettierignore
+graphql/.graphqlconfig

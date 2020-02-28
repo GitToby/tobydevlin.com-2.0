@@ -2,9 +2,9 @@
 layout: post
 title: Using Sympy for Analytical Maths
 image: /assets/images/posts/2018-08-25-maths-book.jpg
-date: "2018-08-25 18:31:55"
+date: '2018-08-25 18:31:55'
 tags:
-  - code
+    - code
 ---
 
 ### This is an example of how i would use sympy to evaluate a set of analytical questions, for example:

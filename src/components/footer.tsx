@@ -1,11 +1,10 @@
 import React from 'react';
-import {graphql, useStaticQuery} from "gatsby";
-import {FooterDataQuery} from "../../graphql-types";
+import {graphql, useStaticQuery} from 'gatsby';
+import {FooterDataQuery} from '../../graphql-types';
 
-interface FooterProps {
-}
+interface FooterProps {}
 
-function Footer(props: FooterProps) {
+function Footer(_props: FooterProps) {
     const footerData: FooterDataQuery = useStaticQuery(graphql`
         query footerData {
             site {
@@ -15,11 +14,14 @@ function Footer(props: FooterProps) {
                     version
                 }
             }
-        }`);
+        }
+    `);
 
     return (
         <div>
-            <pre>Built: {footerData.site.buildTime.toString()} | Version: {footerData.site.siteMetadata.version} </pre>
+            <pre>
+                Built: {footerData.site.buildTime.toString()} | Version: {footerData.site.siteMetadata.version}
+            </pre>
         </div>
     );
 }
