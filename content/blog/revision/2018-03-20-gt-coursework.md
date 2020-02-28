@@ -4,7 +4,7 @@ title: GT Coursework
 date: '2018-03-20 09:28:00'
 image: /assets/images/posts/dice.jpg
 tags:
-- maths
+    - maths
 ---
 
 This is a copy of my Game Theory Coursework I completed for the course at cardiff. Personally I found the subject facinating but the course very introductory.
