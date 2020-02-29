@@ -2,7 +2,7 @@
 layout: post
 title: Probability and Inference
 date: '2018-01-17 15:15:23'
-image: /assets/images/posts/2018-01-17-coins.jpg
+image: /content/img/old-post-icons/2018-01-17-coins.jpg
 tags:
     - maths
 ---
@@ -36,7 +36,7 @@ There are lots of possible Questions but there will always be the required combi
 Splitting up what is asked for you buy the question in a certain way will provide an evaluable line.
 Some examples are below:
 
-![Naive-Bayes-question](../assets/img/content/2018/01/Naive-Bayes-question.png)
+![Naive-Bayes-question](/content/img/old-posts/2018/01/Naive-Bayes-question.png)
 
 Here were given:
 

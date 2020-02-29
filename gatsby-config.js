@@ -32,12 +32,27 @@ module.exports = {
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
 
+        // DATA SOURCING PLUGINS
+        {
+            resolve: 'gatsby-source-filesystem', // looks into the path below and provides the data in the graphQL server
+            options: {
+                name: 'images',
+                path: `${__dirname}/content/img` // used for markdown pages, projects & blog posts
+            }
+        },
+        {
+            resolve: 'gatsby-source-filesystem', // looks into the path below and provides the data in the graphQL server
+            options: {
+                name: 'blog-content',
+                path: `${__dirname}/content/blog` // used for markdown pages, projects & blog posts
+            }
+        },
+
         // FORMATTING PLUGINS
         {
             resolve: 'gatsby-transformer-remark', // renders markdown files as html
             options: {
                 plugins: [
-                    'gatsby-remark-relative-images',
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
@@ -53,15 +68,6 @@ module.exports = {
                         }
                     }
                 ]
-            }
-        },
-
-        // DATA SOURCING PLUGINS
-        {
-            resolve: 'gatsby-source-filesystem', // looks into the path below and provides the data in the graphQL server
-            options: {
-                name: 'blog content',
-                path: `${__dirname}/content/blog` // used for markdown pages, projects & blog posts
             }
         },
 

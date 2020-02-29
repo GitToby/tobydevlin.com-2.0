@@ -2,7 +2,7 @@
 layout: post
 title: Some Useful Python Methods For Data Analysis
 date: '2018-02-22 12:00:47'
-image: /assets/images/posts/2018-02-22-python-data.jpg
+image: /content/img/old-post-icons/2018-02-22-python-data.jpg
 tags:
     - getting-started
     - maths
@@ -72,7 +72,7 @@ df = df.append([x,y],ignore_index=True)
 ```
 
 This will add the rows x then y then both x & y:
-![appending-dataframe](../assets/img/content/2018/03/appending-dataframe.png)
+![appending-dataframe](/content/img/old-posts/2018/03/appending-dataframe.png)
 
 ## Pt 2 - Exploring Data
 
@@ -95,7 +95,7 @@ df.apply(lambda x: sum(x.isnull()),axis=0)
 ```
 
 This will count up the number of null values in each column, a bit like so:
-![4.-missing](../assets/img/content/2018/03/4.-missing.png)
+![4.-missing](/content/img/old-posts/2018/03/4.-missing.png)
 
 #### Categorical Data
 
@@ -106,8 +106,8 @@ df["col"].value_counts()
 ```
 
 This will give you the number of categories there are in each column(it wont tell you how many nas there are though):
-![vaue_counts](../assets/img/content/2018/03/vaue_counts.png)
-![valcountsNaN](../assets/img/content/2018/03/valcountsNaN.png)
+![vaue_counts](/content/img/old-posts/2018/03/vaue_counts.png)
+![valcountsNaN](/content/img/old-posts/2018/03/valcountsNaN.png)
 
 #### Numeric Data
 
@@ -125,7 +125,7 @@ Before looking into distributions and stuff its nice to follow the following ste
 df.descibe()
 ```
 
-![describe](../assets/img/content/2018/03/describe.png)
+![describe](/content/img/old-posts/2018/03/describe.png)
 
 Otherwise, after fixing the problems in steps 1 & 3 above, you can look into the pt 4 for pretty ways of plotting the data.
 
@@ -184,8 +184,8 @@ plot.savefig("save/path.pdf")
 ```
 
 _note:_ This will eat up your memory for a few mins...
-![pairplot](../assets/img/content/2018/03/pairplot.png)
-![plot](../assets/img/content/2018/03/plot.png)
+![pairplot](/content/img/old-posts/2018/03/pairplot.png)
+![plot](/content/img/old-posts/2018/03/plot.png)
 
 (Theres not really any relationship in this data, but you get the point of what it does; the middle ones are histograms and the others are scatter plots)
 
@@ -197,7 +197,7 @@ If you're interested in just one or two columns, then Seaborn has some nice hist
 sns.distplot(df["col"])
 ```
 
-![distplot](../assets/img/content/2018/03/distplot.png)
+![distplot](/content/img/old-posts/2018/03/distplot.png)
 
 ### Multi Linear Regression
 
@@ -205,7 +205,7 @@ sns.distplot(df["col"])
 sns.lmplot(x="col1", y="col2", data=df)
 ```
 
-![lmplot](../assets/img/content/2018/03/lmplot.png)
+![lmplot](/content/img/old-posts/2018/03/lmplot.png)
 
 ### Boxplots
 
@@ -213,7 +213,7 @@ sns.lmplot(x="col1", y="col2", data=df)
 sns.boxplot(x="col", y="col", data=df)
 ```
 
-![boxplot](../assets/img/content/2018/03/boxplot.png)
+![boxplot](/content/img/old-posts/2018/03/boxplot.png)
 
 These are just a few of the offerings by Seaborn with lots of others that can be used depending on the type of data. For example the `jointplot()` gives lots of information about the relationship between 2 variables.
 
@@ -226,7 +226,7 @@ This part is probably the hardest...
 
 If you apply a model to data where the model doesn't make sense you can come away with some very strange answers. Scikit Learn is the main ML library that is used to build models in python, and it has a very useful cheat sheet:
 
-![scikit-learn-ml_map](../assets/img/content/2018/03/scikit-learn-ml_map.png)
+![scikit-learn-ml_map](/content/img/old-posts/2018/03/scikit-learn-ml_map.png)
 
 Their documentation is probably the best learning material on how the code is written; but if you want to know why models work it might be more useful to do a deep dive course to understand the maths behind them.
 

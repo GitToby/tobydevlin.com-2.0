@@ -2,7 +2,7 @@
 layout: post
 title: Compression Techniques
 date: '2017-12-19 12:20:16'
-image: /assets/images/posts/2017-12-19-vice.jpg
+image: /content/img/old-post-icons/2017-12-19-vice.jpg
 tags:
     - maths
     - coding-theory
@@ -60,7 +60,7 @@ $$P=\{0.05,\ 0.1,\ 0.12,\ 0.13,\ 0.17,\ 0.43\} $$
     $$00:[f:0.43]\ |\  01:[e:0.17]\ |\  100:[d:0.13]\ |\  101:[c:0.12]\ |\  110:[b:0.1]\ |\  111:[a:0.05]$$
     or, as a tree:
 
-![Shanon-Fano-tree](../assets/img/content/2017/12/Shanon-Fano-tree.svg)
+![Shanon-Fano-tree](/content/img/old-posts/2017/12/Shanon-Fano-tree.png)
 
 This gives a uniquely decodable prefix code but it may not be optimal, the average compression length is:
 $$L_{avg}=\sum^{|A|}_{i=1} l_i p_i = (2\cdot 0.43)+(2\cdot 0.17)+(3\cdot 0.13)+(3\cdot 0.12)+(3\cdot 0.1)+(3\cdot 0.05)= 2.4$$
@@ -87,7 +87,7 @@ $$P=\{0.05,\ 0.1,\ 0.12,\ 0.13,\ 0.17,\ 0.43\}$$
 4.  add numbers to the tree branches and append these numbers until reaching a node. these are the codewords.
 
 It is easier to see as a gif:
-![hufman_coding](../assets/img/content/2017/12/hufman_coding.gif)
+![hufman_coding](/content/img/old-posts/2017/12/hufman_coding.gif)
 once the final tree is given numbers can be applied to the vertacies and the codewords found. Because of the optional 0-1 choice this will not produce unique codes. We can produce the following coded alphabet:
 $$a=0101,\ b=0100,\ c=001,\ d=000,\ e=011,\ f=1$$
 (it can be seen by replacing 1s with 0s in the above that this is non unique). This wll also produce an optimal code:

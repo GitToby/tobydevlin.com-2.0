@@ -2,7 +2,7 @@
 layout: post
 title: Genetic Algorithms
 date: '2017-12-13 11:53:32'
-image: /assets/images/posts/2017-12-13-biotechnology-bright-chemical.jpg
+image: /content/img/old-post-icons/2017-12-13-biotechnology-bright-chemical.jpg
 tags:
     - getting-started
     - code

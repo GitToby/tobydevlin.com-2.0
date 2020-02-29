@@ -2,7 +2,7 @@
 layout: post
 title: The Sexy Sexy World Of JSON Validation
 date: 2019-09-18T15:46:43.349Z
-image: /assets/images/cms/jon-moore-399469-unsplash.jpg
+image: /content/img/netlifyCMS/jon-moore-399469-unsplash.jpg
 tags:
     - ''
 ---

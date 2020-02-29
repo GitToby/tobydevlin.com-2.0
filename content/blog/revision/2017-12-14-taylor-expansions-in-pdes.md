@@ -2,7 +2,7 @@
 layout: post
 title: Taylor Expansions in PDEs
 date: '2017-12-14 12:47:43'
-image: /assets/images/posts/2017-12-14-taylor-series.jpg
+image: /content/img/old-post-icons/2017-12-14-taylor-series.jpg
 tags:
     - getting-started
     - maths
@@ -28,7 +28,7 @@ $$(4)\quad F'(x)=\frac{f(x+h)-f(x)}{h}$$
 
 From here we can see that we can somewhat accuratly calculate a derivative of a function using the evaluation at 2 points that are "close enough" together (this can be done in both directions by using $-h$ insted). That's cool, but now what?
 
-![mesh grid](../assets/img/content/2017/12/mesh.gif)
+![mesh grid](/content/img/old-posts/2017/12/mesh.gif)
 
 See this grid? This is a plane where a PDE lives. We can solve the PDE at a point on this plane if we use the above fomulas in a clever way. Imagine were ust working on the line $y=0$ and we want to work out $f'(0.3)$ where $f(x)=x^2$, how do we do this?
 
@@ -90,7 +90,7 @@ $$F''(x)=Af(x-h) + Bf(x) +Cf(x+h)=\frac{f(x-h) - 2f(x) +f(x+h)}{h^2}$$
 
 The motive for taking centered approximations can be seen below. Its obvious the red line has a gradient closer to $f(4)$ than the other two lines.
 
-![aprox-graph](../assets/img/content/2017/12/aprox-graph.png)
+![aprox-graph](/content/img/old-posts/2017/12/aprox-graph.png)
 
 From this point on we can increase the dimension of $f(x)$ to be a function of 2 variables: $f(x,y)$, and we can expand $f$ in both $x$ (as we did before), and $y$ (by using the spacing of $\pm k$ insted of $\pm h$). Then we can calculate _partial differentials_ in the same manner; expand the taylor series and rearange for an approximation. Only this time insted of arbitary spacing we use the concept of creating a mesh with points spaced out over our domain this is known asdiscritizing the domain(the grid above is a prime example). This then gives:
 

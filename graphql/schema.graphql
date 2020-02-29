@@ -489,7 +489,7 @@ type MarkdownRemarkFrontmatter {
         #Configures the locale Moment.js will use to format the date.
         locale: String
     ): Date
-    image: File
+    image: String
     layout: String
     tags: [String]
     title: String

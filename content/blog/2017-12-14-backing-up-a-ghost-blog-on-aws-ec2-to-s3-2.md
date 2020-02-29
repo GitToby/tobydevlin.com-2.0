@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Backing up a Ghost blog (or anything) on AWS EC2 to S3
-image: /assets/images/posts/2017-12-14-echo-dot.jpg
+image: /content/img/old-post-icons/2017-12-14-echo-dot.jpg
 date: '2017-12-14 14:06:20'
 tags:
     - code
@@ -39,7 +39,7 @@ aws s3 cp ./ s3://bucket_name --recursive --dryrun
 10. This should spit a bunch of stuff onto the screen saying its copying the files, and youre done! (not really).. the --dryrun option just shows you what it would be doing; remove that, run it again and **YOURE DONE!!**­ƒæî­ƒæî­ƒæî­ƒæÅ­ƒæÅ
 
 Make sure you check your bucket, it should come out like this:
-![finished-s3-bucket](../assets/img/content/2017/12/finished-s3-bucket.gif)
+![finished-s3-bucket](/content/img/old-posts/2017/12/finished-s3-bucket.gif)
 
 ### Pt 1.2 - Use git!
 
@@ -93,7 +93,7 @@ To the crontab we will be running the script every week on a Sunday. [This](http
 
 Personally I tested the system with the `--dryrun` commands in place and made the crontab run my script every minute. Then I could check it running using `grep CRON /var/log/syslogs` to see if my script ran. Once it was running how I wanted I removed the `--dryrun` and changed the frequency. Googling how CRON works is a good idea to make sure your scripts are running as needed.
 
-![s3-auto](../assets/img/content/2018/03/s3-auto.png)
+![s3-auto](/content/img/old-posts/2018/03/s3-auto.png)
 
 > Note: s3 has a limit on the number of free pushes you can have, **CHECK THIS BEFORE JUST LEAVING IT RUNNING.. BILLS CAN RUN AWAY FROM YOU IF YOURE SENDING LOTS OF DATA**
 

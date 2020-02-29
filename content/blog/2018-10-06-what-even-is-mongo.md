@@ -2,7 +2,7 @@
 layout: post
 title: What Even Is Mongo?
 date: '2018-10-06 16:31:55'
-image: /assets/images/posts/2017-10-06-mongodb.jpg
+image: /content/img/old-post-icons/2017-10-06-mongodb.jpg
 tags:
     - code
     - not code

@@ -2,7 +2,7 @@
 layout: post
 title: Kubernetes Setup on a Raspberry Pi
 date: 2019-04-27T17:06:57.778Z
-image: /assets/images/cms/k8s-im.jpg
+image: /content/img/netlifyCMS/k8s-im.jpg
 tags:
     - code
 ---
@@ -37,7 +37,7 @@ We won't reinvent the wheel, [Alex Ellis](https://github.com/alexellis) has some
 
 Now, to start we will run `kubeadm config images pull` prior to `kubeadm init` to verify connectivity to gcr.io registries. Then we can init our k8s cluster with `sudo kubeadm init --apiserver-advertise-address=0.0.0.0` to have the master listen on the default network IP too. It may take a while, but eventually, you should get an output like this:
 
-![](/assets/images/cms/k8s-cmd-out.png)
+![](/content/img/netlifyCMS/k8s-cmd-out.png)
 
 If you have other worker nodes you can connect them with the command shown. Now we need to take the key generated for cluster administration and make it available in a default location for use with kubectl by running the following 3 commands:
 
@@ -47,6 +47,6 @@ mkdir -p $HOME/.kube  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config  
 
 After this is run we can check that everything is working correctly with `kubectl get all --all-namespaces`, which should look a little like the below.
 
-![](/assets/images/cms/k8s-cmd-out-2.png)
+![](/content/img/netlifyCMS/k8s-cmd-out-2.png)
 
 Hey presto we have a k8s cluster up and running correctly! You can test it running the [minikube](https://kubernetes.io/docs/tutorials/hello-minikube/#create-a-deployment) test deployments!

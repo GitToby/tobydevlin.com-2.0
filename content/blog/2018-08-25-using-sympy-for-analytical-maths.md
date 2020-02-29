@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using Sympy for Analytical Maths
-image: /assets/images/posts/2018-08-25-maths-book.jpg
+image: /content/img/old-post-icons/2018-08-25-maths-book.jpg
 date: '2018-08-25 18:31:55'
 tags:
     - code
@@ -98,6 +98,6 @@ plt.plot(X,[expr2_callable(x) for in_x in X])
 
     [<matplotlib.lines.Line2D at 0x24a166e8668>]
 
-![png](../assets/img/content/2018/08/output_14_1.png)
+![png](/content/img/old-posts/2018/08/output_14_1.png)
 
 ### And we're done!

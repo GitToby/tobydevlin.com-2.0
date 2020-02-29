@@ -2,7 +2,7 @@
 layout: post
 title: Building tobydevlin.com
 date: '2017-11-25 20:48:09'
-image: /assets/images/posts/2017-11-25-code.jpg
+image: /content/img/old-post-icons/2017-11-25-code.jpg
 tags:
     - getting-started
     - code
@@ -16,7 +16,7 @@ The tobydevlin.com website is the main product of this large experiment of web d
 
 The website will be built using the modern SPA ([single page application](https://en.wikipedia.org/wiki/Single-page_application)) design, so its really more of a webpage than a whole site. This page then needs some web services sitting on a server somewhere that can provide it with data and security services. By creating my site like this **I've totally invented a microservice structure!** Making things into a network and distributing the processes around the place means things are flexible and easily maintainable.
 
-![Site-Map-example](../assets/img/content/2017/11/Site-Map-example.svg)
+![Site-Map-example](/content/img/old-posts/2017/11/Site-Map-example.png)
 
 Services can be built with anything, there are frameworks in lots of languages:
 
@@ -26,6 +26,7 @@ Services can be built with anything, there are frameworks in lots of languages:
 -   Go
 -   Ruby
 -   PhP
+-   Rust
 -   The list goes on...
 
 They are usually bits of code running on a server somewhere (like in the cloud) and just respond to anything that gets asked to them. Its just a name though as these **microservices could be pretty huge** codebases if the service is compex. If you built it wrong it will mostly consist of 500 errors and lots of unhappy customers, so get these bits right in the design before starting your build. Personally I like Python and Node for services because of their flexibility, though Java can be powerful when it needs to be & I don't know the other languages on the list.
@@ -47,7 +48,7 @@ Like I mentioned previously, theres lots of parts to a website, the front end ho
 
 **Yeoman is a super cool idea**, have a tech stack you think someone has probably thought of before and probably is common because it works? Check [here](http://yeoman.io/generators/) and if theres a generator for the stack you're in luck! follow the tutorials and plop down a bunch of code in a file (I'm using [this generator](https://github.com/react-webpack-generators/generator-react-webpack#readme)). If you follow the steps listed in the Yeoman tutorial you'll get something like this:
 
-![yeoman-finish](../assets/img/content/2017/11/yeoman-finish.png)
+![yeoman-finish](/content/img/old-posts/2017/11/yeoman-finish.png)
 
 If you did, nice!Ô£ï This is just a boilerplate, you can **mess about with the code** by write your data structures, adingd npm modules for interesting features like async data requests to your services and more! **The only limitation is your imagination!!** _(and computing power, budget, client requests, etc.. but ignore them for now, this is for fun!)_. During your build there are some tools that come along with this generator that make your life super easy:
 

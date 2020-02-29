@@ -2,7 +2,7 @@
 layout: post
 title: Easy Docker Containers on Raspery Pi With Portainer.io
 date: 2019-04-29T20:26:59.121Z
-image: /assets/images/cms/portainer-logo.png
+image: /content/img/netlifyCMS/portainer-logo.png
 tags:
     - code
 ---
