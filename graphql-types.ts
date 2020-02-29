@@ -1645,7 +1645,6 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___plugins___name' |
   'pluginCreator___pluginOptions___plugins___version' |
   'pluginCreator___pluginOptions___plugins___pluginFilepath' |
-  'pluginCreator___pluginOptions___usePrettierrc' |
   'pluginCreator___pluginOptions___name' |
   'pluginCreator___pluginOptions___path' |
   'pluginCreator___pluginOptions___includePaths' |
@@ -1839,9 +1838,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___plugins___id' |
   'pluginOptions___plugins___name' |
   'pluginOptions___plugins___version' |
-  'pluginOptions___plugins___pluginOptions___usePrettierrc' |
   'pluginOptions___plugins___pluginFilepath' |
-  'pluginOptions___usePrettierrc' |
   'pluginOptions___name' |
   'pluginOptions___path' |
   'pluginOptions___includePaths' |
@@ -1957,7 +1954,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>,
-  usePrettierrc?: Maybe<Scalars['Boolean']>,
   name?: Maybe<Scalars['String']>,
   path?: Maybe<Scalars['String']>,
   includePaths?: Maybe<Array<Maybe<Scalars['String']>>>,
@@ -1966,7 +1962,6 @@ export type SitePluginPluginOptions = {
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>,
-  usePrettierrc?: Maybe<BooleanQueryOperatorInput>,
   name?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
   includePaths?: Maybe<StringQueryOperatorInput>,
@@ -1978,7 +1973,6 @@ export type SitePluginPluginOptionsPlugins = {
   id?: Maybe<Scalars['String']>,
   name?: Maybe<Scalars['String']>,
   version?: Maybe<Scalars['String']>,
-  pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptions>,
   pluginFilepath?: Maybe<Scalars['String']>,
 };
 
@@ -1987,20 +1981,11 @@ export type SitePluginPluginOptionsPluginsFilterInput = {
   id?: Maybe<StringQueryOperatorInput>,
   name?: Maybe<StringQueryOperatorInput>,
   version?: Maybe<StringQueryOperatorInput>,
-  pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsFilterInput>,
   pluginFilepath?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePluginPluginOptionsPluginsFilterListInput = {
   elemMatch?: Maybe<SitePluginPluginOptionsPluginsFilterInput>,
-};
-
-export type SitePluginPluginOptionsPluginsPluginOptions = {
-  usePrettierrc?: Maybe<Scalars['Boolean']>,
-};
-
-export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
-  usePrettierrc?: Maybe<BooleanQueryOperatorInput>,
 };
 
 export type SitePluginSortInput = {
