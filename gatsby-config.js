@@ -27,6 +27,13 @@ module.exports = {
             options: {
                 plugins: [
                     'gatsby-remark-prismjs', // add code highlighting
+                    {
+                        resolve: `gatsby-remark-katex`, // maths render
+                        options: {
+                            // any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
+                            strict: `ignore`
+                        }
+                    }
                 ],
             },
         },

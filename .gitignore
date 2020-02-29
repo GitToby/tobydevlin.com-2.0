@@ -2,7 +2,7 @@
 *.iml
 .idea
 
-# ignore types
+# ignore types as it changes basically every time
 graphql-types.ts
 
 # gatsby & JS code
