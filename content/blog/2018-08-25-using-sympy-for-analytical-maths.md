@@ -9,11 +9,11 @@ tags:
 
 ### This is an example of how i would use sympy to evaluate a set of analytical questions, for example:
 
-Find \\(\forall a \in [0,12,24,30,99]\\) and \\(b=100\\):
+Find $\forall a \in [0,12,24,30,99]$ and $b=100$:
 
 $$\int_a^b \frac{\alpha x^{3} - \sin(2x)}{\sqrt{\beta e^x}} dx$$
 
-Where \\(\alpha = 2.341\\), \\(\beta = e^x\\)
+Where $\alpha = 2.341$, $\beta = e^x$
 
 First we need to import the library (and start the printing for nice easy to read stuff):
 
@@ -35,7 +35,7 @@ expr
 
 $$\frac{1}{\sqrt{\beta e^{x}}} \left(\alpha x^{3} - \sin{\left (2 x \right )}\right)$$
 
-This like the integrand we hav above. Now theres a few things we can do, if we know \\(\alpha\\) and \\(\beta\\), which we do, we can sub them in. then we will have a more simple expression:
+This like the integrand we hav above. Now theres a few things we can do, if we know $\alpha$ and $\beta$, which we do, we can sub them in. then we will have a more simple expression:
 
 ```python
 expr2 = expr.subs({alpha: 2.341, beta:sp.E**x})
@@ -53,7 +53,7 @@ integral
 
 $$\frac{2.341 a^{3}}{\sqrt{e^{2 a}}} + \frac{7.023 a^{2}}{\sqrt{e^{2 a}}} + \frac{14.046 a}{\sqrt{e^{2 a}}} - \frac{2.341 b^{3}}{\sqrt{e^{2 b}}} - \frac{7.023 b^{2}}{\sqrt{e^{2 b}}} - \frac{14.046 b}{\sqrt{e^{2 b}}} + \frac{0.2}{\sqrt{e^{2 b}}} \sin{\left (2 b \right )} + \frac{0.4}{\sqrt{e^{2 b}}} \cos{\left (2 b \right )} - \frac{14.046}{\sqrt{e^{2 b}}} - \frac{0.2}{\sqrt{e^{2 a}}} \sin{\left (2 a \right )} - \frac{0.4}{\sqrt{e^{2 a}}} \cos{\left (2 a \right )} + \frac{14.046}{\sqrt{e^{2 a}}}$$
 
-Now we need to calculate all the values of this expression for every combination of \\(a \in [0,12,24,30,99]\\) and \\(b=100\\). We can do this by starting with lambdifying the expression into a callable function:
+Now we need to calculate all the values of this expression for every combination of $a \in [0,12,24,30,99]$ and $b=100$. We can do this by starting with lambdifying the expression into a callable function:
 
 ```python
 my_callable = sp.lambdify((a, b), integral)
