@@ -1,18 +1,13 @@
 import React from 'react';
 import Content from '../containers/content';
-// @ts-ignore
-import shapegame from '../../content/img/netlifyCMS/shapegame.jpg'
 
-interface AboutProps {
-}
+interface AboutProps {}
 
-function About(_props: AboutProps) {
+function About(props: AboutProps) {
     return (
         <Content>
-            about me!
-            img:
-            <img src={shapegame} alt={'img'}/>
-            cool
+            about me! img:
+            <pre>{JSON.stringify(props, null, 2)}</pre>
         </Content>
     );
 }
