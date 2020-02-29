@@ -11,7 +11,7 @@
         "serve": "gatsby serve",
         "clean": "gatsby clean",
         "format": "prettier --write ./**",
-        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
     },
     "dependencies": {
         "gatsby": "^2.19.7",
@@ -33,7 +33,7 @@
         "@types/node": "^13.7.4",
         "@types/react": "^16.9.22",
         "@types/react-dom": "^16.9.5",
-        "prettier": "^1.19.1",
+        "prettier": "^1.19.1"
     },
     "repository": {
         "type": "git",
