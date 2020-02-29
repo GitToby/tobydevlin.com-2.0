@@ -6,7 +6,7 @@ backend:
     name: git-gateway
     branch: master
 
-media_folder: '../img/blog' # Media files will be stored here
+media_folder: 'content/blog/img' # Media files will be stored here
 
 collections:
     - name: 'blog' # Used in URL route

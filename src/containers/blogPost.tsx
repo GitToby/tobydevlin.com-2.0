@@ -12,7 +12,7 @@ function BlogPost(props: BlogPostProps) {
         <Content>
             <Link to={'/blog/'}>blog home</Link>
             <h1>{props.data.markdownRemark.frontmatter.title}</h1>
-            <hr />
+            <hr/>
             this is my string
             <div
                 dangerouslySetInnerHTML={{

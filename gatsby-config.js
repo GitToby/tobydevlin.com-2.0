@@ -37,6 +37,13 @@ module.exports = {
             resolve: 'gatsby-transformer-remark', // renders markdown files as html
             options: {
                 plugins: [
+                    'gatsby-remark-relative-images',
+                    {
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            maxWidth: 800
+                        }
+                    },
                     'gatsby-remark-prismjs', // add code highlighting
                     {
                         resolve: 'gatsby-remark-katex', // maths render
@@ -44,25 +51,12 @@ module.exports = {
                             // any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
                             strict: 'ignore'
                         }
-                    },
-                    {
-                        resolve: `gatsby-remark-images`,
-                        options: {
-                            maxWidth: 800
-                        }
                     }
                 ]
             }
         },
 
         // DATA SOURCING PLUGINS
-        {
-            resolve: 'gatsby-source-filesystem', // looks into the path below and provides the data in the graphQL server
-            options: {
-                name: 'blog img content',
-                path: `${__dirname}/content/img/blog` // used for markdown images
-            }
-        },
         {
             resolve: 'gatsby-source-filesystem', // looks into the path below and provides the data in the graphQL server
             options: {
@@ -74,6 +68,5 @@ module.exports = {
         // EXTENSIONS
         'gatsby-plugin-netlify-cms', // adds the cms plugin to the /admin page
         'gatsby-plugin-no-sourcemaps' // removes sourcemaps in production builds
-
     ]
 };
