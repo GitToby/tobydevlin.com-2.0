@@ -3,40 +3,39 @@
 site_url: https://new.tobydevlin.com
 
 backend:
-  name: git-gateway
-  branch: master
+    name: git-gateway
+    branch: master
 
-media_folder: "static/img/cms-upload" # Media files will be stored here
-
+media_folder: 'static/img/cms-upload' # Media files will be stored here
 
 collections:
-  - name: "blog" # Used in URL route
-    label: "Blog Posts" # Used in the UI
-    folder: "content/blog" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template
-    fields: # The fields for each document, usually in front matter
-      - label: "Layout"
-        name: "layout"
-        widget: "hidden"
-        default: "post"
+    - name: 'blog' # Used in URL route
+      label: 'Blog Posts' # Used in the UI
+      folder: 'content/blog' # The path to the folder where the documents are stored
+      create: true # Allow users to create new documents in this collection
+      slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template
+      fields: # The fields for each document, usually in front matter
+          - label: 'Layout'
+            name: 'layout'
+            widget: 'hidden'
+            default: 'post'
 
-      - label: "Title"
-        name: "title"
-        widget: "string"
+          - label: 'Title'
+            name: 'title'
+            widget: 'string'
 
-      - label: "Publish Date"
-        name: "date"
-        widget: "datetime"
+          - label: 'Publish Date'
+            name: 'date'
+            widget: 'datetime'
 
-      - label: "Featured Image"
-        name: "image"
-        widget: "image"
+          - label: 'Featured Image'
+            name: 'image'
+            widget: 'image'
 
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
+          - label: 'Tags'
+            name: 'tags'
+            widget: 'list'
 
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
+          - label: 'Body'
+            name: 'body'
+            widget: 'markdown'

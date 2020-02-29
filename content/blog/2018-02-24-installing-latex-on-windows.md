@@ -90,7 +90,7 @@ Save this and now go to your file you want to compile (if you want an example th
 Building your project should be easy enough; either run the build with `Right Click > Build LaTeX project` or `Ctrl + Alt + L > Build LaTeX project` or just save the file after editing it. Then, if settings were changed then 4 steps should run and everything should work:
 ![failed](..assets/img/content/2018/03/failed.png)
 If it fails checking the compiler logs will tell you why. Its probably a syntax error (them pesky buggers get me every time), or a an issue with packages (make sure you tab over and install them the first time they're being used).
-  
+
 **GOOD LUCK!**
 
 ---

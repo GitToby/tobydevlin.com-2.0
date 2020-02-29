@@ -11,5 +11,5 @@ htmlWhitespaceSensitivity: css
 
 # code formatting
 jsxBracketSameLine: false
-trailingComma: 'es5'
+trailingComma: none
 arrowParens: always

@@ -2,6 +2,9 @@
 *.iml
 .idea
 
+# ignore types
+graphql-types.ts
+
 # gatsby & JS code
 .cache
 dist

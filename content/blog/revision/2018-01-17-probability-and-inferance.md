@@ -64,7 +64,7 @@ or:
 $$
 
 p(A|wh,b) = \alpha 0.15 \times 0.15 \times 0.75 \\\\
-p(W|wh,b) = \alpha 0.1 \times 0.2 \times 0.05\$\$
+p(W|wh,b) = \alpha 0.1 \times 0.2 \times 0.05\\\$\$
 
 Note that this is itself a partition so they must add up to 1:
 $$\alpha (0.5 \times 0.1 \times 0.2) + (0.15 \times 0.15 \times 0.75) + (0.1 \times 0.2 \times 0.05) = 1$$
