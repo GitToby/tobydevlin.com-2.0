@@ -16,7 +16,7 @@ function BlogPost(props: BlogPostProps) {
             this is my string
             <div
                 dangerouslySetInnerHTML={{
-                    __html: props.data.markdownRemark.html,
+                    __html: props.data.markdownRemark.html
                 }}
             />
         </Content>

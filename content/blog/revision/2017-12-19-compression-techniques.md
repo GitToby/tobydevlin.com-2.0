@@ -20,6 +20,7 @@ $$A=\{x_1,\ x_2,\ x_3\}$$
 $$P=\{\frac{1}{2},\frac{3}{8},\frac{1}{8}\}$$
 
 Now we start the steps:
+
 1.  Using the probabilities in $P$ create the cumulative probabilities list $P_C$, starting at $0$:
     $$P_C=\{0,\frac{1}{2},\frac{7}{8}\}=\{0,\ 0.5,\ 0.875\}$$
     This will be used, once converted to binary, to be a the representations of our words. This will require us to know how many bits of the binary form to include however, that is step 2.
@@ -91,13 +92,3 @@ once the final tree is given numbers can be applied to the vertacies and the cod
 $$a=0101,\ b=0100,\ c=001,\ d=000,\ e=011,\ f=1$$
 (it can be seen by replacing 1s with 0s in the above that this is non unique). This wll also produce an optimal code:
 $$L_{avg}=\sum^{|A|}_{i=1} l_i p_i = (4\cdot 0.05)+(4\cdot 0.1)+(3\cdot 0.12)+(3\cdot 0.13)+(3\cdot 0.17)+(1\cdot 0.43) = 2.29$$
-
----
-
-### Arithmetic Coding
-
-tbd
-
-### Lempel-Ziv Coding
-
-tbd

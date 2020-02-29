@@ -6,13 +6,12 @@ const {createFilePath} = require('gatsby-source-filesystem'); // must use requir
 exports.onCreateNode = ({node, getNode, actions}) => {
     const {createNodeField} = actions;
     if (node.internal.type === 'MarkdownRemark') {
-        // only markdown files from ./content/blog
-        let slug = createFilePath({node, getNode, basePath: 'pages'});
-        slug = slug.replace(/[0-9]{4}-[0-9]{2}-[0-9]{2}-/, ''); // remove date from file name
+        let slug = createFilePath({node, getNode, basePath: 'pages'}); // create file on /pages
+        slug = `/blog${slug.replace(/[0-9]{4}-[0-9]{2}-[0-9]{2}-/, '')}`; // remove date from file name and add blog to the path
         createNodeField({
             node,
             name: 'slug',
-            value: slug,
+            value: slug
         });
     }
 };
@@ -39,8 +38,8 @@ exports.createPages = async ({graphql, actions}) => {
             context: {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
-                slug: node.fields.slug,
-            },
+                slug: node.fields.slug
+            }
         });
     });
 };

@@ -45,18 +45,20 @@ Forward: $f(x+h)=f(x)+hf'(x)+\frac{h^2}{2!}f''(x)+O(h^3)$
 Backward: $f(x-h)=f(x)-hf'(x)+\frac{(-h)^2}{2!}f''(x)+O(h^3)$
 
 so we can take the difference:
+
 $$
 f(x+h)-f(x-h)=+2hf'(x)+O(h^3)
 $$
+
 $$
 \Rightarrow f'(x)=\frac{f(x+h)-f(x-h)}{2h}+O(h^2)
 $$
 
 or setting $F'(x)\approx f'(x)$
+
 $$
 (5)\quad F'(x)=\frac{f(x+h)-f(x-h)}{2h}
 $$
-
 
 Its a much nicer result beacuse our $O(h^2)$ term well decay faster if we make the difference, $h \rightarrow 0$. We can show that the error we get is much smaller if we try again, so lets do the exaple of $f'(0.3)$ where $f(x)=x^2$ again:
 
@@ -64,8 +66,7 @@ Its a much nicer result beacuse our $O(h^2)$ term well decay faster if we make t
 2.  Subbing everything in we get $F'(0.3)=\frac{f(0.3+0.1)-f(0.3-0.1)}{2(0.1)}=\frac{(0.4)^2-(0.2)^2}{0.2}=0.6$
 3.  TADAAA
 
-
-Using this 2 sided approach is called the **centered difference approximation** and is much more accurate, it should be used if possible. 
+Using this 2 sided approach is called the **centered difference approximation** and is much more accurate, it should be used if possible.
 Hint: if youre trying to calculate approx for $f'(x)$ and $f(x\pm h)$ doesn't exist, then a problem has been encoutered and must be solved. There are ways of solving these we will come on to.
 
 But first I hear you ask _"Toby, is there a way of doing this for approximating a second derivative?"_ to which I reply: _"why yes, its easy enough, just rearange the taylor expansion for the particular derivative you need!"_. I have lied to you though, it is not "easy enough"; with a simple push however it can be.So what are we really looking for? We want to find this approximation to the second derivative, or $F''(x)\approx f''(x)$. And we want this $F(x)$ as a linear combination of the points $f(x-h),\ f(x),\ f(x+h)$ or, in a more verbose defintion:
@@ -83,7 +84,6 @@ We want to set $(A+B+C)=0$ **,** $(A-C)=0$ **and** $\frac{h^2}{2!}[A+C]=1$ then 
 
 -   $A = C = \frac{1}{h^2}$ by the second two eqns.
 -   $B = -(A+B) = -\frac{2}{h^2}$ by the first.
-
 
 These coeficients allow the approximation for $f''(x) \approx F''(x)$ to be:
 $$F''(x)=Af(x-h) + Bf(x) +Cf(x+h)=\frac{f(x-h) - 2f(x) +f(x+h)}{h^2}$$
