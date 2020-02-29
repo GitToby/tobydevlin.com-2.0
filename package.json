@@ -4,7 +4,7 @@
     "author": "Toby Devlin",
     "description": "Tobydevlin.com implemented in Gatsby and Typescript.",
     "homepage": "tobydevlin.com",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "license": "MIT",
     "readme": "./README.md",
     "scripts": {
@@ -48,10 +48,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+        "url": "https://gitlab.com/MrAdjunctPanda/tobydevlin.com-2.0"
     },
     "bugs": {
-        "url": "https://github.com/gatsbyjs/gatsby/issues"
+        "url": "https://gitlab.com/MrAdjunctPanda/tobydevlin.com-2.0/issues"
     },
     "engines": {
         "node": ">12.16.1"

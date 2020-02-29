@@ -12,8 +12,8 @@ exports.onCreateNode = ({node, getNode, actions}) => {
         // replace image paths in md body so theyre relative when processing
         // this calculates how deep each file is and forms a ../img string to match.
         const strings = node.fileAbsolutePath.split('content/blog');
-        const levelsDeep = strings[strings.length-1].match(/\//g).length;
-        const resString = "../".repeat(levelsDeep);
+        const levelsDeep = strings[strings.length - 1].match(/\//g).length;
+        const resString = '../'.repeat(levelsDeep);
         node.internal.content = node.internal.content.replace(CMSMediaPath, `${resString}img`);
 
         let slug = createFilePath({node, getNode, basePath: 'pages'}); // create file on /pages
