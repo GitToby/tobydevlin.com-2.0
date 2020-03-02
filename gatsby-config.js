@@ -46,6 +46,12 @@ module.exports = {
                 name: 'blog-content',
                 path: `${__dirname}/content/blog` // used for markdown pages, projects & blog posts
             }
+        }, {
+            resolve: 'gatsby-source-filesystem', // looks into the path below and provides the data in the graphQL server
+            options: {
+                name: 'static-content',
+                path: `${__dirname}/static` // used for markdown pages, projects & blog posts
+            }
         },
 
         // FORMATTING PLUGINS
