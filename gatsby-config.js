@@ -77,12 +77,6 @@ module.exports = {
                 ]
             }
         },
-        // {
-        //     resolve: `gatsby-plugin-typography`,
-        //     options: {
-        //         pathToConfigModule: `src/utils/typography`
-        //     }
-        // },
 
         // EXTENSIONS
         'gatsby-plugin-netlify-cms', // adds the cms plugin to the /admin page
