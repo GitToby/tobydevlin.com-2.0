@@ -46,7 +46,8 @@ module.exports = {
                 name: 'blog-content',
                 path: `${__dirname}/content/blog` // used for markdown pages, projects & blog posts
             }
-        }, {
+        },
+        {
             resolve: 'gatsby-source-filesystem', // looks into the path below and provides the data in the graphQL server
             options: {
                 name: 'static-content',
@@ -76,6 +77,12 @@ module.exports = {
                 ]
             }
         },
+        // {
+        //     resolve: `gatsby-plugin-typography`,
+        //     options: {
+        //         pathToConfigModule: `src/utils/typography`
+        //     }
+        // },
 
         // EXTENSIONS
         'gatsby-plugin-netlify-cms', // adds the cms plugin to the /admin page

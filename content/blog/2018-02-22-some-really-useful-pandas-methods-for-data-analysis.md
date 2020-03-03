@@ -38,13 +38,13 @@ I used Jupyter Notebooks that are included in an Anaconda distribution, but they
 
 Mostly using the Pandas `Dataframe` object, mostly from a csv:
 
-```
+```python
 df = pd.DataFrame.from_csv(file, index_col=None)
 ```
 
 or with columns:
 
-```
+```python
 cols = ["col1","col2",..]
 df = pd.DataFrame.from_csv(file, index_col=cols)
 ```
@@ -61,7 +61,7 @@ Once you have 1 or more `DataFrame`s (possibly in a list) you're able to merge t
 
 Dynamically adding data to a DataFrame can be done like this:
 
-```
+```python
 df = pd.DataFrame(columns=["a","b","c"])
 x = {'a':123,'b':"yes","c":"no"}
 df = df.append(x,ignore_index=True)
@@ -78,7 +78,7 @@ This will add the rows x then y then both x & y:
 
 In order to clean data we have to have a looksee and find missing data, data that seems incorrect and such. There are techniques to finding these errors/mishaps easily:
 
-```
+```python
 df.info()
 df.describe()
 df.head()
@@ -90,7 +90,7 @@ This is the first thing I do, it lets me see what my data kinda looks like & som
 
 **Looking up Null data**, be it NaN, None, Null... it should come up using this.
 
-```
+```python
 df.apply(lambda x: sum(x.isnull()),axis=0)
 ```
 
@@ -101,7 +101,7 @@ This will count up the number of null values in each column, a bit like so:
 
 **Counting values** for categories (it works with numerics but its not a great idea).
 
-```
+```python
 df["col"].value_counts()
 ```
 
@@ -121,7 +121,7 @@ Before looking into distributions and stuff its nice to follow the following ste
 
 **Summarizing data** is easily done with the describe method; this will produce an unsaved table that covers some of the useful numbers needed to spot issues/trends.
 
-```
+```python
 df.descibe()
 ```
 
@@ -131,7 +131,7 @@ Otherwise, after fixing the problems in steps 1 & 3 above, you can look into the
 
 **Binning data** is also another useful technique, splitting up your range into equal size bins ad giving them labels means you can look into sections of observations very easily (by using the `df.groupby()` method for example).
 
-```
+```python
 label_names = ["very low","low", "medium", "high", "very high"]
 df["new_bin_col"]=pd.cut(df["col"],5 , labels=label_names)
 ```
@@ -146,7 +146,7 @@ This will create a new column that contains the bin labels depending on the scor
 
 After identifying missing data we have to do something with it; sometimes refilling these missing points with an average (numerics) or a new category (categorical) is an easy enough fix without affecting the true result too much: (depends on what you're looking at)
 
-```
+```python
 df['numeric_col'].fillna(df['numeric_col'].mean(), inplace=True)
 df['category_col'].fillna("new_category", inplace=True)
 ```
@@ -157,7 +157,7 @@ This should be done after identifying what type of data you've got, what result 
 
 Dropping rows(`axis=0`) or columns (`axis=1`) if they have 'all' or 'any' NAs, or even only if they have more NAs than a given thresh hold.
 
-```
+```python
 df.dropna(axis=0,how='any')
 df.dropna(axis=1,thresh=2)
 ```
@@ -168,7 +168,7 @@ The [docs](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFra
 
 If youre wanting to create a catagory of data you can use a map to a dictionary, the example below code means we remap Males to 1 and Females to 0.
 
-```
+```python
 df['Sex'] = df['Sex'].map( {'female': 0, 'male': 1} ).astype(int)
 ```
 
@@ -178,7 +178,7 @@ Before you start looking through the numerical data plotting you have it might b
 
 Looking into the distribution/correlation of your data sets? Seaborn has `pairplot` which is incredibly useful for looking into these properties:
 
-```
+```python
 plot = sns.pairplot(df)
 plot.savefig("save/path.pdf")
 ```
@@ -193,7 +193,7 @@ If you're interested in just one or two columns, then Seaborn has some nice hist
 
 ### Histograms
 
-```
+```python
 sns.distplot(df["col"])
 ```
 
@@ -201,7 +201,7 @@ sns.distplot(df["col"])
 
 ### Multi Linear Regression
 
-```
+```python
 sns.lmplot(x="col1", y="col2", data=df)
 ```
 
@@ -209,7 +209,7 @@ sns.lmplot(x="col1", y="col2", data=df)
 
 ### Boxplots
 
-```
+```python
 sns.boxplot(x="col", y="col", data=df)
 ```
 

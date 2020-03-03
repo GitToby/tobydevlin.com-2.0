@@ -2,9 +2,9 @@
 layout: post
 title: The Sexy Sexy World Of JSON Validation
 date: 2019-09-18T15:46:43.349Z
-image: /content/img/netlifyCMS/jon-moore-399469-unsplash.jpg
+image: /content/img/netlifyCMS/locks-on-rails.jpg
 tags:
-    - ''
+    - 'programming'
 ---
 
 JSON is everywhere, sometimes it's hidden from you or your user but its always there. Thousands of applications rely on correctly formatted data to work correctly with little format checking. Most of the time the data generators should have been correctly tested with a couple of unit tests, maybe an integration test here and there, and then you can assume that consumers of said data will work correctly. Plop a few tests on there to make sure data in the format you assume is correct works, and you're done, right? no.

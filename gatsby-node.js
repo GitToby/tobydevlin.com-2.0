@@ -11,10 +11,23 @@ exports.onCreateNode = ({node, getNode, actions}) => {
     if (node.internal.type === 'MarkdownRemark') {
         // replace image paths in md body so theyre relative when processing
         // this calculates how deep each file is and forms a ../img string to match.
-        const strings = node.fileAbsolutePath.split('content/blog');
-        const levelsDeep = strings[strings.length - 1].match(/\//g).length;
-        const resString = '../'.repeat(levelsDeep);
-        node.internal.content = node.internal.content.replace(CMSMediaPath, `${resString}img`);
+        const strings = node.fileAbsolutePath.split('content/blog'); // split on the known root folder
+        const levelsDeep = strings[strings.length - 1].match(/\//g).length; // get # of / chars
+        const upwardPath = '../'.repeat(levelsDeep); // form string
+
+        // replace in relevant sections
+        node.internal.content = node.internal.content.replace(CMSMediaPath, `${upwardPath}img`);
+        node.rawMarkdownBody = node.rawMarkdownBody.replace(CMSMediaPath, `${upwardPath}img`);
+        node.frontmatter.image = node.frontmatter.image.replace(CMSMediaPath, `${upwardPath}img`);
+
+        // create new field, "base" with the image base
+        const onSlash = node.frontmatter.image.split('/');
+        const imgBase = onSlash[onSlash.length - 1];
+        createNodeField({
+            node,
+            name: 'imgBase',
+            value: imgBase
+        });
 
         let slug = createFilePath({node, getNode, basePath: 'pages'}); // create file on /pages
         slug = `/blog${slug.replace(/[0-9]{4}-[0-9]{2}-[0-9]{2}-/, '')}`; // remove date from file name and add blog to the path
@@ -35,6 +48,7 @@ exports.createPages = async ({graphql, actions}) => {
                     node {
                         fields {
                             slug
+                            imgBase
                         }
                     }
                 }
@@ -42,15 +56,14 @@ exports.createPages = async ({graphql, actions}) => {
         }
     `);
     result.data.allMarkdownRemark.edges.forEach(({node}) => {
-        // replace paths in frontmatter so they're relative
-        // node.frontmatter.image = node.frontmatter.image.replace(CMSMediaPath, CMSMediaPathReplace);
         createPage({
             path: node.fields.slug,
             component: path.resolve('./src/containers/blogPost.tsx'),
             context: {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
-                slug: node.fields.slug
+                slug: node.fields.slug,
+                imgBase: node.fields.imgBase
             }
         });
     });

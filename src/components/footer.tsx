@@ -18,11 +18,13 @@ function Footer(_props: FooterProps) {
     `);
 
     return (
-        <div>
-            <pre>
-                Built: {footerData.site.buildTime.toString()} | Version: {footerData.site.siteMetadata.version}
-            </pre>
-        </div>
+        <footer className="footer">
+            <div className="content has-text-centered">
+                <p>
+                    Built: {footerData.site.buildTime.toString()} | Version: {footerData.site.siteMetadata.version}
+                </p>
+            </div>
+        </footer>
     );
 }
 
