@@ -6,10 +6,9 @@ interface IndexProps {}
 function Index(_props: IndexProps) {
     return (
         <Content>
-            <h2 style={{color: 'red'}}>
-                Hello<i> world!</i> itsa me, toby!
-            </h2>
-            <img src="https://source.unsplash.com/random/100x100" alt="" />
+            <h1>
+                Im Toby, a London based full stack dev
+            </h1>
         </Content>
     );
 }

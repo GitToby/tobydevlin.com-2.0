@@ -1,0 +1,22 @@
+$except-text-color: #1f1f1f;
+$date-text-color: #acacac;
+
+.blog-intro {
+    padding-top: 3%;
+}
+
+.blog-post {
+    img {
+        align-content: center;
+        min-height: 100%;
+    }
+    .blog-header {
+        font-size: 24pt;
+    }
+    .blog-date {
+        color: $date-text-color;
+    }
+    p {
+        color: $except-text-color;
+    }
+}

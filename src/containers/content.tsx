@@ -2,6 +2,7 @@ import React from 'react';
 // @ts-ignore
 import Header from '../components/header';
 import Footer from '../components/footer';
+import { Container } from "react-bootstrap";
 
 interface ContentProps {
     children: React.ReactNode;
@@ -9,9 +10,9 @@ interface ContentProps {
 
 function Content(props: ContentProps) {
     return (
-        <div>
+        <div className="content-wrapper">
             <Header />
-            <div>{props.children}</div>
+            <Container>{props.children}</Container>
             <Footer />
         </div>
     );
