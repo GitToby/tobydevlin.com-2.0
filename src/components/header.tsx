@@ -50,7 +50,7 @@ function Header(_props: HeaderProps) {
                         })}
                 </Nav>
                 <Nav>
-                    <Nav.Link>Log In</Nav.Link>
+                    <Nav.Link href="/admin">Log In</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

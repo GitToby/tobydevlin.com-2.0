@@ -17,10 +17,13 @@ function BlogPost(props: BlogPostProps) {
 
     return (
         <Content>
-            <Link to={'/blog/'}>blog home</Link>
-            <h1>{title}</h1>
+            {fluidImg && (
+                <Img fluid={fluidImg}>
+                    <Link to={'/blog/'}>blog home</Link>
+                    <h1>{title}</h1>
+                </Img>
+            )}
             <hr />
-            {fluidImg && <Img fluid={fluidImg} />}
             <hr />
             <div
                 dangerouslySetInnerHTML={{

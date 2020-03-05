@@ -7,7 +7,8 @@ $date-text-color: #acacac;
 
 .blog-post {
     img {
-        align-content: center;
+        justify-content: center;
+        position: center;
         min-height: 100%;
     }
     .blog-header {
