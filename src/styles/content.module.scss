@@ -3,7 +3,6 @@
 .content-wrapper {
     background-color: $primary-background-color;
     .content-body {
-        min-height: 100%;
+        min-height: 80vh;
     }
-    height: inherit;
 }

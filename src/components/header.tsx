@@ -24,7 +24,7 @@ function Header(_props: HeaderProps) {
 
     return (
         <Navbar collapseOnSelect bg="light" expand="md" sticky="top" className={styles.header}>
-            <Navbar.Brand href="/" onClick={() => navigate('/')}>
+            <Navbar.Brand href="/">
                 {headerData.site.siteMetadata.title}
             </Navbar.Brand>
             <Navbar.Toggle />

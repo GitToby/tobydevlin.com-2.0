@@ -21,7 +21,7 @@ function Footer(_props: FooterProps) {
     `);
 
     return (
-        <Navbar bg="light">
+        <Navbar bg="light" className={styles.footer}>
             <Nav className="mr-auto">
                 <Link to="/about">
                     <Nav.Item>Build by Toby Devlin</Nav.Item>
