@@ -6,6 +6,13 @@
     div {
         color: $primary-font-color;
     }
+    span {
+        padding-left: 2vw;
+        color: #87929b;
+        &:hover {
+            color: #646a73;
+        }
+    }
     #footer-build-version {
         font-size: 6pt;
     }

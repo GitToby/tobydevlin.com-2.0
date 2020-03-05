@@ -13,7 +13,10 @@ interface BlogProps {
 
 const Blog = (props: BlogProps) => (
     <Content>
-        <p className={style.blogIntro}>Welcome to the Blog! I write about things sometime, so far I have {props.data.allMarkdownRemark.totalCount} posts.</p>
+        <p className={style.blogIntro}>
+            Welcome to the Blog! I write about things sometime, so far I have {props.data.allMarkdownRemark.totalCount}{' '}
+            posts.
+        </p>
         <hr />
         {props.data.allMarkdownRemark.edges
             .sort((e1: any, e2: any) => {
@@ -21,13 +24,15 @@ const Blog = (props: BlogProps) => (
             })
             .map((edge: any, idx: number) => {
                 const node = edge.node;
-                const imgData = edge.node.frontmatter.image ? edge.node.frontmatter.image.childImageSharp.fluid : undefined;
+                const imgData = edge.node.frontmatter.image
+                    ? edge.node.frontmatter.image.childImageSharp.fluid
+                    : undefined;
 
                 return (
                     <div key={idx} className={style.blogPostCard}>
                         <Row>
-                            <Col sm={3}>{imgData && <Img fluid={imgData} durationFadeIn={500} />}</Col>
-                            <Col sm={9}>
+                            <Col md={3}>{imgData && <Img fluid={imgData} durationFadeIn={500} />}</Col>
+                            <Col md={9}>
                                 <Link to={node.fields.slug} className={style.blogHeader}>
                                     {node.frontmatter.title}
                                 </Link>

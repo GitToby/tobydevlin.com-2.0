@@ -2,7 +2,7 @@
 tabWidth: 4
 semi: true
 endOfLine: crlf
-printWidth: 200
+printWidth: 120
 
 # code style
 singleQuote: true

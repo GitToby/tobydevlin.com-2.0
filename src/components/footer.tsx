@@ -1,9 +1,11 @@
 import React from 'react';
-import {graphql, Link, useStaticQuery} from 'gatsby';
+import {graphql, useStaticQuery, navigate} from 'gatsby';
 import {FooterDataQuery} from '../../graphql-types';
 import {Nav, Navbar} from 'react-bootstrap';
 // @ts-ignore
 import * as styles from '../styles/headerfooter.module.scss';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faGithub, faGitlab, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 
 interface FooterProps {}
 
@@ -23,13 +25,23 @@ const Footer = (_props: FooterProps) => {
     return (
         <Navbar bg="light" className={styles.footer}>
             <Nav className="mr-auto">
-                <Link to="/about">
-                    <Nav.Item>Created by Toby Devlin</Nav.Item>
-                </Link>
+                <Nav.Link onClick={() => navigate('/about')}>Created by Toby Devlin</Nav.Link>
+                <Nav.Link href="https://gitlab.com/MrAdjunctPanda">
+                    <FontAwesomeIcon icon={faGitlab} />
+                </Nav.Link>
+                <Nav.Link href="https://github.com/GitToby">
+                    <FontAwesomeIcon icon={faGithub} />
+                </Nav.Link>
+                <Nav.Link href="https://www.linkedin.com/in/toby-devlin-741b45106/">
+                    <FontAwesomeIcon icon={faLinkedin} />
+                </Nav.Link>
             </Nav>
-            <Nav id={styles.footerBuildVersion}>
-                built {footerData.site.buildTime.toString()} | Version: {footerData.site.siteMetadata.version}
-            </Nav>
+            <Navbar.Toggle />
+            <Navbar.Collapse>
+                <Nav id={styles.footerBuildVersion} className="mr-auto">
+                    built version {footerData.site.siteMetadata.version} | {footerData.site.buildTime.toString()}
+                </Nav>
+            </Navbar.Collapse>
         </Navbar>
     );
 };

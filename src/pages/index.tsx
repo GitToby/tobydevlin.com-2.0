@@ -15,8 +15,10 @@ const Index = () => (
             </div>
             <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
                 <p>
-                    Hello world, this is my website, I work on lots of projects from time to time and I like to get half way in before breaking things and quitting. This is where I will write the
-                    occasional post to to keep notes or share details on some of my projects and learnings. If you want to know more, please <Link to="/contact">contact me!</Link>
+                    Hello world, this is my website, I work on lots of projects from time to time and I like to get half
+                    way in before breaking things and quitting. This is where I will write the occasional post to to
+                    keep notes or share details on some of my projects and learnings. If you want to know more, please{' '}
+                    <Link to="/contact">contact me!</Link>
                 </p>
             </div>
         </div>

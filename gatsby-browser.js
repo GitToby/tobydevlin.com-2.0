@@ -1,5 +1,11 @@
 import './src/styles/global.scss'; // my global css
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'aos/dist/aos.css';
+
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
 import AOS from 'aos';
-AOS.init();
+import 'aos/dist/aos.css';
+AOS.init({
+    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+    once: false // whether animation should happen only once - while scrolling down
+});
