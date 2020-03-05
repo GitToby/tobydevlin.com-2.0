@@ -13,14 +13,14 @@ interface IndexProps {
 function Index(props: IndexProps) {
     return (
         <Content>
-            <BackgroundImage className={styles.background} fluid={props.data.file.childImageSharp.fluid}></BackgroundImage>
+            <BackgroundImage className={styles.background} fluid={props.data.file.childImageSharp.fluid} />
 
-            <h1 id={styles.title} className="animated fadeInLeft">
-                Im Toby
-            </h1>
-            <h2 id={styles.subtitle} className="animated fadeInLeft">
-                a London based full stack dev
-            </h2>
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <h1 id={styles.title}>Im Toby</h1>
+            </div>
+            <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+                <h2 id={styles.subtitle}>a London based full stack dev</h2>
+            </div>
         </Content>
     );
 }
