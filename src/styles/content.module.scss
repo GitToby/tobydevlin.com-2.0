@@ -1,0 +1,9 @@
+@import 'global';
+
+.content-wrapper {
+    background-color: $primary-background-color;
+    .content-body {
+        min-height: 100%;
+    }
+    height: inherit;
+}

@@ -1,8 +1,9 @@
 import React from 'react';
-// @ts-ignore
 import Header from '../components/header';
 import Footer from '../components/footer';
-import { Container } from "react-bootstrap";
+import {Container} from 'react-bootstrap';
+// @ts-ignore
+import * as styles from '../styles/content.module.scss';
 
 interface ContentProps {
     children: React.ReactNode;
@@ -10,9 +11,9 @@ interface ContentProps {
 
 function Content(props: ContentProps) {
     return (
-        <div className="content-wrapper">
+        <div className={styles.contentWrapper}>
             <Header />
-            <Container>{props.children}</Container>
+            <Container className={styles.contentBody}>{props.children}</Container>
             <Footer />
         </div>
     );

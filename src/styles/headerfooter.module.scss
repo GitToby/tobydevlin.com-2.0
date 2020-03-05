@@ -1,0 +1,18 @@
+@import 'global';
+.footer {
+    // nav sections are actually divs
+    color: $primary-font-color;
+    div {
+        color: $primary-font-color;
+    }
+    #footer-build-version {
+        font-size: 6pt;
+    }
+}
+
+.header {
+    color: $primary-font-color;
+
+    #login-button {
+    }
+}

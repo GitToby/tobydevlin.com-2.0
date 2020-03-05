@@ -8,6 +8,8 @@ public
 *.jpg
 *.png
 *.ico
+*.svg
+*.gif
 
 # no extention code
 .gitignore

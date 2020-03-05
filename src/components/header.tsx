@@ -3,6 +3,8 @@ import {graphql, Link, useStaticQuery} from 'gatsby';
 import {HeaderDataQuery} from '../../graphql-types';
 import {navigate} from 'gatsby';
 import {Nav, Navbar} from 'react-bootstrap';
+// @ts-ignore
+import * as styles from '../styles/headerfooter.module.scss';
 
 interface HeaderProps {}
 
@@ -20,17 +22,12 @@ function Header(_props: HeaderProps) {
         }
     `);
 
-    function clickMe() {
-        const str = 'hello world';
-        console.log(str);
-    }
-
     return (
-        <Navbar collapseOnSelect bg="light" expand="md" sticky="top">
-            <Navbar.Brand href="/">
+        <Navbar collapseOnSelect bg="light" expand="md" sticky="top" className={styles.header}>
+            <Navbar.Brand href="#" onClick={() => navigate('/')}>
                 {headerData.site.siteMetadata.title}
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle />
             <Navbar.Collapse>
                 <Nav className="mr-auto">
                     {headerData.allSitePage.distinct
@@ -49,7 +46,7 @@ function Header(_props: HeaderProps) {
                             );
                         })}
                 </Nav>
-                <Nav>
+                <Nav id={styles.loginButton}>
                     <Nav.Link href="/admin">Log In</Nav.Link>
                 </Nav>
             </Navbar.Collapse>

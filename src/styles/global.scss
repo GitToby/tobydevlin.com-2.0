@@ -1,3 +1,18 @@
-body {
-    background: whitesmoke;
+$primary-font-color: #1f1f1f;
+$secondary-font-color: #acacac;
+$primary-background-color: whitesmoke;
+$secondary-background-color: #9af573;
+$title-color: #0e5a8a;
+$subtitle-color: rgba(14, 90, 138, 0.71);
+
+body,
+html {
+    background: $primary-background-color;
+    height: 100%;
+    #___gatsby {
+        height: inherit;
+        #gatsby-focus-wrapper {
+            height: inherit;
+        }
+    }
 }

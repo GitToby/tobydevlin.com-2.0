@@ -1,5 +1,4 @@
-$except-text-color: #1f1f1f;
-$date-text-color: #acacac;
+@import 'global';
 
 .blog-intro {
     padding-top: 3%;
@@ -15,9 +14,9 @@ $date-text-color: #acacac;
         font-size: 24pt;
     }
     .blog-date {
-        color: $date-text-color;
+        color: $secondary-font-color;
     }
     p {
-        color: $except-text-color;
+        color: $primary-font-color;
     }
 }

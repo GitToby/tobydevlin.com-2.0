@@ -25,8 +25,8 @@ function Blog(props: BlogProps) {
                     const imgData = edge.node.frontmatter.image ? edge.node.frontmatter.image.childImageSharp.fluid : undefined;
 
                     return (
-                        <div className={style.blogPost}>
-                            <Row key={idx}>
+                        <div key={idx} className={style.blogPost}>
+                            <Row>
                                 <Col sm={3}>{imgData && <Img fluid={imgData} durationFadeIn={500} />}</Col>
                                 <Col sm={9}>
                                     <Link to={node.fields.slug} className={style.blogHeader}>

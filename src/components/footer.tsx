@@ -1,6 +1,9 @@
 import React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
+import {graphql, Link, useStaticQuery} from 'gatsby';
 import {FooterDataQuery} from '../../graphql-types';
+import {Nav, Navbar} from 'react-bootstrap';
+// @ts-ignore
+import * as styles from '../styles/headerfooter.module.scss';
 
 interface FooterProps {}
 
@@ -18,12 +21,16 @@ function Footer(_props: FooterProps) {
     `);
 
     return (
-        <div className="fixed-footer">
-                <span >Build by Toby Devlin</span>
-                <span>
-                    Created: {footerData.site.buildTime.toString()} | Version: {footerData.site.siteMetadata.version}
-                </span>
-        </div>
+        <Navbar bg="light">
+            <Nav className="mr-auto">
+                <Link to="/about">
+                    <Nav.Item>Build by Toby Devlin</Nav.Item>
+                </Link>
+            </Nav>
+            <Nav id={styles.footerBuildVersion}>
+                Created: {footerData.site.buildTime.toString()} | Version: {footerData.site.siteMetadata.version}
+            </Nav>
+        </Navbar>
     );
 }
 
