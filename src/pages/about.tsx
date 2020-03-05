@@ -8,15 +8,13 @@ interface AboutProps {
     data: AboutDataQuery;
 }
 
-function About(props: AboutProps) {
-    return (
-        <Content>
-            about me! img:
-            <Img fluid={props.data.file.childImageSharp.fluid} />
-            <pre>{JSON.stringify(props, null, 2)}</pre>
-        </Content>
-    );
-}
+const About = (props: AboutProps) => (
+    <Content>
+        about me! img:
+        <Img fluid={props.data.file.childImageSharp.fluid} />
+        <pre>{JSON.stringify(props, null, 2)}</pre>
+    </Content>
+);
 
 export const query = graphql`
     query AboutData {

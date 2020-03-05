@@ -5,11 +5,10 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
 //linear-gradient(rgba(x, y, z, a), rgba(x, y, z, a))
 
 .blog-intro {
-    padding-top: 3%;
 }
 
 .background-img {
-    padding: 5vh 0;
+    padding: 8vh 0 10vh;
 }
 
 .blog-post {
@@ -20,9 +19,11 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
     }
     h1 {
         color: $primary-font-color;
+        padding-left: 5vw;
     }
     h3 {
         color: $secondary-font-color;
+        padding-left: 5vw;
     }
     p {
         color: $primary-font-color;

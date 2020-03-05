@@ -7,7 +7,7 @@ import * as styles from '../styles/headerfooter.module.scss';
 
 interface FooterProps {}
 
-function Footer(_props: FooterProps) {
+const Footer = (_props: FooterProps) => {
     const footerData: FooterDataQuery = useStaticQuery(graphql`
         query footerData {
             site {
@@ -32,6 +32,6 @@ function Footer(_props: FooterProps) {
             </Nav>
         </Navbar>
     );
-}
+};
 
 export default Footer;

@@ -9,14 +9,12 @@ interface ContentProps {
     children: React.ReactNode;
 }
 
-function Content(props: ContentProps) {
-    return (
-        <div className={styles.contentWrapper}>
-            <Header />
-            <Container className={styles.contentBody}>{props.children}</Container>
-            <Footer />
-        </div>
-    );
-}
+const Content = (props: ContentProps) => (
+    <div className={styles.contentWrapper}>
+        <Header />
+        <Container className={styles.contentBody}>{props.children}</Container>
+        <Footer />
+    </div>
+);
 
 export default Content;

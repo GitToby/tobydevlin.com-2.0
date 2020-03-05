@@ -1,5 +1,5 @@
 import React from 'react';
-import {graphql, Link, useStaticQuery} from 'gatsby';
+import {graphql, useStaticQuery} from 'gatsby';
 import {HeaderDataQuery} from '../../graphql-types';
 import {navigate} from 'gatsby';
 import {Nav, Navbar} from 'react-bootstrap';
@@ -8,7 +8,7 @@ import * as styles from '../styles/headerfooter.module.scss';
 
 interface HeaderProps {}
 
-function Header(_props: HeaderProps) {
+const Header = (_props: HeaderProps) => {
     const headerData: HeaderDataQuery = useStaticQuery(graphql`
         query headerData {
             allSitePage {
@@ -50,6 +50,6 @@ function Header(_props: HeaderProps) {
             </Navbar.Collapse>
         </Navbar>
     );
-}
+};
 
 export default Header;
