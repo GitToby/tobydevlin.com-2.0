@@ -6,6 +6,7 @@ $blog-title-color: #c4c4c4;
 $title-color: rgb(14, 95, 155);
 $subtitle-color: rgba(14, 90, 138, 0.71);
 $link-color: $subtitle-color;
+$link-color-visited: #00644d;
 $link-color-hover: $title-color;
 
 body,
@@ -23,5 +24,8 @@ a {
     color: $link-color;
     &:hover {
         color: $link-color-hover;
+    }
+    &:visited{
+        color: $link-color-visited;
     }
 }
