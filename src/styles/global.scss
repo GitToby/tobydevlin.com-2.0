@@ -2,7 +2,8 @@ $primary-font-color: #1f1f1f;
 $secondary-font-color: #828282;
 $primary-background-color: whitesmoke;
 $secondary-background-color: #9af573;
-$title-color: #c4c4c4;
+$blog-title-color: #c4c4c4;
+$title-color: rgb(14, 95, 155);
 $subtitle-color: rgba(14, 90, 138, 0.71);
 
 body,
@@ -13,5 +14,12 @@ html {
         #gatsby-focus-wrapper {
             height: inherit;
         }
+    }
+}
+
+a {
+    color: #2a938f;
+    &:hover {
+        color: #1d6663;
     }
 }
