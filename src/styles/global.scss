@@ -5,6 +5,8 @@ $secondary-background-color: #9af573;
 $blog-title-color: #c4c4c4;
 $title-color: rgb(14, 95, 155);
 $subtitle-color: rgba(14, 90, 138, 0.71);
+$link-color: $subtitle-color;
+$link-color-hover: $title-color;
 
 body,
 html {
@@ -18,8 +20,8 @@ html {
 }
 
 a {
-    color: #2a938f;
+    color: $link-color;
     &:hover {
-        color: #1d6663;
+        color: $link-color-hover;
     }
 }
