@@ -18,16 +18,16 @@ function Blog(props: BlogProps) {
             <hr />
             {props.data.allMarkdownRemark.edges
                 .sort((e1: any, e2: any) => {
-                    return e1.node.frontmatter.date - e2.node.frontmatter.date;
+                    return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
                 })
                 .map((edge: any, idx: number) => {
                     const node = edge.node;
                     const imgData = edge.node.frontmatter.image ? edge.node.frontmatter.image.childImageSharp.fluid : undefined;
 
                     return (
-                        <div key={idx} className={style.blogPost}>
+                        <div key={idx} className={style.blogPostCard}>
                             <Row>
-                                <Col sm={3}>{imgData && <Img fluid={imgData} durationFadeIn={500} />}</Col>
+                                <Col sm={3} className={style.backgroundImg}>{imgData && <Img fluid={imgData} durationFadeIn={500} />}</Col>
                                 <Col sm={9}>
                                     <Link to={node.fields.slug} className={style.blogHeader}>
                                         {node.frontmatter.title}
@@ -55,6 +55,7 @@ export const query = graphql`
                     id
                     frontmatter {
                         title
+                        isoDate: date
                         date(formatString: "dddd, MMMM Do YYYY")
                         image {
                             childImageSharp {

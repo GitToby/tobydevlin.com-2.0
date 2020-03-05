@@ -2,10 +2,13 @@ import React from 'react';
 import Content from './content';
 import {graphql, Link} from 'gatsby';
 import {BlogDataQuery} from '../../graphql-types';
-import Img from 'gatsby-image';
+import BackgroundImage from 'gatsby-background-image';
+// @ts-ignore
+import * as styles from '../styles/blog.module.scss';
 
 import 'prismjs/themes/prism.css'; // remark code snipits
-import 'katex/dist/katex.min.css'; // maths
+import 'katex/dist/katex.min.css';
+import {Button} from 'react-bootstrap'; // maths
 
 interface BlogPostProps {
     data: BlogDataQuery;
@@ -14,22 +17,24 @@ interface BlogPostProps {
 function BlogPost(props: BlogPostProps) {
     const fluidImg = props.data.markdownRemark.frontmatter.image ? props.data.markdownRemark.frontmatter.image.childImageSharp.fluid : undefined;
     const title = props.data.markdownRemark.frontmatter.title;
-
+    const postDate = props.data.markdownRemark.frontmatter.date;
     return (
         <Content>
-            {fluidImg && (
-                <Img fluid={fluidImg}>
-                    <Link to={'/blog/'}>blog home</Link>
-                    <h1>{title}</h1>
-                </Img>
-            )}
-            <hr />
-            <hr />
-            <div
-                dangerouslySetInnerHTML={{
-                    __html: props.data.markdownRemark.html
-                }}
-            />
+            <div className={styles.blogPost}>
+                {/*<Button onClick={()=>navigate("/blog")}>blog home</Button>*/}
+                {fluidImg && (
+                    <BackgroundImage className={styles.backgroundImg} fluid={[`linear-gradient(rgba(245, 245, 245, 0.55), rgba(245, 245, 245, 0.9))`, fluidImg]}>
+                        <h1>{title}</h1>
+                        <h3>{postDate}</h3>
+                    </BackgroundImage>
+                )}
+                <hr />
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: props.data.markdownRemark.html
+                    }}
+                />
+            </div>
         </Content>
     );
 }
@@ -40,7 +45,7 @@ export const query = graphql`
             html
             frontmatter {
                 title
-                date
+                date(formatString: "dddd, MMMM Do YYYY")
                 tags
                 image {
                     childImageSharp {

@@ -2,12 +2,15 @@
 
 #title {
     color: $title-color;
+    font-size: 10vh;
+    padding-top: 20%;
 }
 
 #subtitle {
     color: $subtitle-color;
-    animation-delay: 0.3s;
+    font-size: 8vh;
 }
 
 .background {
+    align-items: center;
 }

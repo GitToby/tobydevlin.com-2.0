@@ -24,11 +24,11 @@ function Footer(_props: FooterProps) {
         <Navbar bg="light" className={styles.footer}>
             <Nav className="mr-auto">
                 <Link to="/about">
-                    <Nav.Item>Build by Toby Devlin</Nav.Item>
+                    <Nav.Item>Created by Toby Devlin</Nav.Item>
                 </Link>
             </Nav>
             <Nav id={styles.footerBuildVersion}>
-                Created: {footerData.site.buildTime.toString()} | Version: {footerData.site.siteMetadata.version}
+                built {footerData.site.buildTime.toString()} | Version: {footerData.site.siteMetadata.version}
             </Nav>
         </Navbar>
     );
