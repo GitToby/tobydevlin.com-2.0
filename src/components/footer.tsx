@@ -2,10 +2,10 @@ import React from 'react';
 import {graphql, useStaticQuery, navigate} from 'gatsby';
 import {FooterDataQuery} from '../../graphql-types';
 import {Nav, Navbar} from 'react-bootstrap';
-// @ts-ignore
-import * as styles from '../styles/headerfooter.module.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGithub, faGitlab, faLinkedin} from '@fortawesome/free-brands-svg-icons';
+// @ts-ignore
+import * as styles from '../styles/headerfooter.module.scss';
 
 interface FooterProps {}
 
@@ -36,11 +36,9 @@ const Footer = (_props: FooterProps) => {
                     <FontAwesomeIcon icon={faLinkedin} />
                 </Nav.Link>
             </Nav>
-            {window.innerWidth > 500 && (
-                <Nav id={styles.footerBuildVersion} className="mr-auto">
-                    built version {footerData.site.siteMetadata.version} | {footerData.site.buildTime.toString()}
-                </Nav>
-            )}
+            <Nav id={styles.footerBuildVersion} className="mr-auto">
+                built version {footerData.site.siteMetadata.version} | {footerData.site.buildTime.toString()}
+            </Nav>
         </Navbar>
     );
 };
