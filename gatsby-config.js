@@ -9,8 +9,6 @@ module.exports = {
     siteMetadata: {
         title: 'TobyDevlin.com 2.0',
         version: packageJson.version,
-        description: '',
-        homepage: ''
     },
     plugins: [
         // CODE PLUGINS
