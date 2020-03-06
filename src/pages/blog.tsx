@@ -15,10 +15,11 @@ const Blog = (props: BlogProps) => (
         <h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
             Welcome to the Blog!
         </h2>
-        <p className={style.blogIntro} data-aos="fade-right" data-aos-duration="600" data-aos-delay="300">
-            I write about things sometime, so far I have {props.data.allMarkdownRemark.totalCount}
-            posts. I update this every now and then when I come across something I want to write about. Most of these
-            are just ramblings and notes from when I want to remember something.
+        <p className={style.blogIntro} data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+            I write about things sometime, so far there are {props.data.allMarkdownRemark.totalCount} posts. I update
+            this every now and then when I come across something I want to write about. Most of these are just ramblings
+            and notes from when I want to remember something. Its mostly about tech and code and notes I find
+            interesting.
         </p>
         <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
             <hr />

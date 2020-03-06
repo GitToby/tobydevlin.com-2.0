@@ -1,0 +1,14 @@
+@import 'global';
+
+p {
+    padding-top: 3vh;
+}
+
+.img-filler {
+    height: 10vh;
+    overflow: hidden;
+    img {
+        position: relative;
+        margin-top: -32%;
+    }
+}

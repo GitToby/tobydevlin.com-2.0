@@ -7,5 +7,5 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init({
     // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-    once: false // whether animation should happen only once - while scrolling down
+    once: true // whether animation should happen only once - while scrolling down
 });
