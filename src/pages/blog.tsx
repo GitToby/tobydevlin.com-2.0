@@ -1,11 +1,10 @@
 import React from 'react';
-import {graphql, Link} from 'gatsby';
+import {graphql} from 'gatsby';
 import Content from '../containers/content';
-import {BlogHomeQuery} from '../../graphql-types';
-import Img from 'gatsby-image';
-import {Col, Row} from 'react-bootstrap';
+import {BlogHomeQuery, GatsbyImageSharpFluidFragment, ImageSharpFluid} from '../../graphql-types';
 // @ts-ignore
 import * as style from '../styles/blog.module.scss';
+import BlogPostCard from '../components/blogPostCard';
 
 interface BlogProps {
     data: BlogHomeQuery;
@@ -13,39 +12,38 @@ interface BlogProps {
 
 const Blog = (props: BlogProps) => (
     <Content>
-        <p className={style.blogIntro}>
-            Welcome to the Blog! I write about things sometime, so far I have {props.data.allMarkdownRemark.totalCount}{' '}
-            posts.
+        <h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
+            Welcome to the Blog!
+        </h2>
+        <p className={style.blogIntro} data-aos="fade-right" data-aos-duration="600" data-aos-delay="300">
+            I write about things sometime, so far I have {props.data.allMarkdownRemark.totalCount}
+            posts. I update this every now and then when I come across something I want to write about. Most of these
+            are just ramblings and notes from when I want to remember something.
         </p>
-        <hr />
-        {props.data.allMarkdownRemark.edges
-            .sort((e1: any, e2: any) => {
-                return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
-            })
-            .map((edge: any, idx: number) => {
-                const node = edge.node;
-                const imgData = edge.node.frontmatter.image
-                    ? edge.node.frontmatter.image.childImageSharp.fluid
-                    : undefined;
+        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+            <hr />
+            {props.data.allMarkdownRemark.edges
+                .sort((e1: any, e2: any) => {
+                    return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
+                })
+                .map((edge: any, idx: number) => {
+                    const {excerpt, fields, frontmatter} = edge.node;
+                    const imgData: ImageSharpFluid | null | GatsbyImageSharpFluidFragment = edge.node.frontmatter.image
+                        ? edge.node.frontmatter.image.childImageSharp.fluid
+                        : undefined;
 
-                return (
-                    <div key={idx} className={style.blogPostCard}>
-                        <Row>
-                            <Col md={3}>{imgData && <Img fluid={imgData} durationFadeIn={500} />}</Col>
-                            <Col md={9}>
-                                <Link to={node.fields.slug} className={style.blogHeader}>
-                                    {node.frontmatter.title}
-                                </Link>
-                                <br />
-                                <span className={style.blogDate}> {node.frontmatter.date}</span>
-                                <br />
-                                <p>{node.excerpt}</p>
-                            </Col>
-                        </Row>
-                        <hr />
-                    </div>
-                );
-            })}
+                    return (
+                        <BlogPostCard
+                            idx={idx}
+                            imgData={imgData}
+                            slug={fields.slug}
+                            title={frontmatter.title}
+                            date={frontmatter.date}
+                            excerpt={excerpt}
+                        />
+                    );
+                })}
+        </div>
     </Content>
 );
 

@@ -21,9 +21,10 @@ const BlogPost = (props: BlogPostProps) => {
     const postDate = props.data.markdownRemark.frontmatter.date;
     return (
         <Content>
+            <hr />
+
             <div className={styles.blogPost}>
-                {/*<Button onClick={()=>navigate("/blog")}>blog home</Button>*/}
-                {fluidImg && (
+                {fluidImg ? (
                     <BackgroundImage
                         className={styles.backgroundImg}
                         fluid={[`linear-gradient(rgba(245, 245, 245, 0.55), rgba(245, 245, 245, 1))`, fluidImg]}
@@ -31,6 +32,11 @@ const BlogPost = (props: BlogPostProps) => {
                         <h1>{title}</h1>
                         <h3>{postDate}</h3>
                     </BackgroundImage>
+                ) : (
+                    <div>
+                        <h1>{title}</h1>
+                        <h3>{postDate}</h3>
+                    </div>
                 )}
                 <hr />
                 <div
