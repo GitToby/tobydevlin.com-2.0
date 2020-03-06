@@ -21,19 +21,20 @@ const BlogPostCard = (props: BlogPostCardProps) => {
         <div className={style.blogPostCard}>
             <BackgroundImage
                 fluid={[
-                    `linear-gradient(to bottom left, rgba(245, 245, 245, 0.5), rgba(245, 245, 245, 1))`,
+                    `linear-gradient(to right, rgba(245, 245, 245, 0.99), rgba(245, 245, 245, 0.90), rgba(245, 245, 245, 0.65))`,
                     props.imgData
                 ]}
             >
-                <Link to={props.slug} className={style.blogHeader}>
-                    {props.title}
-                </Link>
-                <br />
-                <span className={style.blogDate}> {props.date}</span>
-                <br />
-                <p>{props.excerpt}</p>
+                <div className={style.blogCardContent}>
+                    <Link to={props.slug} className={style.blogHeader}>
+                        {props.title}
+                    </Link>
+                    <br />
+                    <span className={style.blogDate}> {props.date}</span>
+                    <br />
+                    <p>{props.excerpt}</p>
+                </div>
             </BackgroundImage>
-
             <hr />
         </div>
     );

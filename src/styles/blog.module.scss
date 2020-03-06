@@ -9,7 +9,7 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
 
 .background-img {
     padding: 8vh 0 10vh;
-     h1 {
+    h1 {
         color: $primary-font-color;
         padding-left: 5vw;
     }
@@ -42,16 +42,22 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
         justify-content: center;
         min-height: 100%;
     }
-    h1 {
-        color: $primary-font-color;
-    }
-    .blog-header {
-        font-size: 24pt;
-    }
-    .blog-date {
-        color: $secondary-font-color;
-    }
-    p {
-        color: $primary-font-color;
+    .blog-card-content {
+        padding-bottom: 1vw;
+        h1 {
+            color: $primary-font-color;
+        }
+
+        .blog-header {
+            font-size: 24pt;
+        }
+
+        .blog-date {
+            color: $secondary-font-color;
+        }
+
+        p {
+            color: $primary-font-color;
+        }
     }
 }
