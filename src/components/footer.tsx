@@ -24,7 +24,7 @@ const Footer = (_props: FooterProps) => {
 
     return (
         <Navbar bg="light" className={styles.footer}>
-            <Nav>
+            <Nav className="mr-auto">
                 <Nav.Link onClick={() => navigate('/about')}>Created by Toby Devlin</Nav.Link>
                 <Nav.Link href="https://gitlab.com/MrAdjunctPanda">
                     <FontAwesomeIcon icon={faGitlab} />
@@ -36,7 +36,7 @@ const Footer = (_props: FooterProps) => {
                     <FontAwesomeIcon icon={faLinkedin} />
                 </Nav.Link>
             </Nav>
-            <Nav id={styles.footerBuildVersion} className="mr-auto">
+            <Nav id={styles.footerBuildVersion}>
                 built version {footerData.site.siteMetadata.version} | {footerData.site.buildTime.toString()}
             </Nav>
         </Navbar>
