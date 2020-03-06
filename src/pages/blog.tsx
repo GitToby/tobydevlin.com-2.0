@@ -23,6 +23,10 @@ const Blog = (props: BlogProps) => (
         <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
             <hr />
             {props.data.allMarkdownRemark.edges
+                .filter((post) => {
+                    // filter dates in the future so we dont publish in the daily build
+                    return post.node.frontmatter.isoDate < new Date().toISOString();
+                })
                 .sort((e1: any, e2: any) => {
                     return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
                 })
@@ -34,6 +38,7 @@ const Blog = (props: BlogProps) => (
 
                     return (
                         <BlogPostCard
+                            key={idx}
                             idx={idx}
                             imgData={imgData}
                             slug={fields.slug}

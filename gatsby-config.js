@@ -64,6 +64,12 @@ module.exports = {
                             maxWidth: 800
                         }
                     },
+                     {
+                        resolve: `gatsby-remark-autolink-headers`,
+                        options: {
+                            offsetY: 90
+                        }
+                    },
                     'gatsby-remark-prismjs', // add code highlighting
                     {
                         resolve: 'gatsby-remark-katex', // maths render
