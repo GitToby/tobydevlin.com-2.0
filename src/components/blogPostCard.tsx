@@ -21,7 +21,7 @@ const BlogPostCard = (props: BlogPostCardProps) => {
         <div key={props.idx} className={style.blogPostCard}>
             <BackgroundImage
                 fluid={[
-                    `linear-gradient(to left, rgba(245, 245, 245, 0.4), rgba(245, 245, 245, 0.75), rgba(245, 245, 245, 1))`,
+                    `linear-gradient(to bottom left, rgba(245, 245, 245, 0.5), rgba(245, 245, 245, 1))`,
                     props.imgData
                 ]}
             >
