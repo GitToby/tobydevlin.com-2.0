@@ -5,6 +5,7 @@ import {Link} from 'gatsby';
 import {GatsbyImageSharpFluidFragment, ImageSharpFluid} from '../../graphql-types';
 // @ts-ignore
 import * as style from '../styles/blog.module.scss';
+import BackgroundImage from 'gatsby-background-image';
 
 class BlogPostCardProps {
     idx: number;
@@ -18,23 +19,21 @@ class BlogPostCardProps {
 const BlogPostCard = (props: BlogPostCardProps) => {
     return (
         <div key={props.idx} className={style.blogPostCard}>
-            <Row>
-                {props.idx % 2 === 0 && (
-                    <Col md={3}>{props.imgData && <Img fluid={props.imgData} durationFadeIn={500} />}</Col>
-                )}
-                <Col md={9}>
-                    <Link to={props.slug} className={style.blogHeader}>
-                        {props.title}
-                    </Link>
-                    <br />
-                    <span className={style.blogDate}> {props.date}</span>
-                    <br />
-                    <p>{props.excerpt}</p>
-                </Col>
-                {props.idx % 2 !== 0 && (
-                    <Col md={3}>{props.imgData && <Img fluid={props.imgData} durationFadeIn={500} />}</Col>
-                )}
-            </Row>
+            <BackgroundImage
+                fluid={[
+                    `linear-gradient(to left, rgba(245, 245, 245, 0.4), rgba(245, 245, 245, 0.75), rgba(245, 245, 245, 1))`,
+                    props.imgData
+                ]}
+            >
+                <Link to={props.slug} className={style.blogHeader}>
+                    {props.title}
+                </Link>
+                <br />
+                <span className={style.blogDate}> {props.date}</span>
+                <br />
+                <p>{props.excerpt}</p>
+            </BackgroundImage>
+
             <hr />
         </div>
     );
