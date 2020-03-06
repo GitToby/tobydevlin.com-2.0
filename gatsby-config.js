@@ -8,7 +8,7 @@ const packageJson = require('./package.json');
 module.exports = {
     siteMetadata: {
         title: 'TobyDevlin.com 2.0',
-        version: packageJson.version,
+        version: packageJson.version
     },
     plugins: [
         // CODE PLUGINS
@@ -64,7 +64,7 @@ module.exports = {
                             maxWidth: 800
                         }
                     },
-                     {
+                    {
                         resolve: `gatsby-remark-autolink-headers`,
                         options: {
                             offsetY: 90

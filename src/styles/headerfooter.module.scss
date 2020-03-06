@@ -18,9 +18,9 @@
     }
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 500px) {
     // dont display the build version under 500px
-    #footer-build-version{
+    #footer-build-version {
         display: none;
     }
 }
