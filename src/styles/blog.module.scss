@@ -9,6 +9,7 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
 
 .background-img {
     padding: 8vh 0 10vh;
+    min-height: 30vh;
     h1 {
         color: $primary-font-color;
         padding-left: 5vw;
