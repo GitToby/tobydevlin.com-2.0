@@ -7,8 +7,13 @@ const packageJson = require('./package.json');
 
 module.exports = {
     siteMetadata: {
-        title: 'TobyDevlin.com 2.0',
-        version: packageJson.version
+        title: 'TobyDevlin.com',
+        version: packageJson.version,
+        socialLinks: {
+            gitlab: 'https://gitlab.com/MrAdjunctPanda',
+            github: 'https://github.com/GitToby',
+            linkedin: 'https://www.linkedin.com/in/toby-devlin-741b45106/'
+        }
     },
     plugins: [
         // CODE PLUGINS
@@ -84,6 +89,15 @@ module.exports = {
 
         // EXTENSIONS
         'gatsby-plugin-netlify-cms', // adds the cms plugin to the /admin page
-        'gatsby-plugin-no-sourcemaps' // removes sourcemaps in production builds
+        'gatsby-plugin-no-sourcemaps', // removes sourcemaps in production builds
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: "UA-110172165-2",
+                head: true,
+                // Delays sending pageview hits on route update (in milliseconds)
+                pageTransitionDelay: 100,
+            },
+        }
     ]
 };

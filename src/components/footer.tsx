@@ -17,22 +17,29 @@ const Footer = (_props: FooterProps) => {
                 siteMetadata {
                     title
                     version
+                    socialLinks {
+                        github
+                        gitlab
+                        linkedin
+                    }
                 }
             }
         }
     `);
 
+    const {github,gitlab,linkedin} = footerData.site.siteMetadata.socialLinks;
+
     return (
         <Navbar bg="light" className={styles.footer}>
             <Nav className="mr-auto">
                 <Nav.Link onClick={() => navigate('/about')}>Created by Toby Devlin</Nav.Link>
-                <Nav.Link href="https://gitlab.com/MrAdjunctPanda">
+                <Nav.Link href={gitlab}>
                     <FontAwesomeIcon icon={faGitlab} />
                 </Nav.Link>
-                <Nav.Link href="https://github.com/GitToby">
+                <Nav.Link href={github}>
                     <FontAwesomeIcon icon={faGithub} />
                 </Nav.Link>
-                <Nav.Link href="https://www.linkedin.com/in/toby-devlin-741b45106/">
+                <Nav.Link href={linkedin}>
                     <FontAwesomeIcon icon={faLinkedin} />
                 </Nav.Link>
             </Nav>
