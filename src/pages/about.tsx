@@ -26,10 +26,10 @@ const About = (props: AboutProps) => {
     return (
         <Content>
             <h2 data-aos={titleAnimation} data-aos-duration={titleAnimationDuration} data-aos-delay="0">
-                Im a London based full stack developer
+                I'm a London based full stack developer
             </h2>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
-                Im originally from South England but studied in Wales and now live in London. I like to cycle, explore
+                I'm originally from South England but studied in Wales and now live in London. I like to cycle, explore
                 and eat food. Sometimes, when the weather is right, I like to take time to write code that does stuff.
             </p>
             <div
@@ -41,10 +41,10 @@ const About = (props: AboutProps) => {
                 <Img fixed={props.data.bg1.childImageSharp.fixed} />
             </div>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
-                Not being able to write english well, I studied mathematics at Cardiff University before moving on to
+                Not being able to write English well, I studied mathematics at Cardiff University before moving on to
                 learn software development. Python is my go to language, but I also like responsive, dynamic UIs in
                 JavaScript (Typescript for type safety though) and my day job is writing Java and proprietary languages.
-                If I had to do it over id get started with Rust faster! After a while I'll have projects for each of
+                If I had to do it over I'd get started with Rust faster! After a while I'll have projects for each of
                 these, but for now you'll have to trust I know what im talking about.
             </p>
             <div
