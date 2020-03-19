@@ -1,6 +1,7 @@
 # These are admin settings: https://www.netlifycms.org/docs/
 
-site_url: https://new.tobydevlin.com
+site_url: https://tobydevlin.com
+logo_url: https://tobydevlin.com/favicon.ico
 
 backend:
     name: git-gateway
