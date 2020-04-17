@@ -56,7 +56,7 @@ const About = (props: AboutProps) => {
                 <Img fixed={props.data.bg2.childImageSharp.fixed} />
             </div>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
-                If you want to get in contact, im available on my <a>LinkedIn</a> most of the time, feel free to shoot
+                If you want to get in contact, im available on <a href="https://www.linkedin.com/in/toby-devlin/">my LinkedIn</a>, feel free to shoot
                 me a message. If a project of mine has caught your eye and you have questions feel free to shoot me a
                 message on that platform. In the event you like this website and want to copy it, feel free to smack a
                 fork on its github here:{' '}
