@@ -1,5 +1,5 @@
 # The second iteration of Tobydevlin.com
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b9050913-2c0e-4c90-a802-50e1b2cd368c/deploy-status)](https://app.netlify.com/sites/tobydevlin/deploys)
 ### dev setup
 
 1. install everything
