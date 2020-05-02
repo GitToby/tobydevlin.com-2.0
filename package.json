@@ -49,7 +49,7 @@
         "react": "^16.12.0",
         "react-bootstrap": "^1.0.0-beta.17",
         "react-dom": "^16.12.0",
-        "typecript": "^3.8.3"
+        "typecript": "^3.0.0"
     },
     "devDependencies": {
         "@types/node": "^13.7.4",
