@@ -6,7 +6,8 @@ import {Nav, Navbar} from 'react-bootstrap';
 // @ts-ignore
 import * as styles from '../styles/headerfooter.module.scss';
 
-interface HeaderProps {}
+interface HeaderProps {
+}
 
 const Header = (_props: HeaderProps) => {
     const headerData: HeaderDataQuery = useStaticQuery(graphql`
@@ -25,7 +26,7 @@ const Header = (_props: HeaderProps) => {
     return (
         <Navbar collapseOnSelect bg="light" expand="md" sticky="top" className={styles.header}>
             <Navbar.Brand href="/">{headerData.site.siteMetadata.title}</Navbar.Brand>
-            <Navbar.Toggle />
+            <Navbar.Toggle/>
             <Navbar.Collapse>
                 <Nav className="mr-auto">
                     {headerData.allSitePage.distinct
@@ -43,6 +44,10 @@ const Header = (_props: HeaderProps) => {
                                 </Nav.Link>
                             );
                         })}
+                    <Nav.Link href="https://chicken.tobydevlin.com" target='_blank' rel="noopener noreferrer">
+                        Zoom Chickens?!
+                    </Nav.Link>
+
                 </Nav>
                 <Nav id={styles.loginButton}>
                     <Nav.Link href="/admin">Log In</Nav.Link>
