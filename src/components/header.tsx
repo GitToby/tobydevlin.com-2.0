@@ -44,7 +44,7 @@ const Header = (_props: HeaderProps) => {
                                 </Nav.Link>
                             );
                         })}
-                    <Nav.Link href="https://chicken.tobydevlin.com" target='_blank' rel="noopener noreferrer">
+                    <Nav.Link href="https://www.zoom-a-chicken.live/" target='_blank' rel="noopener noreferrer">
                         Zoom Chickens?!
                     </Nav.Link>
 
