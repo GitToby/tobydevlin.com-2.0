@@ -1,20 +1,33 @@
 @import 'global';
+
 .footer {
     // nav sections are actually divs
     color: $primary-font-color;
     height: 10vh;
+
     div {
         color: $primary-font-color;
     }
+
     span {
         padding-left: 2vw;
         color: #87929b;
+
         &:hover {
             color: #646a73;
         }
     }
+
     #footer-build-version {
         font-size: 6pt;
+    }
+}
+
+#footer-build-version {
+    color: $primary-background-color;
+
+    &:hover {
+        color: $primary-font-color;
     }
 }
 
@@ -28,6 +41,7 @@
 .header {
     color: $primary-font-color;
     min-height: 10vh;
+
     #login-button {
     }
 }
