@@ -7,6 +7,7 @@ import Img, { FluidObject } from 'gatsby-image';
 import * as styles from '../styles/portfolio.module.scss';
 import BackgroundImage from 'gatsby-background-image';
 import { Button, Col, Container, Row, Card } from 'react-bootstrap';
+import { titleAnimation, titleAnimationDuration, paraAnimation, paraAnimationDuration } from '../helper/settings';
 
 interface PortfolioCardProps {
     name: string;
@@ -22,7 +23,7 @@ const SiteCard: FunctionComponent<PortfolioCardProps> = (props) => {
             <Card.Body>
                 <Card.Title>{props.name}</Card.Title>
                 <Card.Text>{props.description}</Card.Text>
-                <Button variant="primary" onClick={()=> window.open(props.url, "_blank",)}>Go there</Button>
+                <Button variant="primary" onClick={() => window.open(props.url, "_blank")}>Go there</Button>
             </Card.Body>
         </Card>
     );
@@ -35,10 +36,12 @@ interface PortfolioProps {
 const Portfolio: FunctionComponent<PortfolioProps> = (props) => {
     return (
         <Content>
-            <h2 >Check out some of my other work</h2>
+            <h2 data-aos={titleAnimation} data-aos-duration={titleAnimationDuration} data-aos-delay="0">
+                Check out some of my other work
+                </h2>
             <Container fluid>
                 <Row>
-                    <Col sm={12} md={12} lg={6}>
+                    <Col sm={12} md={12} lg={6}  data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={300}>
                         <SiteCard
                             name="Chiddingfold Bonfire"
                             imgData={props.data.bonfire.childImageSharp.fluid}
@@ -46,7 +49,7 @@ const Portfolio: FunctionComponent<PortfolioProps> = (props) => {
                             description='The local village event of the year is that english tradition of burning a terrorist at the stake. And in the 21st century that requires a website so people know where and when.'
                         />
                     </Col>
-                    <Col sm={12} md={12} lg={6}>
+                    <Col sm={12} md={12} lg={6} data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={600}>
                         <SiteCard
                             name="Zoom A Chicken Live"
                             imgData={props.data.zoomChicken.childImageSharp.fluid}
