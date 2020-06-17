@@ -32,6 +32,19 @@ See [Sandman2](https://pypi.org/project/sandman2/) for an example of mono DB con
 The Admin Screen should display CRUD operations that relate to the corresponding API endpoints.
 There can also be an OpenAPI schema associated with each DB REST API.
 
+The Admin screen should
+- provide an overview of databases registers
+- allow a new db to be added
+- a link to the dbs admin screen
+
+The Admin screen shouldnt
+- alter database properties 
+- interact with database administration
+
+Each Database Admin screen should (essentially the same as DRF or sandman2)
+- Show the CRUD endpoints 
+- have intractive forms to records
+
 ### 3 - Streatch user goal
 Have the ability to manage users and manage them in the main admin UI. 
 It is prefered to use 3rd party user tools - Firebase/Auth0
@@ -39,11 +52,11 @@ It is prefered to use 3rd party user tools - Firebase/Auth0
 ### 3 - Streatch metrics goal
 Have the Ability to collect rest query metrics - # of queries, limits etc.
 
-
 ### Tools that may help:
  - [Sandman2](https://pypi.org/project/sandman2/)
  - [Flask](https://palletsprojects.com/p/flask/)
  - [Flask SQL Alchemy](https://flask-sqlalchemy.palletsprojects.com)
  - [Django introspection](https://docs.djangoproject.com/en/3.0/howto/legacy-databases/)
+ - [Django Rest Framework](https://www.django-rest-framework.org/)
  - [sqlalchemy automap](https://docs.sqlalchemy.org/en/13/orm/extensions/automap.html)
  - [omniDB a python based DB viewer](https://omnidb.org/en/)
