@@ -8,6 +8,7 @@ import BlogPostCard from '../components/blogPostCard';
 import {InputGroup, FormControl} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import LoadingOverlay from '../../../leftovers/leftovers-ui/src/app/containers/overlays/loadingOverlay';
 
 interface BlogProps {
     data: BlogHomeQuery;
@@ -15,8 +16,10 @@ interface BlogProps {
 
 const Blog = (props: BlogProps) => {
     let [posts, setPosts] = useState(props.data.allMarkdownRemark.edges);
+    let [isLoading, setIsLoading] = useState<boolean>(false)
 
     function filterPosts(e: SyntheticEvent) {
+        setIsLoading(true)
         let target = e.target as HTMLInputElement;
         let res = props.data.allMarkdownRemark.edges.filter((post) => {
             let searchResContent = post.node.internal.content.toLowerCase().indexOf(target.value.toLowerCase());
@@ -25,6 +28,7 @@ const Blog = (props: BlogProps) => {
             return searchResContent >= 0 || searchResTitle >= 0 || searchResTags >= 0;
         });
         setPosts(res);
+        setIsLoading(false)
     }
 
     return (<Content>
@@ -37,41 +41,43 @@ const Blog = (props: BlogProps) => {
             and notes from when I want to remember something. Its mostly about tech and code and notes I find
             interesting.
         </p>
-        <InputGroup size="sm" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+        <InputGroup size="sm" data-aos="fade-up" data-aos-duration="600" data-aos-delay="350">
             <FormControl placeholder="Search..." defaultValue='' aria-label="Small"
                          onChange={filterPosts}/>
         </InputGroup>
         <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
             <hr/>
-            {posts.length > 0 && posts.filter((post) => {
-                // filter dates in the future so we dont publish in the daily build
-                let isPastPost = post.node.frontmatter.isoDate < new Date().toISOString();
-                // also run search match
+            <LoadingOverlay isLoading={isLoading}>
+                {posts.length > 0 && posts.filter((post) => {
+                    // filter dates in the future so we dont publish in the daily build
+                    let isPastPost = post.node.frontmatter.isoDate < new Date().toISOString();
+                    // also run search match
 
-                // console.log(isPastPost, searchTerm, searchMatch, post.node.frontmatter.title);
-                // return isPastPost || searchMatch || searchTerm === '';
-                return isPastPost;
-            }).sort((e1: any, e2: any) => {
-                return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
-            }).map((edge: any, idx: number) => {
-                const {excerpt, fields, frontmatter} = edge.node;
-                const imgData: ImageSharpFluid | null | GatsbyImageSharpFluidFragment = edge.node.frontmatter.image
-                    ? edge.node.frontmatter.image.childImageSharp.fluid
-                    : undefined;
+                    // console.log(isPastPost, searchTerm, searchMatch, post.node.frontmatter.title);
+                    // return isPastPost || searchMatch || searchTerm === '';
+                    return isPastPost;
+                }).sort((e1: any, e2: any) => {
+                    return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
+                }).map((edge: any, idx: number) => {
+                    const {excerpt, fields, frontmatter} = edge.node;
+                    const imgData: ImageSharpFluid | null | GatsbyImageSharpFluidFragment = edge.node.frontmatter.image
+                        ? edge.node.frontmatter.image.childImageSharp.fluid
+                        : undefined;
 
-                return (
-                    <BlogPostCard
-                        key={idx}
-                        idx={idx}
-                        imgData={imgData}
-                        slug={fields.slug}
-                        title={frontmatter.title}
-                        date={frontmatter.date}
-                        excerpt={excerpt}
-                    />
-                );
-            })}
-            {posts.length === 0 && <p>No results...</p>}
+                    return (
+                        <BlogPostCard
+                            key={idx}
+                            idx={idx}
+                            imgData={imgData}
+                            slug={fields.slug}
+                            title={frontmatter.title}
+                            date={frontmatter.date}
+                            excerpt={excerpt}
+                        />
+                    );
+                })}
+                {posts.length === 0 && <p>No results...</p>}
+            </LoadingOverlay>
         </div>
     </Content>);
 };
