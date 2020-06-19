@@ -5,7 +5,9 @@
 1. install everything
 2. run dev server with `node run develop`
 3. set up remote debugging by setting the config to run in the "javascript debugging" intellij function:
-    - file://C:/dev/projects/tobydevlin.com-2.0/src <-> top/localhost:8000/C:/dev/projects/tobydevlin.com-2.0/src
+    - file://path/to/tobydevlin.com-2.0/src <-> top/localhost:8000/path/to/tobydevlin.com-2.0/src
+4. view site at http://localhost:8000
+5. view graphql browser at http://localhost:8000/___graphql
 
 #### change image upload locaitons:
 
