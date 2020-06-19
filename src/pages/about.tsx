@@ -41,7 +41,7 @@ const About = (props: AboutProps) => {
                 <Img fixed={props.data.bg1.childImageSharp.fixed} />
             </div>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
-                Not being able to write English well, I studied mathematics at Cardiff University before moving on to
+                Not enjoying writing very much, I studied mathematics at Cardiff University before moving on to
                 learn software development. Python is my go to language, but I also like responsive, dynamic UIs in
                 JavaScript (Typescript for type safety though) and my day job is writing Java and proprietary languages.
                 If I had to do it over I'd get started with Rust faster! After a while I'll have projects for each of
