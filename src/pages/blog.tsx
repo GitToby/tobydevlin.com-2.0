@@ -35,10 +35,9 @@ const Blog = (props: BlogProps) => {
             Welcome to the Blog!
         </h2>
         <p className={style.blogIntro} data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
-            I write about things sometime, so far there are {props.data.allMarkdownRemark.totalCount} posts. I update
-            this every now and then when I come across something I want to write about. Most of these are just ramblings
-            and notes from when I want to remember something. Its mostly about tech and code and notes I find
-            interesting.
+            I write about things sometime. I update this every now and then when I come across something I want to write
+            about. Most of these are just ramblings and notes from when I want to remember something. Its mostly about
+            tech and code and notes I find interesting.
         </p>
         <InputGroup size="sm" data-aos="fade-up" data-aos-duration="600" data-aos-delay="350">
             <FormControl placeholder="Search..." defaultValue='' aria-label="Small"
@@ -48,13 +47,8 @@ const Blog = (props: BlogProps) => {
             <hr/>
             {isLoading && <Spinner animation={'border'}/>}
             {posts.length > 0 && posts.filter((post) => {
-                // filter dates in the future so we dont publish in the daily build
-                let isPastPost = post.node.frontmatter.isoDate < new Date().toISOString();
-                // also run search match
-
-                // console.log(isPastPost, searchTerm, searchMatch, post.node.frontmatter.title);
-                // return isPastPost || searchMatch || searchTerm === '';
-                return isPastPost && post.node.frontmatter.publish;
+                // filter out those not specifically published yet
+                return post.node.frontmatter.publish;
             }).sort((e1: any, e2: any) => {
                 return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
             }).map((edge: any, idx: number) => {
