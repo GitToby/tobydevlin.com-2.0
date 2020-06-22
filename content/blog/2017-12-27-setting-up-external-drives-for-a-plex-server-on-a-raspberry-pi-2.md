@@ -3,6 +3,7 @@ layout: post
 title: Setting up external drives for a Plex server on a Raspberry Pi
 date: '2017-12-27 23:04:55'
 image: /content/img/old-post-icons/2017-12-27-raspberry.jpg
+publish: true
 tags:
     - getting-started
     - code

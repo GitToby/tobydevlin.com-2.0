@@ -3,6 +3,7 @@ layout: post
 title: Compression Techniques
 date: '2017-12-19 12:20:16'
 image: /content/img/old-post-icons/2017-12-19-vice.jpg
+publish: true
 tags:
     - maths
     - coding-theory

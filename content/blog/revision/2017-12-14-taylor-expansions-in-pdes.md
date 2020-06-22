@@ -3,6 +3,7 @@ layout: post
 title: Taylor Expansions in PDEs
 date: '2017-12-14 12:47:43'
 image: /content/img/old-post-icons/2017-12-14-taylor-series.jpg
+publish: true
 tags:
     - getting-started
     - maths

@@ -3,6 +3,7 @@ layout: post
 title: The Fun Fun World Of JSON Validation
 date: 2019-09-18T15:46:43.349Z
 image: /content/img/netlifyCMS/locks-on-rails.jpg
+publish: true
 tags:
   - programming
 ---

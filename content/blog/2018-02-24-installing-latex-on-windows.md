@@ -3,6 +3,7 @@ layout: post
 title: Installing LaTeX on Windows
 date: '2018-02-24 22:04:51'
 image: /content/img/old-post-icons/2018-02-24-latex-ex.jpg
+publish: true
 tags:
     - getting-started
     - maths

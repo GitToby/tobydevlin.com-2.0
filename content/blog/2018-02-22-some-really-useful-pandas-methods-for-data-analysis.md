@@ -3,6 +3,7 @@ layout: post
 title: Some Useful Python Methods For Data Analysis
 date: '2018-02-22 12:00:47'
 image: /content/img/old-post-icons/2018-02-22-python-data.jpg
+publish: true
 tags:
     - getting-started
     - maths
