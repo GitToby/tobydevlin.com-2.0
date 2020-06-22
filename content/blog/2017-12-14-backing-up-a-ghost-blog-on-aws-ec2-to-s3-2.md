@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Backing up a Ghost blog (or anything) on AWS EC2 to S3
-image: /content/img/old-post-icons/2017-12-14-echo-dot.jpg
 date: '2017-12-14 14:06:20'
+image: /content/img/old-post-icons/2017-12-14-echo-dot.jpg
+publish: true
 tags:
     - code
 ---

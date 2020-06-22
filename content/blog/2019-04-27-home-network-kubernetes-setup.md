@@ -3,6 +3,7 @@ layout: post
 title: Kubernetes Setup on a Raspberry Pi
 date: 2019-04-27T17:06:57.778Z
 image: /content/img/netlifyCMS/k8s-im.jpg
+publish: true
 tags:
     - code
 ---

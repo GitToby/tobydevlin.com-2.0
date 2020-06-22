@@ -3,6 +3,7 @@ layout: post
 title: Building tobydevlin.com
 date: '2017-11-25 20:48:09'
 image: /content/img/old-post-icons/2017-11-25-code.jpg
+publish: true
 tags:
     - getting-started
     - code

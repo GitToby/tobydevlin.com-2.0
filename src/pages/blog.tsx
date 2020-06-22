@@ -54,7 +54,7 @@ const Blog = (props: BlogProps) => {
 
                 // console.log(isPastPost, searchTerm, searchMatch, post.node.frontmatter.title);
                 // return isPastPost || searchMatch || searchTerm === '';
-                return isPastPost;
+                return isPastPost && post.node.frontmatter.publish;
             }).sort((e1: any, e2: any) => {
                 return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
             }).map((edge: any, idx: number) => {
@@ -91,6 +91,7 @@ export const query = graphql`
                         title
                         isoDate: date
                         date(formatString: "dddd, MMMM Do YYYY")
+                        publish
                         tags
                         image {
                             childImageSharp {

@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Maths Revision Notes
-image: /content/img/old-post-icons/2017-11-24-math-revision.jpg
 date: '2017-11-24 16:08:15'
+image: /content/img/old-post-icons/2017-11-24-math-revision.jpg
+publish: true
 tags:
     - maths
 ---

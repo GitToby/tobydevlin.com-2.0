@@ -3,6 +3,7 @@ layout: post
 title: Why Most Files Can't Be Compressed
 date: '2018-01-14 10:30:20'
 image: /content/img/old-post-icons/2018-01-14-files.jpg
+publish: true
 tags:
     - maths
     - coding-theory

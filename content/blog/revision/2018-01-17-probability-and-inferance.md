@@ -3,6 +3,7 @@ layout: post
 title: Probability and Inference
 date: '2018-01-17 15:15:23'
 image: /content/img/old-post-icons/2018-01-17-coins.jpg
+publish: true
 tags:
     - maths
 ---

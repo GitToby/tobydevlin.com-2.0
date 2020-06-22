@@ -3,6 +3,7 @@ layout: post
 title: Adding Typescript to Gatsby
 date: 2020-02-27T13:00:56.862Z
 image: /content/img/netlifyCMS/shapegame.jpg
+publish: true
 tags:
   - gatsby
   - typescript

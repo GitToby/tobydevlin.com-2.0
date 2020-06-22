@@ -3,6 +3,7 @@ layout: post
 title: PiPlexed - A guide to setting up a home Media Server on Rasbry Pi
 date: 2020-06-07T11:00:01.915Z
 image: /content/img/netlifyCMS/home.png
+publish: true
 tags:
   - pi  plex
 ---

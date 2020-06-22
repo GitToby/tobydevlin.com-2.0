@@ -3,6 +3,7 @@ layout: post
 title: GT Coursework
 date: '2018-03-20 09:28:00'
 image: /content/img/old-post-icons/dice.jpg
+publish: true
 tags:
     - maths
 ---

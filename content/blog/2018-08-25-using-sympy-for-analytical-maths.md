@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Using Sympy for Analytical Maths
-image: /content/img/old-post-icons/2018-08-25-maths-book.jpg
 date: '2018-08-25 18:31:55'
+image: /content/img/old-post-icons/2018-08-25-maths-book.jpg
+publish: true
 tags:
     - code
 ---

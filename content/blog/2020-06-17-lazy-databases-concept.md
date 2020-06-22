@@ -3,6 +3,7 @@ layout: post
 title: Lazy Databases Concept
 date: 2020-06-17T10:04:16.678Z
 image: /content/img/netlifyCMS/workflows-category-databases.png
+publish: false
 tags:
   - code python
 ---

@@ -3,6 +3,7 @@ layout: post
 title: Coding  Theory - Linear Codes
 image: /content/img/old-post-icons/2017-11-24-coding-theory-img.jpg
 date: '2017-11-24 16:05:34'
+publish: true
 tags:
     - maths
     - coding-theory
