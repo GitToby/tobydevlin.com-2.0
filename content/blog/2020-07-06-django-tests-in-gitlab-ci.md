@@ -3,6 +3,7 @@ layout: post
 title: Django tests in Gitlab CI
 publish: true
 image: /content/img/netlifyCMS/1-bx1gnz1uzfkokmrhq395mg.png
+date: 2020-07-06T21:43:41.975Z
 tags:
   - python gitlab django
 ---

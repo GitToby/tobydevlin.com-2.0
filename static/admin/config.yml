@@ -21,6 +21,10 @@ collections:
             widget: 'hidden'
             default: 'post'
 
+          - label: 'Publish Date'
+            name: 'date'
+            widget: 'hidden'
+
           - label: 'Title'
             name: 'title'
             widget: 'string'
