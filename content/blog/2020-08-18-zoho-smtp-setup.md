@@ -22,7 +22,7 @@ These boil down to:
 * Outgoing Server Name: smtp.zoho.eu
 * Port: 587
 * Security Type: TLS 
-* Username: '<your mail address>'
+* Username: '\<your mail address>'
 * Password: The app password you noted earlier
 
 Here is the example from Open Media Vault:
