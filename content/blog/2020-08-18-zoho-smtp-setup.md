@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Zoho SMTP Setup 
+date: 2020-08-18T20:42:01.785Z
+title: Zoho SMTP Setup
 publish: true
 image: /content/img/netlifyCMS/onlineprinters-oIpJ8koLx_s-unsplash.jpg
-date: 2020-08-18T20:42:01.785Z
 tags:
   - email zoho open-media-vault
 ---
@@ -16,7 +16,7 @@ The first step of this tutorial is to set up a Zoho email, potentially with a cu
 1. You'll need an email user, I did this by adding a new user in the admin screen. Provide it with a password and log in with as the new user (or do this with your main user)
 2. Head to the "My Account" page then the [security > app passwords](https://accounts.zoho.eu/home#security/app_password) page.
 3. Create a new App Password and make a note of it.
-4. Now you can set up an SMTP connection using the [SMTP details](https://www.zoho.com/mail/help/zoho-smtp.html) that Zoho provide
+4. Now you can set up an SMTP connection using the [SMTP details](https://www.zoho.com/mail/help/zoho-smtp.html) that Zoho provide.
 
 These boil down to:
 * Outgoing Server Name: smtp.zoho.eu
