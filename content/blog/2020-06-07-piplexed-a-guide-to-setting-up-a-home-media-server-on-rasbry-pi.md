@@ -37,8 +37,63 @@ This will download and install all the bits required - it takes time, not is a g
 
 ![install](/content/img/netlifyCMS/install.png "install")
 
-# Step 4 - Access GUI and set up drives & Plex.
+# Step 4 - Access GUI and set up drives
 
-head over to your PIs web portal (at its IP) and log in, The default username is `admin`, and the default password is `openmediavault`:
+Head over to your PIs web portal (at its IP) and log in, The default username is `admin`, and the default password is `openmediavault`:
 
 ![log in](/content/img/netlifyCMS/omv.png "log in")
+
+# Step 5 - Start up Docker and Portainer.
+
+Open Media Vault has set up for Docker and Portainer naitivly, so theres no real trouble getting started. Once you've done this you can also start making a 'docker-compose.yml' for your apps, for example Plex, PiHole, Netdata and Heimdall are shown below:
+
+```yaml
+# ===============================
+#  RASPBERRY PI DEFAULT SERVICES
+# ===============================
+
+version: "2.4"
+services:
+  # Plex for self hosting video & content.
+  # Note: plex wont work if its not on the host network
+  # exposed at <host>:32400/web/index.html
+  Plex:
+    image: linuxserver/plex:latest
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      # Custom mount paths
+      - "/export/LittleRedBox/data/plex/config:/config"
+      - "/export/LittleRedBox/data:/data"
+      - "/export/LittleRedBox/data/plex/transcode:/transcode"
+
+  # Netdata for monitoring the host
+  Netdata:
+    image: netdata/netdata:latest-armhf
+    restart: unless-stopped
+    ports:
+      - 19999:19999
+
+  # Pihole for setting the
+  PiHole:
+    image: pihole/pihole:latest
+    restart: unless-stopped
+    ports:
+      - 20053:53/tcp
+      - 20053:53/udp
+      - 20067:67/udp
+      - 20080:80/tcp
+      - 20443:443/tcp
+    environment:
+      WEBPASSWORD: "newpass"
+
+  Heimdall:
+    image: linuxserver/heimdall:latest
+    restart: unless-stopped
+    volumes:
+      # Still need to set up database
+      - "/heimdall/config:/config"
+    ports:
+      - 21080:80
+      - 21443:443
+```
