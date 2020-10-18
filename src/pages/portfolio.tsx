@@ -54,7 +54,7 @@ const Portfolio: FunctionComponent<PortfolioProps> = (props) => {
                             name="Zoom A Chicken Live"
                             imgData={props.data.zoomChicken.childImageSharp.fluid}
                             url={'https://zoom-a-chicken.live'}
-                            description='Ever sat in a really dull meeting and through, boy a this could really do with some poultry? Liven up a zoom call with a bookable chicken from zoom-a-chicken.live! '
+                            description='Ever sat in a really dull meeting and thought, boy a this could really do with some poultry? Liven up a zoom call with a bookable chicken from zoom-a-chicken.live! '
                         />
                     </Col>
                 </Row>
