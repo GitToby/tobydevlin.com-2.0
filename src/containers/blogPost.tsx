@@ -27,7 +27,7 @@ const BlogPost = (props: BlogPostProps) => {
                 {fluidImg ? (
                     <BackgroundImage
                         className={styles.backgroundImg}
-                        fluid={[`linear-gradient(rgba(245, 245, 245, 0.6), rgba(245, 245, 245, 0.75), rgba(245, 245, 245, 1))`, fluidImg]}
+                        fluid={[`linear-gradient(rgba(245, 245, 245, 0.5), rgba(245, 245, 245, 0.70), rgba(245, 245, 245, 1))`, fluidImg]}
                     >
                         <h1>{title}</h1>
                         <h3>{postDate}</h3>
