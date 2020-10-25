@@ -10,3 +10,4 @@ graphql-types.ts
 dist
 node_modules
 public
+reduxcache*
