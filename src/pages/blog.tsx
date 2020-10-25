@@ -1,13 +1,11 @@
-import React, {SyntheticEvent, useState} from 'react';
-import {graphql} from 'gatsby';
+import React, { SyntheticEvent, useState } from 'react';
+import { graphql } from 'gatsby';
 import Content from '../containers/content';
-import {BlogHomeQuery, GatsbyImageSharpFluidFragment, ImageSharpFluid} from '../../graphql-types';
+import { BlogHomeQuery, GatsbyImageSharpFluidFragment, ImageSharpFluid } from '../../graphql-types';
 // @ts-ignore
 import * as style from '../styles/blog.module.scss';
 import BlogPostCard from '../components/blogPostCard';
-import {InputGroup, FormControl, ProgressBar, Spinner} from 'react-bootstrap';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faSearch} from '@fortawesome/free-solid-svg-icons';
+import { InputGroup, FormControl, Spinner } from 'react-bootstrap';
 
 interface BlogProps {
     data: BlogHomeQuery;
@@ -39,25 +37,26 @@ const Blog = (props: BlogProps) => {
             about. Most of these are just ramblings and notes from when I want to remember something. Its mostly about
             tech and code and notes I find interesting.
         </p>
-        <InputGroup size="sm" data-aos="fade-up" data-aos-duration="600" data-aos-delay="350">
-            <FormControl placeholder="Search..." defaultValue='' aria-label="Small"
-                         onChange={filterPosts}/>
-        </InputGroup>
-        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-            <hr/>
-            {isLoading && <Spinner animation={'border'}/>}
-            {posts.length > 0 && posts.filter((post) => {
-                // filter out those not specifically published yet
-                return post.node.frontmatter.publish;
-            }).sort((e1: any, e2: any) => {
-                return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
-            }).map((edge: any, idx: number) => {
-                const {excerpt, fields, frontmatter} = edge.node;
-                const imgData: ImageSharpFluid | null | GatsbyImageSharpFluidFragment = edge.node.frontmatter.image
-                    ? edge.node.frontmatter.image.childImageSharp.fluid
-                    : undefined;
-
-                return (
+        <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
+            <InputGroup size="sm" >
+                <FormControl placeholder="Search..." defaultValue='' aria-label="Small"
+                    onChange={filterPosts} />
+            </InputGroup>
+            <hr />
+        </div>
+        {isLoading && <Spinner animation={'border'} />}
+        {posts.length > 0 && posts.filter((post) => {
+            // filter out those not specifically published yet
+            return post.node.frontmatter.publish;
+        }).sort((e1: any, e2: any) => {
+            return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
+        }).map((edge: any, idx: number) => {
+            const { excerpt, fields, frontmatter } = edge.node;
+            const imgData: ImageSharpFluid | null | GatsbyImageSharpFluidFragment = edge.node.frontmatter.image
+                ? edge.node.frontmatter.image.childImageSharp.fluid
+                : undefined;
+            return (
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay={500 - (idx * 50)}>
                     <BlogPostCard
                         key={idx}
                         idx={idx}
@@ -67,10 +66,10 @@ const Blog = (props: BlogProps) => {
                         date={frontmatter.date}
                         excerpt={excerpt}
                     />
-                );
-            })}
-            {posts.length === 0 && <p>No results...</p>}
-        </div>
+                </div>
+            );
+        })}
+        {posts.length === 0 && <p>No results...</p>}
     </Content>);
 };
 
