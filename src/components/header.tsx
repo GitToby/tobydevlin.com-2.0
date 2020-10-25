@@ -44,10 +44,6 @@ const Header = (_props: HeaderProps) => {
                                 </Nav.Link>
                             );
                         })}
-                    <Nav.Link href="https://www.zoom-a-chicken.live/" target='_blank' rel="noopener noreferrer">
-                        Zoom Chickens?!
-                    </Nav.Link>
-
                 </Nav>
                 <Nav id={styles.loginButton}>
                     <Nav.Link href="/admin">Log In</Nav.Link>
