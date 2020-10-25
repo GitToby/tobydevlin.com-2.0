@@ -31,6 +31,7 @@ const Header = (_props: HeaderProps) => {
                 <Nav className="mr-auto">
                     {headerData.allSitePage.distinct
                         .filter((pageLocation: string) => {
+                            console.log(pageLocation)
                             // only 1st order pages should be shown in nav
                             const isTopLevel = pageLocation.match(/\//g).length === 2;
                             const is404 = pageLocation.match(/404/) !== null;
@@ -40,7 +41,7 @@ const Header = (_props: HeaderProps) => {
                             return (
                                 <Nav.Link key={idx} onClick={() => navigate(pageLocation)}>
                                     {/* replace / in display */}
-                                    {pageLocation.replace(/\//g, '')}
+                                    {pageLocation.replace(/\//g, '').replace(/_/g, ' ')}
                                 </Nav.Link>
                             );
                         })}
