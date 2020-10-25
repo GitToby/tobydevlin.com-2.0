@@ -10,14 +10,14 @@ const Index = () => (
             <h1 id={styles.title}>I'm Toby</h1>
         </div>
         <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
-            <h2 id={styles.subtitle}>a London based full stack dev</h2>
+            <h2 id={styles.subtitle}>a London based full stack engineer</h2>
         </div>
         <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
             <p>
                 Hello world, this is my website. I work on lots of projects from time to time and I like to get half way
                 in before breaking things and quitting. This is where I will write the occasional post to to keep notes
                 or share details on some of my projects and learnings. If you want to know more, please{' '}
-                <Link to="/about#get-in-touch">contact me!</Link>
+                <a href="https://www.linkedin.com/in/toby-devlin/">contact me!</a>
             </p>
         </div>
     </Content>
