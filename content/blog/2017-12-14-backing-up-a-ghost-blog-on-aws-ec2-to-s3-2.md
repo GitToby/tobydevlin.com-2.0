@@ -23,7 +23,7 @@ Using the AWS command line from the EC2 instance in question we can send files t
 7.  Make sure you **have aws-cli**: `aws --version`.. don't have it? install using `pip install awscli`
 8.  Now we need to **set up the aws-cli for the IAM user** who will be backing up the stuff.. Hopefully we haven't lost the keys from step 2. Run the command `aws configure` it will give you something like the below... fill this in with with your details you got in step 2.
 
-```$ aws configure
+```
 AWS Access Key ID [None]: <YOUR_ID>
 AWS Secret Access Key [None]: <YOUR_SECRET>
 Default region name [None]: <YOUR_REGION>
