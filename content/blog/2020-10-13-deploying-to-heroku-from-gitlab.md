@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Deployting to Heroku from Gitlab
+title: Deploying to Heroku from Gitlab
 publish: true
 image: /content/img/netlifyCMS/herokulogo.webp
 date: 2020-10-13T18:56:32.412Z
