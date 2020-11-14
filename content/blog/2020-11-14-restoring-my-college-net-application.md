@@ -121,6 +121,6 @@ database
 ' "User ID=toby" selects the user from table mysql.users called toby with all the
 ...
 ```
-But from here we can update enough inorder to creat the actual files! We will first need to rename the images to provide a little more context - the pipeline can then do the rest. Each image is part $i$ of $n$, by naming them as such I can just merge them later on without too much fuss. After we have files its a matter of partial rewrites based off the .net code
+But from here we can update enough inorder to creat the actual files! We will first need to rename the images to provide a little more context - the pipeline can then do the rest. Each image is part $i$ of $n$, by naming them as such I can just merge them later on without too much fuss. After we have files its a matter of partial rewrites based off the .net code.
 
 \[^1\]: This **must** have been the catalyst for Mum.
