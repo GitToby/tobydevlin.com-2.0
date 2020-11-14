@@ -2,7 +2,7 @@
 layout: post
 date: 2020-11-14 10:13:18.UTC
 title: Restoring My College .Net Application
-image: ''
+image: content/img/netlifyCMS/20201114_135020.jpg
 publish: false
 tags: []
 
@@ -21,7 +21,7 @@ The code is on paper so I need to have the entire 74 page collection of code tra
 
 ### Pictures!
 
-I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed\[^1\] reason, I picked '_chicken_' for all my passwords. Security at its finest.
+I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed[^1] reason, I picked '_chicken_' for all my passwords. Security at its finest.
 
 ![](content/img/netlifyCMS/20201111_200202-2.jpg)
 
@@ -38,6 +38,33 @@ Or Optical Character Recognition (OCR) as it's known, is the next phase. This is
 * [Azure computer vision](https://azure.microsoft.com/en-gb/services/cognitive-services/computer-vision/) (pretty good)
 * [This online tool](https://www.onlineocr.net/ "This online tool") (good but manual copy-paste will suck)
 
-Many of these require urls of images to be provided, all the images for this project are open-sourced under the Github repo. 
+Many of these require URLs of images to be provided, all the images for this project are open-sourced under the Github repo. Ultimately Azure seems to take the cake, so we will use its pretty good recognition and then tidy up after.
 
-\[^1\]: This **must** have been the catalyst for Mum.
+To analyse the images, we use the API with the below function:
+
+```python
+def make_request(img_url: str, print_res: bool = False) -> str:
+    # Make initial request
+    recognize_handw_results = computervision_client.read(img_url, raw=True)
+
+    # Parse response to get op ID 
+    operation_location_remote = recognize_handw_results.headers["Operation-Location"]
+    operation_id = operation_location_remote.split("/")[-1]
+    
+    # Await the response while remote does processing (nast impl but I dont care) 
+    while True:
+        get_handw_text_results = computervision_client.get_read_result(operation_id)
+        if get_handw_text_results.status not in ['notStarted', 'running']:
+            break
+        time.sleep(1)
+
+    # Print the detected text, line by line
+    if get_handw_text_results.status == OperationStatusCodes.succeeded:
+        for text_result in get_handw_text_results.analyze_result.read_results:
+            if print_res:
+                for line in text_result.lines:
+                    print(line.text)
+            return text_result.lines
+```
+
+[^1]: This **must** have been the catalyst for Mum.
