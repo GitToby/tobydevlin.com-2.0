@@ -21,7 +21,7 @@ The code is on paper so I need to have the entire 74 page collection of code tra
 
 ### Pictures!
 
-I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed\[^1\] reason, I picked '_chicken_' for all my passwords. Security at its finest.
+I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowing reason, I picked '_chicken_' for all my passwords. Security at its finest.
 
 ![](/content/img/netlifyCMS/20201111_200202-2.jpg)
 
@@ -122,5 +122,3 @@ database
 ...
 ```
 But from here we can update enough inorder to creat the actual files! We will first need to rename the images to provide a little more context - the pipeline can then do the rest. Each image is part $i$ of $n$, by naming them as such I can just merge them later on without too much fuss. After we have files its a matter of partial rewrites based off the .net code.
-
-\[^1\]: This **must** have been the catalyst for Mum.
