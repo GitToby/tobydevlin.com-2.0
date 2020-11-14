@@ -21,9 +21,9 @@ The code is on paper so I need to have the entire 74 page collection of code tra
 
 ### Pictures!
 
-I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed\[^1\] reason, I picked '_chicken_' for all my passwords. Security at its finest.
+I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed[^1] reason, I picked '_chicken_' for all my passwords. Security at its finest.
 
-![](content/img/netlifyCMS/20201111_200202-2.jpg)
+![](/content/img/netlifyCMS/20201111_200202-2.jpg)
 
 > My favourite part of this, outside of the code, is the mistakes I make but obviously not fixed (or fixed by pen, earlier in the project), like the well described "Center Number" I give in **every header of the project doc**. Can you tell I was destined for great things?
 
@@ -99,4 +99,4 @@ for i, image_file_path in enumerate(images[:1]):
 
 The result is now all pretty and gives us a nice output for where the content was dumped.
 
- \[^1\]: This **must** have been the catalyst for Mum.
+ [^1]: This **must** have been the catalyst for Mum.
