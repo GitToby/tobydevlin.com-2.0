@@ -17,8 +17,9 @@ fields:
   label: date
   config:
     required: true
-    export_format: YYYY-MM-DD hh:mm:ss.z
-    time_format: YYYY-MM-DD hh:mm:ss.z
+    export_format: YYYY-MM-DD hh:mm:ss
+    time_format: YYYY-MM-DD hh:mm:ss
+    display_utc: false
   default: now
 - type: file
   name: image
