@@ -17,7 +17,7 @@ This post will be dedicated to the story of how I brought it back from the **pap
 
 ## The First Steps
 
-The code is on paper so I need to have the entire 74 page collection of code transcribed into actual text. From there I can look into building the class structure and finally running the app.
+The code is on paper so I need to have the entire 74-page collection of code transcribed into actual text. From there I can look into building the class structure and finally running the app.
 
 ### Pictures!
 
