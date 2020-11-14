@@ -101,7 +101,7 @@ The result is now all pretty and gives us a nice output for where the content wa
 
 ![output logs from Notebook](/content/img/netlifyCMS/notbook_out1.png "Output logs")
 
-Taking a look at one of the files we can kinda see how it looks: 
+Taking a look at one of the files we can kinda see how it looks:
 
 ```text
 Imports MySql.Data. MySqlClient
@@ -121,4 +121,5 @@ database
 ' "User ID=toby" selects the user from table mysql.users called toby with all the
 ...
 ```
+
 But from here we can update enough inorder to creat the actual files! We will first need to rename the images to provide a little more context - the pipeline can then do the rest. Each image is part $i$ of $n$, by naming them as such I can just merge them later on without too much fuss. After we have files its a matter of partial rewrites based off the .net code.
