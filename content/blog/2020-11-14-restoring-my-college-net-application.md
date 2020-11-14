@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2020-11-14 10:13:19
+date: 2020-11-14T10:13:19.000+00:00
 title: Restoring My College .Net Application
-image: /content/img/netlifyCMS/20201114_135020.jpg
+image: "/content/img/netlifyCMS/20201114_135020.jpg"
 publish: false
 tags: []
 
@@ -21,7 +21,7 @@ The code is on paper so I need to have the entire 74 page collection of code tra
 
 ### Pictures!
 
-I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed[^1] reason, I picked '_chicken_' for all my passwords. Security at its finest.
+I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed\[^1\] reason, I picked '_chicken_' for all my passwords. Security at its finest.
 
 ![](/content/img/netlifyCMS/20201111_200202-2.jpg)
 
@@ -97,6 +97,30 @@ for i, image_file_path in enumerate(images[:1]):
     print(i, ,"|", original, "->", test_file)
 ```
 
-The result is now all pretty and gives us a nice output for where the content was dumped.
+The result is now all pretty and gives us a nice output for where the content was dumped:
 
- [^1]: This **must** have been the catalyst for Mum.
+![output logs from Notebook](/notbook_out1.png "Output logs")
+
+Taking a look at one of the files we can kinda see how it looks: 
+
+```text
+Imports MySql.Data. MySqlClient
+Public Class MainMenu
+#Region "DB connection strings and such"
+Public connectionString As String =
+"Database=Computing2;" &
+-
+"Data Source=localhost;" &
+-
+"User Id=toby; " &
+"Password=chicken; "
+' "database=Computing" selects database from the list of mysql databases, use
+"show databases" in mysql
+"data Source = localhost" uses the local machine ip as the data source for the
+database
+' "User ID=toby" selects the user from table mysql.users called toby with all the
+...
+```
+But from here we can update enough inorder to creat the actual files! We will first need to rename the images to provide a little more context - the pipeline can then do the rest. Each image is part $i$ of $n$, by naming them as such I can just merge them later on without too much fuss. After we have files its a matter of partial rewrites based off the .net code
+
+\[^1\]: This **must** have been the catalyst for Mum.
