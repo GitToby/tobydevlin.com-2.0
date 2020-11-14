@@ -126,4 +126,34 @@ But from here we can update enough inorder to creat the actual files! We will fi
 
 ## Moving to .NET
 
-Now I have managed to convert all these images to (somewhat comprehensive) text files, the process to .NET can begin. This however is actually a pretty manual process after dumping all the code into 1 file. The snippet below is the aggregator for the separate files, which is then renamed, aptly, to .vb extension for processing.
+Now I have managed to convert all these images to (somewhat comprehensive) text files, the process to .NET can begin. This however is actually a pretty manual process after dumping all the code into 1 file. The snippet below is the aggregator for the separate files, which is then renamed to .vb extension for processing. To do this i can leverage the power of regexp, as i did in my project, to complete this!
+
+```python
+files = glob("out/*.txt")
+f_map = dict()
+
+# Group all files by their 'className'
+for f in files:
+    # Funky regexp to isolate them
+    f_key = re.search("[a-zA-Z]+[0-9]+",f).group()[:-1]
+    if f_key in f_map.keys():
+        f_map[f_key] += [f]
+    else:
+        f_map[f_key] = [f]
+
+# dump them into code files
+for class_name in f_map.keys():
+    
+    # get list of files
+    txt_files = f_map[class_name]
+    
+    # extract and append to content
+    content = ""
+    for txt_f in sorted(txt_files):
+        with open(txt_f, "r") as f:
+            content = content + f.read()
+
+    # write this out to a file
+    with open(f"code/{class_name}.vb", "w") as f:
+        f.write(content)
+```
