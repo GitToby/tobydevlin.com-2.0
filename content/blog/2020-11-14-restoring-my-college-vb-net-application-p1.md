@@ -3,7 +3,7 @@ layout: post
 date: 2020-11-14T10:13:19.000+00:00
 title: Restoring My College VB .Net Application - Part 1
 image: "/content/img/netlifyCMS/20201114_135020.jpg"
-publish: false
+publish: true
 tags: []
 
 ---
@@ -122,9 +122,9 @@ database
 ...
 ```
 
-But from here we can update enough in order to create the actual files! We will first need to rename the images to provide a little more context - the pipeline can then do the rest. Each image is part $i$ of $n$, by naming them as such I can just merge them later on without too much fuss. After we have files its a matter of partial rewrites based off the .net code.
+But from here we can update enough in order to create the actual files! We will first need to rename the images to provide a little more context - the pipeline can then do the rest. Each image is part $i$ of $n$, by naming them as such I can just merge them later on without too much fuss. After we have files its a matter of partial rewrites based off the partial VB .net code. 
 
-## Moving to .NET
+## Moving to VB .NET
 
 Now I have managed to convert all these images to (somewhat comprehensive) text files, the process to .NET can begin. This, however, is actually a pretty manual process after dumping all the code into 1 file. The snippet below is the aggregator for the separate files, which is then renamed to .vb extension for processing. To do this I can leverage the power of regexp, as I did in my project, to complete this!
 
@@ -158,6 +158,8 @@ for class_name in f_map.keys():
         f.write(content)
 ```
 
-This produces a lovely set of classes I can now mess about with. There's only one issue - that is that VB.NET is a windows programming language which doesn't have a solution on Linux. From here all I must do is port over to my other windows machine and start building!
+This produces a lovely set of classes I can now mess about with. After reformatting and filling in the missing characters, fixing spelling and such there's only one issue - that is that VB.NET is a windows programming language which doesn't have a solution on Linux. From here all I must do is port over to my other windows machine and start building!
+
+Check out the repo of all the actual code [here]().
 
 **To be continued!**
