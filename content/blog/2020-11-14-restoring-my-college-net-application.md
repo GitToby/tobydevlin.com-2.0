@@ -123,3 +123,7 @@ database
 ```
 
 But from here we can update enough inorder to creat the actual files! We will first need to rename the images to provide a little more context - the pipeline can then do the rest. Each image is part $i$ of $n$, by naming them as such I can just merge them later on without too much fuss. After we have files its a matter of partial rewrites based off the .net code.
+
+## Moving to .NET
+
+Now I have managed to convert all these images to (somewhat comprehensive) text files, the process to .NET can begin. This however is actually a pretty manual process after dumping all the code into 1 file. The snippet below is the aggregator for the separate files, which is then renamed, aptly, to .vb extension for processing.
