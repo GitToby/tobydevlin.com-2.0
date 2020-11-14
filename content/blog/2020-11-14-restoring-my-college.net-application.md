@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-11-14 10:13:18.UTC
+date: 2020-11-14 10:13:19
 title: Restoring My College .Net Application
 image: content/img/netlifyCMS/20201114_135020.jpg
 publish: false
