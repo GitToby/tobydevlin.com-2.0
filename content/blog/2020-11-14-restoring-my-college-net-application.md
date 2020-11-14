@@ -99,7 +99,7 @@ for i, image_file_path in enumerate(images[:1]):
 
 The result is now all pretty and gives us a nice output for where the content was dumped:
 
-![output logs from Notebook](/notbook_out1.png "Output logs")
+![output logs from Notebook](/content/img/netlifyCMS/notbook_out1.png "Output logs")
 
 Taking a look at one of the files we can kinda see how it looks: 
 
