@@ -158,4 +158,6 @@ for class_name in f_map.keys():
         f.write(content)
 ```
 
-This produces a lovely set of classes I can now mess about with. There's only one issue - that is that VB.NET is a windows programming language which doesn't have a solution on Linux. From here all I must do is port over to my other windows machine and 
+This produces a lovely set of classes I can now mess about with. There's only one issue - that is that VB.NET is a windows programming language which doesn't have a solution on Linux. From here all I must do is port over to my other windows machine and start building!
+
+**To be continued!**
