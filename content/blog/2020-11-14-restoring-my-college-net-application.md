@@ -21,7 +21,7 @@ The code is on paper so I need to have the entire 74 page collection of code tra
 
 ### Pictures!
 
-I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed[^1] reason, I picked '_chicken_' for all my passwords. Security at its finest.
+I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed\[^1\] reason, I picked '_chicken_' for all my passwords. Security at its finest.
 
 ![](content/img/netlifyCMS/20201111_200202-2.jpg)
 
@@ -67,4 +67,36 @@ def make_request(img_url: str, print_res: bool = False) -> str:
             return text_result.lines
 ```
 
-[^1]: This **must** have been the catalyst for Mum.
+Wrapping this for a given image is easy.
+
+```python
+def pipe_image_to_txt(image_file_path: str) -> (str,str):
+    # form known url
+    image_url = GH_BASE + image_file_path
+
+    # Make request and get data
+    res = make_request(image_url)
+
+    # Join resulting data to a string
+    out_text = "\n".join(t.text for t in res)
+    
+    # dump into an out file
+    out_file_name = images[0].replace(".jpg",".txt")
+    with open(f"out/{out_file_name}", "w") as f:
+        f.write(out_text)
+
+    # util result
+    return image_file_path, out_file_name
+```
+
+and finally, loop!
+
+```python
+for i, image_file_path in enumerate(images[:1]):
+    original, test_file = pipe_image_to_txt(image_file_path)
+    print(i, ,"|", original, "->", test_file)
+```
+
+The result is now all pretty and gives us a nice output for where the content was dumped.
+
+ \[^1\]: This **must** have been the catalyst for Mum.
