@@ -19,14 +19,26 @@ This post will be dedicated to the story of how I brought it back from the **pap
 
 The code is on paper so I need to have the entire (  ) page collection of code transcribed into actual text. From there I can look into building the class structure and finally running the app.
 
-### Pictures! 
+### Pictures!
 
-I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed[^1] reason, I picked '_chicken_' for all my passwords. Security at its finest. 
+I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed[^1] reason, I picked '_chicken_' for all my passwords. Security at its finest.
 
-![](static/20201111_200202-2.jpg)
+![](content/img/netlifyCMS/20201111_200202-2.jpg)
 
 > My favourite part of this, outside of the code, is the mistakes I make but obviously not fixed (or fixed by pen, earlier in the project), like the well described "Center Number" I give in **every header of the project doc**. Can you tell I was destined for great things?
 
-From here all i now need to do i
+From here all I now need to do is turn this into a block of text I can plop into a file and run!
 
-[^1]: This is the first footnote.
+### Image to Text work
+
+Or Optical Character Recognition (OCR) as it's known, is the next phase. This is a boring basic part - yes I could write my own OCR and have it all generate correctly but this is not the point of this blog post (and will be left as an exersise to the reader). The real solution here is using cloud to speed up the work. Here are te options:
+ 
+ - [AWS Rekognition](https://aws.amazon.com/rekognition/) (not amazing) 
+ - [Google Drive image to text](https://support.google.com/drive/answer/176692?co=GENIE.Platform%3DDesktop&hl=en) (better)
+ - [Azure coputer vision](https://azure.microsoft.com/en-gb/services/cognitive-services/computer-vision/) (pretty good)
+ - [Online tool](https://www.onlineocr.net/) (good but manual copy-paste will suck)
+ 
+Many of these require urls of images to be provided, all the images for this project are open sourced under the Github repo. 
+
+
+[^1]: This **must** have been the catalyst for Mum.
