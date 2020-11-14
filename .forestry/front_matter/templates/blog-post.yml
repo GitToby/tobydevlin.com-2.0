@@ -5,12 +5,21 @@ fields:
 - type: text
   name: layout
   label: layout
+  hidden: true
+  config:
+    required: true
+  default: post
 - type: text
   name: title
   label: title
 - type: datetime
   name: date
   label: date
+  config:
+    required: true
+    export_format: YYYY-MM-DD hh:mm:ss.z
+    time_format: YYYY-MM-DD hh:mm:ss.z
+  default: now
 - type: file
   name: image
   label: image
