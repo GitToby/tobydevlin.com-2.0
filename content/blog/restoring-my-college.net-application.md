@@ -21,4 +21,12 @@ The code is on paper so I need to have the entire (  ) page collection of code t
 
 ### Pictures! 
 
-I'll spare you the details but painstakingly I have photographed every page of code that's required. This includes all the SQL files where, for some foreshadowed reason, I picked '_chicken'_ for all my passwords. Security at its finest.
+I have painstakingly photographed every page of code that's required with my phone as my data collection step. This includes all the SQL files where, for some foreshadowed[^1] reason, I picked '_chicken_' for all my passwords. Security at its finest. 
+
+![](static/20201111_200202-2.jpg)
+
+> My favourite part of this, outside of the code, is the mistakes I make but obviously not fixed (or fixed by pen, earlier in the project), like the well described "Center Number" I give in **every header of the project doc**. Can you tell I was destined for great things?
+
+From here all i now need to do i
+
+[^1]: This is the first footnote.
