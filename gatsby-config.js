@@ -9,6 +9,7 @@ module.exports = {
     siteMetadata: {
         title: 'TobyDevlin.com',
         version: packageJson.version,
+        siteUrl: 'https://tobydevlin.com',
         socialLinks: {
             gitlab: 'https://gitlab.com/MrAdjunctPanda',
             github: 'https://github.com/GitToby',
@@ -90,6 +91,7 @@ module.exports = {
         // EXTENSIONS
         'gatsby-plugin-netlify-cms', // adds the cms plugin to the /admin page
         'gatsby-plugin-no-sourcemaps', // removes sourcemaps in production builds
+        'gatsby-plugin-sitemap', // add a sitemap to the site on /sitemap.xml
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
