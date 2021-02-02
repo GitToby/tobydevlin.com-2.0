@@ -2,34 +2,34 @@
 label: Blog Post
 hide_body: false
 fields:
-- type: text
-  name: layout
-  label: layout
-  hidden: true
-  config:
-    required: true
-  default: post
-- type: text
-  name: title
-  label: title
-- type: datetime
-  name: date
-  label: date
-  config:
-    required: true
-    export_format: YYYY-MM-DD hh:mm:ss
-    time_format: YYYY-MM-DD hh:mm:ss
-    display_utc: false
-  default: now
-- type: file
-  name: image
-  label: image
-- type: boolean
-  name: publish
-  label: publish
-- type: list
-  name: tags
-  label: tags
+    - type: text
+      name: layout
+      label: layout
+      hidden: true
+      config:
+          required: true
+      default: post
+    - type: text
+      name: title
+      label: title
+    - type: datetime
+      name: date
+      label: date
+      config:
+          required: true
+          export_format: YYYY-MM-DD hh:mm:ss
+          time_format: YYYY-MM-DD hh:mm:ss
+          display_utc: false
+      default: now
+    - type: file
+      name: image
+      label: image
+    - type: boolean
+      name: publish
+      label: publish
+    - type: list
+      name: tags
+      label: tags
 pages:
-- content/blog/2020-11-14-restoring-my-college-vb-net-application-p1.md
-- content/blog/2020-12-02-tobys-quiz-round-latin-animal-names.md
+    - content/blog/2020-11-14-restoring-my-college-vb-net-application-p1.md
+    - content/blog/2020-12-02-tobys-quiz-round-latin-animal-names.md

@@ -5,11 +5,13 @@ publish: false
 image: /content/img/netlifyCMS/pattern.jpg
 date: 2020-07-01T14:24:01.915Z
 tags:
-  - pyhon
+    - pyhon
 ---
+
 # Pre Work
 
 Recall how to define an interface in Python:
+
 ```python
 import abc
 
@@ -27,7 +29,7 @@ class MyInterface(metaclass=abc.ABCMeta):
         return self._name
 ```
 
-This can then be imported and inherited as follows: 
+This can then be imported and inherited as follows:
 
 ```python
 class MyClass(MyInterface):
@@ -39,4 +41,3 @@ mc = MyClass('Instance One')
 print(mc.my_method('Hello world!'))
 # Hello world! after being called from Instance One!
 ```
-

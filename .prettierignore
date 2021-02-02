@@ -1,17 +1,22 @@
+# Build & lib files
 .cache
 .idea
 dist
 node_modules
 public
 
+# Config folders & files
+.gitignore
+.prettierignore
+graphql/.graphqlconfig
+*.toml
+
 # image files
 *.jpg
+*.jpeg
 *.png
 *.ico
 *.svg
 *.gif
+*.webp
 
-# no extention code
-.gitignore
-.prettierignore
-graphql/.graphqlconfig

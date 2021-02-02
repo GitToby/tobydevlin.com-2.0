@@ -27,7 +27,7 @@ const Footer = (_props: FooterProps) => {
         }
     `);
 
-    const {github,gitlab,linkedin} = footerData.site.siteMetadata.socialLinks;
+    const {github, gitlab, linkedin} = footerData.site.siteMetadata.socialLinks;
 
     return (
         <Navbar bg="light" className={styles.footer}>
