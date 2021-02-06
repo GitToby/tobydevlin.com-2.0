@@ -55,6 +55,7 @@ const Blog = (props: BlogProps) => {
                         return post.node.frontmatter.publish;
                     })
                     .sort((e1: any, e2: any) => {
+                        // newest on top
                         return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
                     })
                     .map((edge: any, idx: number) => {
@@ -64,14 +65,14 @@ const Blog = (props: BlogProps) => {
                             ? edge.node.frontmatter.image.childImageSharp.fluid
                             : undefined;
                         return (
-                            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay={500 - idx * 50}>
+                            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay={500 - idx * 50} key={idx}>
                                 <BlogPostCard
-                                    key={idx}
                                     idx={idx}
                                     imgData={imgData}
                                     slug={fields.slug}
                                     title={frontmatter.title}
                                     date={frontmatter.date}
+                                    tags={frontmatter.tags}
                                     excerpt={excerpt}
                                 />
                             </div>
