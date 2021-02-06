@@ -55,7 +55,7 @@ const Portfolio: FunctionComponent<PortfolioProps> = (props) => {
                             name="Chiddingfold Bonfire"
                             imgData={props.data.bonfire.childImageSharp.fluid}
                             url={'https://chiddingfoldbonfire.org.uk'}
-                            description="The local village event of the year is that english tradition of burning a terrorist at the stake. And in the 21st century that requires a website so people know where and when."
+                            description="The local village event of the year is that English tradition of burning a terrorist at the stake. And in the 21st century that requires a website so people know where and when."
                         />
                     </Col>
                     <Col
