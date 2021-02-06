@@ -1,11 +1,12 @@
 import React from 'react';
+import SEO from '../components/SEO';
 import Content from '../containers/content';
 // @ts-ignore
 import * as styles from '../styles/index.module.scss';
-import {graphql, Link} from 'gatsby';
 
 const Index = () => (
     <Content>
+        <SEO pageTitle="Home" />
         <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="0">
             <h1 id={styles.title}>I'm Toby</h1>
         </div>

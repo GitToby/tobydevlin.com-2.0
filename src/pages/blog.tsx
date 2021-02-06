@@ -6,6 +6,7 @@ import {BlogHomeQuery, GatsbyImageSharpFluidFragment, ImageSharpFluid} from '../
 import * as style from '../styles/blog.module.scss';
 import BlogPostCard from '../components/blogPostCard';
 import {InputGroup, FormControl, Spinner} from 'react-bootstrap';
+import SEO from '../components/SEO';
 
 interface BlogProps {
     data: BlogHomeQuery;
@@ -33,6 +34,7 @@ const Blog = (props: BlogProps) => {
 
     return (
         <Content>
+            <SEO pageTitle="Blog" />
             <h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
                 Welcome to the Blog!
             </h2>
@@ -43,7 +45,12 @@ const Blog = (props: BlogProps) => {
             </p>
             <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
                 <InputGroup size="sm">
-                    <FormControl placeholder="Search posts..." defaultValue="" aria-label="Small" onChange={filterPosts} />
+                    <FormControl
+                        placeholder="Search posts..."
+                        defaultValue=""
+                        aria-label="Small"
+                        onChange={filterPosts}
+                    />
                 </InputGroup>
                 <hr />
             </div>
@@ -53,10 +60,6 @@ const Blog = (props: BlogProps) => {
                     .filter((post) => {
                         // filter out those not specifically published yet
                         return post.node.frontmatter.publish;
-                    })
-                    .sort((e1: any, e2: any) => {
-                        // newest on top
-                        return Date.parse(e2.node.frontmatter.isoDate) - Date.parse(e1.node.frontmatter.isoDate);
                     })
                     .map((edge: any, idx: number) => {
                         const {excerpt, fields, frontmatter} = edge.node;
@@ -85,7 +88,7 @@ const Blog = (props: BlogProps) => {
 
 export const query = graphql`
     query blogHome {
-        allMarkdownRemark {
+        allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
             totalCount
             edges {
                 node {
@@ -104,7 +107,7 @@ export const query = graphql`
                             }
                         }
                     }
-                    excerpt
+                    excerpt(pruneLength: 200)
                     fields {
                         slug
                     }
