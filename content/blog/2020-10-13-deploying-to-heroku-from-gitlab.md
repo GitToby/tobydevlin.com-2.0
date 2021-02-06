@@ -5,7 +5,11 @@ publish: true
 image: /content/img/netlifyCMS/herokulogo.webp
 date: 2020-10-13T18:56:32.412Z
 tags:
-    - code devops deploy heroku gitlab
+    - code
+    - devops
+    - CI/CD
+    - heroku
+    - gitlab
 ---
 
 Having a continues deployment to Heroku from Gitlab is hidden away, previous solutions I've found require putting in docker acrobatics into your `.gitlab-ci.yml` and a rest endpoint; but no more! The solution is simple for most projects.

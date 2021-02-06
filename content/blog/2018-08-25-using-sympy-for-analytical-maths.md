@@ -6,6 +6,7 @@ image: /content/img/old-post-icons/2018-08-25-maths-book.jpg
 publish: true
 tags:
     - code
+    - python
 ---
 
 ### This is an example of how i would use sympy to evaluate a set of analytical questions, for example:

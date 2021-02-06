@@ -5,16 +5,14 @@ title: "Toby's Quiz Round: Top Down London"
 publish: false
 image: '/content/img/quiz/header.png'
 tags:
-    - quiz
+    - Quiz
 ---Here is the Quiz round! Each image is a top down view of a London landmark - can you tell me what they are?
 
 ### Question 1:
 
 ![q1](/content/img/quiz/q1.png)
 
----
-
-### Question 2:
+---### Question 2:
 
 ![q2](/content/img/quiz/q2.png)
 

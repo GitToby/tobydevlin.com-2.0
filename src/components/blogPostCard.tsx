@@ -33,7 +33,7 @@ const BlogPostCard = (props: BlogPostCardProps) => {
                     <br />
                     <span className={style.blogDate}>
                         {' '}
-                        {props.date} | tags: {props.tags.join(' ')}
+                        {props.date} | tags: {props.tags.join(', ')}
                     </span>
                     <br />
                     <p>{props.excerpt}</p>

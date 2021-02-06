@@ -9,7 +9,7 @@ tags:
     - Node
     - ParticleJS
     - css
-    - js dom manipulation
+    - js-dom-manipulation
 ---
 
 Recently I had my friend @ [veres.tech](https://veres.tech/) ask for some tips with a problem involving [ParticleJS](https://vincentgarreau.com/particles.js/) and [Ghost](https://ghost.org/). He wanted to apply this to his background, but because Ghost doesn't automatically use the required format of the API ParticleJS provides we had to add some tweaks.
