@@ -4,8 +4,8 @@ site_url: https://tobydevlin.com
 logo_url: https://tobydevlin.com/favicon.ico
 
 backend:
- name: gitlab
- repo: MrAdjunctPanda/tobydevlin.com-2.0
+    name: gitlab
+    repo: MrAdjunctPanda/tobydevlin.com-2.0
 
 media_folder: 'content/img/netlifyCMS' # Media files will be stored here
 

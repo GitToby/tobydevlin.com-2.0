@@ -41,11 +41,11 @@ const About = (props: AboutProps) => {
                 <Img fixed={props.data.bg1.childImageSharp.fixed} />
             </div>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
-                Not enjoying writing very much, I studied mathematics at Cardiff University before moving on to
-                learn software development. Python is my go to language, but I also like responsive, dynamic UIs in
-                JavaScript (Typescript for type safety though) and my day job is writing Java and proprietary languages.
-                If I had to do it over I'd get started with Rust faster! After a while I'll have projects for each of
-                these, but for now you'll have to trust I know what im talking about.
+                Not enjoying writing very much, I studied mathematics at Cardiff University before moving on to learn
+                software development. Python is my go to language, but I also like responsive, dynamic UIs in JavaScript
+                (Typescript for type safety though) and my day job is writing Java and proprietary languages. If I had
+                to do it over I'd get started with Rust faster! After a while I'll have projects for each of these, but
+                for now you'll have to trust I know what im talking about.
             </p>
             <div
                 data-aos={blockAnimation}
@@ -56,10 +56,11 @@ const About = (props: AboutProps) => {
                 <Img fixed={props.data.bg2.childImageSharp.fixed} />
             </div>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
-                If you want to get in contact, im available on <a href="https://www.linkedin.com/in/toby-devlin/">my LinkedIn</a>, feel free to shoot
-                me a message. If a project of mine has caught your eye and you have questions feel free to shoot me a
-                message on that platform. In the event you like this website and want to copy it, feel free to smack a
-                fork on its github here:{' '}
+                If you want to get in contact, im available on{' '}
+                <a href="https://www.linkedin.com/in/toby-devlin/">my LinkedIn</a>, feel free to shoot me a message. If
+                a project of mine has caught your eye and you have questions feel free to shoot me a message on that
+                platform. In the event you like this website and want to copy it, feel free to smack a fork on its
+                github here:{' '}
                 <a href="https://github.com/GitToby/tobydevlin.com-2.0">
                     https://github.com/GitToby/tobydevlin.com-2.0
                 </a>
@@ -91,7 +92,7 @@ export const query = graphql`
                     ...GatsbyImageSharpFixed
                 }
             }
-            }
+        }
         bg2: file(base: {eq: "toby-devlin-blog-website-background-woods-wide.jpeg"}) {
             childImageSharp {
                 fixed(width: 1400) {

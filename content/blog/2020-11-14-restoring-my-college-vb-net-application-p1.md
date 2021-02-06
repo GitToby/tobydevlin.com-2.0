@@ -2,12 +2,10 @@
 layout: post
 date: 2020-11-14T10:13:19.000+00:00
 title: Restoring My College VB .Net Application - Part 1
-image: "/content/img/netlifyCMS/20201114_135020.jpg"
+image: '/content/img/netlifyCMS/20201114_135020.jpg'
 publish: true
 tags: []
-
----
-# My First Code Experience
+---# My First Code Experience
 
 During college, I took a computing module. It was taught by an enthusiastic man who, because of this course, has influenced my career decision to move into software and taught me to know just enough to solve the problems at hand and argue every last detail until proven wrong; so thanks, Joe. In retrospect, I probably should have made more effort with this project but the name of the game was to just pass, looking back at it now this thing was full of security flaws and was built under a flawed development model. It was great!
 
@@ -33,10 +31,10 @@ From here all I now need to do is turn this into a block of text I can plop into
 
 Or Optical Character Recognition (OCR) as it's known, is the next phase. This is a boring basic part - yes I could write my own OCR and have it all generate correctly but this is not the point of this blog post (and will be left as an exercise to the reader). The real solution here is using the cloud to speed up the work. Here are the options:
 
-* [AWS Rekognition](https://aws.amazon.com/rekognition/) (not amazing)
-* [Google Drive image to text](https://support.google.com/drive/answer/176692?co=GENIE.Platform%3DDesktop&hl=en) (better)
-* [Azure computer vision](https://azure.microsoft.com/en-gb/services/cognitive-services/computer-vision/) (pretty good)
-* [This online tool](https://www.onlineocr.net/ "This online tool") (good but manual copy-paste will suck)
+-   [AWS Rekognition](https://aws.amazon.com/rekognition/) (not amazing)
+-   [Google Drive image to text](https://support.google.com/drive/answer/176692?co=GENIE.Platform%3DDesktop&hl=en) (better)
+-   [Azure computer vision](https://azure.microsoft.com/en-gb/services/cognitive-services/computer-vision/) (pretty good)
+-   [This online tool](https://www.onlineocr.net/ 'This online tool') (good but manual copy-paste will suck)
 
 Many of these require URLs of images to be provided, all the images for this project are open-sourced under the Github repo. Ultimately Azure seems to take the cake, so we will use its pretty good recognition and then tidy up after.
 
@@ -47,11 +45,11 @@ def make_request(img_url: str, print_res: bool = False) -> str:
     # Make initial request
     recognize_handw_results = computervision_client.read(img_url, raw=True)
 
-    # Parse response to get op ID 
+    # Parse response to get op ID
     operation_location_remote = recognize_handw_results.headers["Operation-Location"]
     operation_id = operation_location_remote.split("/")[-1]
-    
-    # Await the response while remote does processing (nast impl but I dont care) 
+
+    # Await the response while remote does processing (nast impl but I dont care)
     while True:
         get_handw_text_results = computervision_client.get_read_result(operation_id)
         if get_handw_text_results.status not in ['notStarted', 'running']:
@@ -79,7 +77,7 @@ def pipe_image_to_txt(image_file_path: str) -> (str,str):
 
     # Join resulting data to a string
     out_text = "\n".join(t.text for t in res)
-    
+
     # dump into an out file
     out_file_name = images[0].replace(".jpg",".txt")
     with open(f"out/{out_file_name}", "w") as f:
@@ -99,7 +97,7 @@ for i, image_file_path in enumerate(images[:1]):
 
 The result is now all pretty and gives us a nice output for where the content was dumped:
 
-![output logs from Notebook](/content/img/netlifyCMS/notbook_out1.png "Output logs")
+![output logs from Notebook](/content/img/netlifyCMS/notbook_out1.png 'Output logs')
 
 Taking a look at one of the files we can kinda see how it looks:
 
@@ -122,7 +120,7 @@ database
 ...
 ```
 
-But from here we can update enough in order to create the actual files! We will first need to rename the images to provide a little more context - the pipeline can then do the rest. Each image is part $i$ of $n$, by naming them as such I can just merge them later on without too much fuss. After we have files its a matter of partial rewrites based off the partial VB .net code. 
+But from here we can update enough in order to create the actual files! We will first need to rename the images to provide a little more context - the pipeline can then do the rest. Each image is part $i$ of $n$, by naming them as such I can just merge them later on without too much fuss. After we have files its a matter of partial rewrites based off the partial VB .net code.
 
 ## Moving to VB .NET
 
@@ -143,10 +141,10 @@ for f in files:
 
 # dump them into code files
 for class_name in f_map.keys():
-    
+
     # get list of files
     txt_files = f_map[class_name]
-    
+
     # extract and append to content
     content = ""
     for txt_f in sorted(txt_files):

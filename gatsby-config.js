@@ -95,11 +95,11 @@ module.exports = {
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
-                trackingId: "UA-110172165-2",
+                trackingId: 'UA-110172165-2',
                 head: true,
                 // Delays sending pageview hits on route update (in milliseconds)
-                pageTransitionDelay: 100,
-            },
+                pageTransitionDelay: 100
+            }
         }
     ]
 };
