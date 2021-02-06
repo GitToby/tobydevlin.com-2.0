@@ -1,8 +1,8 @@
 import React from 'react';
-import {Badge, Col, Row} from 'react-bootstrap';
+import { Badge, Col, Row } from 'react-bootstrap';
 import Img from 'gatsby-image';
-import {Link} from 'gatsby';
-import {GatsbyImageSharpFluidFragment, ImageSharpFluid} from '../../graphql-types';
+import { Link } from 'gatsby';
+import { GatsbyImageSharpFluidFragment, ImageSharpFluid } from '../../graphql-types';
 // @ts-ignore
 import * as style from '../styles/blog.module.scss';
 import BackgroundImage from 'gatsby-background-image';
@@ -32,11 +32,10 @@ const BlogPostCard = (props: BlogPostCardProps) => {
                     </Link>
                     <br />
                     <span className={style.blogDate}>
-                        {' '}
-                        {props.date} | tags: {props.tags.join(', ')}
+                        {props.date} | tags: <i>{props.tags.join(', ')}</i>
                     </span>
                     <br />
-                    <p>{props.excerpt}</p>
+                    {props.excerpt}
                 </div>
             </BackgroundImage>
             <hr />
