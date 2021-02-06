@@ -5,9 +5,9 @@ import {PortfolioDataQuery} from '../../graphql-types';
 import Img, {FluidObject} from 'gatsby-image';
 // @ts-ignore
 import * as styles from '../styles/portfolio.module.scss';
-import BackgroundImage from 'gatsby-background-image';
 import {Button, Col, Container, Row, Card} from 'react-bootstrap';
 import {titleAnimation, titleAnimationDuration, paraAnimation, paraAnimationDuration} from '../helper/settings';
+import SEO from '../components/SEO';
 
 interface PortfolioCardProps {
     name: string;
@@ -38,6 +38,7 @@ interface PortfolioProps {
 const Portfolio: FunctionComponent<PortfolioProps> = (props) => {
     return (
         <Content>
+            <SEO pageTitle="Portfolio" />
             <h2 data-aos={titleAnimation} data-aos-duration={titleAnimationDuration} data-aos-delay="0">
                 Check out some of my other work
             </h2>

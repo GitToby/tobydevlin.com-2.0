@@ -6,7 +6,8 @@ image: /content/img/old-post-icons/2017-10-06-mongodb.jpg
 publish: true
 tags:
     - code
-    - not code
+    - MongoDB
+    - getting started
 ---
 
 # This is a POC for a MongoDB interface

@@ -5,8 +5,10 @@ title: "Toby's Quiz Round: Guess The Language"
 publish: false
 image: '/content/img/quiz/header2.jpg'
 tags:
-    - quiz
----Here is the second Quiz round! Below are the same phrase translated into different languages - can you tell me the language?
+    - Quiz
+---
+
+Here is the second Quiz round! Below are the same phrase translated into different languages - can you tell me the language?
 
 ### Question 1:
 

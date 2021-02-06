@@ -92,6 +92,7 @@ module.exports = {
         'gatsby-plugin-netlify-cms', // adds the cms plugin to the /admin page
         'gatsby-plugin-no-sourcemaps', // removes sourcemaps in production builds
         'gatsby-plugin-sitemap', // add a sitemap to the site on /sitemap.xml
+        'gatsby-plugin-react-helmet', // add SEO Headers ans such
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {

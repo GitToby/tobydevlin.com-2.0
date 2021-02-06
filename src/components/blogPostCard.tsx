@@ -1,5 +1,5 @@
 import React from 'react';
-import {Col, Row} from 'react-bootstrap';
+import {Badge, Col, Row} from 'react-bootstrap';
 import Img from 'gatsby-image';
 import {Link} from 'gatsby';
 import {GatsbyImageSharpFluidFragment, ImageSharpFluid} from '../../graphql-types';
@@ -14,6 +14,7 @@ class BlogPostCardProps {
     title: string;
     date: string;
     excerpt: string;
+    tags: Array<string>;
 }
 
 const BlogPostCard = (props: BlogPostCardProps) => {
@@ -30,9 +31,11 @@ const BlogPostCard = (props: BlogPostCardProps) => {
                         {props.title}
                     </Link>
                     <br />
-                    <span className={style.blogDate}> {props.date}</span>
+                    <span className={style.blogDate}>
+                        {props.date} | tags: <i>{props.tags.join(', ')}</i>
+                    </span>
                     <br />
-                    <p>{props.excerpt}</p>
+                    {props.excerpt}
                 </div>
             </BackgroundImage>
             <hr />
