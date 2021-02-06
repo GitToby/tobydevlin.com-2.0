@@ -5,10 +5,11 @@ publish: true
 image: /content/img/netlifyCMS/1-bx1gnz1uzfkokmrhq395mg.png
 date: 2020-07-06T21:43:41.975Z
 tags:
-    - python 
+    - python
     - gitlab
     - django
 ---
+
 # Django CI
 
 Running isolated tests can be hard - we can solve this problem in Gitlab using the Docker images tooling provided by the runners. We will first provide the base Python image for us to run our code in and then add the Postgres container as a [service](https://docs.gitlab.com/ce/ci/docker/using_docker_images.html#how-services-are-linked-to-the-job)
