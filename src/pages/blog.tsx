@@ -43,7 +43,7 @@ const Blog = (props: BlogProps) => {
             </p>
             <div data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
                 <InputGroup size="sm">
-                    <FormControl placeholder="Search..." defaultValue="" aria-label="Small" onChange={filterPosts} />
+                    <FormControl placeholder="Search posts..." defaultValue="" aria-label="Small" onChange={filterPosts} />
                 </InputGroup>
                 <hr />
             </div>
