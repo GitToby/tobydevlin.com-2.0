@@ -5,7 +5,9 @@ title: Zoho SMTP Setup
 publish: true
 image: /content/img/netlifyCMS/onlineprinters-oIpJ8koLx_s-unsplash.jpg
 tags:
-    - email zoho open-media-vault
+    - email
+    - zoho
+    - open-media-vault
 ---
 
 This is very useful to send automated emails with a custom domain, for example, _notifications@tobydevlin.com_ - my notifications email I get things like [Open Media Vault](https://www.openmediavault.org/) SMTP notifications and, eventually, client notifications if they need to interact with tobydevlin.com services.

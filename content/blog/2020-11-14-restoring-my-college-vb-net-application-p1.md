@@ -4,8 +4,12 @@ date: 2020-11-14T10:13:19.000+00:00
 title: Restoring My College VB .Net Application - Part 1
 image: '/content/img/netlifyCMS/20201114_135020.jpg'
 publish: true
-tags: []
----# My First Code Experience
+tags:
+    - OCR
+    - .NET
+---
+
+# My First Code Experience
 
 During college, I took a computing module. It was taught by an enthusiastic man who, because of this course, has influenced my career decision to move into software and taught me to know just enough to solve the problems at hand and argue every last detail until proven wrong; so thanks, Joe. In retrospect, I probably should have made more effort with this project but the name of the game was to just pass, looking back at it now this thing was full of security flaws and was built under a flawed development model. It was great!
 

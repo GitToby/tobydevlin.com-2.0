@@ -14,6 +14,7 @@ import {
     titleAnimation,
     titleAnimationDuration
 } from '../helper/settings';
+import SEO from '../components/SEO';
 
 interface AboutProps {
     data: AboutDataQuery;
@@ -25,6 +26,7 @@ const About = (props: AboutProps) => {
 
     return (
         <Content>
+            <SEO pageTitle="About" />
             <h2 data-aos={titleAnimation} data-aos-duration={titleAnimationDuration} data-aos-delay="0">
                 I'm a London based full stack developer
             </h2>

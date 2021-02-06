@@ -5,7 +5,8 @@ date: 2020-06-07T11:00:01.915Z
 image: /content/img/netlifyCMS/home.png
 publish: true
 tags:
-    - pi  plex
+    - Raspberry Pi
+    - plex
 ---
 
 This is a brief step by step guide to setting up a Plex & NAS enabled Pi. It assumes you kinda know what youre doing when it comes to flashing things, taking about networks and files, and using docker/containers on a high level.

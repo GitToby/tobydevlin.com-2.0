@@ -5,9 +5,11 @@ import {Link} from 'gatsby';
 import * as styles from '../styles/404.module.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
+import SEO from '../components/SEO';
 
 const Page404 = () => (
     <Content>
+        {/* <SEO pageTitle="Not Found" /> */}
         <div className={styles.background}>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
                 <h2 id={styles.subtitle}>Nothing Found :(</h2>

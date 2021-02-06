@@ -5,7 +5,7 @@ publish: false
 image: /content/img/netlifyCMS/pattern.jpg
 date: 2020-07-01T14:24:01.915Z
 tags:
-    - pyhon
+    - python
 ---
 
 # Pre Work

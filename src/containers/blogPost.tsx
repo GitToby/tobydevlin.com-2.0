@@ -6,8 +6,11 @@ import BackgroundImage from 'gatsby-background-image';
 // @ts-ignore
 import * as styles from '../styles/blog.module.scss';
 
+import {Helmet} from 'react-helmet';
+
 import 'prismjs/themes/prism.css'; // remark code snipits
 import 'katex/dist/katex.min.css';
+import SEO from '../components/SEO';
 
 interface BlogPostProps {
     data: BlogDataQuery;
@@ -21,8 +24,9 @@ const BlogPost = (props: BlogPostProps) => {
     const postDate = props.data.markdownRemark.frontmatter.date;
     return (
         <Content>
+            {/* Sets the header of the blog post */}
+            <SEO pageTitle={title} pageDescription={props.data.markdownRemark.excerpt} />
             <hr />
-
             <div className={styles.blogPost}>
                 {fluidImg ? (
                     <BackgroundImage
@@ -56,6 +60,7 @@ export const query = graphql`
     query blogData($slug: String!) {
         markdownRemark(fields: {slug: {eq: $slug}}) {
             html
+            excerpt(pruneLength: 100)
             frontmatter {
                 title
                 date(formatString: "dddd, MMMM Do YYYY")

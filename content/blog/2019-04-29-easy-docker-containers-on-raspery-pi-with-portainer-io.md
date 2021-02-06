@@ -6,6 +6,8 @@ image: /content/img/netlifyCMS/portainer-logo.png
 publish: true
 tags:
     - code
+    - docker
+    - Raspberry Pi
 ---
 
 [Portainer](https://www.portainer.io/) is a great docker management GUI which is open source, hosted on [GitHub](https://github.com/portainer/portainer). We're going to shove it onto a raspberry pi and run a few images. This guide assumes a few things: _ You have a Pi already running [Rasbarian Lite](https://www.raspberrypi.org/downloads/raspbian/), connected to your network with ssh access _ You know what [Docker](https://www.docker.com/) is \* You want to make managing a home server really easy.
