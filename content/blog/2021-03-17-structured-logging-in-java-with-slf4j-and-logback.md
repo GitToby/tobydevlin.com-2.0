@@ -1,11 +1,15 @@
 ---
 layout: post
+date: 2021-17-03 17:53:51
 title: Structured Logging in Java with SLF4j and Logback
 publish: true
 image: /content/img/netlifyCMS/logs.jpg
 tags:
-  - json logging java
+    - json
+    - logging
+    - java
 ---
+
 Adding Structured JSON logging when using SLF4J is quite simple once you understand the logger structure. This post will cover a quick implementation of how to add JSON structured logging to your app with [SLF4J](http://www.slf4j.org/) using [Logback](http://logback.qos.ch/) and the [logstash-logback-encoder](https://github.com/logstash/logstash-logback-encoder).
 
 ## First a bit of background.
@@ -119,7 +123,7 @@ Now to JSONafy these logs. The logstash libs make this incredibly easy, allowing
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
-``` 
+```
 
 This one doesn't log to a file, but can be configured very easily. A benefit of this encoder is it will automatically add information added with their `net.logstash.logback.argument.StructuredArguments.*` utilities. A good example of this is the `value()` and `keyValue()` methods, or `v()` and `kv()` for short. I've rewritten the main method to include some pairs.
 
@@ -140,9 +144,8 @@ Which will output
 Now we can add any number of parameters and they will be placed into the output as JSON keys. There are lots more meta information enrichment features and streaming add-ins to the logstash api, more info in the resources.
 
 ### Resources
-- [slf4j ref](http://www.slf4j.org/manual.html)
-- [logback.xml ref](http://logback.qos.ch/manual/configuration.html)
-- [logback.xml log level paths](https://stackoverflow.com/questions/5653062/how-can-i-configure-logback-to-log-different-levels-for-a-logger-to-different-de)
-- [logstash encoder github](https://github.com/logstash/logstash-logback-encoder)
 
-
+ - [slf4j ref](http://www.slf4j.org/manual.html)
+ - [logback.xml ref](http://logback.qos.ch/manual/configuration.html)
+ - [logback.xml log level paths](https://stackoverflow.com/questions/5653062/how-can-i-configure-logback-to-log-different-levels-for-a-logger-to-different-de)
+ - [logstash encoder github](https://github.com/logstash/logstash-logback-encoder)
