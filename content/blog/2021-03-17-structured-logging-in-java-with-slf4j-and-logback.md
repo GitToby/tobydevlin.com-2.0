@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-17-03 17:53:51
+date: 2021-03-17 17:53:51
 title: Structured Logging in Java with SLF4j and Logback
 publish: true
 image: /content/img/netlifyCMS/logs.jpg
