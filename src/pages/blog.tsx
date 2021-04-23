@@ -35,9 +35,10 @@ const Blog = (props: BlogProps) => {
     return (
         <Content>
             <SEO pageTitle="Blog" />
-            <h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
+            <h1 data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
                 Welcome to the Blog!
-            </h2>
+            </h1>
+            <hr/>
             <p className={style.blogIntro} data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
                 I write about things sometime. I update this every now and then when I come across something I want to
                 write about. Most of these are just ramblings and notes from when I want to remember something. Its
