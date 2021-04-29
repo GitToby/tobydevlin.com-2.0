@@ -8,11 +8,8 @@ tags:
     - aws
     - cloud
 ---
-# AWS Basics
 
-#### Users in AWS
-
-root users are special - they are owners of the account. IAM users are users within the account. IAM users should be used at all places if possible. You can create access keys in the [IAM service](https://console.aws.amazon.com/iam/home) to using in SDKs and the CLI.
+This is a quick overview of the basic tools AWS provides.
 
 ## Compute Services
 
@@ -158,6 +155,10 @@ SQS can be used in conjunction with SNS but is more stateful. IT can be configur
 Manages workflows though a fully managed service. Cost is based on state transitions and also the underlying architecture. Step Functions are good for organizing BPMN processes as an execution service.
 
 ## Cloud Management
+
+#### Users in AWS
+
+root users are special - they are owners of the account. IAM users are users within the account. IAM users should be used at all places if possible. You can create access keys in the [IAM service](https://console.aws.amazon.com/iam/home) to using in SDKs and the CLI.
 
 #### CloudTrail
 
