@@ -4,6 +4,7 @@
 dist
 node_modules
 public
+LICENSE
 
 # Config folders & files
 .gitignore

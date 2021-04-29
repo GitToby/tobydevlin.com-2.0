@@ -30,10 +30,11 @@ const About = (props: AboutProps) => {
             <h1 data-aos={titleAnimation} data-aos-duration={titleAnimationDuration} data-aos-delay="0">
                 About Me.
             </h1>
-            <hr/>
+            <hr />
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
-                I'm a London based full stack developer, originally from South England but studied in Wales and now live in London. I like to cycle, explore
-                and eat food. Sometimes, when the weather is right, I like to take time to write code that does stuff.
+                I'm a London based full stack developer, originally from South England but studied in Wales and now live
+                in London. I like to cycle, explore and eat food. Sometimes, when the weather is right, I like to take
+                time to write code that does stuff.
             </p>
             <div
                 data-aos={blockAnimation}

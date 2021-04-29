@@ -145,7 +145,7 @@ Now we can add any number of parameters and they will be placed into the output 
 
 ### Resources
 
- - [slf4j ref](http://www.slf4j.org/manual.html)
- - [logback.xml ref](http://logback.qos.ch/manual/configuration.html)
- - [logback.xml log level paths](https://stackoverflow.com/questions/5653062/how-can-i-configure-logback-to-log-different-levels-for-a-logger-to-different-de)
- - [logstash encoder github](https://github.com/logstash/logstash-logback-encoder)
+-   [slf4j ref](http://www.slf4j.org/manual.html)
+-   [logback.xml ref](http://logback.qos.ch/manual/configuration.html)
+-   [logback.xml log level paths](https://stackoverflow.com/questions/5653062/how-can-i-configure-logback-to-log-different-levels-for-a-logger-to-different-de)
+-   [logstash encoder github](https://github.com/logstash/logstash-logback-encoder)

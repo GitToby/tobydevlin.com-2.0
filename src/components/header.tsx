@@ -39,7 +39,14 @@ const Header = (_props: HeaderProps) => {
                             return (
                                 <Nav.Link key={idx} onClick={() => navigate(pageLocation)}>
                                     {/* replace / in display */}
-                                    {pageLocation.replace(/\//g, '').charAt(0).toUpperCase() + pageLocation.replace(/\//g, '').substr(1).toLowerCase()}
+                                    {pageLocation
+                                        .replace(/\//g, '')
+                                        .charAt(0)
+                                        .toUpperCase() +
+                                        pageLocation
+                                            .replace(/\//g, '')
+                                            .substr(1)
+                                            .toLowerCase()}
                                 </Nav.Link>
                             );
                         })}

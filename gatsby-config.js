@@ -96,7 +96,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
-                trackingId: process.env.GA_TAG_ID || "local_tag",
+                trackingId: process.env.GA_TAG_ID || 'local_tag',
                 head: true,
                 // Delays sending pageview hits on route update (in milliseconds)
                 pageTransitionDelay: 100
