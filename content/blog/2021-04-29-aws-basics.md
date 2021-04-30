@@ -18,33 +18,32 @@ This is a quick overview of the basic tools AWS provides.
 A web service that provides' resizable compute capacity for web scale compute easier for devs'. Concepts:
 
 - Instance Type - the compute, memory and storage definitions
-  
+
 - Root Device Type
   
-  - instance store - physical persistent store on the VM.
-    
-  - Elastic Block (EBS) - persistent but not separate from the VM. Preferred.
-    
-- AMIs - Templates for the VM, config and os and data.
+   - instance store - physical persistent store on the VM.
   
+   - Elastic Block (EBS) - persistent but not separate from the VM. Preferred.
+
+- AMIs - Templates for the VM, config and os and data.
+
 - Purchase Options
   
-  - On-Demand - any time to spin up or shut down
-    
-  - Reserved - discounts for committing for a period of time (years)
-    
-  - Savings plan - similar to above but doesn't reserve capacity, includes Fargate and lambda.
-    
-  - Spot - take advantages of low demand. Spins up when bid is above water, shuts down when bid is below water with 2 min warning.
-    
-  - Dedicated - physical machine in the datacenter.
-    
+   - On-Demand - any time to spin up or shut down
+  
+   - Reserved - discounts for committing for a period of time (years)
+  
+   - Savings plan - similar to above but doesn't reserve capacity, includes Fargate and lambda.
+  
+   - Spot - take advantages of low demand. Spins up when bid is above water, shuts down when bid is below water with 2 min warning.
+  
+   - Dedicated - physical machine in the datacenter.
 
 Launching an EC2 takes moments. The 'User Data' field is run when the instance is created. Terminate means to delete the whole instance.
 
 #### Elastic Beanstalk
 
-Beanstalk is similar to EC2 but automates deployment and scaling. It deals with the underlying EC2 instances for you. Beanstalk is free, the underlying infra is the cost source.
+Beanstalk is similar to **EC2** but automates deployment and scaling. It deals with the underlying **EC2** instances for you. Beanstalk is free, the underlying infra is the cost source.
 
 Beanstalk includes monitoring, deployment, scaling & customization, databases, load balance, healthchecks. It can leverage many languages and typically used for web servers; all ingress is also autoconfigured.
 
@@ -52,7 +51,7 @@ Its essentially a Heroku with more options.
 
 #### Lambda
 
-Serverless functional coding, cost per execution code. Has auto scale for demand and runs globally. Deploys via an s3 bucket.
+Serverless functional coding, cost per execution code. Has auto scale for demand and runs globally. Deploys via an **s3** bucket.
 
 ## Network and Content Delivery
 
@@ -64,7 +63,41 @@ DNS as a service, all DNS option can be configured here. High availability and h
 
 **VPC** is an isolated part of the cloud which can only be communicated with by services within the same VPC. Support for IPv4 and IPv6, subnets, IP Ranges, Route Tables and Network Gateways are allowed. Private and Public are both available, via ingress. NAT is available for private subnets.
 
+Placing a service in a **VPC**  means by default only services within that VPC can communicate with it. This can be changed by leveraging services such as **Transit Gateway**, **Internet Gateway** or **NAT Gateway**.
+
 **Direct Connect** is a dedicated network connection to the AWS datacenters to your on perm cloud.
+
+#### Subnets and Availability Zones
+
+A single **VPC** contains one or more **Subnets** which exists in only one **Availability Zone** (basically a datacentre in a given region). A unit of compute, for example an **EC2** instance exists in one and only one **Subnet**; these instances also cannot be moved between **Available Zones**. 
+
+**Subnets** can be private or public. Public means that services within the **Subnet** can access the internet and be accessed by the internet; to make a **Subnet** public its associated **Route Table** has a route with an **Internet Gateway** as a target. 
+
+Private is the opposite, with no access inbound or outbound. A **NAT Gateway** can be used to allow outbound connections from private subnets. 
+
+Here is a handy association guide:
+
+- An **Availability Zone** has many **VPCs**
+
+- A **VPC** has many **Subnets**
+
+- A **Subnet** has a single associated **Route Table**
+
+- A **Route Table** can have many **Routes** that point to things like:
+  
+   - A **NAT Gateway**
+  
+   - An **Internet Gateway** - making any associated Subnets public
+  
+   - **Transit Gateway**
+  
+   - **Egress Only Gateway**
+  
+   - Many others...
+
+- 
+
+
 
 #### API Gateway and CloudFront
 
@@ -78,20 +111,23 @@ Distribution of traffic across compute services (EC2, ECS, Lambda, ...) across a
 
 - Application Load Balancer (ALB)
   
-  - Vertical Scaling - Upgrading the type of resource, like increasing memory.
-    
-  - Horizontal Scaling - Increase the number of instances behind the load balancer.
-    
+   - Vertical Scaling - Upgrading the type of resource, like increasing memory.
+  
+   - Horizontal Scaling - Increase the number of instances behind the load balancer.
+
 - Network Load Balancer (NLB)
-  
+
 - Classic Load Balancer
-  
 
 #### Global Accelerator
 
-This is the application that speeds up your runtimes, its based on IP rather than DNS. Once a request hits an edge location on the AWS network it will funnel traffic through the AWS Network rather then public internet. It integrates with other services like EC2, ELB. This can also provide tolerance via IPs rather than DNS resolution.
+This is the application that speeds up your runtimes, its based on static IP rather than DNS. Once a request hits an edge location on the AWS network it will funnel traffic through the AWS Network rather then public internet. It integrates with other services like EC2, ELB. This can also provide tolerance via IPs rather than DNS resolution.
 
 This should be used in scenarios when you're not running HTTP; things like UDP, VOIP or MQTT. Also when you're using static IPs off the line, as it runs on IPs.
+
+### Elastic IP Addresses
+
+By brining or using an amazon **Elastic IP** you can provide a external static IP bound to an **EC2** instances Network Interface, allowing it to be hit by DNS or just via the internet.  
 
 ## Storage Solutions
 
@@ -100,13 +136,12 @@ This should be used in scenarios when you're not running HTTP; things like UDP, 
 Contains a whole load of options such as web serving, web hosting, permissions etc. Its structures into tiers of access that dictates pricing.
 
 - Standard
-  
+
 - Intelligent Tiering
-  
+
 - Infrequent Access - has a single availability option also
-  
+
 - Glacier - for archive solutions
-  
 
 #### EBS and EFS and other File Systems
 
@@ -155,6 +190,10 @@ SQS can be used in conjunction with SNS but is more stateful. IT can be configur
 Manages workflows though a fully managed service. Cost is based on state transitions and also the underlying architecture. Step Functions are good for organizing BPMN processes as an execution service.
 
 ## Cloud Management
+
+### Trusted Advisor
+
+This service allows you look at your best practices, performance and fault tolerance. It is a single pane of glass into your AWS account.
 
 #### Users in AWS
 
