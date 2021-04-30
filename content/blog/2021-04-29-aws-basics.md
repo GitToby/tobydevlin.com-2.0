@@ -18,25 +18,15 @@ This is a quick overview of the basic tools AWS provides.
 A web service that provides' resizable compute capacity for web scale compute easier for devs'. Concepts:
 
 - Instance Type - the compute, memory and storage definitions
-
 - Root Device Type
-  
    - instance store - physical persistent store on the VM.
-  
    - Elastic Block (EBS) - persistent but not separate from the VM. Preferred.
-
 - AMIs - Templates for the VM, config and os and data.
-
 - Purchase Options
-  
    - On-Demand - any time to spin up or shut down
-  
    - Reserved - discounts for committing for a period of time (years)
-  
-   - Savings plan - similar to above but doesn't reserve capacity, includes Fargate and lambda.
-  
+   - Savings plan - similar to above but doesn't reserve capacity, includes Fargate and lambda. 
    - Spot - take advantages of low demand. Spins up when bid is above water, shuts down when bid is below water with 2 min warning.
-  
    - Dedicated - physical machine in the datacenter.
 
 Launching an EC2 takes moments. The 'User Data' field is run when the instance is created. Terminate means to delete the whole instance.
@@ -44,9 +34,7 @@ Launching an EC2 takes moments. The 'User Data' field is run when the instance i
 #### Elastic Beanstalk
 
 Beanstalk is similar to **EC2** but automates deployment and scaling. It deals with the underlying **EC2** instances for you. Beanstalk is free, the underlying infra is the cost source.
-
 Beanstalk includes monitoring, deployment, scaling & customization, databases, load balance, healthchecks. It can leverage many languages and typically used for web servers; all ingress is also autoconfigured.
-
 Its essentially a Heroku with more options.
 
 #### Lambda
@@ -78,26 +66,14 @@ Private is the opposite, with no access inbound or outbound. A **NAT Gateway** c
 Here is a handy association guide:
 
 - An **Availability Zone** has many **VPCs**
-
 - A **VPC** has many **Subnets**
-
 - A **Subnet** has a single associated **Route Table**
-
 - A **Route Table** can have many **Routes** that point to things like:
-  
    - A **NAT Gateway**
-  
    - An **Internet Gateway** - making any associated Subnets public
-  
    - **Transit Gateway**
-  
    - **Egress Only Gateway**
-  
    - Many others...
-
-- 
-
-
 
 #### API Gateway and CloudFront
 
@@ -110,13 +86,9 @@ Here is a handy association guide:
 Distribution of traffic across compute services (EC2, ECS, Lambda, ...) across availability zones. There are 3 types:
 
 - Application Load Balancer (ALB)
-  
    - Vertical Scaling - Upgrading the type of resource, like increasing memory.
-  
    - Horizontal Scaling - Increase the number of instances behind the load balancer.
-
 - Network Load Balancer (NLB)
-
 - Classic Load Balancer
 
 #### Global Accelerator
@@ -136,11 +108,8 @@ By brining or using an amazon **Elastic IP** you can provide a external static I
 Contains a whole load of options such as web serving, web hosting, permissions etc. Its structures into tiers of access that dictates pricing.
 
 - Standard
-
 - Intelligent Tiering
-
 - Infrequent Access - has a single availability option also
-
 - Glacier - for archive solutions
 
 #### EBS and EFS and other File Systems
