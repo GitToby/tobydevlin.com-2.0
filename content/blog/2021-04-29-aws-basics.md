@@ -130,7 +130,7 @@ Both are used for loading data into AWS when an upload connection wont cut it. *
 
 **RDS** is a drop in relational database service, giving you all the database tooling without dealing with the underlying infra. Handles provisioning, patching, backup and recovery of databases across multiple availability zones. RBS supports a host of database technologies such as MySQL and Postgres along with many others, including **Aurora** which is compatible in both technologies.
 
-**Dynamo DB** is a both a document and key-value orientated NoSQL database. Its fully managed so you don't need to manage the database layer either, featuring auto scaling and caching.
+**Dynamo DB** is a both a document and key-value orientated NoSQL database. Its fully managed so you don't need to manage the database layer either, featuring auto-scaling and caching.
 
 #### Database migration Service
 
@@ -138,7 +138,7 @@ Used for moving data into **RDS**, is a one time or continues thing. Cost is def
 
 #### Elasticache
 
-In memory datastore cache which is fully managed. Supports both Memcached and Redis with low latency. Auto scaling is available and handles many standard common use cases like database cache and sessions.
+In memory datastore cache which is fully managed. Supports both Memcached and Redis with low latency. Autoscaling is available and handles many standard common use cases like database cache and sessions.
 
 #### Redshift
 
@@ -148,7 +148,7 @@ Data warehousing in the cloud with petabyte scale. Exists with VPC isolation, co
 
 #### SNS
 
-The Simple Notification Service is essentially a pub/sub message service. Its basically Kafka in the cloud, so event based and integrates well with other AWS services.
+The Simple Notification Service is essentially a pub/sub message service. It's basically Kafka in the cloud, so event-based and integrates well with other AWS services.
 
 #### SQS
 
@@ -162,7 +162,7 @@ Manages workflows though a fully managed service. Cost is based on state transit
 
 #### Trusted Advisor
 
-This service allows you look at your best practices, performance and fault tolerance. It is a single pane of glass into your AWS account.
+This service allows you to look at your best practices, performance and fault tolerance. It is a single pane of glass into your AWS account.
 
 #### Users in AWS
 
