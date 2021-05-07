@@ -5,8 +5,8 @@ title: AWS Basics
 publish: true
 image: /content/img/netlifyCMS/aws-bg.jpg
 tags:
-    - aws
-    - cloud
+  - aws
+  - cloud
 ---
 
 This is a quick overview of the basic tools AWS provides.
@@ -160,7 +160,7 @@ Manages workflows though a fully managed service. Cost is based on state transit
 
 ## Cloud Management
 
-### Trusted Advisor
+#### Trusted Advisor
 
 This service allows you look at your best practices, performance and fault tolerance. It is a single pane of glass into your AWS account.
 
