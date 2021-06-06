@@ -82,4 +82,4 @@ found wait of duration 1 seconds
 took 3.0027220999999997 seconds
 ```
 
-As we can see by running the waits as concurrent events we take the executiuon time + longest wait as opposed to the sum of the waits.
+As we can see by running the waits as concurrent events we take the executiuon time + longest wait as opposed to the sum of the waits. Justy by leveraging some of the power that `asyncio` provides we can remove the majority of external processing waiting from our syncrounus code. There also options to fine tune how these [primative awaitables](https://docs.python.org/3/library/asyncio-task.html#waiting-primitives) are collected and when exection is handed back to the main process.
