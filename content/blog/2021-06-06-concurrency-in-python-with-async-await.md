@@ -6,6 +6,10 @@ image: /content/img/netlifyCMS/external-content.duckduckgo.com.jpg
 tags:
   - python
 ---
+Concurrency in python has become incredibly simple since the `asyncio` package was created. Any developer, with a small restructuing of flow and an extra couple of keywords can create easily concourrent applications. With the addition of multiple processes this can easily become parallel too with the help of the [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) lib.
+
+Below is a simple demo of a task that could include an IO bound operation where the application waits on another procecess. There are a list of tasks and a simple execution in both syncrnus and asyncrounus fashion.
+
 ```python
 import asyncio
 import time
@@ -54,6 +58,7 @@ if __name__ == '__main__':
     asyncio.run(main())
 ```
 
+This prints out the below.
 
 ```
 >>> doing task one
@@ -64,16 +69,17 @@ found wait of duration 1 seconds
 >>> doing task three
 found wait of duration 3 seconds
 <<< finished task three
-took 4.0132363 seconds
+took 4.0182585 seconds
 --------------------
->>> doing task two
-<<< finished task two
 >>> doing task three
 found wait of duration 3 seconds
+>>> doing task two
+<<< finished task two
 >>> doing task one
 found wait of duration 1 seconds
-took 0.00012020000000045883 seconds
-
-Process finished with exit code 0
-
+<<< finished task one
+<<< finished task three
+took 3.0027220999999997 seconds
 ```
+
+As we can see by running the waits as concurrent events we take the executiuon time + longest wait as opposed to the sum of the waits.
