@@ -7,6 +7,7 @@ image: /content/img/netlifyCMS/cloudCastle.jpg
 tags:
   - aws
   - terraform
+  - cloud
 ---
 
 This is part 2 of the off to the cloud series, where I put together some AWS and other cloud infra as a PoC into what we
@@ -488,5 +489,3 @@ Throughout this we have taken a few "easy mode" decisions, I've commented on the
 * **Full Egress on API Containers** - Allowing egress on all ports and protocols is a hack to allow communication to
   docker hub (see above for how to mitigate this risk). By opening this up it allows anyone to egress information from
   our servers if they have access. Consider closing this if you're implementing for production.
-
-
