@@ -9,6 +9,9 @@ $link-color: $subtitle-color;
 $link-color-visited: #420064;
 $link-color-hover: $title-color;
 
+$header-footer-height: 8vh;
+$content-height: 100vh - 2*$header-footer-height;
+
 body,
 html {
     background: $primary-background-color;

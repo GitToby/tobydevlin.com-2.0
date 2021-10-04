@@ -4,61 +4,72 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
 //copy this to top image in src/containers/blogPost.tsx:23
 //linear-gradient(rgba(x, y, z, a), rgba(x, y, z, a))
 
-.blog-intro {
-}
 
 .background-img {
-    padding: 8vh 0 10vh;
-    min-height: 30vh;
-    h1 {
-        color: $primary-font-color;
-        padding-left: 5vw;
-    }
-    h3 {
-        color: $secondary-font-color;
-        padding-left: 5vw;
-    }
+  padding: 8vh 0 10vh;
+  min-height: 30vh;
+
+  h1 {
+    color: $primary-font-color;
+    padding-left: 5vw;
+  }
+
+  h3 {
+    color: $secondary-font-color;
+    padding-left: 5vw;
+  }
+}
+
+.back-button {
+  color: $secondary-font-color;
 }
 
 .blog-post {
-    align-content: center;
-    img {
-        justify-content: center;
-        min-height: 100%;
-    }
-    h1 {
-        color: $primary-font-color;
-    }
-    h3 {
-        color: $secondary-font-color;
-    }
-    p {
-        color: $primary-font-color;
-    }
+  align-content: center;
+
+  img {
+    justify-content: center;
+    min-height: 100%;
+  }
+
+  h1 {
+    color: $primary-font-color;
+  }
+
+  h3 {
+    color: $secondary-font-color;
+  }
+
+  p {
+    color: $primary-font-color;
+  }
 }
 
 .blog-post-card {
-    align-content: center;
-    img {
-        justify-content: center;
-        min-height: 100%;
+  align-content: center;
+
+  img {
+    justify-content: center;
+    min-height: 100%;
+  }
+
+  .blog-card-content {
+    padding-bottom: 1vw;
+
+    h1 {
+      color: $primary-font-color;
     }
-    .blog-card-content {
-        padding-bottom: 1vw;
-        h1 {
-            color: $primary-font-color;
-        }
 
-        .blog-header {
-            font-size: 24pt;
-        }
-
-        .blog-date {
-            color: $secondary-font-color;
-        }
-
-        p {
-            color: $primary-font-color;
-        }
+    .blog-header {
+      font-size: 24pt;
     }
+
+    .blog-date {
+      color: $secondary-font-color;
+    }
+
+    p {
+      color: $primary-font-color;
+    }
+  }
 }

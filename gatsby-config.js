@@ -28,7 +28,9 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-sass', // allows writing sass in src to style components
             options: {
-                includePaths: ['./src/']
+                sassOptions: {
+                    includePaths: ['./src/']
+                }
             }
         },
 

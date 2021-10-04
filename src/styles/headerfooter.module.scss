@@ -3,7 +3,8 @@
 .footer {
     // nav sections are actually div
     color: $primary-font-color;
-    height: 10vh;
+    height: $header-footer-height;
+    margin: 0 2vw;
 
     div {
         color: $primary-font-color;
@@ -40,5 +41,10 @@
 
 .header {
     color: $primary-font-color;
-    min-height: 10vh;
+    min-height: $header-footer-height;
+    margin: 0 2vw;
+}
+
+#loginButton {
+    color: green;
 }

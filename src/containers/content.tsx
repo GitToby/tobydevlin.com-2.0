@@ -13,7 +13,7 @@ interface ContentProps {
 const Content = (props: ContentProps) => (
     <div className={styles.contentWrapper}>
         <Header />
-        <SEO />
+        <SEO  isBlogPost/>
         <Container className={styles.contentBody}>{props.children}</Container>
         <Footer />
     </div>
