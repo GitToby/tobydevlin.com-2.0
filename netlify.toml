@@ -9,7 +9,7 @@ base = "/"
 publish = "public/"
 
 # Default build command.
-command = "npm run build"
+command = "yarn run build"
 
 # Directory with the serverless Lambda functions to deploy to AWS.
 #  functions = "project/functions/"
