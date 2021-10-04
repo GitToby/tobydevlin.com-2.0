@@ -1,16 +1,17 @@
 import React from 'react';
 import Content from './content';
-import {graphql} from 'gatsby';
+import {graphql, Link} from 'gatsby';
 import {BlogDataQuery} from '../../graphql-types';
 import BackgroundImage from 'gatsby-background-image';
 // @ts-ignore
 import * as styles from '../styles/blog.module.scss';
 
-import {Helmet} from 'react-helmet';
-
 import 'prismjs/themes/prism.css'; // remark code snipits
 import 'katex/dist/katex.min.css';
 import SEO from '../components/SEO';
+import {faGitlab} from "@fortawesome/free-brands-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowLeft, faBackward} from "@fortawesome/free-solid-svg-icons";
 
 interface BlogPostProps {
     data: BlogDataQuery;
@@ -25,9 +26,14 @@ const BlogPost = (props: BlogPostProps) => {
     return (
         <Content>
             {/* Sets the header of the blog post */}
-            <SEO pageTitle={title} pageDescription={props.data.markdownRemark.excerpt} />
+            <SEO pageTitle={title} pageDescription={props.data.markdownRemark.excerpt}  isBlogPost/>
+
+            <span className={styles.backButton}  data-aos="fade-up" data-aos-duration="600" >
+                <Link to={'/blog/'}><FontAwesomeIcon icon={faArrowLeft} /> Back to the Blog</Link>
+            </span>
+
             <hr />
-            <div className={styles.blogPost}>
+            <div className={styles.blogPost} data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                 {fluidImg ? (
                     <BackgroundImage
                         className={styles.backgroundImg}
@@ -52,6 +58,11 @@ const BlogPost = (props: BlogPostProps) => {
                     }}
                 />
             </div>
+            <hr/>
+            <span className={styles.backButton}  data-aos="fade-up" data-aos-duration="600" >
+                <Link to={'/blog/'}><FontAwesomeIcon icon={faArrowLeft} /> Back to the Blog</Link>
+            </span>
+
         </Content>
     );
 };

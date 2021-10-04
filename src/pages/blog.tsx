@@ -34,12 +34,14 @@ const Blog = (props: BlogProps) => {
 
     return (
         <Content>
-            <SEO pageTitle="Blog" />
-            <h1 data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
-                Welcome to the Blog!
-            </h1>
-            <hr />
-            <p className={style.blogIntro} data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+            <SEO pageTitle="Blog" isBlogPost={false}/>
+            <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
+                <h1>
+                    Welcome to the Blog!
+                </h1>
+                <hr/>
+            </div>
+            <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
                 I write about things sometime. I update this every now and then when I come across something I want to
                 write about. Most of these are just ramblings and notes from when I want to remember something. Its
                 mostly about tech and code and notes I find interesting.
@@ -53,35 +55,35 @@ const Blog = (props: BlogProps) => {
                         onChange={filterPosts}
                     />
                 </InputGroup>
-                <hr />
+                <hr/>
             </div>
-            {isLoading && <Spinner animation={'border'} />}
+            {isLoading && <Spinner animation={'border'}/>}
             {posts.length > 0 &&
-                posts
-                    .filter((post) => {
-                        // filter out those not specifically published yet
-                        return post.node.frontmatter.publish;
-                    })
-                    .map((edge: any, idx: number) => {
-                        const {excerpt, fields, frontmatter} = edge.node;
-                        const imgData: ImageSharpFluid | null | GatsbyImageSharpFluidFragment = edge.node.frontmatter
-                            .image
-                            ? edge.node.frontmatter.image.childImageSharp.fluid
-                            : undefined;
-                        return (
-                            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay={500 - idx * 50} key={idx}>
-                                <BlogPostCard
-                                    idx={idx}
-                                    imgData={imgData}
-                                    slug={fields.slug}
-                                    title={frontmatter.title}
-                                    date={frontmatter.date}
-                                    tags={frontmatter.tags}
-                                    excerpt={excerpt}
-                                />
-                            </div>
-                        );
-                    })}
+            posts
+                .filter((post) => {
+                    // filter out those not specifically published yet
+                    return post.node.frontmatter.publish;
+                })
+                .map((edge: any, idx: number) => {
+                    const {excerpt, fields, frontmatter} = edge.node;
+                    const imgData: ImageSharpFluid | null | GatsbyImageSharpFluidFragment = edge.node.frontmatter
+                        .image
+                        ? edge.node.frontmatter.image.childImageSharp.fluid
+                        : undefined;
+                    return (
+                        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay={500 - idx * 50} key={idx}>
+                            <BlogPostCard
+                                idx={idx}
+                                imgData={imgData}
+                                slug={fields.slug}
+                                title={frontmatter.title}
+                                date={frontmatter.date}
+                                tags={frontmatter.tags}
+                                excerpt={excerpt}
+                            />
+                        </div>
+                    );
+                })}
             {posts.length === 0 && <p>No results...</p>}
         </Content>
     );
