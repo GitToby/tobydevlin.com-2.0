@@ -14,3 +14,5 @@ reduxcache*
 
 # misc
 **/.ztr-directory
+
+yarn-error.log
