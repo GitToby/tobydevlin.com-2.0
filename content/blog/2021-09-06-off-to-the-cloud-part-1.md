@@ -1,17 +1,16 @@
 ---
-layout: post
-date: 2021-09-05T08:32:11.561Z
-title: Off To The Cloud - Part 1
-publish: true
-image: /content/img/netlifyCMS/cloudCastle.jpg
-tags:
-  - aws
-  - terraform
+layout: post date: 2021-09-05T08:32:11.561Z title: Off To The Cloud - Part 1 publish: true image:
+/content/img/netlifyCMS/cloudCastle.jpg tags:
+
+- aws
+- terraform
+
 ---
 
 This series of posts will be covering my journey to create a "traditional" web app using IAC, python and AWS. This can
 be thought of a port of a traditional enterprise app onto the cloud. The code can be found on my github in
-the [offToTheCloud project](https://github.com/GitToby/offToTheCloud), the real aws part begins at [part 1](#part-1---migrating-to-cloud).
+the [offToTheCloud project](https://github.com/GitToby/offToTheCloud), the real aws part begins
+at [part 1](/blog/off-to-the-cloud-part-1/#part-1---migrating-to-cloud).
 
 ### App Architecture
 
