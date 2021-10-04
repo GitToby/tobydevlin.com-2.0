@@ -4,7 +4,7 @@
     "author": "Toby Devlin",
     "description": "Tobydevlin.com implemented in Gatsby and Typescript.",
     "homepage": "https://tobydevlin.com",
-    "version": "2.4.0",
+    "version": "2.4.1",
     "license": "MIT",
     "readme": "./README.md",
     "scripts": {

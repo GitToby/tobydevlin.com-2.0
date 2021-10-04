@@ -51,9 +51,11 @@ const Header = (_props: HeaderProps) => {
                             );
                         })}
                 </Nav>
-                <Nav id={styles.loginButton}>
-                    <Nav.Link href="/admin">Log In</Nav.Link>
-                </Nav>
+                <div className={styles.alignLeft}>
+                    <Nav>
+                        <Nav.Link href="/admin">Log In</Nav.Link>
+                    </Nav>
+                </div>
             </Navbar.Collapse>
         </Navbar>
     );
