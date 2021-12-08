@@ -14,7 +14,7 @@ This year I have been really good, I think, and so id love to get some sick ass 
  * Something to inspire me to travel to a fantastic country, like a guide/storybook or an experience recommendation.
  * A funnny or supprisingly useful t-shirt. 
  * A sick af alarm clock, like the [LaMetric](https://lametric.com/en-GB/time/tech-specs) or the [Timebox EVO](https://www.divoom.com/products/divoom-timebox-evo)
- * [Framed print of London](https://evermade.com/collections/jenni-sparks/products/hand-drawn-map-of-london?variant=13161709830208), with a black frame!
+ * [Framed print of London](https://evermade.com/collections/jenni-sparks/products/hand-drawn-map-of-london?variant=13161709830208), with a black frame! Id Like to hng it in the sitting room for now.
 
  This is just a small list of things I think I'd like!
 
