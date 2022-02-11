@@ -294,9 +294,9 @@ vertical-align: middle;
 <p>5 rows × 21 columns</p>
 </div>
 
-Looks like our data is clean - we have 20 columns where only some don't make sense. All the values are numeric apart from date, which looks like a [ISO 8061](https://en.wikipedia.org/wiki/ISO_8601) string representation, which makes it easy for us to parse. Some of these can be classified as categories under the hood, so we could try [One Hot Encoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) them later after a baseline is expected. There are lots of years in here that could also be better off converted to relative values, a zip code that's represented as a number and lat-long values which could be geo-aizied too. Location data as a concept is layered and in this case we may be better off ignoring some of them, well come to selecting data later. For now we are not going to touch the data other than the date to get it in the right format.
+Looks like our data is clean - we have 20 columns where only some don't make sense. All the values are numeric apart from `date`, which looks like an [ISO 8061](https://en.wikipedia.org/wiki/ISO_8601) string representation, which makes it easy for us to parse. Some of these can be classified as categories under the hood, so we could try [One Hot Encoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) them later after a baseline is expected. There are lots of years in here that could also be better off converted to relative values, a zip code that's represented as a number and lat-long values which could be geo-aizied too. Location data as a concept is layered and in this case, we may be better off ignoring some of them, well come to selecting data later. For now, we are not going to touch the data other than the date to get it in the right format.
 
-One thing to note is that this set of data contains multiple sales of the same house, for example house `1000102` which sold for $280,000 in 2014 then in 2015 for $300,000. This is something that should be incorporated into the model somehow, maybe in a synthetic field further down the line wrt the price - maybe some inflation adjusted value.
+One thing to note is that this set of data contains multiple sales of the same house, for example, the house `1000102` which sold for $280,000 in 2014, then in 2015 for $300,000. This is something that should be incorporated into the model somehow, maybe in a synthetic field further down the line wrt the price - maybe some inflation-adjusted value.
 
 ```python
 df['date'] = pd.to_datetime(df['date'])
@@ -304,7 +304,7 @@ df['date'] = pd.to_datetime(df['date'])
 
 ## Data Distribution
 
-As I mentioned this is a very easy data source to begin with, and it's a nice sample to understand too. Everyone understands (apart from the market obviously, as a first time buyer) how a house should be valued at a high level; big => ££, beds => $$ location => €€.
+As I mentioned this is a very easy data source to begin with and it's a nice sample to understand too. Everyone understands (apart from the market obviously, as a first-time buyer) how a house should be valued at a high level; big => ££, beds => $$ location => €€.
 
 ```python
 df.describe()
@@ -545,22 +545,16 @@ vertical-align: middle;
 sns.heatmap(df.corr(), annot=True, fmt=".2f")
 ```
 
-    <AxesSubplot:>
-
-!\[svg\](file:///Users/toby.devlin/Downloads/house_prices/output_11_1.svg)
-
+![](/content/img/netlifyCMS/house_prices_heatmap.svg)
 ```python
 sns.pairplot(df)
 ```
-
-    <seaborn.axisgrid.PairGrid at 0x144295fa0>
-
-```python
+...incoming 
+```
 df.hist()
 plt.tight_layout()
 ```
-
-!\[svg\](file:///Users/toby.devlin/Downloads/house_prices/output_13_0.svg)
+![](/content/img/netlifyCMS/house_prices_hist.svg)
 
 Eyeballing the columns look like everything looks fine, there are some distributions are clearly one sides such as the renovation year & waterfront, view and sqft_lot. Its worth looking into these a little more, see if they'll be useful. There are some clear correlations on some vars, ignoring the price column as that's our `y` column, looks like there are sqft to sqft columns and bathrooms to sqft. Ultimately these make sense, so we will continue without removing/altering any of these.
 
