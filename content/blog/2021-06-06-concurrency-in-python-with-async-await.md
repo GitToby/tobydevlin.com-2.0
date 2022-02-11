@@ -1,15 +1,16 @@
 ---
 layout: post
-date: 2021-06-06T10:51:04.815Z
+date: 2021-06-06T10:51:04.815+00:00
 title: Concurrency in Python with Async Await
 publish: true
-image: /content/img/netlifyCMS/external-content.duckduckgo.com.jpg
+image: "/content/img/netlifyCMS/external-content.duckduckgo.com.jpg"
 tags:
-  - python
----
-Concurrency in python has become incredibly simple since the `asyncio` package was created. Any developer, with a small restructuring of flow and an extra couple of keywords can create easily concurrent applications. With the addition of multiple processes this can easily become parallel too with the help of the [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) lib.
+- python
 
-Below is a simple demo of a task that could include an IO bound operation where the application waits on another processes. There are a list of tasks and a simple execution in both synchronous and asynchronous fashion.
+---
+Concurrency in python has become incredibly simple since the `asyncio` package was created. Any developer, with a small restructuring of flow and an extra couple of keywords, can create easily concurrent applications. With the addition of multiple processes, this can easily become parallel too with the help of the [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) lib.
+
+Below is a simple demo of a task that could include an IO-bound operation where the application waits on another process. There are a list of tasks and a simple execution in both synchronous and asynchronous fashion.
 
 ```python
 import asyncio
@@ -61,26 +62,24 @@ if __name__ == '__main__':
 
 This prints out the below.
 
-```
->>> doing task one
-found wait of duration 1 seconds
-<<< finished task one
->>> doing task two
-<<< finished task two
->>> doing task three
-found wait of duration 3 seconds
-<<< finished task three
-took 4.0182585 seconds
---------------------
->>> doing task three
-found wait of duration 3 seconds
->>> doing task two
-<<< finished task two
->>> doing task one
-found wait of duration 1 seconds
-<<< finished task one
-<<< finished task three
-took 3.0027220999999997 seconds
-```
+    >>> doing task one
+    found wait of duration 1 seconds
+    <<< finished task one
+    >>> doing task two
+    <<< finished task two
+    >>> doing task three
+    found wait of duration 3 seconds
+    <<< finished task three
+    took 4.0182585 seconds
+    --------------------
+    >>> doing task three
+    found wait of duration 3 seconds
+    >>> doing task two
+    <<< finished task two
+    >>> doing task one
+    found wait of duration 1 seconds
+    <<< finished task one
+    <<< finished task three
+    took 3.0027220999999997 seconds
 
-As we can see by running the waits as concurrent events we take the execution time + longest wait as opposed to the sum of the waits. Just by leveraging some of the power that `asyncio` provides we can remove the majority of external processing waiting from our synchronous code. There also options to fine tune how these [primitive awaitables](https://docs.python.org/3/library/asyncio-task.html#waiting-primitives) are collected and when execution is handed back to the main process.
+As we can see by running the waits as concurrent events we take the execution time + longest wait as opposed to the sum of the waits. Just by leveraging some of the power that `asyncio` provides, we can remove the majority of external processing waiting from our synchronous code. There are also options to fine-tune how these [primitive awaitables](https://docs.python.org/3/library/asyncio-task.html#waiting-primitives) are collected and when execution is handed back to the main process.
