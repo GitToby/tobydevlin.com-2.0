@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-01-27 10:25:28
+date: 2022-01-27T10:25:28.000+00:00
 title: Machine Learning Platform Best Practices
 image: "/content/img/netlifyCMS/dmitry-ratushny-o33ivnpb0ri-unsplash.jpg"
 publish: false
@@ -546,14 +546,16 @@ sns.heatmap(df.corr(), annot=True, fmt=".2f")
 ```
 
 ![](/content/img/netlifyCMS/house_prices_heatmap.svg)
+
 ```python
 sns.pairplot(df)
 ```
-...incoming 
-```
-df.hist()
-plt.tight_layout()
-```
+
+...incoming
+
+    df.hist()
+    plt.tight_layout()
+
 ![](/content/img/netlifyCMS/house_prices_hist.svg)
 
 Eyeballing the columns look like everything looks fine, there are some distributions are clearly one sides such as the renovation year & waterfront, view and sqft_lot. Its worth looking into these a little more, see if they'll be useful. There are some clear correlations on some vars, ignoring the price column as that's our `y` column, looks like there are sqft to sqft columns and bathrooms to sqft. Ultimately these make sense, so we will continue without removing/altering any of these.
@@ -571,19 +573,19 @@ df['sqft_lot'].unique()
 
     array([ 5650,  7242, 10000, ...,  5813,  2388,  1076])
 
-ok looks like we do have some cats - though as they're encoded already ill just leave them. Next is to train a basic model as a baseline. As per the basic tutorial ill just use a decision tree as its relatively easy to understand.
+ok looks like we do have some cats - though as they're encoded already ill just leave them. Next is to train a basic model as a baseline. As per the basic tutorial ill just use a decision tree as it's relatively easy to understand.
 
 ## Running Experiments
 
 We will run the following experiments:
 
-1. The fist will use the default model with the original, relevant data.
+1. The first will use the default model with the original, relevant data.
 2. We will then tune the hyper-parameters for the model.
 3. Then we can apply some data transforms based on the decisions above and try steps 1) and 2) again.
 
-Its worth noting, for now, we will only be doing [regression analysis](https://en.wikipedia.org/wiki/Regression_analysis) rather than [classification](https://en.wikipedia.org/wiki/Categorization). We could bucket the properties into categories then run a classifier on them, however that can be another post.
+It's worth noting, for now, we will only be doing [regression analysis](https://en.wikipedia.org/wiki/Regression_analysis) rather than [classification](https://en.wikipedia.org/wiki/Categorization). We could bucket the properties into categories then run a classifier on them, however that can be another post.
 
-The prerequisites for doing this is to define our test/train splits and our model grading strategy, to ensure an accurate model. To do this I will define a function which can be reused.
+The prerequisites for doing this is to define our test/train splits and our model grading strategy, to ensure an accurate model. To do this I will define a function that can be reused.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -607,23 +609,21 @@ def get_data(_df=df, seed=SEED):
     return _x_train, _x_test, _y_train, _y_test
 ```
 
-When it comes to get the predictions we want to ensure we measure a relevant accuracy. There are lots of ways of doing this for regression, as discussed in [this post](https://stats.stackexchange.com/a/366824) and [in the sklearn docs](https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics). Essentially the question is the same:
+When it comes to getting the predictions we want to ensure we measure a relevant accuracy. There are lots of ways of doing this for regression, as discussed in [this post](https://stats.stackexchange.com/a/366824) and [in the sklearn docs](https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics). Essentially the question is the same:
 
 > how far away from the correct answer am I?
 
-This means answering things like penalizing "distance" from the true result, by squaring, or just getting the absolute value of the distance and how to aggregate all our guesses, such as taking averages or min/max of our deltas. In my case, I'll try 3:
+This means answering things like penalizing "distance" from the true result, by squaring or just getting the absolute value of the distance and how to aggregate all our guesses, such as taking averages or min/max of our deltas. In my case, I'll try 3:
 
 * [Mean Absolute Error](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html) ($MAE$)
 * [Max Error](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.max_error.html) ($ME$)
 * [Root Mean Squared Error](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html) ($RMSE$)
 
-Its worth noting this is just a way of comparing 2 arrays of the same length. We could go into lots of detail around skewness and how that impacts predictions on very expensive/cheap houses or the bulk of our data. Grading a regression model is really important for analysing what, exactly, you want to be predicting from a ML model.
+It's worth noting this is just a way of comparing 2 arrays of the same length. We could go into lots of detail around skewness and how that impacts predictions on very expensive/cheap houses or the bulk of our data. Grading a regression model is really important for analysing what, exactly, you want to be predicted from an ML model.
 
-In real terms this means "given all my guesses, how much did I miss the mark by if I were to guess the cost of the house?". For example if I had a $MAE$ of 50,000 I would interpret that as "given any price guess, I would be about 50,000 dollars off the mark"; a $RMSE$ is the same but would be calculated directly as errors are squared before averaging rather than just the abs value. A $ME$ would be just mean my guesses were within 50,000 dollars at all points, so that's the best upper bound I could expect (well kinda, this isn't the best analysis model). I'd expect the following:
+In real terms this means "given all my guesses, how much did I miss the mark by if I were to guess the cost of the house?". For example, if I had a $MAE$ of 50,000 I would interpret that as "given any price guess, I would be about 50,000 dollars off the mark"; a $RMSE$ is the same but would be calculated directly as errors are squared before averaging rather than just the abs value. A $ME$ would be just mean my guesses were within 50,000 dollars at all points, so that's the best upper bound I could expect (well kinda, this isn't the best analysis model). I'd expect the following:
 
-$$
-MAE < ME < RMSE
-$$
+$$ MAE < ME < RMSE $$
 
 I will also return the mean value of the true prices to compare how the model performance actually stacks up
 
@@ -647,9 +647,9 @@ def get_errors(y_true, y_predict):
     }
 ```
 
-## Modeling
+## Modelling
 
-Step one, the basic Linear Regression. Probably going to not work super well as the data is likely non-linear
+Step one, is the basic Linear Regression. Probably going to not work super well as the data is likely non-linear
 
 ```python
 from sklearn.linear_model import LinearRegression
@@ -681,7 +681,7 @@ linear_result
 
 results: `{'MAE': 162845.46915721806, 'ME': 4157289.8687455133, 'MSE': 56961700417.27493}` and there it is
 
-From here lets try a bunch of other regression modeling techniques to see what the best default is.
+From here let's try a bunch of other regression modelling techniques to see what the best default is.
 
 ```python
 import time
@@ -747,11 +747,7 @@ models_1_df.set_index('RMSE_rank', inplace=True)
 models_1_df.sort_index()
 ```
 
-<div>
-<style scoped>
-.dataframe tbody tr th:only-of-type {
-vertical-align: middle;
-}
+<div> <style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -763,185 +759,57 @@ vertical-align: middle;
 
 </style>
 
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>model</th>
-<th>time_taken</th>
-<th>MAE</th>
-<th>MAE_ratio</th>
-<th>ME</th>
-<th>ME_ratio</th>
-<th>RMSE</th>
-<th>RMSE_ratio</th>
-<th>y_true_mean</th>
-</tr>
-<tr>
-<th>RMSE_rank</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>1.0</th>
-<td>RandomForestRegressor(random_state=1234)</td>
-<td>8.995612e+09</td>
-<td>6.764377e+04</td>
-<td>0.125693</td>
-<td>2.573786e+06</td>
-<td>4.782518</td>
-<td>1.261181e+05</td>
-<td>0.234348</td>
-<td>538165.385085</td>
-</tr>
-<tr>
-<th>2.0</th>
-<td>GradientBoostingRegressor(random_state=1234)</td>
-<td>2.714285e+09</td>
-<td>7.599187e+04</td>
-<td>0.141205</td>
-<td>2.412803e+06</td>
-<td>4.483386</td>
-<td>1.321257e+05</td>
-<td>0.245511</td>
-<td>538165.385085</td>
-</tr>
-<tr>
-<th>3.0</th>
-<td>DecisionTreeRegressor(random_state=1234)</td>
-<td>1.539032e+08</td>
-<td>9.997077e+04</td>
-<td>0.185762</td>
-<td>2.375000e+06</td>
-<td>4.413142</td>
-<td>1.838886e+05</td>
-<td>0.341695</td>
-<td>538165.385085</td>
-</tr>
-<tr>
-<th>4.0</th>
-<td>LinearRegression()</td>
-<td>NaN</td>
-<td>1.628531e+05</td>
-<td>0.302608</td>
-<td>4.157761e+06</td>
-<td>7.725805</td>
-<td>2.386751e+05</td>
-<td>0.443498</td>
-<td>538165.385085</td>
-</tr>
-<tr>
-<th>5.0</th>
-<td>SVR()</td>
-<td>1.045844e+10</td>
-<td>2.194880e+05</td>
-<td>0.407845</td>
-<td>6.612500e+06</td>
-<td>12.287115</td>
-<td>3.619659e+05</td>
-<td>0.672592</td>
-<td>538165.385085</td>
-</tr>
-<tr>
-<th>6.0</th>
-<td>KNeighborsRegressor()</td>
-<td>9.937745e+08</td>
-<td>2.635385e+05</td>
-<td>0.489698</td>
-<td>6.581384e+06</td>
-<td>12.229297</td>
-<td>3.904825e+05</td>
-<td>0.725581</td>
-<td>538165.385085</td>
-</tr>
-<tr>
-<th>7.0</th>
-<td>GaussianProcessRegressor(random_state=1234)</td>
-<td>2.787575e+10</td>
-<td>5.380977e+05</td>
-<td>0.999874</td>
-<td>7.062500e+06</td>
-<td>13.123289</td>
-<td>6.425287e+05</td>
-<td>1.193924</td>
-<td>538165.385085</td>
-</tr>
-<tr>
-<th>8.0</th>
-<td>MLPRegressor(random_state=1234)</td>
-<td>1.934091e+09</td>
-<td>1.452784e+11</td>
-<td>269951.244210</td>
-<td>1.470485e+11</td>
-<td>273240.370509</td>
-<td>1.452819e+11</td>
-<td>269957.667427</td>
-<td>538165.385085</td>
-</tr>
-</tbody>
-</table>
-</div>
+<table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> <th></th> <th>model</th> <th>time_taken</th> <th>MAE</th> <th>MAE_ratio</th> <th>ME</th> <th>ME_ratio</th> <th>RMSE</th> <th>RMSE_ratio</th> <th>y_true_mean</th> </tr> <tr> <th>RMSE_rank</th> <th></th> <th></th> <th></th> <th></th> <th></th> <th></th> <th></th> <th></th> <th></th> </tr> </thead> <tbody> <tr> <th>1.0</th> <td>RandomForestRegressor(random_state=1234)</td> <td>8.995612e+09</td> <td>6.764377e+04</td> <td>0.125693</td> <td>2.573786e+06</td> <td>4.782518</td> <td>1.261181e+05</td> <td>0.234348</td> <td>538165.385085</td> </tr> <tr> <th>2.0</th> <td>GradientBoostingRegressor(random_state=1234)</td> <td>2.714285e+09</td> <td>7.599187e+04</td> <td>0.141205</td> <td>2.412803e+06</td> <td>4.483386</td> <td>1.321257e+05</td> <td>0.245511</td> <td>538165.385085</td> </tr> <tr> <th>3.0</th> <td>DecisionTreeRegressor(random_state=1234)</td> <td>1.539032e+08</td> <td>9.997077e+04</td> <td>0.185762</td> <td>2.375000e+06</td> <td>4.413142</td> <td>1.838886e+05</td> <td>0.341695</td> <td>538165.385085</td> </tr> <tr> <th>4.0</th> <td>LinearRegression()</td> <td>NaN</td> <td>1.628531e+05</td> <td>0.302608</td> <td>4.157761e+06</td> <td>7.725805</td> <td>2.386751e+05</td> <td>0.443498</td> <td>538165.385085</td> </tr> <tr> <th>5.0</th> <td>SVR()</td> <td>1.045844e+10</td> <td>2.194880e+05</td> <td>0.407845</td> <td>6.612500e+06</td> <td>12.287115</td> <td>3.619659e+05</td> <td>0.672592</td> <td>538165.385085</td> </tr> <tr> <th>6.0</th> <td>KNeighborsRegressor()</td> <td>9.937745e+08</td> <td>2.635385e+05</td> <td>0.489698</td> <td>6.581384e+06</td> <td>12.229297</td> <td>3.904825e+05</td> <td>0.725581</td> <td>538165.385085</td> </tr> <tr> <th>7.0</th> <td>GaussianProcessRegressor(random_state=1234)</td> <td>2.787575e+10</td> <td>5.380977e+05</td> <td>0.999874</td> <td>7.062500e+06</td> <td>13.123289</td> <td>6.425287e+05</td> <td>1.193924</td> <td>538165.385085</td> </tr> <tr> <th>8.0</th> <td>MLPRegressor(random_state=1234)</td> <td>1.934091e+09</td> <td>1.452784e+11</td> <td>269951.244210</td> <td>1.470485e+11</td> <td>273240.370509</td> <td>1.452819e+11</td> <td>269957.667427</td> <td>538165.385085</td> </tr> </tbody> </table> </div>
 
-Looks like the defaults for a few models are much more effective than others. Namely, the Random Forrest model. Its worth looking at what each of these models actually does. I've selected models which take modeling from different paradigms to show that different approaches work better than others, and can depend on the underlying data set. In depth understanding of the model will help selection given a sets of data, the [sklearn docs](https://scikit-learn.org/stable/supervised_learning.html#supervised-learning) group supervised learning approaches quite well.
+Looks like the defaults for a few models are much more effective than others. Namely, the Random Forrest model. It's worth looking at what each of these models actually does. I've selected models which take modelling from different paradigms to show that different approaches work better than others, and can depend on the underlying data set. An in-depth understanding of the model will help selection given a set of data, the [sklearn docs](https://scikit-learn.org/stable/supervised_learning.html#supervised-learning) group supervised learning approaches quite well.
 
 Looking at these models in more detail, descending wrt `RMSE_rank`, with default parameters:
 
 ### 8) Nural Networks - [MLPRegressor](https://scikit-learn.org/stable/modules/neural_networks_supervised.html#multi-layer-perceptron)
 
-Nural networks are pretty advanced tools that are based on the concept of layers of neurons being connected together via activation functions. They typically need to be tuned pretty heavily; its no surprise that this model did the works with defaults. Typically, using more in depth libraries such as [Keras](https://keras.io/) or [PyTorch](https://pytorch.org/) are more suitable than SKLearns Multi Layer tool especially for more detailed models. This example is VERY off, thanks to the defaults provided.
+Nural networks are pretty advanced tools that are based on the concept of layers of neurons being connected together via activation functions. They typically need to be tuned pretty heavily; it's no surprise that this model did the works with defaults. Typically, using more in-depth libraries such as [Keras](https://keras.io/) or [PyTorch](https://pytorch.org/) is more suitable than SKLearns Multi-Layer tool especially for more detailed models. This example is VERY off, thanks to the defaults provided.
 
 ### 7) Probabilistic - [GaussianProcessRegressor](https://scikit-learn.org/stable/modules/gaussian_process.html#gaussian-process-regression-gpr)
 
-A Gaussian process is pretty heavyweight statistical tool to estimate a set of observations that assumes you can correlate them over multidimensional normal distibutions. To be honest I don't understand the process in much detail since I haven't studied classical statistics in much depth. Long story short, it's good at fitting when your dimensions are inherently related to these distributions and, while lacking accuracy in high dimensions, can be trained quickly with approximation methods.
+A Gaussian process is a pretty heavyweight statistical tool to estimate a set of observations that assumes you can correlate them over multidimensional normal distributions. To be honest I don't understand the process in much detail since I haven't studied classical statistics in much depth. Long story short, it's good at fitting when your dimensions are inherently related to these distributions and, while lacking accuracy in high dimensions, can be trained quickly with approximation methods.
 
 ### 6) Grouping - [KNeighborsRegressor](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors)
 
-Nearest neighbors algorithms try to locate other samples in the vector space that is represented by the dimensionality of the data. For example, we are using 19 dimensions at this point (as per the `get_data()` function). This means we are calculating a distance metric for all the records against all other records and keeping a select number of the closest ones to predict output value.
+Nearest neighbours algorithms try to locate other samples in the vector space that is represented by the dimensionality of the data. For example, we are using 19 dimensions at this point (as per the `get_data()` function). This means we are calculating a distance metric for all the records against all other records and keeping a select number of the closest ones to predict output value.
 
 ### 5) Support Vector Machines - [SVR](https://scikit-learn.org/stable/modules/svm.html#regression)
 
-SVMs are really powerful tools that essentially split up your problem space into dimensions and draw a hyperplane across them, allowing you to divide or predict observations. They are incredibly powerful as they're not limited by dimensionality and can be [kernalized](https://en.wikipedia.org/wiki/Kernel_method) to enable any function to be used as predictors, making them many times more powerful than even transformed linear regression models. They do need to be trained in a more complex way than the defaults, which we will come on to.
+SVMs are really powerful tools that essentially split up your problem space into dimensions and draw a hyperplane across them, allowing you to divide or predict observations. They are incredibly powerful as they're not limited by dimensionality and can be [kernelized](https://en.wikipedia.org/wiki/Kernel_method) to enable any function to be used as predictors, making them many times more powerful than even transformed linear regression models. They do need to be trained in a more complex way than the defaults, which we will come on to.
 
 ### 4) Linear Model - [LinearRegression](https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares)
 
-Its worth noting that this OLS model is a very simple regression and hence would not realistically be used unless the data is very simple. Many linear models can be generalized to produce [polynomial regression models](https://scikit-learn.org/stable/modules/linear_model.html#polynomial-regression-extending-linear-models-with-basis-functions), typically with some sort of transform. In this case I haven't tried any higher order regressions but there may be good reason to try as they're quick to fit and relationships in data rarely are linear and could be log/exp or even sin/tangential leading to quick wins; angular/geometric patterns are notoriusly hard to fix with these methods.
+It's worth noting that this OLS model is a very simple regression and hence would not realistically be used unless the data is very simple. Many linear models can be generalized to produce [polynomial regression models](https://scikit-learn.org/stable/modules/linear_model.html#polynomial-regression-extending-linear-models-with-basis-functions), typically with some sort of transform. In this case, I haven't tried any higher-order regressions but there may be a good reason to try as they're quick to fit and relationships in data rarely are linear and could be log/exp or even sin/tangential leading to quick wins; angular/geometric patterns are notoriously hard to fix with these methods.
 
-### 3) Tree Based - [DecisionTreeRegressor](https://scikit-learn.org/stable/modules/tree.html#regression)
+### 3) Tree-Based - [DecisionTreeRegressor](https://scikit-learn.org/stable/modules/tree.html#regression)
 
-Decision trees are understandable and intuitive as models go and can all be visualized as a result using [open source, graphviz, tooling](https://scikit-learn.org/stable/modules/generated/sklearn.tree.export_graphviz.html#sklearn.tree.export_graphviz). The way they are created is by splitting the feature space at sections defined by a loss function. This leads to some quick times to generate and is relative to the number of nodes needing training. Unfortunately they can be liable to under/over-fitting with the wrong hyper parameters so tuning & data balancing proir to fitting can be important. [This blog post](https://towardsdatascience.com/almost-everything-you-need-to-know-about-decision-trees-with-code-dc026172a284) has some superb detail.
+Decision trees are understandable and intuitive as models go and can all be visualized as a result using [open source, graphviz, tooling](https://scikit-learn.org/stable/modules/generated/sklearn.tree.export_graphviz.html#sklearn.tree.export_graphviz). The way they are created is by splitting the feature space at sections defined by a loss function. This leads to some quick times to generate and is relative to the number of nodes needing training. Unfortunately, they can be liable to under/over-fitting with the wrong hyperparameters so tuning & data balancing prior to fitting can be important. [This blog post](https://towardsdatascience.com/almost-everything-you-need-to-know-about-decision-trees-with-code-dc026172a284) has some superb detail.
 
-### 2) Tree Based - [GradientBoostingRegressor](https://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting)
+### 2) Tree-Based - [GradientBoostingRegressor](https://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting)
 
-Gradient boosting sits in a type of models known as _boosting_ ensemble models, these take into account multiple predictors one by one to reduce model bias. Sort of like a recommendation algorithm for sub algorithms. The [default algorthm used for the heuristic](https://scikit-learn.org/stable/modules/ensemble.html#id16) is actually a decision tree, so it makes sense to have outperformed the single decision tree.
+Gradient boosting sits in a type of model known as _boosting_ ensemble models, these take into account multiple predictors one by one to reduce model bias. Sort of like a recommendation algorithm for sub algorithms. The [default algorithm used for the heuristic](https://scikit-learn.org/stable/modules/ensemble.html#id16) is actually a decision tree, so it makes sense to have outperformed the single decision tree.
 
-### 1) Tree based - [RandomForestRegressor](https://scikit-learn.org/stable/modules/ensemble.html#forests-of-randomized-trees)
+### 1) Tree-based - [RandomForestRegressor](https://scikit-learn.org/stable/modules/ensemble.html#forests-of-randomized-trees)
 
-This is another type of ensemble model, however this is of the second type, an _averaging_ model. It works by taking the average over multiple models. This seems to have worked the best due to the default parameters working very well for a baseline model. The concept of multiple decision trees, each with their own errors, being combined is the hope that these errors may cancel each other out over the course of many trees, forming a more accurate prediction.
+This is another type of ensemble model. However, this is of the second type, an _averaging_ model. It works by taking the average over multiple models. This seems to have worked the best due to the default parameters working very well for a baseline model. The concept of multiple decision trees, each with their own errors, being combined is the hope that these errors may cancel each other out over the course of many trees, forming a more accurate prediction.
 
-Overall we have learned that the best way, for **simple** models, is combinations. However, I am convinced we can create a much more accurate regression model from some of the more simple predictors we have tried already with parameter tuning & data selection. Ideally this would be considered while making an informed decision from the data and maybe running a few heuristic appropriators for model selection. Ultimately the flow of ML engineers should follow a similar pattern:
+Overall we have learned that the best way, for **simple** models, is combinations. However, I am convinced we can create a much more accurate regression model from some of the more simple predictors we have tried already with parameter tuning & data selection. Ideally, this would be considered while making an informed decision from the data and maybe running a few heuristic appropriators for model selection. Ultimately the flow of ML engineers should follow a similar pattern:
 
 1. Solution space is well-defined with success metrics
 2. Data is ingested
 3. Data is analysed and munging steps defined
 4. Initial model testing
+   1. Intelligent selection of model types trialled
+   2. Synthetic fields are created where it makes sense
+   3. Model hyperparameter tuning and cross-validations applied
+5. Downstream marts produced with clear tests, cleaning and synthetic fields replicated
+6. Production Models trained & versioned artefacts produced
+7. Models deployed and monitored
 
-* Intelligent selection of model types trialed
-* Synthetic fields created where it makes sense
-* Model hyperparameter tuning and cross validations applied
-
-1. Downstream marts produced with clear tests, cleaning and synthetic fields replicated
-2. Production Models trained & versioned artefacts produced
-3. Models deployed and monitored
-
-Overall, of this long list, we were mostly focused on the first 4 stages; which makes sense. This post makes use of understanding models and reflections of these basic understandings on predictions. The next stage will be to really start completing the models and narrowing down on a production-able model. To do this I'd like to apply this to previous models/data in this post and also look to find data which would be valuable to analyse in the wider world.
+Overall, of this long list, we were mostly focused on the first 4 stages; which makes sense. This post makes use of understanding models and reflections of these basic understandings on predictions. The next stage will be to really start completing the models and narrowing down on a production-able model. To do this I'd like to apply this to previous models/data in this post and also look to find data that would be valuable to analyse in the wider world.
 
 Next big learning: https://www.kaggle.com/learn/intro-to-deep-learning
