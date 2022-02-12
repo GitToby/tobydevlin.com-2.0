@@ -141,7 +141,7 @@ df.sort_values('id').head()
 
 Looks like our data is clean - we have 20 columns where only some don't make sense. All the values are numeric apart from date, which looks like a [ISO 8061](https://en.wikipedia.org/wiki/ISO_8601) string representation, which makes it easy for us to parse. Some of these can be classified as categories under the hood, so we could try [One Hot Encoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) them later after a baseline is expected. There are lots of years in here that could also be better off converted to relative values, a zip code that's represented as a number and lat-long values which could be geo-aizied too. Location data as a concept is layered and in this case we may be better off ignoring some of them, well come to selecting data later. For now we are not going to touch the data other than the date to get it in the right format.
 
-One thing to note is that this set of data contains multiple sales of the same house, for example house `1000102` which sold for \\$280,000 in 2014 then in 2015 for \$300,000. This is something that should be incorporated into the model somehow, maybe in a synthetic field further down the line wrt the price - maybe some inflation adjusted value.
+One thing to note is that this set of data contains multiple sales of the same house, for example house `1000102` which sold for \$280,000 in 2014 then in 2015 for \$300,000. This is something that should be incorporated into the model somehow, maybe in a synthetic field further down the line wrt the price - maybe some inflation adjusted value.
 
 
 
