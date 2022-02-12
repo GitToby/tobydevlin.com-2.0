@@ -1,16 +1,15 @@
 ---
 layout: post
 date: 2022-01-27T18:21:52.316Z
-title: Dear Santa
-publish: false
+title: Machine Learning as a Guide
+publish: true
 image: /content/img/netlifyCMS/unsplash-chair-man.jpeg
 tags: 
  - python
  - ml
 ---
-# Machine Learning Platform Best Practices
 
-I've not written about my fore into Machine Learning at all. As far as my professional role as a Senior Engineer goes, I've at least dabbled in most mainstream tools out there. And as a Senior Data Engineer, I've focused recently on the applications of tools in the data space, including modelling, munging and machine learning. This post is more of a refresher - something I can refer back to in order to quickly get back running on a project where at least a simplistic overview is required.
+I've not written about my experience in Machine Learning at all. As a Student I studied the algorithms and proofs to back up many modeling techniques. As far as my professional role as a Senior Engineer goes, I've at least dabbled in most mainstream tools out there. And as a Senior Data Engineer, I've focused recently on the applications of tools in the data space, including modelling, munging and machine learning. This post is more of a refresher - something I can refer back to in order to quickly get back running on a project where at least a simplistic overview is required.
 
 So what will I detail in the end? I'd like to show that ML in this post (and in most rudimentary models) is essentially curve fitting for lack of better words. The machine is learning how to predict a value `y,` based on a set of input variables `x`. This post isn't meant to break the bounds of ML, here `x` is just a tuple of floats, a set of numeric values that describe the underlying data. We don't go into handling categories or more structured, contextual data such as time-series or natural language.
 
@@ -132,7 +131,7 @@ df.sort_values('id').head()
 ```
 
 |      |      id | date                |   price |   bedrooms |   bathrooms |   sqft_living |   sqft_lot |   floors |   waterfront |   view |   condition |   grade |   sqft_above |   sqft_basement |   yr_built |   yr_renovated |   zipcode |     lat |     long |   sqft_living15 |   sqft_lot15 |
-|-----:|--------:|:--------------------|--------:|-----------:|------------:|--------------:|-----------:|---------:|-------------:|-------:|------------:|--------:|-------------:|----------------:|-----------:|---------------:|----------:|--------:|---------:|----------------:|-------------:|
+|:----:|:-------:|:--------------------|:-------:|:----------:|:-----------:|:-------------:|:----------:|:--------:|:------------:|:------:|:-----------:|:-------:|:------------:|:---------------:|:----------:|:--------------:|:---------:|:-------:|:--------:|:---------------:|:------------:|
 | 2497 | 1000102 | 2015-04-22 00:00:00 |  300000 |          6 |        3    |          2400 |       9373 |      2   |            0 |      0 |           3 |       7 |         2400 |               0 |       1991 |              0 |     98002 | 47.3262 | -122.214 |            2060 |         7316 |
 | 2496 | 1000102 | 2014-09-16 00:00:00 |  280000 |          6 |        3    |          2400 |       9373 |      2   |            0 |      0 |           3 |       7 |         2400 |               0 |       1991 |              0 |     98002 | 47.3262 | -122.214 |            2060 |         7316 |
 | 6735 | 1200019 | 2014-05-08 00:00:00 |  647500 |          4 |        1.75 |          2060 |      26036 |      1   |            0 |      0 |           4 |       8 |         1160 |             900 |       1947 |              0 |     98166 | 47.4444 | -122.351 |            2590 |        21891 |
@@ -158,7 +157,7 @@ df.describe()
 ```
 
 |       |              id |        price |     bedrooms |    bathrooms |   sqft_living |        sqft_lot |       floors |     waterfront |         view |    condition |       grade |   sqft_above |   sqft_basement |   yr_built |   yr_renovated |   zipcode |          lat |         long |   sqft_living15 |   sqft_lot15 |
-|:------|----------------:|-------------:|-------------:|-------------:|--------------:|----------------:|-------------:|---------------:|-------------:|-------------:|------------:|-------------:|----------------:|-----------:|---------------:|----------:|-------------:|-------------:|----------------:|-------------:|
+|:------|:---------------:|:------------:|:------------:|:------------:|:-------------:|:---------------:|:------------:|:--------------:|:------------:|:------------:|:-----------:|:------------:|:---------------:|:----------:|:--------------:|:---------:|:------------:|:------------:|:---------------:|:------------:|
 | count | 21613           |  21613       | 21613        | 21613        |     21613     | 21613           | 21613        | 21613          | 21613        | 21613        | 21613       |    21613     |       21613     | 21613      |     21613      | 21613     | 21613        | 21613        |       21613     |      21613   |
 | mean  |     4.5803e+09  | 540088       |     3.37084  |     2.11476  |      2079.9   | 15107           |     1.49431  |     0.00754176 |     0.234303 |     3.40943  |     7.65687 |     1788.39  |         291.509 |  1971.01   |        84.4023 | 98077.9   |    47.5601   |  -122.214    |        1986.55  |      12768.5 |
 | std   |     2.87657e+09 | 367127       |     0.930062 |     0.770163 |       918.441 | 41420.5         |     0.539989 |     0.0865172  |     0.766318 |     0.650743 |     1.17546 |      828.091 |         442.575 |    29.3734 |       401.679  |    53.505 |     0.138564 |     0.140828 |         685.391 |      27304.2 |
@@ -173,7 +172,7 @@ heatmap = sns.heatmap(df.corr(), annot=True, fmt=".2f")
 heatmap
 ```
 
-![png](content/img/netlifyCMS/house_prices_heatmap.png)
+![png](/content/img/netlifyCMS/house_prices_heatmap.png)
 
 
 ```python
@@ -181,14 +180,14 @@ pairplot = sns.pairplot(df)
 pairplot
 ```
 
-![png](content/img/netlifyCMS/house_prices_pairplot.png)
+![png](/content/img/netlifyCMS/house_prices_pairplot.png)
 
 ```python
 hist = df.hist()
 plt.tight_layout()
 ```
 
-![png](content/img/netlifyCMS/house_prices_hist.png)
+![png](/content/img/netlifyCMS/house_prices_hist.png)
 
 Eyeballing the columns look like everything looks fine, there are some distributions are clearly one sides such as the renovation year & waterfront, view and sqft_lot. Its worth looking into these a little more, see if they'll be useful. There are some clear correlations on some vars, ignoring the price column as that's our `y` column, looks like there are sqft to sqft columns and bathrooms to sqft. Ultimately these make sense, so we will continue without removing/altering any of these.
 
@@ -447,16 +446,16 @@ models_1_df['RMSE_rank'] = models_1_df['RMSE_ratio'].rank()
 models_1_df.set_index('RMSE_rank', inplace=True)
 models_1_df.sort_index()
 ```
-|   RMSE_rank | model                                        |    time_taken |              MAE |   MAE_ratio |          ME |     ME_ratio |             RMSE |   RMSE_ratio |   y_true_mean |
-|------------:|:---------------------------------------------|--------------:|-----------------:|------------:|------------:|-------------:|-----------------:|-------------:|--------------:|
-|           1 | RandomForestRegressor(random_state=1234)     |   8.90942e+09 |  67567.8         | 0.125552    | 2.41883e+06 |  4.49458     | 125670           |  0.233516    |        538165 |
-|           2 | GradientBoostingRegressor(random_state=1234) |   2.66899e+09 |  76000           | 0.141221    | 2.4128e+06  |  4.48339     | 132250           |  0.245743    |        538165 |
-|           3 | DecisionTreeRegressor(random_state=1234)     |   1.49893e+08 |  99986.1         | 0.185791    | 2.375e+06   |  4.41314     | 183278           |  0.34056     |        538165 |
-|           4 | LinearRegression()                           | nan           | 162853           | 0.302608    | 4.15776e+06 |  7.7258      | 238675           |  0.443498    |        538165 |
-|           5 | SVR()                                        |   1.07078e+10 | 219488           | 0.407845    | 6.6125e+06  | 12.2871      | 361966           |  0.672592    |        538165 |
-|           6 | KNeighborsRegressor()                        |   1.12232e+09 | 263538           | 0.489698    | 6.58138e+06 | 12.2293      | 390482           |  0.725581    |        538165 |
-|           7 | GaussianProcessRegressor(random_state=1234)  |   4.29049e+10 | 538098           | 0.999874    | 7.0625e+06  | 13.1233      | 642529           |  1.19392     |        538165 |
-|           8 | MLPRegressor(random_state=1234)              |   2.74833e+09 |      9.43668e+12 | 1.75349e+07 | 9.55167e+12 |  1.77486e+07 |      9.43691e+12 |  1.75353e+07 |        538165 |
+|  RMSE_rank  | model                                        |  time_taken   |       MAE        |  MAE_ratio  |          ME |     ME_ratio |             RMSE |   RMSE_ratio |   y_true_mean |
+|:-----------:|----------------------------------------------|:-------------:|:----------------:|:-----------:|:-----------:|:------------:|:----------------:|:------------:|:-------------:|
+|      1      | RandomForestRegressor(random_state=1234)     |  8.90942e+09  |     67567.8      |  0.125552   | 2.41883e+06 |  4.49458     | 125670           |  0.233516    |        538165 |
+|      2      | GradientBoostingRegressor(random_state=1234) |  2.66899e+09  |      76000       |  0.141221   | 2.4128e+06  |  4.48339     | 132250           |  0.245743    |        538165 |
+|      3      | DecisionTreeRegressor(random_state=1234)     |  1.49893e+08  |     99986.1      |  0.185791   | 2.375e+06   |  4.41314     | 183278           |  0.34056     |        538165 |
+|      4      | LinearRegression()                           |      nan      |      162853      |  0.302608   | 4.15776e+06 |  7.7258      | 238675           |  0.443498    |        538165 |
+|      5      | SVR()                                        |  1.07078e+10  |      219488      |  0.407845   | 6.6125e+06  | 12.2871      | 361966           |  0.672592    |        538165 |
+|      6      | KNeighborsRegressor()                        |  1.12232e+09  |      263538      |  0.489698   | 6.58138e+06 | 12.2293      | 390482           |  0.725581    |        538165 |
+|      7      | GaussianProcessRegressor(random_state=1234)  |  4.29049e+10  |      538098      |  0.999874   | 7.0625e+06  | 13.1233      | 642529           |  1.19392     |        538165 |
+|      8      | MLPRegressor(random_state=1234)              |  2.74833e+09  |   9.43668e+12    | 1.75349e+07 | 9.55167e+12 |  1.77486e+07 |      9.43691e+12 |  1.75353e+07 |        538165 |
 
 Looks like the defaults for a few models are much more effective than others. Namely, the Random Forrest model. It's worth looking at what each of these models actually does. I've selected models which take modelling from different paradigms to show that different approaches work better than others, and can depend on the underlying data set. An in-depth understanding of the model will help selection given a set of data, the [sklearn docs](https://scikit-learn.org/stable/supervised_learning.html#supervised-learning) group supervised learning approaches quite well.
 
