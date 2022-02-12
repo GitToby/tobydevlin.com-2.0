@@ -11,7 +11,7 @@ const Index = () => (
             <h1 id={styles.title}>I'm Toby</h1>
         </div>
         <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
-            <h2 id={styles.subtitle}>a London based full stack engineer</h2>
+            <h2 id={styles.subtitle}>a London based full stack data engineer</h2>
         </div>
         <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
             <p>
