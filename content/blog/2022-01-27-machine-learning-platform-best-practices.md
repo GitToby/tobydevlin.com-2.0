@@ -1,3 +1,13 @@
+---
+layout: post
+date: 2022-01-27T18:21:52.316Z
+title: Dear Santa
+publish: false
+image: /content/img/netlifyCMS/unsplash-chair-man.jpeg
+tags: 
+ - python
+ - ml
+---
 # Machine Learning Platform Best Practices
 
 I've not written about my fore into Machine Learning at all. As far as my professional role as a Senior Engineer goes, I've at least dabbled in most mainstream tools out there. And as a Senior Data Engineer, I've focused recently on the applications of tools in the data space, including modelling, munging and machine learning. This post is more of a refresher - something I can refer back to in order to quickly get back running on a project where at least a simplistic overview is required.
@@ -163,7 +173,7 @@ heatmap = sns.heatmap(df.corr(), annot=True, fmt=".2f")
 heatmap
 ```
 
-![png](/content/img/netlifyCMS/house_prices_heatmap.png)
+![png](content/img/netlifyCMS/house_prices_heatmap.png)
 
 
 ```python
@@ -171,14 +181,14 @@ pairplot = sns.pairplot(df)
 pairplot
 ```
 
-![png](/content/img/netlifyCMS/house_prices_pairplot.png)
+![png](content/img/netlifyCMS/house_prices_pairplot.png)
 
 ```python
 hist = df.hist()
 plt.tight_layout()
 ```
 
-![png](/content/img/netlifyCMS/house_prices_hist.png)
+![png](content/img/netlifyCMS/house_prices_hist.png)
 
 Eyeballing the columns look like everything looks fine, there are some distributions are clearly one sides such as the renovation year & waterfront, view and sqft_lot. Its worth looking into these a little more, see if they'll be useful. There are some clear correlations on some vars, ignoring the price column as that's our `y` column, looks like there are sqft to sqft columns and bathrooms to sqft. Ultimately these make sense, so we will continue without removing/altering any of these.
 
