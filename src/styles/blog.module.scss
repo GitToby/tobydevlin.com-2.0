@@ -73,3 +73,36 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
     }
   }
 }
+
+table {
+
+  align-self: center;
+
+  border-collapse: collapse;
+  overflow-y: visible;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+  thead tr {
+    background-color: #5082d4;
+    color: #ffffff;
+    text-align: left;
+    th{
+      padding: 0 5px 0 0;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #dddddd;
+    }
+
+    tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+  }
+  td {
+    padding: 0 3px;
+  }
+}
