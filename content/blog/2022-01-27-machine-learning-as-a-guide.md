@@ -1,12 +1,12 @@
 ---
 layout: post
 date: 2022-01-27T18:21:52.316Z
-title: Machine Learning as a Guide
+title: "Machine Learning Starting Blocks "
 publish: true
 image: /content/img/netlifyCMS/unsplash-chair-man.jpeg
-tags: 
- - python
- - ml
+tags:
+  - python
+  - ml
 ---
 
 I've not written about my experience in Machine Learning at all. As a Student I studied the algorithms and proofs to back up many modeling techniques. As far as my professional role as a Senior Engineer goes, I've at least dabbled in most mainstream tools out there. And as a Senior Data Engineer, I've focused recently on the applications of tools in the data space, including modelling, munging and machine learning. This post is more of a refresher - something I can refer back to in order to quickly get back running on a project where at least a simplistic overview is required.
