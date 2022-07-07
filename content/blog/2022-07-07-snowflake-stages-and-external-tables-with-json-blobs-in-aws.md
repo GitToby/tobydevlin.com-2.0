@@ -33,9 +33,8 @@ data:
 
 ```sql
 USE ROLE sysadmin;
--- CREATE OR REPLACE DATABASE stages_and_external_tables_poc;
--- USE DATABASE stages_and_external_tables_poc;
-USE DATABASE dev_tobydevlin_sources;
+CREATE OR REPLACE DATABASE stages_and_external_tables_poc;
+USE DATABASE stages_and_external_tables_poc;
 CREATE SCHEMA IF NOT EXISTS external_poc;
 USE SCHEMA external_poc;
 ```
