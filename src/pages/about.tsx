@@ -32,7 +32,7 @@ const About = (props: AboutProps) => {
             </h1>
             <hr />
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
-                I'm a London based full stack developer, originally from South England but studied in Wales and now live
+                I'm a London based full stack consultant, originally from south England but studied in Wales and now live
                 in London. I like to cycle, explore and eat food. Sometimes, when the weather is right, I like to take
                 time to write code that does stuff.
             </p>
@@ -46,10 +46,9 @@ const About = (props: AboutProps) => {
             </div>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
                 Not enjoying writing very much, I studied mathematics at Cardiff University before moving on to learn
-                software development. Python is my go to language, but I also like responsive, dynamic UIs in JavaScript
-                (Typescript for type safety though) and my day job is writing Java and proprietary languages. If I had
-                to do it over I'd get started with Rust faster! After a while I'll have projects for each of these, but
-                for now you'll have to trust I know what im talking about.
+                software development. Python & Java are my go to languages, but I also like responsive, dynamic UIs in JavaScript
+                (Typescript for type safety though). If I had to do it over I'd get started with Rust faster! After a while 
+                I'll have projects for each of these, but for now you'll have to trust I know what im talking about.
             </p>
             <div
                 data-aos={blockAnimation}
