@@ -61,7 +61,7 @@ const Portfolio: FunctionComponent<PortfolioProps> = (props) => {
     ];
     return (
         <Content>
-            <SEO pageTitle="Portfolio" />
+            <SEO pageTitle="Portfolio" isBlogPost={false}/>
             <h1 data-aos={titleAnimation} data-aos-duration={titleAnimationDuration} data-aos-delay="0">
                 Other Projects I've Created.
             </h1>
