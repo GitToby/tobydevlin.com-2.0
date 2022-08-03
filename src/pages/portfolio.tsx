@@ -1,25 +1,28 @@
 import React, {FunctionComponent} from 'react';
 import Content from '../containers/content';
-import {graphql} from 'gatsby';
-import {PortfolioDataQuery} from '../../graphql-types';
-import Img, {FluidObject} from 'gatsby-image';
 // @ts-ignore
 import * as styles from '../styles/portfolio.module.scss';
-import {Button, Col, Container, Row, Card, CardDeck} from 'react-bootstrap';
-import {titleAnimation, titleAnimationDuration, paraAnimation, paraAnimationDuration} from '../helper/settings';
+import {Button, Card, CardDeck, Row} from 'react-bootstrap';
+import {titleAnimation, titleAnimationDuration} from '../helper/settings';
 import SEO from '../components/SEO';
+import {GatsbyImage, getImage, ImageDataLike,} from "gatsby-plugin-image";
+import {graphql} from "gatsby";
+import {PortfolioDataQuery} from "../../graphql-types";
 
 interface PortfolioCardProps {
     name: string;
-    imgData: FluidObject | FluidObject[];
+    imgData: ImageDataLike;
+    imgAlt: string;
     url: string;
     description?: string;
 }
 
+
 const SiteCard: FunctionComponent<PortfolioCardProps> = (props) => {
+    const imageData = getImage(props.imgData)
     return (
-        <Card>
-            <Card.Img variant="top" as={Img} fluid={props.imgData} />
+        <Card className={styles.card}>
+            <Card.Img variant="top" as={GatsbyImage} image={imageData} alt={props.imgAlt}/>
             <Card.Body>
                 <Card.Title>{props.name}</Card.Title>
                 <Card.Text>{props.description}</Card.Text>
@@ -35,25 +38,28 @@ interface PortfolioProps {
     data: PortfolioDataQuery;
 }
 
-const Portfolio: FunctionComponent<PortfolioProps> = (props) => {
-    let portfolioData = [
+const Portfolio = (props: PortfolioProps) => {
+    let portfolioData: Array<PortfolioCardProps> = [
         {
             name: 'Chiddingfold Bonfire',
-            imgData: props.data.bonfire.childImageSharp.fluid,
+            imgData: props.data.bonfire,
+            imgAlt: "Chiddingfold bonfire homepage",
             url: 'https://chiddingfoldbonfire.org.uk',
             description:
                 'The local village event of the year is that English tradition of burning a terrorist at the stake. And in the 21st century that requires a website so people know where and when.'
         },
         {
             name: 'Zoom A Chicken Live',
-            imgData: props.data.zoomChicken.childImageSharp.fluid,
-            url: 'http://chicken.tobydevlin.com',
+            imgData: props.data.zoomChicken,
+            imgAlt: "Zoom A Chicken Homepage",
+            url: 'https://chicken.tobydevlin.com',
             description:
                 'Ever sat in a really dull meeting and thought, boy this could really do with some poultry? Liven up a zoom call with a bookable chicken from zoom-a-chicken.live! '
         },
         {
             name: 'Simple Note Taker CLI',
-            imgData: props.data.snt.childImageSharp.fluid,
+            imgData: props.data.snt,
+            imgAlt: "Simple Note Taker CLI homepage",
             url: 'https://github.com/GitToby/simple_note_taker',
             description:
                 'A CLI note taking tool written in python featuring auto complete, sharing, tagging and magic commands. Installable via pip using pip install simple_note_taker.'
@@ -65,25 +71,19 @@ const Portfolio: FunctionComponent<PortfolioProps> = (props) => {
             <h1 data-aos={titleAnimation} data-aos-duration={titleAnimationDuration} data-aos-delay="0">
                 Other Projects I've Created.
             </h1>
-            <hr />
+            <hr/>
             <CardDeck>
                 {portfolioData.map((data, idx) => (
-                    <Col
-                        sm={12}
-                        md={12}
-                        lg={6}
-                        data-aos={paraAnimation}
-                        data-aos-duration={paraAnimationDuration}
-                        data-aos-delay={(idx + 1) * 300}
-                    >
+                    <Row className={styles.cardContainer}>
                         <SiteCard
                             name={data.name}
                             imgData={data.imgData}
+                            imgAlt={data.imgAlt}
                             url={data.url}
                             description={data.description}
                         />
-                        <br />
-                    </Col>
+                        <br/>
+                    </Row>
                 ))}
             </CardDeck>
         </Content>
@@ -94,23 +94,26 @@ export const query = graphql`
     query PortfolioData {
         bonfire: file(base: {eq: "bonfire-homepage.png"}) {
             childImageSharp {
-                fluid {
-                    ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP]
+                )
             }
         }
         zoomChicken: file(base: {eq: "zoom-a-chicken-homepage.png"}) {
             childImageSharp {
-                fluid {
-                    ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP]
+                )
             }
         }
         snt: file(base: {eq: "snt.png"}) {
             childImageSharp {
-                fluid {
-                    ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP]
+                )
             }
         }
     }

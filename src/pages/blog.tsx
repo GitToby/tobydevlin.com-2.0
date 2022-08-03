@@ -5,7 +5,7 @@ import {BlogHomeQuery, GatsbyImageSharpFluidFragment, ImageSharpFluid} from '../
 // @ts-ignore
 import * as style from '../styles/blog.module.scss';
 import BlogPostCard from '../components/blogPostCard';
-import {InputGroup, FormControl, Spinner} from 'react-bootstrap';
+import {FormControl, InputGroup, Spinner} from 'react-bootstrap';
 import SEO from '../components/SEO';
 
 interface BlogProps {
@@ -59,31 +59,36 @@ const Blog = (props: BlogProps) => {
             </div>
             {isLoading && <Spinner animation={'border'}/>}
             {posts.length > 0 &&
-            posts
-                .filter((post) => {
-                    // filter out those not specifically published yet
-                    return post.node.frontmatter.publish;
-                })
-                .map((edge: any, idx: number) => {
-                    const {excerpt, fields, frontmatter} = edge.node;
-                    const imgData: ImageSharpFluid | null | GatsbyImageSharpFluidFragment = edge.node.frontmatter
-                        .image
-                        ? edge.node.frontmatter.image.childImageSharp.fluid
-                        : undefined;
-                    return (
-                        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay={500 - idx * 50} key={idx}>
-                            <BlogPostCard
-                                idx={idx}
-                                imgData={imgData}
-                                slug={fields.slug}
-                                title={frontmatter.title}
-                                date={frontmatter.date}
-                                tags={frontmatter.tags}
-                                excerpt={excerpt}
-                            />
-                        </div>
-                    );
-                })}
+                posts
+                    .filter((post: any) => {
+                        // filter out those not specifically published yet
+                        return post.node.frontmatter.publish;
+                    })
+                    .map((edge: any, idx: number) => {
+                        const {excerpt, fields, frontmatter} = edge.node;
+                        const imgData: ImageSharpFluid | null | GatsbyImageSharpFluidFragment = edge.node.frontmatter
+                            .image
+                            ? edge.node.frontmatter.image.childImageSharp.fluid
+                            : undefined;
+                        return (
+                            <div data-aos="fade-up"
+                                 data-aos-duration="1000"
+                                 data-aos-delay={500 - idx * 50}
+                                 key={idx}
+                                 className={style.blogPostCardContainer}
+                            >
+                                <BlogPostCard
+                                    idx={idx}
+                                    imgData={imgData}
+                                    slug={fields.slug}
+                                    title={frontmatter.title}
+                                    date={frontmatter.date}
+                                    tags={frontmatter.tags}
+                                    excerpt={excerpt}
+                                />
+                            </div>
+                        );
+                    })}
             {posts.length === 0 && <p>No results...</p>}
         </Content>
     );

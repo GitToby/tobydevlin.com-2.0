@@ -11,6 +11,7 @@ LICENSE
 .prettierignore
 graphql/.graphqlconfig
 *.toml
+*.lock
 
 # image files
 *.jpg
