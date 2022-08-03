@@ -1,12 +1,13 @@
 import React, {SyntheticEvent, useState} from 'react';
 import {graphql} from 'gatsby';
 import Content from '../containers/content';
-import {BlogHomeQuery, GatsbyImageSharpFluidFragment, ImageSharpFluid} from '../../graphql-types';
+import {BlogHomeQuery} from '../../graphql-types';
 // @ts-ignore
 import * as style from '../styles/blog.module.scss';
 import BlogPostCard from '../components/blogPostCard';
 import {FormControl, InputGroup, Spinner} from 'react-bootstrap';
 import SEO from '../components/SEO';
+import {ImageDataLike} from "gatsby-plugin-image";
 
 interface BlogProps {
     data: BlogHomeQuery;
@@ -66,10 +67,7 @@ const Blog = (props: BlogProps) => {
                     })
                     .map((edge: any, idx: number) => {
                         const {excerpt, fields, frontmatter} = edge.node;
-                        const imgData: ImageSharpFluid | null | GatsbyImageSharpFluidFragment = edge.node.frontmatter
-                            .image
-                            ? edge.node.frontmatter.image.childImageSharp.fluid
-                            : undefined;
+                        const imgData: ImageDataLike = edge.node.frontmatter.image;
                         return (
                             <div data-aos="fade-up"
                                  data-aos-duration="1000"
@@ -109,13 +107,14 @@ export const query = graphql`
                         tags
                         image {
                             childImageSharp {
-                                fluid {
-                                    ...GatsbyImageSharpFluid
-                                }
+                                gatsbyImageData(
+                                    placeholder: BLURRED
+                                    formats: [AUTO, WEBP]
+                                )
                             }
                         }
                     }
-                    excerpt(pruneLength: 200)
+                    excerpt(pruneLength: 300)
                     fields {
                         slug
                     }

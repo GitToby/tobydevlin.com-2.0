@@ -1,15 +1,13 @@
 import React from 'react';
-import {Badge, Col, Row} from 'react-bootstrap';
-import Img from 'gatsby-image';
-import {Link} from 'gatsby';
-import {GatsbyImageSharpFluidFragment, ImageSharpFluid} from '../../graphql-types';
+import {Card} from 'react-bootstrap';
 // @ts-ignore
 import * as style from '../styles/blog.module.scss';
-import BackgroundImage from 'gatsby-background-image';
+import {GatsbyImage, getImage, ImageDataLike} from "gatsby-plugin-image";
+import {Link} from "gatsby";
 
 class BlogPostCardProps {
     idx: number;
-    imgData: ImageSharpFluid | null | GatsbyImageSharpFluidFragment;
+    imgData: ImageDataLike;
     slug: string;
     title: string;
     date: string;
@@ -18,28 +16,23 @@ class BlogPostCardProps {
 }
 
 const BlogPostCard = (props: BlogPostCardProps) => {
+    const imageData = getImage(props.imgData)
     return (
-        <div className={style.blogPostCard}>
-            <BackgroundImage
-                fluid={[
-                    `linear-gradient(to right, rgba(245, 245, 245, 0.99), rgba(245, 245, 245, 0.90), rgba(245, 245, 245, 0.6))`,
-                    props.imgData
-                ]}
-            >
-                <div className={style.blogCardContent}>
-                    <Link to={props.slug} className={style.blogHeader}>
-                        {props.title}
-                    </Link>
-                    <br />
-                    <span className={style.blogDate}>
+        <Card className={style.blogPostCard}>
+            <Card.Img as={GatsbyImage} image={imageData} alt="asdf"/>
+            <Card.ImgOverlay>
+                <Card.Body>
+                    <Card.Title as="h1">{props.title}</Card.Title>
+                    <Card.Subtitle className={style.blogDate}>
                         {props.date} | tags: <i>{props.tags.join(', ')}</i>
-                    </span>
-                    <br />
-                    {props.excerpt}
-                </div>
-            </BackgroundImage>
-            <hr />
-        </div>
+                    </Card.Subtitle>
+                    <Card.Text>{props.excerpt}</Card.Text>
+                    <Card.Link as={Link} to={props.slug}>
+                        Read post...
+                    </Card.Link>
+                </Card.Body>
+            </Card.ImgOverlay>
+        </Card>
     );
 };
 

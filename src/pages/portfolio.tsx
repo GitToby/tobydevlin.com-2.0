@@ -5,13 +5,13 @@ import * as styles from '../styles/portfolio.module.scss';
 import {Button, Card, CardDeck, Row} from 'react-bootstrap';
 import {titleAnimation, titleAnimationDuration} from '../helper/settings';
 import SEO from '../components/SEO';
-import {GatsbyImage, getImage, ImageDataLike,} from "gatsby-plugin-image";
+import {GatsbyImage, getImage, IGatsbyImageData, ImageDataLike,} from "gatsby-plugin-image";
 import {graphql} from "gatsby";
 import {PortfolioDataQuery} from "../../graphql-types";
 
 interface PortfolioCardProps {
     name: string;
-    imgData: ImageDataLike;
+    imgData: IGatsbyImageData;
     imgAlt: string;
     url: string;
     description?: string;

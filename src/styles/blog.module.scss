@@ -45,38 +45,31 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
   }
 }
 
+
 .blogPostCardContainer {
   .blogPostCard {
-    align-content: center;
+    height: 300px;
 
-    img {
-      justify-content: center;
-      min-height: 100%;
+    h1 {
+      color: $primary-font-color;
+      text-decoration: underline;
     }
 
-    .blogCardContent {
-      //&:hover {
-      //  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-      //}
+    p {
+      color: $primary-font-color;
+    }
 
-      h1 {
-        color: $primary-font-color;
-      }
+    .blogDate {
+      color: $secondary-font-color;
+    }
 
-      .blogHeader {
-        font-size: 24pt;
-      }
-
-      .blogDate {
-        color: $secondary-font-color;
-      }
-
-      p {
-        color: $primary-font-color;
-      }
+    picture {
+      opacity: 0.3;
+      width: 100%;
+      display: block;
     }
   }
-  padding-bottom: 1vh;
+  padding-bottom: 2vh;
 }
 
 table {
