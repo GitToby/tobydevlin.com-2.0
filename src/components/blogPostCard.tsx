@@ -19,9 +19,9 @@ const BlogPostCard = (props: BlogPostCardProps) => {
     const imageData = getImage(props.imgData)
     return (
         <Card className={style.blogPostCard}>
-            <Card.Img as={GatsbyImage} image={imageData} alt="asdf"/>
+            <Card.Img className={style.blogPostCardImg} as={GatsbyImage} image={imageData}  alt="asdf"/>
             <Card.ImgOverlay>
-                <Card.Body>
+                <Card.Body className={style.blogPostCardContent}>
                     <Card.Title as="h1">{props.title}</Card.Title>
                     <Card.Subtitle className={style.blogDate}>
                         {props.date} | tags: <i>{props.tags.join(', ')}</i>

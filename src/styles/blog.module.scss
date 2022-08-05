@@ -48,27 +48,29 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
 
 .blogPostCardContainer {
   .blogPostCard {
-    height: 300px;
+    height: 20em;
+    .blogPostCardContent {
+      h1 {
+        color: $primary-font-color;
+        text-decoration: underline;
+      }
 
-    h1 {
-      color: $primary-font-color;
-      text-decoration: underline;
+      p {
+        color: $primary-font-color;
+      }
+
+      .blogDate {
+        color: $secondary-font-color;
+      }
     }
 
-    p {
-      color: $primary-font-color;
-    }
-
-    .blogDate {
-      color: $secondary-font-color;
-    }
-
-    picture {
-      opacity: 0.3;
-      width: 100%;
-      display: block;
+    .blogPostCardImg {
+      picture {
+        opacity: 0.3;
+      }
     }
   }
+
   padding-bottom: 2vh;
 }
 

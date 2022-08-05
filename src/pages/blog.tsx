@@ -69,11 +69,12 @@ const Blog = (props: BlogProps) => {
                         const {excerpt, fields, frontmatter} = edge.node;
                         const imgData: ImageDataLike = edge.node.frontmatter.image;
                         return (
-                            <div data-aos="fade-up"
-                                 data-aos-duration="1000"
-                                 data-aos-delay={500 - idx * 50}
-                                 key={idx}
-                                 className={style.blogPostCardContainer}
+                            <div
+                                //  data-aos="fade-up"
+                                //  data-aos-duration="1000"
+                                //  data-aos-delay={500 - idx * 50}
+                                key={idx}
+                                className={style.blogPostCardContainer}
                             >
                                 <BlogPostCard
                                     idx={idx}
