@@ -3,22 +3,21 @@ import SEO from '../components/SEO';
 import Content from '../containers/content';
 // @ts-ignore
 import * as styles from '../styles/index.module.scss';
+import {OutboundLink} from "gatsby-plugin-google-gtag";
 
 const Index = () => (
     <Content>
         <SEO pageTitle="Home" />
         <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="0">
-            <h1 id={styles.title}>I'm Toby</h1>
+            <h1 id={styles.title}>I'm Toby,</h1>
         </div>
         <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
-            <h2 id={styles.subtitle}>a London based full stack data engineer</h2>
+            <h2 id={styles.subtitle}>a London based full stack & data consultant</h2>
         </div>
         <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
             <p>
-                Hello world, this is my website. I work on lots of projects from time to time and I like to get half way
-                in before breaking things and quitting. This is where I will write the occasional post to to keep notes
-                or share details on some of my projects and learnings. If you want to know more, please{' '}
-                <a href="https://www.linkedin.com/in/toby-devlin/">contact me!</a>
+                Hello world! This is my website, I work on lots of projects and sometimes like to write blog posts or highilight intresting opinions here. This is where I write the occasional post to to keep notes or share details on some of my projects and learnings. If you want to know more, please{' '}
+                <OutboundLink href="https://www.linkedin.com/in/toby-devlin/">contact me!</OutboundLink>
             </p>
         </div>
     </Content>

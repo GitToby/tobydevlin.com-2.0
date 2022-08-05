@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2022-06-05T19:45:52.316Z
-title: Database Migrations With sqlmodel and alembic
+title: Database Migrations with sqlmodel and alembic
 publish: true
 image: /content/img/netlifyCMS/library-unsplash.jpg
 tags: 

@@ -45,39 +45,37 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
   }
 }
 
-.blog-post-card {
-  align-content: center;
 
-  img {
-    justify-content: center;
-    min-height: 100%;
-  }
+.blogPostCardContainer {
+  .blogPostCard {
+    height: 17em;
+    .blogPostCardContent {
+      h1 {
+        color: $primary-font-color;
+        text-decoration: underline;
+      }
 
-  .blog-card-content {
-    padding-bottom: 1vw;
+      p {
+        color: $primary-font-color;
+      }
 
-    h1 {
-      color: $primary-font-color;
+      .blogDate {
+        color: $secondary-font-color;
+      }
     }
 
-    .blog-header {
-      font-size: 24pt;
-    }
-
-    .blog-date {
-      color: $secondary-font-color;
-    }
-
-    p {
-      color: $primary-font-color;
+    .blogPostCardImg {
+      picture {
+        opacity: 0.3;
+      }
     }
   }
+
+  padding-bottom: 2vh;
 }
 
 table {
-
   align-self: center;
-
   border-collapse: collapse;
   overflow-y: visible;
   font-size: 0.9em;
@@ -88,7 +86,8 @@ table {
     background-color: #5082d4;
     color: #ffffff;
     text-align: left;
-    th{
+
+    th {
       padding: 0 5px 0 0;
     }
   }
@@ -102,6 +101,7 @@ table {
       background-color: #f3f3f3;
     }
   }
+
   td {
     padding: 0 3px;
   }

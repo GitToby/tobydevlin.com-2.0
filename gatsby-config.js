@@ -35,6 +35,7 @@ module.exports = {
         },
 
         // IMAGE PLUGINS
+        'gatsby-plugin-image',
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
 
@@ -96,12 +97,26 @@ module.exports = {
         'gatsby-plugin-sitemap', // add a sitemap to the site on /sitemap.xml
         'gatsby-plugin-react-helmet', // add SEO Headers ans such
         {
-            resolve: `gatsby-plugin-google-analytics`,
+            resolve: `gatsby-plugin-google-gtag`,
             options: {
-                trackingId: process.env.GA_TAG_ID || 'local_tag',
-                head: true,
-                // Delays sending pageview hits on route update (in milliseconds)
-                pageTransitionDelay: 100
+                // You can add multiple tracking ids and a pageview event will be fired for all of them.
+                trackingIds: [process.env.GA_TRACKING_ID],
+                // This object gets passed directly to the gtag config command
+                // This config will be shared across all trackingIds
+                gtagConfig: {
+                    optimize_id: 'OPT_CONTAINER_ID',
+                    anonymize_ip: true,
+                    cookie_expires: 0
+                },
+                // This object is used for configuration specific to this plugin
+                pluginConfig: {
+                    // Puts tracking script in the head instead of the body
+                    head: false,
+                    // Setting this parameter is also optional
+                    respectDNT: true,
+                    // Defaults to https://www.googletagmanager.com
+                    origin: 'https://tobydevlin.com'
+                }
             }
         }
     ]
