@@ -44,6 +44,7 @@
         "gatsby-source-filesystem": "^4.19.0",
         "gatsby-transformer-remark": "^5.19.0",
         "gatsby-transformer-sharp": "^4.19.0",
+        "gbimage-bridge": "^0.2.2",
         "katex": "^0.13.18",
         "netlify-cms-app": "^2.15.46",
         "node-sass": "^7.0.0",

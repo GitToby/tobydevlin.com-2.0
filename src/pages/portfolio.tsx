@@ -2,10 +2,10 @@ import React, {FunctionComponent} from 'react';
 import Content from '../containers/content';
 // @ts-ignore
 import * as styles from '../styles/portfolio.module.scss';
-import {Button, Card, CardDeck, Row} from 'react-bootstrap';
+import {Button, Card, CardGroup, Row} from 'react-bootstrap';
 import {titleAnimation, titleAnimationDuration} from '../helper/settings';
 import SEO from '../components/SEO';
-import {GatsbyImage, getImage, IGatsbyImageData, ImageDataLike,} from "gatsby-plugin-image";
+import {GatsbyImage, getImage, IGatsbyImageData,} from "gatsby-plugin-image";
 import {graphql} from "gatsby";
 import {PortfolioDataQuery} from "../../graphql-types";
 
@@ -72,7 +72,7 @@ const Portfolio = (props: PortfolioProps) => {
                 Other Projects I've Created.
             </h1>
             <hr/>
-            <CardDeck>
+            <CardGroup>
                 {portfolioData.map((data, idx) => (
                     <Row className={styles.cardContainer}>
                         <SiteCard
@@ -85,7 +85,7 @@ const Portfolio = (props: PortfolioProps) => {
                         <br/>
                     </Row>
                 ))}
-            </CardDeck>
+            </CardGroup>
         </Content>
     );
 };

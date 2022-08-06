@@ -2,8 +2,9 @@ import React from 'react';
 import {Card} from 'react-bootstrap';
 // @ts-ignore
 import * as style from '../styles/blog.module.scss';
-import {GatsbyImage, getImage, ImageDataLike} from "gatsby-plugin-image";
+import {getImage, ImageDataLike} from "gatsby-plugin-image";
 import {Link} from "gatsby";
+import {convertToBgImage} from "gbimage-bridge";
 
 class BlogPostCardProps {
     idx: number;
@@ -17,26 +18,25 @@ class BlogPostCardProps {
 
 const BlogPostCard = (props: BlogPostCardProps) => {
     const imageData = getImage(props.imgData)
+    const bgImage = convertToBgImage(imageData)
     return (
         <Card className={style.blogPostCard}>
-            <Card.Img className={style.blogPostCardImg} as={GatsbyImage} image={imageData} alt="asdf"/>
-            <Card.ImgOverlay>
-                <Card.Body className={style.blogPostCardContent}>
-                    <Card.Title as="h1">
-                        <Link to={props.slug}>
-                            {props.title}
-                        </Link>
-                    </Card.Title>
-                    <Card.Subtitle className={style.blogDate}>
-                        {props.date} | tags: <i>{props.tags.join(', ')}</i>
-                    </Card.Subtitle>
-                    <Card.Text>{props.excerpt}</Card.Text>
-                    {/*<Card.Link as={Link} to={props.slug}>*/}
-                    {/*    <b>Read post...</b>*/}
-                    {/*</Card.Link>*/}
-                </Card.Body>
-            </Card.ImgOverlay>
+            {/*<Card.Img as={GatsbyImage} image={imageData} alt="asdf"/>*/}
+            {/*<Card.ImgOverlay ref={elementRef}>*/}
+            <Card.Body>
+                <Card.Title as="h1">
+                    <Link to={props.slug}>
+                        {props.title}
+                    </Link>
+                </Card.Title>
+                <Card.Subtitle className={style.blogDate}>
+                    {props.date} | tags: <i>{props.tags.join(', ')}</i>
+                </Card.Subtitle>
+                <Card.Text>{props.excerpt}</Card.Text>
+            </Card.Body>
+            {/*</Card.ImgOverlay>*/}
         </Card>
+
     );
 };
 
