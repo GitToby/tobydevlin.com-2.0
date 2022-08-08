@@ -48,15 +48,37 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
 
 .blogPostCardContainer {
   .blogPostCard {
-    height: 17em;
+    position: relative;
+    overflow-y: hidden;
+
+    .blogPostCardImg {
+      position: absolute;
+      object-fit: cover;
+      height: 100%;
+      picture {
+        opacity: 0.3;
+      }
+    }
+
     .blogPostCardContent {
+      position: relative;
+
       h1 {
         color: $primary-font-color;
         text-decoration: underline;
+        font-size: 18pt;
       }
 
       p {
-        color: $primary-font-color;
+        color: $primary-font-color
+
+        // todo: dynamic clipping of content?
+        //overflow: hidden;
+        //text-overflow: ellipsis;
+        //display: -webkit-box;
+        //-webkit-line-clamp: vh/100; /* number of lines to show */
+        //line-clamp: 2;
+        //-webkit-box-orient: vertical;
       }
 
       .blogDate {
@@ -64,11 +86,6 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
       }
     }
 
-    .blogPostCardImg {
-      picture {
-        opacity: 0.3;
-      }
-    }
   }
 
   padding-bottom: 2vh;
