@@ -50,7 +50,7 @@ const Header = (_props: HeaderProps) => {
                                 </Nav.Link>
                             );
                         })}
-                        <Nav.Link href="https://www.linkedin.com/in/toby-devlin/" target="_blank">Contact</Nav.Link>
+                        {/*<Nav.Link href="https://www.linkedin.com/in/toby-devlin/" target="_blank">Contact</Nav.Link>*/}
                 </Nav>
                 <div className={styles.alignLeft}>
                     <Nav>

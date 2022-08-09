@@ -8,6 +8,8 @@ import BlogPostCard from '../components/blogPostCard';
 import {FormControl, InputGroup, Spinner} from 'react-bootstrap';
 import SEO from '../components/SEO';
 import {ImageDataLike} from "gatsby-plugin-image";
+import {faArrowDown, faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface BlogProps {
     data: BlogHomeQuery;
@@ -70,9 +72,9 @@ const Blog = (props: BlogProps) => {
                         const imgData: ImageDataLike = edge.node.frontmatter.image;
                         return (
                             <div
-                                //  data-aos="fade-up"
-                                //  data-aos-duration="1000"
-                                //  data-aos-delay={500 - idx * 50}
+                                 data-aos="fade-up"
+                                 data-aos-duration="1000"
+                                 data-aos-delay={100}
                                 key={idx}
                                 className={style.blogPostCardContainer}
                             >
