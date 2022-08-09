@@ -25,7 +25,7 @@ const About = () => {
         <Content>
             <SEO pageTitle="Contact" isBlogPost={false} pageDescription={pageDescription}/>
             <h1 data-aos={titleAnimation} data-aos-duration={titleAnimationDuration} data-aos-delay="0">
-                Contact Form
+                Contact Form.
             </h1>
             <hr/>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration}>
