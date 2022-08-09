@@ -3,8 +3,7 @@ import SEO from '../components/SEO';
 import Content from '../containers/content';
 // @ts-ignore
 import * as styles from '../styles/index.module.scss';
-import {OutboundLink} from "gatsby-plugin-google-gtag";
-import {Button} from "react-bootstrap";
+import {Link} from "gatsby";
 
 const Index = () => (
     <Content>
@@ -20,7 +19,7 @@ const Index = () => (
                 Hello world! This is my website, I work on lots of projects and sometimes like to write blog posts or
                 highlight interesting opinions here. This is where I write the occasional post to to keep notes or share
                 details on some of my projects and learnings. If you want to know more, please{' '}
-                <OutboundLink href="https://www.linkedin.com/in/toby-devlin/">contact me!</OutboundLink>
+                <Link to='/contact'>contact me!</Link>
             </p>
         </div>
     </Content>

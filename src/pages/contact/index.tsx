@@ -5,12 +5,12 @@ import * as styles from '../../styles/about.module.scss';
 import {paraAnimation, paraAnimationDuration, titleAnimation, titleAnimationDuration} from '../../helper/settings';
 import SEO from '../../components/SEO';
 import {Button, Col, FloatingLabel, Form, FormGroup, Row} from "react-bootstrap";
+import {OutboundLink} from "gatsby-plugin-google-gtag";
 
 const pageDescription = "Get in contact with Toby"
 
 const About = () => {
     const [validated, setValidated] = useState<boolean>(false);
-    const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
 
     const handleSubmit = (event: any) => {
         const form = event.currentTarget;
@@ -19,7 +19,6 @@ const About = () => {
             event.stopPropagation();
         }
         setValidated(true);
-        setShowSuccessModal(true)
     };
 
     return (
@@ -30,8 +29,9 @@ const About = () => {
             </h1>
             <hr/>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration}>
-                If youd like to get in contact with me the best way is via this form. Im usually availible on various
-                platforms too, if youd like to reach out via Linkedin or via
+                If youd like to get in contact with me the best way is via this form. Im usually available on various
+                platforms too, if you'd like to reach out via <OutboundLink
+                href="https://www.linkedin.com/in/toby-devlin/">Linkedin</OutboundLink>.
             </p>
 
             <Form name="contact"
@@ -41,6 +41,8 @@ const About = () => {
                   validated={validated}
                   onSubmit={handleSubmit}
                   action="/contact/success"
+                  data-aos={paraAnimation}
+                  data-aos-duration={paraAnimationDuration}
             >
                 <Row>
                     <FormGroup className="mb-2" as={Col} md="4" sm="12">
