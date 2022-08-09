@@ -8,8 +8,6 @@ import BlogPostCard from '../components/blogPostCard';
 import {FormControl, InputGroup, Spinner} from 'react-bootstrap';
 import SEO from '../components/SEO';
 import {ImageDataLike} from "gatsby-plugin-image";
-import {faArrowDown, faArrowLeft} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface BlogProps {
     data: BlogHomeQuery;
