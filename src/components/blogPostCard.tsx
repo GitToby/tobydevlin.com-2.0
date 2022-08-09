@@ -18,25 +18,22 @@ class BlogPostCardProps {
 const BlogPostCard = (props: BlogPostCardProps) => {
     const imageData = getImage(props.imgData)
     return (
-        <div>
-            <Card className={style.blogPostCard}>
-                <Card.Img className={style.blogPostCardImg} as={GatsbyImage} image={imageData} alt="asdf"/>
-                <Card.ImgOverlay className={style.blogPostCardContent}>
-                    <Card.Body>
-                        <Card.Title as="h1">
-                            <Link to={props.slug}>
-                                {props.title}
-                            </Link>
-                        </Card.Title>
-                        <Card.Subtitle className={style.blogDate}>
-                            {props.date} | tags: <i>{props.tags.join(', ')}</i>
-                        </Card.Subtitle>
-                        <Card.Text>{props.excerpt}</Card.Text>
-                    </Card.Body>
-                </Card.ImgOverlay>
-            </Card>
-        </div>
-
+        <Card className={style.blogPostCard}>
+            <Card.Img className={style.blogPostCardImg} as={GatsbyImage} image={imageData} alt="asdf"/>
+            <Card.ImgOverlay className={style.blogPostCardContent}>
+                <Card.Body>
+                    <Card.Title as="h1">
+                        <Link to={props.slug}>
+                            {props.title}
+                        </Link>
+                    </Card.Title>
+                    <Card.Subtitle className={style.blogDate}>
+                        {props.date} | tags: <i>{props.tags.join(', ')}</i>
+                    </Card.Subtitle>
+                    <Card.Text>{props.excerpt}</Card.Text>
+                </Card.Body>
+            </Card.ImgOverlay>
+        </Card>
     );
 };
 
