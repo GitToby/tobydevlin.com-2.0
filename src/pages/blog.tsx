@@ -43,7 +43,7 @@ const Blog = (props: BlogProps) => {
                 <hr/>
             </div>
             <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
-                I write about things sometime. I update this every now and then when I come across something I want to
+                AI write about things sometime. I update this every now and then when I come across something I want to
                 write about. Most of these are just ramblings and notes from when I want to remember something. Its
                 mostly about tech and code and notes I find interesting.
             </p>
@@ -70,9 +70,9 @@ const Blog = (props: BlogProps) => {
                         const imgData: ImageDataLike = edge.node.frontmatter.image;
                         return (
                             <div
-                                //  data-aos="fade-up"
-                                //  data-aos-duration="1000"
-                                //  data-aos-delay={500 - idx * 50}
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-delay={100}
                                 key={idx}
                                 className={style.blogPostCardContainer}
                             >
