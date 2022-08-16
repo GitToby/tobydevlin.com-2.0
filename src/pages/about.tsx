@@ -28,9 +28,12 @@ const About = () => {
             </h1>
             <hr/>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
-                I'm a London based full stack consultant, originally from south England but studied in Wales and now
+                I'm a full stack software & data engineer, originally from south England, studied in Wales and now
                 live in London. I like to cycle, explore and eat food. Sometimes, when the weather is right, I like to
-                take time to write code that does stuff.
+                take time to write code that does stuff. I have a wealth of experience across all aspects of software,
+                security and data engineering from user interfaces and back ends to cloud infrastructure, networking,
+                analytical engineering and product ownership. This, on top of the fact I have spent a number of years
+                doing freelance and charity consulting.
             </p>
             <div
                 data-aos={blockAnimation}
@@ -48,10 +51,10 @@ const About = () => {
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
                 Not enjoying writing very much, I studied mathematics at Cardiff University before moving on to learn
                 software development. Python & Java are my go to languages, but I also like responsive, dynamic UIs in
-                JavaScript
-                (Typescript for type safety though). If I had to do it over I'd get started with Rust faster! After a
-                while
-                I'll have projects for each of these, but for now you'll have to trust I know what im talking about.
+                JavaScript (Typescript for type safety though). If I had to do it over I'd get learning with Rust
+                faster! Im currently working on professional and personal projects in the Data Engineering domain,
+                building solutions to unlock terabyte scale insights with distributed data. Ultimately I'd love to be
+                working with data streams and lower level IoT devices to unlock the power of the edge!
             </p>
             <div
                 data-aos={blockAnimation}
@@ -72,10 +75,9 @@ const About = () => {
                 shoot me a message. If
                 a project of mine has caught your eye and you have questions feel free to shoot me a message on that
                 platform. In the event you like this website and want to copy it, feel free to smack a fork on its
-                github here:{' '}
                 <OutboundLink href="https://github.com/GitToby/tobydevlin.com-2.0">
-                    https://github.com/GitToby/tobydevlin.com-2.0
-                </OutboundLink>
+                    github mirror
+                </OutboundLink>.
             </p>
             <div
                 data-aos={blockAnimation}
