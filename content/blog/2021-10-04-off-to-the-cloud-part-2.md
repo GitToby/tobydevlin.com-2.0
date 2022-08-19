@@ -5,9 +5,9 @@ title: Off To The Cloud - Part 2
 publish: true
 image: /content/img/netlifyCMS/cloudCastle.jpg
 tags:
-  - aws
-  - terraform
-  - cloud
+    - aws
+    - terraform
+    - cloud
 ---
 
 This is part 2 of the off to the cloud series, where I put together some AWS and other cloud infra as a PoC into what we
@@ -121,10 +121,10 @@ ECS is the runtime we will be using, it's a managed container solution by AWS. Y
 for you. There are some "easy mode" configs we've selected to get started, which will be pointed out as we go through
 this tutorial. ECS is formed by a couple parts:
 
-* **Cluster**
-* **Service**
-* **Task**
-* **Container**
+-   **Cluster**
+-   **Service**
+-   **Task**
+-   **Container**
 
 A **Cluster** can have multiple **Services** which are composed of **Tasks** and a **Task** can have multiple **
 Containers**. For example, a microservice arch might have a web API and a booking service. These 2 tasks can run in the
@@ -376,9 +376,9 @@ VPC.
 
 Two things of significance in the security group to note are
 
-1) The ingress is only for the application port. This is the "host" port, which then has to be open and mapped to our
+1. The ingress is only for the application port. This is the "host" port, which then has to be open and mapped to our
    container (see the container definition for the "host":container mapping)
-2) The egress means our containers can access anything. This is so we can pull the image from docker hub but is a **
+2. The egress means our containers can access anything. This is so we can pull the image from docker hub but is a **
    major security flaw** if the containers are compromised. Patching this requires the image to be located and pulled
    internally from an AWS ECS Registry.
 
@@ -389,8 +389,8 @@ The last thing to look at is the Load balancer and Auto Scaling Group.
 Scalability and reliability should be thought of at every point of your stack. This API example is no different. There
 are a few places we have baked in reliability and some we can change. For example, baked in:
 
-* AWS services - [they all have their own SLAs](https://aws.amazon.com/legal/service-level-agreements/)
-* Our code/service - should have good paths to failover and retry operations internally.
+-   AWS services - [they all have their own SLAs](https://aws.amazon.com/legal/service-level-agreements/)
+-   Our code/service - should have good paths to failover and retry operations internally.
 
 Other places we can add reliability is how we scale to meet demand. We automatically become more reliable if we can spin
 up and kill off containers that meet certain thresholds or fail health checks. Below is the definition of our load
@@ -470,22 +470,22 @@ and what layer of the network stack it operates in.
 
 Throughout this we have taken a few "easy mode" decisions, I've commented on the largest below.
 
-* **Single VPC** - it is possible to secure an app with a public and provate VPC, rather than subnets as we have done.
-  This will allow much more control about who is able to access what. Ideally, in high security situations, noone should
-  access the prod data apart from the API itself and approved egress solutions. This can be done by spinning up our RDS
-  cluster in a second VPC and providing it as a service via
-  a [VPC Endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html) to our service, along with all
-  the security bells and whistles.
-* **Fargate ECS Capacity Provider** - as mentioned in section [2.2](/blog/off-to-the-cloud-part-1/#22---ecs), we have
-  defaulted for Fargate, AWSs [serverless compute option](https://aws.amazon.com/fargate/). This means that we don't won
-  the underlying infra and hence don't have full control. For example if we wanted to have dedicated underlying hosts or
-  a bare metal host Fargate means this isn't possible. This is something to keep in mind when managing ECS containers.
-* **Docker Hub Repo** - At the end of the day, minimizing the tools you use can save a lot of money. This strategy of
-  building an ECS task off a docker image stored in Dockers own registry saves us time by not having to set up a secure
-  SDLC (I did it all manually tbh). In an ideal world the container image should be built in a CI and pushed to, in this
-  case, an internal [AWS ECS Container Registry](https://aws.amazon.com/ecr/) which we have full control over who and
-  how the containers are accessed and can be accessed via a more constrained security group. This is all out of scope,
-  and maybe ill do a post on secure, scalable SDLC in another post.
-* **Full Egress on API Containers** - Allowing egress on all ports and protocols is a hack to allow communication to
-  docker hub (see above for how to mitigate this risk). By opening this up it allows anyone to egress information from
-  our servers if they have access. Consider closing this if you're implementing for production.
+-   **Single VPC** - it is possible to secure an app with a public and provate VPC, rather than subnets as we have done.
+    This will allow much more control about who is able to access what. Ideally, in high security situations, noone should
+    access the prod data apart from the API itself and approved egress solutions. This can be done by spinning up our RDS
+    cluster in a second VPC and providing it as a service via
+    a [VPC Endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html) to our service, along with all
+    the security bells and whistles.
+-   **Fargate ECS Capacity Provider** - as mentioned in section [2.2](/blog/off-to-the-cloud-part-1/#22---ecs), we have
+    defaulted for Fargate, AWSs [serverless compute option](https://aws.amazon.com/fargate/). This means that we don't won
+    the underlying infra and hence don't have full control. For example if we wanted to have dedicated underlying hosts or
+    a bare metal host Fargate means this isn't possible. This is something to keep in mind when managing ECS containers.
+-   **Docker Hub Repo** - At the end of the day, minimizing the tools you use can save a lot of money. This strategy of
+    building an ECS task off a docker image stored in Dockers own registry saves us time by not having to set up a secure
+    SDLC (I did it all manually tbh). In an ideal world the container image should be built in a CI and pushed to, in this
+    case, an internal [AWS ECS Container Registry](https://aws.amazon.com/ecr/) which we have full control over who and
+    how the containers are accessed and can be accessed via a more constrained security group. This is all out of scope,
+    and maybe ill do a post on secure, scalable SDLC in another post.
+-   **Full Egress on API Containers** - Allowing egress on all ports and protocols is a hack to allow communication to
+    docker hub (see above for how to mitigate this risk). By opening this up it allows anyone to egress information from
+    our servers if they have access. Consider closing this if you're implementing for production.

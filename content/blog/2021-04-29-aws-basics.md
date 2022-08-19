@@ -5,8 +5,8 @@ title: AWS Basics
 publish: true
 image: /content/img/netlifyCMS/aws-bg.jpg
 tags:
-  - aws
-  - cloud
+    - aws
+    - cloud
 ---
 
 This is a quick overview of the basic tools AWS provides.
@@ -17,17 +17,17 @@ This is a quick overview of the basic tools AWS provides.
 
 A web service that provides' resizable compute capacity for web scale compute easier for devs'. Concepts:
 
-- Instance Type - the compute, memory and storage definitions
-- Root Device Type
-   - instance store - physical persistent store on the VM.
-   - Elastic Block (EBS) - persistent but not separate from the VM. Preferred.
-- AMIs - Templates for the VM, config and os and data.
-- Purchase Options
-   - On-Demand - any time to spin up or shut down
-   - Reserved - discounts for committing for a period of time (years)
-   - Savings plan - similar to above but doesn't reserve capacity, includes Fargate and lambda. 
-   - Spot - take advantages of low demand. Spins up when bid is above water, shuts down when bid is below water with 2 min warning.
-   - Dedicated - physical machine in the datacenter.
+-   Instance Type - the compute, memory and storage definitions
+-   Root Device Type
+    -   instance store - physical persistent store on the VM.
+    -   Elastic Block (EBS) - persistent but not separate from the VM. Preferred.
+-   AMIs - Templates for the VM, config and os and data.
+-   Purchase Options
+    -   On-Demand - any time to spin up or shut down
+    -   Reserved - discounts for committing for a period of time (years)
+    -   Savings plan - similar to above but doesn't reserve capacity, includes Fargate and lambda.
+    -   Spot - take advantages of low demand. Spins up when bid is above water, shuts down when bid is below water with 2 min warning.
+    -   Dedicated - physical machine in the datacenter.
 
 Launching an EC2 takes moments. The 'User Data' field is run when the instance is created. Terminate means to delete the whole instance.
 
@@ -51,29 +51,29 @@ DNS as a service, all DNS option can be configured here. High availability and h
 
 **VPC** is an isolated part of the cloud which can only be communicated with by services within the same VPC. Support for IPv4 and IPv6, subnets, IP Ranges, Route Tables and Network Gateways are allowed. Private and Public are both available, via ingress. NAT is available for private subnets.
 
-Placing a service in a **VPC**  means by default only services within that VPC can communicate with it. This can be changed by leveraging services such as **Transit Gateway**, **Internet Gateway** or **NAT Gateway**.
+Placing a service in a **VPC** means by default only services within that VPC can communicate with it. This can be changed by leveraging services such as **Transit Gateway**, **Internet Gateway** or **NAT Gateway**.
 
 **Direct Connect** is a dedicated network connection to the AWS datacenters to your on perm cloud.
 
 #### Subnets and Availability Zones
 
-A single **VPC** contains one or more **Subnets** which exists in only one **Availability Zone** (basically a datacentre in a given region). A unit of compute, for example an **EC2** instance exists in one and only one **Subnet**; these instances also cannot be moved between **Available Zones**. 
+A single **VPC** contains one or more **Subnets** which exists in only one **Availability Zone** (basically a datacentre in a given region). A unit of compute, for example an **EC2** instance exists in one and only one **Subnet**; these instances also cannot be moved between **Available Zones**.
 
-**Subnets** can be private or public. Public means that services within the **Subnet** can access the internet and be accessed by the internet; to make a **Subnet** public its associated **Route Table** has a route with an **Internet Gateway** as a target. 
+**Subnets** can be private or public. Public means that services within the **Subnet** can access the internet and be accessed by the internet; to make a **Subnet** public its associated **Route Table** has a route with an **Internet Gateway** as a target.
 
-Private is the opposite, with no access inbound or outbound. A **NAT Gateway** can be used to allow outbound connections from private subnets. 
+Private is the opposite, with no access inbound or outbound. A **NAT Gateway** can be used to allow outbound connections from private subnets.
 
 Here is a handy association guide:
 
-- An **Availability Zone** has many **VPCs**
-- A **VPC** has many **Subnets**
-- A **Subnet** has a single associated **Route Table**
-- A **Route Table** can have many **Routes** that point to things like:
-   - A **NAT Gateway**
-   - An **Internet Gateway** - making any associated Subnets public
-   - **Transit Gateway**
-   - **Egress Only Gateway**
-   - Many others...
+-   An **Availability Zone** has many **VPCs**
+-   A **VPC** has many **Subnets**
+-   A **Subnet** has a single associated **Route Table**
+-   A **Route Table** can have many **Routes** that point to things like:
+    -   A **NAT Gateway**
+    -   An **Internet Gateway** - making any associated Subnets public
+    -   **Transit Gateway**
+    -   **Egress Only Gateway**
+    -   Many others...
 
 #### API Gateway and CloudFront
 
@@ -85,11 +85,11 @@ Here is a handy association guide:
 
 Distribution of traffic across compute services (EC2, ECS, Lambda, ...) across availability zones. There are 3 types:
 
-- Application Load Balancer (ALB)
-   - Vertical Scaling - Upgrading the type of resource, like increasing memory.
-   - Horizontal Scaling - Increase the number of instances behind the load balancer.
-- Network Load Balancer (NLB)
-- Classic Load Balancer
+-   Application Load Balancer (ALB)
+    -   Vertical Scaling - Upgrading the type of resource, like increasing memory.
+    -   Horizontal Scaling - Increase the number of instances behind the load balancer.
+-   Network Load Balancer (NLB)
+-   Classic Load Balancer
 
 #### Global Accelerator
 
@@ -99,7 +99,7 @@ This should be used in scenarios when you're not running HTTP; things like UDP, 
 
 ### Elastic IP Addresses
 
-By brining or using an amazon **Elastic IP** you can provide a external static IP bound to an **EC2** instances Network Interface, allowing it to be hit by DNS or just via the internet.  
+By brining or using an amazon **Elastic IP** you can provide a external static IP bound to an **EC2** instances Network Interface, allowing it to be hit by DNS or just via the internet.
 
 ## Storage Solutions
 
@@ -107,10 +107,10 @@ By brining or using an amazon **Elastic IP** you can provide a external static I
 
 Contains a whole load of options such as web serving, web hosting, permissions etc. Its structures into tiers of access that dictates pricing.
 
-- Standard
-- Intelligent Tiering
-- Infrequent Access - has a single availability option also
-- Glacier - for archive solutions
+-   Standard
+-   Intelligent Tiering
+-   Infrequent Access - has a single availability option also
+-   Glacier - for archive solutions
 
 #### EBS and EFS and other File Systems
 

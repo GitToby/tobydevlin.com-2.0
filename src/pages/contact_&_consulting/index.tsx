@@ -6,6 +6,7 @@ import {paraAnimation, paraAnimationDuration, titleAnimation, titleAnimationDura
 import SEO from '../../components/SEO';
 import {Button, Col, FloatingLabel, Form, FormGroup, Row} from "react-bootstrap";
 import {OutboundLink} from "gatsby-plugin-google-gtag";
+import {Link} from "gatsby";
 
 const pageDescription = "Get in contact with Toby"
 
@@ -29,9 +30,12 @@ const About = () => {
             </h1>
             <hr/>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration}>
-                If youd like to get in contact with me the best way is via this form. Im usually available on various
+                If you'd like to get in contact with me the best way is via this form. Im usually available on various
                 platforms too, if you'd like to reach out via <OutboundLink
-                href="https://www.linkedin.com/in/toby-devlin/">Linkedin</OutboundLink>.
+                href="https://www.linkedin.com/in/toby-devlin/">Linkedin</OutboundLink>. Alongside my day job I am an
+                experience Data Consultant with years of experience in full stack data applications, pipelines and
+                ecosystems. Please reach out if you are interested in my services and do check out my <Link
+                to="/portfolio">portfolio</Link>.
             </p>
 
             <Form name="contact"
@@ -40,7 +44,7 @@ const About = () => {
                   noValidate
                   validated={validated}
                   onSubmit={handleSubmit}
-                  action="/contact/success"
+                  action="/contact_&_consulting/success"
                   data-aos={paraAnimation}
                   data-aos-duration={paraAnimationDuration}
             >
@@ -93,6 +97,7 @@ const About = () => {
                         <FloatingLabel label="Im Contacting About*">
                             <Form.Select name="about" required>
                                 <option>General Inquiry</option>
+                                <option>Consulting Services Inquiry</option>
                                 <option>Question</option>
                                 <option>CV Request</option>
                                 <option>Reference Request</option>

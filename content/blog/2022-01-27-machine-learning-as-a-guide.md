@@ -1,12 +1,12 @@
 ---
 layout: post
 date: 2022-01-27T18:21:52.316Z
-title: "Machine Learning Starting Blocks "
+title: 'Machine Learning Starting Blocks '
 publish: true
 image: /content/img/netlifyCMS/unsplash-chair-man.jpeg
 tags:
-  - python
-  - ml
+    - python
+    - ml
 ---
 
 I've not written about my experience in Machine Learning at all. As a Student I studied the algorithms and proofs to back up many modeling techniques. As far as my professional role as a Senior Engineer goes, I've at least dabbled in most mainstream tools out there. And as a Senior Data Engineer, I've focused recently on the applications of tools in the data space, including modelling, munging and machine learning. This post is more of a refresher - something I can refer back to in order to quickly get back running on a project where at least a simplistic overview is required.
@@ -23,7 +23,6 @@ The first cell contains commented out operations to install the notebook deps - 
 
 _It's worth noting this was written in a jupyter notebook_
 
-
 ```python
 # !pip install pandas=="^1.4.0"
 # !pip install plotly=="^5.5.0"
@@ -32,7 +31,6 @@ _It's worth noting this was written in a jupyter notebook_
 # !pip install jupyter=="^1.0.0"
 # !pip install seaborn=="^0.11.2"
 ```
-
 
 ```python
 # various imports, google for info
@@ -54,7 +52,6 @@ sns.set_theme(
 SEED = 1234
 np.random.seed(SEED)
 ```
-
 
 ```python
 # Magic lines like this mean we can set notebook properties, see below for more
@@ -88,8 +85,6 @@ There are a few things I like to look for in data munging tabular records:
 
 Ideally, this non-exhaustive list of checks should be completed upstream in our stack by tools such as [dbt](https://docs.getdbt.com/docs/introduction). As a Data scientist, I want to have a reproducible way of cleaning my data.
 
-
-
 ```python
 df = pd.read_csv('data/kc_house_data.csv')
 df.info()
@@ -98,74 +93,70 @@ df.info()
     <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 21613 entries, 0 to 21612
     Data columns (total 21 columns):
-     #   Column         Non-Null Count  Dtype  
-    ---  ------         --------------  -----  
-     0   id             21613 non-null  int64  
-     1   date           21613 non-null  object 
+     #   Column         Non-Null Count  Dtype
+    ---  ------         --------------  -----
+     0   id             21613 non-null  int64
+     1   date           21613 non-null  object
      2   price          21613 non-null  float64
-     3   bedrooms       21613 non-null  int64  
+     3   bedrooms       21613 non-null  int64
      4   bathrooms      21613 non-null  float64
-     5   sqft_living    21613 non-null  int64  
-     6   sqft_lot       21613 non-null  int64  
+     5   sqft_living    21613 non-null  int64
+     6   sqft_lot       21613 non-null  int64
      7   floors         21613 non-null  float64
-     8   waterfront     21613 non-null  int64  
-     9   view           21613 non-null  int64  
-     10  condition      21613 non-null  int64  
-     11  grade          21613 non-null  int64  
-     12  sqft_above     21613 non-null  int64  
-     13  sqft_basement  21613 non-null  int64  
-     14  yr_built       21613 non-null  int64  
-     15  yr_renovated   21613 non-null  int64  
-     16  zipcode        21613 non-null  int64  
+     8   waterfront     21613 non-null  int64
+     9   view           21613 non-null  int64
+     10  condition      21613 non-null  int64
+     11  grade          21613 non-null  int64
+     12  sqft_above     21613 non-null  int64
+     13  sqft_basement  21613 non-null  int64
+     14  yr_built       21613 non-null  int64
+     15  yr_renovated   21613 non-null  int64
+     16  zipcode        21613 non-null  int64
      17  lat            21613 non-null  float64
      18  long           21613 non-null  float64
-     19  sqft_living15  21613 non-null  int64  
-     20  sqft_lot15     21613 non-null  int64  
+     19  sqft_living15  21613 non-null  int64
+     20  sqft_lot15     21613 non-null  int64
     dtypes: float64(5), int64(15), object(1)
     memory usage: 3.5+ MB
-
-
 
 ```python
 df.sort_values('id').head()
 ```
 
-|      |      id | date                |   price |   bedrooms |   bathrooms |   sqft_living |   sqft_lot |   floors |   waterfront |   view |   condition |   grade |   sqft_above |   sqft_basement |   yr_built |   yr_renovated |   zipcode |     lat |     long |   sqft_living15 |   sqft_lot15 |
-|:----:|:-------:|:--------------------|:-------:|:----------:|:-----------:|:-------------:|:----------:|:--------:|:------------:|:------:|:-----------:|:-------:|:------------:|:---------------:|:----------:|:--------------:|:---------:|:-------:|:--------:|:---------------:|:------------:|
-| 2497 | 1000102 | 2015-04-22 00:00:00 |  300000 |          6 |        3    |          2400 |       9373 |      2   |            0 |      0 |           3 |       7 |         2400 |               0 |       1991 |              0 |     98002 | 47.3262 | -122.214 |            2060 |         7316 |
-| 2496 | 1000102 | 2014-09-16 00:00:00 |  280000 |          6 |        3    |          2400 |       9373 |      2   |            0 |      0 |           3 |       7 |         2400 |               0 |       1991 |              0 |     98002 | 47.3262 | -122.214 |            2060 |         7316 |
-| 6735 | 1200019 | 2014-05-08 00:00:00 |  647500 |          4 |        1.75 |          2060 |      26036 |      1   |            0 |      0 |           4 |       8 |         1160 |             900 |       1947 |              0 |     98166 | 47.4444 | -122.351 |            2590 |        21891 |
-| 8411 | 1200021 | 2014-08-11 00:00:00 |  400000 |          3 |        1    |          1460 |      43000 |      1   |            0 |      0 |           3 |       7 |         1460 |               0 |       1952 |              0 |     98166 | 47.4434 | -122.347 |            2250 |        20023 |
-| 8809 | 2800031 | 2015-04-01 00:00:00 |  235000 |          3 |        1    |          1430 |       7599 |      1.5 |            0 |      0 |           4 |       6 |         1010 |             420 |       1930 |              0 |     98168 | 47.4783 | -122.265 |            1290 |        10320 |
+|      |   id    | date                | price  | bedrooms | bathrooms | sqft_living | sqft_lot | floors | waterfront | view | condition | grade | sqft_above | sqft_basement | yr_built | yr_renovated | zipcode |   lat   |   long   | sqft_living15 | sqft_lot15 |
+| :--: | :-----: | :------------------ | :----: | :------: | :-------: | :---------: | :------: | :----: | :--------: | :--: | :-------: | :---: | :--------: | :-----------: | :------: | :----------: | :-----: | :-----: | :------: | :-----------: | :--------: |
+| 2497 | 1000102 | 2015-04-22 00:00:00 | 300000 |    6     |     3     |    2400     |   9373   |   2    |     0      |  0   |     3     |   7   |    2400    |       0       |   1991   |      0       |  98002  | 47.3262 | -122.214 |     2060      |    7316    |
+| 2496 | 1000102 | 2014-09-16 00:00:00 | 280000 |    6     |     3     |    2400     |   9373   |   2    |     0      |  0   |     3     |   7   |    2400    |       0       |   1991   |      0       |  98002  | 47.3262 | -122.214 |     2060      |    7316    |
+| 6735 | 1200019 | 2014-05-08 00:00:00 | 647500 |    4     |   1.75    |    2060     |  26036   |   1    |     0      |  0   |     4     |   8   |    1160    |      900      |   1947   |      0       |  98166  | 47.4444 | -122.351 |     2590      |   21891    |
+| 8411 | 1200021 | 2014-08-11 00:00:00 | 400000 |    3     |     1     |    1460     |  43000   |   1    |     0      |  0   |     3     |   7   |    1460    |       0       |   1952   |      0       |  98166  | 47.4434 | -122.347 |     2250      |   20023    |
+| 8809 | 2800031 | 2015-04-01 00:00:00 | 235000 |    3     |     1     |    1430     |   7599   |  1.5   |     0      |  0   |     4     |   6   |    1010    |      420      |   1930   |      0       |  98168  | 47.4783 | -122.265 |     1290      |   10320    |
 
 Looks like our data is clean - we have 20 columns where only some don't make sense. All the values are numeric apart from date, which looks like a [ISO 8061](https://en.wikipedia.org/wiki/ISO_8601) string representation, which makes it easy for us to parse. Some of these can be classified as categories under the hood, so we could try [One Hot Encoding](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) them later after a baseline is expected. There are lots of years in here that could also be better off converted to relative values, a zip code that's represented as a number and lat-long values which could be geo-aizied too. Location data as a concept is layered and in this case we may be better off ignoring some of them, well come to selecting data later. For now we are not going to touch the data other than the date to get it in the right format.
 
 One thing to note is that this set of data contains multiple sales of the same house, for example house `1000102` which sold for \$280,000 in 2014 then in 2015 for \$300,000. This is something that should be incorporated into the model somehow, maybe in a synthetic field further down the line wrt the price - maybe some inflation adjusted value.
-
-
 
 ```python
 df['date'] = pd.to_datetime(df['date'])
 ```
 
 ## Data Distribution
-As I mentioned this is a very easy data source to begin with, and it's a nice sample to understand too. Everyone understands (apart from the market obviously, as a first time buyer) how a house should be valued at a high level; big => ££, beds => $$ location => €€.
 
+As I mentioned this is a very easy data source to begin with, and it's a nice sample to understand too. Everyone understands (apart from the market obviously, as a first time buyer) how a house should be valued at a high level; big => ££, beds => \$\$ location => €€.
 
 ```python
 df.describe()
 ```
 
-|       |              id |        price |     bedrooms |    bathrooms |   sqft_living |        sqft_lot |       floors |     waterfront |         view |    condition |       grade |   sqft_above |   sqft_basement |   yr_built |   yr_renovated |   zipcode |          lat |         long |   sqft_living15 |   sqft_lot15 |
-|:------|:---------------:|:------------:|:------------:|:------------:|:-------------:|:---------------:|:------------:|:--------------:|:------------:|:------------:|:-----------:|:------------:|:---------------:|:----------:|:--------------:|:---------:|:------------:|:------------:|:---------------:|:------------:|
-| count | 21613           |  21613       | 21613        | 21613        |     21613     | 21613           | 21613        | 21613          | 21613        | 21613        | 21613       |    21613     |       21613     | 21613      |     21613      | 21613     | 21613        | 21613        |       21613     |      21613   |
-| mean  |     4.5803e+09  | 540088       |     3.37084  |     2.11476  |      2079.9   | 15107           |     1.49431  |     0.00754176 |     0.234303 |     3.40943  |     7.65687 |     1788.39  |         291.509 |  1971.01   |        84.4023 | 98077.9   |    47.5601   |  -122.214    |        1986.55  |      12768.5 |
-| std   |     2.87657e+09 | 367127       |     0.930062 |     0.770163 |       918.441 | 41420.5         |     0.539989 |     0.0865172  |     0.766318 |     0.650743 |     1.17546 |      828.091 |         442.575 |    29.3734 |       401.679  |    53.505 |     0.138564 |     0.140828 |         685.391 |      27304.2 |
-| min   |     1.0001e+06  |  75000       |     0        |     0        |       290     |   520           |     1        |     0          |     0        |     1        |     1       |      290     |           0     |  1900      |         0      | 98001     |    47.1559   |  -122.519    |         399     |        651   |
-| 25%   |     2.12305e+09 | 321950       |     3        |     1.75     |      1427     |  5040           |     1        |     0          |     0        |     3        |     7       |     1190     |           0     |  1951      |         0      | 98033     |    47.471    |  -122.328    |        1490     |       5100   |
-| 50%   |     3.90493e+09 | 450000       |     3        |     2.25     |      1910     |  7618           |     1.5      |     0          |     0        |     3        |     7       |     1560     |           0     |  1975      |         0      | 98065     |    47.5718   |  -122.23     |        1840     |       7620   |
-| 75%   |     7.3089e+09  | 645000       |     4        |     2.5      |      2550     | 10688           |     2        |     0          |     0        |     4        |     8       |     2210     |         560     |  1997      |         0      | 98118     |    47.678    |  -122.125    |        2360     |      10083   |
-| max   |     9.9e+09     |      7.7e+06 |    33        |     8        |     13540     |     1.65136e+06 |     3.5      |     1          |     4        |     5        |    13       |     9410     |        4820     |  2015      |      2015      | 98199     |    47.7776   |  -121.315    |        6210     |     871200   |
+|       |     id      |  price  | bedrooms | bathrooms | sqft_living |  sqft_lot   |  floors  | waterfront |   view   | condition |  grade  | sqft_above | sqft_basement | yr_built | yr_renovated | zipcode |   lat    |   long   | sqft_living15 | sqft_lot15 |
+| :---- | :---------: | :-----: | :------: | :-------: | :---------: | :---------: | :------: | :--------: | :------: | :-------: | :-----: | :--------: | :-----------: | :------: | :----------: | :-----: | :------: | :------: | :-----------: | :--------: |
+| count |    21613    |  21613  |  21613   |   21613   |    21613    |    21613    |  21613   |   21613    |  21613   |   21613   |  21613  |   21613    |     21613     |  21613   |    21613     |  21613  |  21613   |  21613   |     21613     |   21613    |
+| mean  | 4.5803e+09  | 540088  | 3.37084  |  2.11476  |   2079.9    |    15107    | 1.49431  | 0.00754176 | 0.234303 |  3.40943  | 7.65687 |  1788.39   |    291.509    | 1971.01  |   84.4023    | 98077.9 | 47.5601  | -122.214 |    1986.55    |  12768.5   |
+| std   | 2.87657e+09 | 367127  | 0.930062 | 0.770163  |   918.441   |   41420.5   | 0.539989 | 0.0865172  | 0.766318 | 0.650743  | 1.17546 |  828.091   |    442.575    | 29.3734  |   401.679    | 53.505  | 0.138564 | 0.140828 |    685.391    |  27304.2   |
+| min   | 1.0001e+06  |  75000  |    0     |     0     |     290     |     520     |    1     |     0      |    0     |     1     |    1    |    290     |       0       |   1900   |      0       |  98001  | 47.1559  | -122.519 |      399      |    651     |
+| 25%   | 2.12305e+09 | 321950  |    3     |   1.75    |    1427     |    5040     |    1     |     0      |    0     |     3     |    7    |    1190    |       0       |   1951   |      0       |  98033  |  47.471  | -122.328 |     1490      |    5100    |
+| 50%   | 3.90493e+09 | 450000  |    3     |   2.25    |    1910     |    7618     |   1.5    |     0      |    0     |     3     |    7    |    1560    |       0       |   1975   |      0       |  98065  | 47.5718  | -122.23  |     1840      |    7620    |
+| 75%   | 7.3089e+09  | 645000  |    4     |    2.5    |    2550     |    10688    |    2     |     0      |    0     |     4     |    8    |    2210    |      560      |   1997   |      0       |  98118  |  47.678  | -122.125 |     2360      |   10083    |
+| max   |   9.9e+09   | 7.7e+06 |    33    |     8     |    13540    | 1.65136e+06 |   3.5    |     1      |    4     |     5     |   13    |    9410    |     4820      |   2015   |     2015     |  98199  | 47.7776  | -121.315 |     6210      |   871200   |
 
 ```python
 heatmap = sns.heatmap(df.corr(), annot=True, fmt=".2f")
@@ -173,7 +164,6 @@ heatmap
 ```
 
 ![png](/content/img/netlifyCMS/house_prices_heatmap.png)
-
 
 ```python
 pairplot = sns.pairplot(df)
@@ -193,12 +183,10 @@ Eyeballing the columns look like everything looks fine, there are some distribut
 
 There are some that I'd like to look into in more depth, namely
 
-* `sqft_lot` - why is this all bunched up at the 0 end?
-* `waterfront` - what do these numbers mean?
-* `view` - what do these numbers mean?
-* `yr_renovated` - how does this impact us if we move to relative dates?
-
-
+-   `sqft_lot` - why is this all bunched up at the 0 end?
+-   `waterfront` - what do these numbers mean?
+-   `view` - what do these numbers mean?
+-   `yr_renovated` - how does this impact us if we move to relative dates?
 
 ```python
 keys = [
@@ -217,8 +205,6 @@ for key in keys:
     view has 5 unique values, first 5: [0 3 4 2 1]
     yr_renovated has 70 unique values, first 5: [   0 1991 2002 2010 1999]
 
-
-
 ```python
 print("skew:", df.skew()['sqft_lot'])
 print()
@@ -229,7 +215,7 @@ print(df['sqft_lot'].value_counts()[:15])
 ```
 
     skew: 13.060018959031755
-    
+
     count    2.161300e+04
     mean     1.510697e+04
     std      4.142051e+04
@@ -239,7 +225,7 @@ print(df['sqft_lot'].value_counts()[:15])
     75%      1.068800e+04
     max      1.651359e+06
     Name: sqft_lot, dtype: float64
-    
+
     top 15 values by count
     5000    358
     6000    290
@@ -257,7 +243,6 @@ print(df['sqft_lot'].value_counts()[:15])
     7000     76
     8000     76
     Name: sqft_lot, dtype: int64
-
 
 Ok looks like we do have some categories in `waterfront` and `view` - though as they're encoded already I'll just leave them. `sqft_lot` looks lie its incredibly sqewed with the majority of the values below 10,000 and a max value of over 150x that. Im not too concerned as this probably has relevent data in, just with an intresting distribution.
 
@@ -304,9 +289,9 @@ When it comes to getting the predictions we want to ensure we measure a relevant
 
 This means answering things like penalizing "distance" from the true result, by squaring or just getting the absolute value of the distance and how to aggregate all our guesses, such as taking averages or min/max of our deltas. In my case, I'll try 3:
 
-* [Mean Absolute Error](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html) ($MAE$)
-* [Max Error](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.max_error.html) ($ME$)
-* [Root Mean Squared Error](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html) ($RMSE$)
+-   [Mean Absolute Error](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html) ($MAE$)
+-   [Max Error](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.max_error.html) ($ME$)
+-   [Root Mean Squared Error](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html) ($RMSE$)
 
 It's worth noting this is just a way of comparing 2 arrays of the same length. We could go into lots of detail around skewness and how that impacts predictions on very expensive/cheap houses or the bulk of our data. Grading a regression model is really important for analysing what, exactly, you want to be predicted from an ML model.
 
@@ -315,7 +300,6 @@ In real terms this means "given all my guesses, how much did I miss the mark by 
 $$ MAE < ME < RMSE $$
 
 I will also return the mean value of the true prices to compare how the model performance actually stacks up
-
 
 ```python
 from sklearn.metrics import mean_absolute_error, mean_squared_error, max_error
@@ -342,7 +326,6 @@ def get_errors(y_true, y_predict):
 
 Step one, is the basic Linear Regression. Probably going to not work super well as the data is likely non-linear
 
-
 ```python
 from sklearn.linear_model import LinearRegression
 
@@ -363,9 +346,6 @@ linear_result = get_errors(y_test, y_pred)
 linear_result
 ```
 
-
-
-
     {'MAE': 162853.0350747235,
      'MAE_ratio': 0.302607784870751,
      'ME': 4157759.6482200027,
@@ -374,10 +354,7 @@ linear_result
      'RMSE_ratio': 0.44349754962938126,
      'y_true_mean': 538165.3850851221}
 
-
-
 From here let's try a bunch of other regression modelling techniques to see what the best default is.
-
 
 ```python
 import time
@@ -408,7 +385,6 @@ def model_testing(_models):
 
 ```
 
-
 ```python
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.tree import DecisionTreeRegressor
@@ -431,7 +407,6 @@ models_1 = [
 models_1_df = model_testing(models_1)
 ```
 
-
 ```python
 # Add original OLS regression model results to the dataframe.
 models_1_df = pd.concat(
@@ -440,22 +415,22 @@ models_1_df = pd.concat(
 )
 ```
 
-
 ```python
 models_1_df['RMSE_rank'] = models_1_df['RMSE_ratio'].rank()
 models_1_df.set_index('RMSE_rank', inplace=True)
 models_1_df.sort_index()
 ```
-|  RMSE_rank  | model                                        |  time_taken   |       MAE        |  MAE_ratio  |          ME |     ME_ratio |             RMSE |   RMSE_ratio |   y_true_mean |
-|:-----------:|----------------------------------------------|:-------------:|:----------------:|:-----------:|:-----------:|:------------:|:----------------:|:------------:|:-------------:|
-|      1      | RandomForestRegressor(random_state=1234)     |  8.90942e+09  |     67567.8      |  0.125552   | 2.41883e+06 |  4.49458     | 125670           |  0.233516    |        538165 |
-|      2      | GradientBoostingRegressor(random_state=1234) |  2.66899e+09  |      76000       |  0.141221   | 2.4128e+06  |  4.48339     | 132250           |  0.245743    |        538165 |
-|      3      | DecisionTreeRegressor(random_state=1234)     |  1.49893e+08  |     99986.1      |  0.185791   | 2.375e+06   |  4.41314     | 183278           |  0.34056     |        538165 |
-|      4      | LinearRegression()                           |      nan      |      162853      |  0.302608   | 4.15776e+06 |  7.7258      | 238675           |  0.443498    |        538165 |
-|      5      | SVR()                                        |  1.07078e+10  |      219488      |  0.407845   | 6.6125e+06  | 12.2871      | 361966           |  0.672592    |        538165 |
-|      6      | KNeighborsRegressor()                        |  1.12232e+09  |      263538      |  0.489698   | 6.58138e+06 | 12.2293      | 390482           |  0.725581    |        538165 |
-|      7      | GaussianProcessRegressor(random_state=1234)  |  4.29049e+10  |      538098      |  0.999874   | 7.0625e+06  | 13.1233      | 642529           |  1.19392     |        538165 |
-|      8      | MLPRegressor(random_state=1234)              |  2.74833e+09  |   9.43668e+12    | 1.75349e+07 | 9.55167e+12 |  1.77486e+07 |      9.43691e+12 |  1.75353e+07 |        538165 |
+
+| RMSE_rank | model                                        | time_taken  |     MAE     |  MAE_ratio  |     ME      |  ME_ratio   |    RMSE     | RMSE_ratio  | y_true_mean |
+| :-------: | -------------------------------------------- | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: |
+|     1     | RandomForestRegressor(random_state=1234)     | 8.90942e+09 |   67567.8   |  0.125552   | 2.41883e+06 |   4.49458   |   125670    |  0.233516   |   538165    |
+|     2     | GradientBoostingRegressor(random_state=1234) | 2.66899e+09 |    76000    |  0.141221   | 2.4128e+06  |   4.48339   |   132250    |  0.245743   |   538165    |
+|     3     | DecisionTreeRegressor(random_state=1234)     | 1.49893e+08 |   99986.1   |  0.185791   |  2.375e+06  |   4.41314   |   183278    |   0.34056   |   538165    |
+|     4     | LinearRegression()                           |     nan     |   162853    |  0.302608   | 4.15776e+06 |   7.7258    |   238675    |  0.443498   |   538165    |
+|     5     | SVR()                                        | 1.07078e+10 |   219488    |  0.407845   | 6.6125e+06  |   12.2871   |   361966    |  0.672592   |   538165    |
+|     6     | KNeighborsRegressor()                        | 1.12232e+09 |   263538    |  0.489698   | 6.58138e+06 |   12.2293   |   390482    |  0.725581   |   538165    |
+|     7     | GaussianProcessRegressor(random_state=1234)  | 4.29049e+10 |   538098    |  0.999874   | 7.0625e+06  |   13.1233   |   642529    |   1.19392   |   538165    |
+|     8     | MLPRegressor(random_state=1234)              | 2.74833e+09 | 9.43668e+12 | 1.75349e+07 | 9.55167e+12 | 1.77486e+07 | 9.43691e+12 | 1.75353e+07 |   538165    |
 
 Looks like the defaults for a few models are much more effective than others. Namely, the Random Forrest model. It's worth looking at what each of these models actually does. I've selected models which take modelling from different paradigms to show that different approaches work better than others, and can depend on the underlying data set. An in-depth understanding of the model will help selection given a set of data, the [sklearn docs](https://scikit-learn.org/stable/supervised_learning.html#supervised-learning) group supervised learning approaches quite well.
 
@@ -499,14 +474,13 @@ Overall we have learned that the best way, for **simple** models, is combination
 2. Data is ingested
 3. Data is analysed and munging steps defined
 4. Initial model testing
-   1. Intelligent selection of model types trialled
-   2. Synthetic fields are created where it makes sense
-   3. Model hyperparameter tuning and cross-validations applied
+    1. Intelligent selection of model types trialled
+    2. Synthetic fields are created where it makes sense
+    3. Model hyperparameter tuning and cross-validations applied
 5. Downstream marts produced with clear tests, cleaning and synthetic fields replicated
 6. Production Models trained & versioned artefacts produced
 7. Models deployed and monitored
 
 Overall, of this long list, we were mostly focused on the first 4 stages; which makes sense. This post makes use of understanding models and reflections of these basic understandings on predictions. The next stage will be to really start completing the models and narrowing down on a production-able model. To do this I'd like to apply this to previous models/data in this post and also look to find data that would be valuable to analyse in the wider world.
-
 
 Next big learning: https://www.kaggle.com/learn/intro-to-deep-learning

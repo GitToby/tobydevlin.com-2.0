@@ -3,12 +3,10 @@ layout: post
 date: 2021-06-06T10:51:04.815+00:00
 title: Concurrency in Python with Async Await
 publish: true
-image: "/content/img/netlifyCMS/external-content.duckduckgo.com.jpg"
+image: '/content/img/netlifyCMS/external-content.duckduckgo.com.jpg'
 tags:
-- python
-
----
-Concurrency in python has become incredibly simple since the `asyncio` package was created. Any developer, with a small restructuring of flow and an extra couple of keywords, can create easily concurrent applications. With the addition of multiple processes, this can easily become parallel too with the help of the [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) lib.
+    - python
+---Concurrency in python has become incredibly simple since the `asyncio` package was created. Any developer, with a small restructuring of flow and an extra couple of keywords, can create easily concurrent applications. With the addition of multiple processes, this can easily become parallel too with the help of the [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) lib.
 
 Below is a simple demo of a task that could include an IO-bound operation where the application waits on another process. There are a list of tasks and a simple execution in both synchronous and asynchronous fashion.
 

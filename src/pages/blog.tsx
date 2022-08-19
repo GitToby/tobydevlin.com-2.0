@@ -7,7 +7,7 @@ import * as style from '../styles/blog.module.scss';
 import BlogPostCard from '../components/blogPostCard';
 import {FormControl, InputGroup, Spinner} from 'react-bootstrap';
 import SEO from '../components/SEO';
-import {ImageDataLike} from "gatsby-plugin-image";
+import {ImageDataLike} from 'gatsby-plugin-image';
 
 interface BlogProps {
     data: BlogHomeQuery;
@@ -35,12 +35,10 @@ const Blog = (props: BlogProps) => {
 
     return (
         <Content>
-            <SEO pageTitle="Blog" isBlogPost={false}/>
+            <SEO pageTitle="Blog" isBlogPost={false} />
             <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
-                <h1>
-                    Welcome to the Blog!
-                </h1>
-                <hr/>
+                <h1>Welcome to the Blog!</h1>
+                <hr />
             </div>
             <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
                 AI write about things sometime. I update this every now and then when I come across something I want to
@@ -56,9 +54,9 @@ const Blog = (props: BlogProps) => {
                         onChange={filterPosts}
                     />
                 </InputGroup>
-                <hr/>
+                <hr />
             </div>
-            {isLoading && <Spinner animation={'border'}/>}
+            {isLoading && <Spinner animation={'border'} />}
             {posts.length > 0 &&
                 posts
                     .filter((post: any) => {
@@ -108,10 +106,7 @@ export const query = graphql`
                         tags
                         image {
                             childImageSharp {
-                                gatsbyImageData(
-                                    placeholder: BLURRED
-                                    formats: [AUTO, WEBP]
-                                )
+                                gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
                             }
                         }
                     }

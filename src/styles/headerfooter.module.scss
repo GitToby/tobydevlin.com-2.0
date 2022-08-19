@@ -1,55 +1,54 @@
 @import 'global';
 
 .footer {
-  // nav sections are actually div
-  color: $primary-font-color;
-  height: $header-footer-height;
-  margin: 0 2vw;
-
-  div {
     color: $primary-font-color;
-  }
+    height: $header-footer-height;
+    padding: 0 2vw;
 
-  span {
-    padding-left: 2vw;
-    color: #87929b;
-
-    &:hover {
-      color: #646a73;
+    div {
+        color: $primary-font-color;
     }
-  }
 
-  #footer-build-version {
-    font-size: 6pt;
-  }
+    span {
+        padding-left: 2vw;
+        color: #87929b;
+
+        &:hover {
+            color: #646a73;
+        }
+    }
+
+    #footer-build-version {
+        font-size: 6pt;
+    }
 }
 
 #footer-build-version {
-  color: $primary-background-color;
+    color: $primary-background-color;
 
-  &:hover {
-    color: $primary-font-color;
-  }
+    &:hover {
+        color: $primary-font-color;
+    }
 }
 
 .align-left {
-  margin-left: auto;
-  margin-right: 0;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 @media only screen and (max-width: 500px) {
-  // don't display the build version under 500px
-  #footer-build-version {
-    display: none;
-  }
+    // don't display the build version under 500px
+    #footer-build-version {
+        display: none;
+    }
 }
 
 .header {
-  color: $primary-font-color;
-  min-height: $header-footer-height;
-  margin: 0 2vw;
+    color: $primary-font-color;
+    min-height: $header-footer-height;
+    padding: 0 2vw;
 }
 
 #loginButton {
-  color: green;
+    color: green;
 }

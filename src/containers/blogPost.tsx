@@ -9,8 +9,8 @@ import * as styles from '../styles/blog.module.scss';
 import 'prismjs/themes/prism.css'; // remark code snipits
 import 'katex/dist/katex.min.css';
 import SEO from '../components/SEO';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
 interface BlogPostProps {
     data: BlogDataQuery;
@@ -25,13 +25,15 @@ const BlogPost = (props: BlogPostProps) => {
     return (
         <Content>
             {/* Sets the header of the blog post */}
-            <SEO pageTitle={title} pageDescription={props.data.markdownRemark.excerpt} isBlogPost/>
+            <SEO pageTitle={title} pageDescription={props.data.markdownRemark.excerpt} isBlogPost />
 
             <span className={styles.backButton} data-aos="fade-up" data-aos-duration="600">
-                <Link to='/blog'><FontAwesomeIcon icon={faArrowLeft}/> Back to the Blog</Link>
+                <Link to="/blog">
+                    <FontAwesomeIcon icon={faArrowLeft} /> Back to the Blog
+                </Link>
             </span>
 
-            <hr/>
+            <hr />
             <div className={styles.blogPost} data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                 {fluidImg ? (
                     <BackgroundImage
@@ -50,18 +52,19 @@ const BlogPost = (props: BlogPostProps) => {
                         <h3>{postDate}</h3>
                     </div>
                 )}
-                <hr/>
+                <hr />
                 <div
                     dangerouslySetInnerHTML={{
                         __html: props.data.markdownRemark.html
                     }}
                 />
             </div>
-            <hr/>
+            <hr />
             <span className={styles.backButton} data-aos="fade-up" data-aos-duration="600">
-                <Link to='/blog'><FontAwesomeIcon icon={faArrowLeft}/> Back to the Blog</Link>
+                <Link to="/blog">
+                    <FontAwesomeIcon icon={faArrowLeft} /> Back to the Blog
+                </Link>
             </span>
-
         </Content>
     );
 };

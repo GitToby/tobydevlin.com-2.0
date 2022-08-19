@@ -4,10 +4,11 @@ date: 2022-06-05T19:45:52.316Z
 title: Database Migrations with sqlmodel and alembic
 publish: true
 image: /content/img/netlifyCMS/library-unsplash.jpg
-tags: 
- - python
- - databases
+tags:
+    - python
+    - databases
 ---
+
 [sqlmodel](https://sqlmodel.tiangolo.com/) is a very useful proxy tool that allows [pydantic](https://pydantic-docs.helpmanual.io) models and [sqlalchemy](https://www.sqlalchemy.org/) models to be combined.
 This allows [FastAPI](https://fastapi.tiangolo.com/), built by the same author, to intuitively know more about the models' metadata.
 
