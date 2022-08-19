@@ -1,13 +1,13 @@
 ---
-layout: post 
-date: 2021-09-05T08:32:11.561Z 
+layout: post
+date: 2021-09-05T08:32:11.561Z
 title: Off To The Cloud - Part 1
-publish: true 
-image: /content/img/netlifyCMS/cloudCastle.jpg 
+publish: true
+image: /content/img/netlifyCMS/cloudCastle.jpg
 tags:
-  - aws
-  - terraform
-  - cloud
+    - aws
+    - terraform
+    - cloud
 ---
 
 This series of posts will be covering my journey to create a "traditional" web app using IAC, python and AWS. This can
@@ -65,11 +65,11 @@ with you root or IAM admin creds.
 Moving over to cloud will take a very simple, lift and shift, approach; an introduction to the AWS basics of cloud. We
 will focus on a small set of services:
 
-- VPC
-- Subnets
-- Security Groups
-- Availability Zones
-- EC2
+-   VPC
+-   Subnets
+-   Security Groups
+-   Availability Zones
+-   EC2
 
 ### Before We Start
 
@@ -82,7 +82,7 @@ part of the key.
 To generate a new key, use the below command:
 
 ```shell
-ssh-keygen -t rsa -b 4096 
+ssh-keygen -t rsa -b 4096
 ```
 
 ## 1.1 - Building The Network
@@ -219,7 +219,7 @@ resource "aws_instance" "db_server" {
 ```
 
 Note how these both have `aws_security_group.my_ssh_access` security group attachment and
-the  [`aws_key_pair`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) resource.
+the [`aws_key_pair`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) resource.
 This is to allow us ssh access from our machine, this requires you to have completed
 the [before we start](#Before-We-Start) section.
 
@@ -256,7 +256,7 @@ db_server_ip_priv = "10.0.1.xxx"
 
 ```
 
-These are your results of the apply stage! Notice how there are 2 IPs with _priv and one with _pub. These mean you can
+These are your results of the apply stage! Notice how there are 2 IPs with \_priv and one with \_pub. These mean you can
 only access the public application server from the internet. If we wanted we can now connect to the public app server
 with `ssh 54.86.xxx.xxx` and it will execute a private key authentication against the public key we provided in
 the `aws_key_pair` resource. There are however better ways of accessing these servers - a VPN connection into our VPC.

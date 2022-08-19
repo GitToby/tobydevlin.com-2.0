@@ -5,11 +5,10 @@ title: Snowflake Stages and External Tables with JSON Blobs in AWS
 publish: true
 image: /content/img/netlifyCMS/snowflake-unsplash.jpg
 tags:
-  - snowflake
-  - dbt
-  - aws
+    - snowflake
+    - dbt
+    - aws
 ---
-
 
 Snowflake has a few ways to interact with external data, one of which
 is [Stages](https://docs.snowflake.com/en/sql-reference/sql/create-stage.html)
@@ -298,7 +297,6 @@ The content will automatically be populated into a table we can query To test ou
 into the bucket and run the refresh command `ALTER EXTERNAL TABLE src_mock_data_external REFRESH;` then the select query
 again, showing updates to the underlying data.
 
-
 ```sql
 SHOW EXTERNAL TABLES;
 SELECT *
@@ -306,20 +304,20 @@ SELECT *
 ```
 
 This manual refresh has to be done each time unless updates to this table
-are published to the AWS SQS topic that is created for the table. This can be SQS topic can be hit by anything, but the recommended way is [by publishing s3 change events](https://docs.snowflake.com/en/user-guide/tables-external-s3.html#step-3-configure-event-notifications). 
+are published to the AWS SQS topic that is created for the table. This can be SQS topic can be hit by anything, but the recommended way is [by publishing s3 change events](https://docs.snowflake.com/en/user-guide/tables-external-s3.html#step-3-configure-event-notifications).
 
 ### Caveats & Considerations
 
-- When working with extremely large JSON blobs, larger than the max
-  size ([16,777,216 bytes](https://docs.snowflake.com/en/sql-reference/data-types-text.html#varchar)) stages will fail
-  their `COPY INTO` commands & External Tables will fail silently to load the data into the table.
-- We have taken some shortcuts such as creating the AWS integration query in a local file - This can be hardened with
-  proper secrets management & terraform state storage.
-- Setting up change notifications on external stages is probably a very useful tool, meaning you could even process these files in multiple systems at once.
-- Understanding
-  the [`COPY INTO` settings](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) and
-  various [Stage settings](https://docs.snowflake.com/en/sql-reference/sql/create-stage.html#syntax)
-  allows for flexible operations on the stages files & how to reduce processing after load.
-- The billing associated with Stages is part of the
-  Snowflakes [serverless billing](https://docs.snowflake.com/en/user-guide/admin-serverless-billing.html) and should be
-  understood before heavyweight processing.
+-   When working with extremely large JSON blobs, larger than the max
+    size ([16,777,216 bytes](https://docs.snowflake.com/en/sql-reference/data-types-text.html#varchar)) stages will fail
+    their `COPY INTO` commands & External Tables will fail silently to load the data into the table.
+-   We have taken some shortcuts such as creating the AWS integration query in a local file - This can be hardened with
+    proper secrets management & terraform state storage.
+-   Setting up change notifications on external stages is probably a very useful tool, meaning you could even process these files in multiple systems at once.
+-   Understanding
+    the [`COPY INTO` settings](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) and
+    various [Stage settings](https://docs.snowflake.com/en/sql-reference/sql/create-stage.html#syntax)
+    allows for flexible operations on the stages files & how to reduce processing after load.
+-   The billing associated with Stages is part of the
+    Snowflakes [serverless billing](https://docs.snowflake.com/en/user-guide/admin-serverless-billing.html) and should be
+    understood before heavyweight processing.

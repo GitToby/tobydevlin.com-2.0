@@ -7,8 +7,7 @@ import {faGithub, faGitlab, faLinkedin} from '@fortawesome/free-brands-svg-icons
 // @ts-ignore
 import * as styles from '../styles/headerfooter.module.scss';
 
-interface FooterProps {
-}
+interface FooterProps {}
 
 const Footer = (_props: FooterProps) => {
     const footerData: FooterDataQuery = useStaticQuery(graphql`
@@ -35,13 +34,13 @@ const Footer = (_props: FooterProps) => {
             <Nav className="mr-auto">
                 <Nav.Link onClick={() => navigate('/about')}>Created by Toby Devlin</Nav.Link>
                 <Nav.Link href={gitlab}>
-                    <FontAwesomeIcon icon={faGitlab}/>
+                    <FontAwesomeIcon icon={faGitlab} />
                 </Nav.Link>
                 <Nav.Link href={github}>
-                    <FontAwesomeIcon icon={faGithub}/>
+                    <FontAwesomeIcon icon={faGithub} />
                 </Nav.Link>
                 <Nav.Link href={linkedin}>
-                    <FontAwesomeIcon icon={faLinkedin}/>
+                    <FontAwesomeIcon icon={faLinkedin} />
                 </Nav.Link>
             </Nav>
             <div className={styles.alignLeft}>

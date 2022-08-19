@@ -1,7 +1,6 @@
 import React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
+import {graphql, Link, useStaticQuery} from 'gatsby';
 import {HeaderDataQuery} from '../../graphql-types';
-import {navigate} from 'gatsby';
 import {Nav, Navbar} from 'react-bootstrap';
 // @ts-ignore
 import * as styles from '../styles/headerfooter.module.scss';
@@ -36,21 +35,20 @@ const Header = (_props: HeaderProps) => {
                             return isTopLevel && !is404;
                         })
                         .map((pageLocation: string, idx: number) => {
+                            let pageLocationStrings = pageLocation
+                                .replace(/\//g, '')
+                                .replace(/and/g, '&')
+                                .split('_');
+                            pageLocationStrings = pageLocationStrings.map(
+                                (string) => string.charAt(0).toUpperCase() + string.substr(1).toLowerCase()
+                            );
+                            let navString = pageLocationStrings.join(' ');
                             return (
-                                <Nav.Link key={idx} onClick={() => navigate(pageLocation)}>
-                                    {/* replace / in display */}
-                                    {pageLocation
-                                        .replace(/\//g, '')
-                                        .charAt(0)
-                                        .toUpperCase() +
-                                        pageLocation
-                                            .replace(/\//g, '')
-                                            .substr(1)
-                                            .toLowerCase()}
+                                <Nav.Link key={idx} as={Link} to={pageLocation}>
+                                    {navString}
                                 </Nav.Link>
                             );
                         })}
-                        {/*<Nav.Link href="https://www.linkedin.com/in/toby-devlin/" target="_blank">Contact</Nav.Link>*/}
                 </Nav>
                 <div className={styles.alignLeft}>
                     <Nav>

@@ -2,8 +2,8 @@ import React from 'react';
 import {Card} from 'react-bootstrap';
 // @ts-ignore
 import * as style from '../styles/blog.module.scss';
-import {GatsbyImage, getImage, ImageDataLike} from "gatsby-plugin-image";
-import {Link} from "gatsby";
+import {GatsbyImage, getImage, ImageDataLike} from 'gatsby-plugin-image';
+import {Link} from 'gatsby';
 
 class BlogPostCardProps {
     idx: number;
@@ -16,16 +16,14 @@ class BlogPostCardProps {
 }
 
 const BlogPostCard = (props: BlogPostCardProps) => {
-    const imageData = getImage(props.imgData)
+    const imageData = getImage(props.imgData);
     return (
         <Card className={style.blogPostCard}>
-            <Card.Img className={style.blogPostCardImg} as={GatsbyImage} image={imageData} alt="asdf"/>
+            <Card.Img className={style.blogPostCardImg} as={GatsbyImage} image={imageData} alt="asdf" />
             <Card.ImgOverlay className={style.blogPostCardContent}>
                 <Card.Body>
                     <Card.Title as="h1">
-                        <Link to={props.slug}>
-                            {props.title}
-                        </Link>
+                        <Link to={props.slug}>{props.title}</Link>
                     </Card.Title>
                     <Card.Subtitle className={style.blogDate}>
                         {props.date} | tags: <i>{props.tags.join(', ')}</i>

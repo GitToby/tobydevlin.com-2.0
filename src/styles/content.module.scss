@@ -6,5 +6,12 @@
         padding-top: 2%;
         padding-bottom: 1%;
         min-height: $content-height;
+        .particles {
+            z-index: 30;
+            .canvas {
+                height: 100%;
+                width: 100%;
+            }
+        }
     }
 }
