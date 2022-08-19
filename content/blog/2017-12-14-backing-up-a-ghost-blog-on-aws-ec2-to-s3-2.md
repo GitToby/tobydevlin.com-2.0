@@ -5,7 +5,8 @@ title: Backing up a Ghost blog (or anything) on AWS EC2 to S3
 date: 2017-12-14 14:06:20
 image: '/content/img/old-post-icons/2017-12-14-echo-dot.jpg'
 publish: true
-tags: - code
+tags: 
+    - code
 ---So you have a ghost blog(or some other amazon web thing), and you're on AWS ubuntu (or another Linux type instance) but you need to back it up. It would seem simple that AWS should offer you a solution, and there is one, just follow these steps:
 
 ### Pt 1.1 - Easy Version
