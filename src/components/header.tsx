@@ -40,8 +40,8 @@ const Header = (_props: HeaderProps) => {
                             }
                             let pageLocationStrings = pageLocation
                                 .replace(/\//g, '')
-                                .replace(/_/g, ' ')
-                                .split(' ');
+                                .replace(/and/g, '&')
+                                .split('_');
                             pageLocationStrings = pageLocationStrings.map(
                                 (string) => string.charAt(0).toUpperCase() + string.substr(1).toLowerCase()
                             );

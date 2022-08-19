@@ -44,7 +44,7 @@ const About = () => {
                   noValidate
                   validated={validated}
                   onSubmit={handleSubmit}
-                  action="/contact_&_consulting/success"
+                  action="/contact_and_consulting/success"
                   data-aos={paraAnimation}
                   data-aos-duration={paraAnimationDuration}
             >
