@@ -7,12 +7,12 @@ import {Link} from 'gatsby';
 
 const Index = () => (
     <Content>
-        <SEO pageTitle="Home" />
+        <SEO pageTitle="Home" isBlogPost={false}/>
         <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="0">
             <h1 id={styles.title}>I'm Toby,</h1>
         </div>
         <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
-            <h2 id={styles.subtitle}>a London based full stack & data consultant</h2>
+            <h2 id={styles.subtitle}>a London-based full stack & data consultant</h2>
         </div>
         <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
             <p>
