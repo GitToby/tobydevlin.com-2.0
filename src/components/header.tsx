@@ -1,5 +1,5 @@
 import React from 'react';
-import {graphql, navigate, useStaticQuery} from 'gatsby';
+import {graphql, Link, useStaticQuery} from 'gatsby';
 import {HeaderDataQuery} from '../../graphql-types';
 import {Nav, Navbar} from 'react-bootstrap';
 // @ts-ignore
@@ -35,9 +35,6 @@ const Header = (_props: HeaderProps) => {
                             return isTopLevel && !is404;
                         })
                         .map((pageLocation: string, idx: number) => {
-                            {
-                                /* replace / in nav display */
-                            }
                             let pageLocationStrings = pageLocation
                                 .replace(/\//g, '')
                                 .replace(/and/g, '&')
@@ -47,7 +44,7 @@ const Header = (_props: HeaderProps) => {
                             );
                             let navString = pageLocationStrings.join(' ');
                             return (
-                                <Nav.Link key={idx} onClick={() => navigate(pageLocation)}>
+                                <Nav.Link key={idx} as={Link} to={pageLocation}>
                                     {navString}
                                 </Nav.Link>
                             );

@@ -7,7 +7,7 @@ import {Link} from 'gatsby';
 
 const Index = () => (
     <Content>
-        <SEO pageTitle="Home" isBlogPost={false}/>
+        <SEO pageTitle="Home" isBlogPost={false} />
         <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="0">
             <h1 id={styles.title}>I'm Toby,</h1>
         </div>
@@ -19,7 +19,7 @@ const Index = () => (
                 Hello world! This is my website, I work on lots of projects and sometimes like to write blog posts or
                 highlight interesting opinions here. This is where I write the occasional post to to keep notes or share
                 details on some of my projects and learnings. If you want to know more, please{' '}
-                <Link to="/contact_&_consulting">contact me!</Link>
+                <Link to="/contact_and_consulting">contact me!</Link>
             </p>
         </div>
     </Content>

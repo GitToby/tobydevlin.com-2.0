@@ -10,13 +10,15 @@ export const blockAnimation = 'fade-up';
 export const blockAnimationDuration = 1000;
 
 const edgeColour = '#737373';
-const a = screen.width * screen.height;
-const value = 0.00004 * a + 40;
 export const particlesOptions: ISourceOptions = {
     backgroundMode: {enable: true},
     particles: {
         number: {
-            value: value
+            value: 25,
+            density: {
+                enable: true,
+                value_area: 150
+            }
         },
         shape: {
             type: 'circle'
