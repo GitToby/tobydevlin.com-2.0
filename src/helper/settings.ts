@@ -12,7 +12,6 @@ export const blockAnimationDuration = 1000;
 const edgeColour = '#737373';
 const a = screen.width * screen.height;
 const value = 0.00004 * a + 40;
-console.log(value);
 export const particlesOptions: ISourceOptions = {
     backgroundMode: {enable: true},
     particles: {
