@@ -11,7 +11,9 @@ export const blockAnimationDuration = 1000;
 
 const edgeColour = '#737373';
 export const particlesOptions: ISourceOptions = {
-    backgroundMode: {enable: true},
+    background: {
+        size: "cover"
+    },
     particles: {
         number: {
             value: 25,
