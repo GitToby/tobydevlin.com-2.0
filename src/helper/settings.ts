@@ -48,9 +48,6 @@ export const particlesOptions: ISourceOptions = {
         detectsOn: 'window',
         events: {
             onhover: {
-                parallax: {
-                    enable: true
-                },
                 enable: true,
                 mode: 'bubble'
             },

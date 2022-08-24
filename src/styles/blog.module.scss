@@ -5,118 +5,125 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
 //linear-gradient(rgba(x, y, z, a), rgba(x, y, z, a))
 
 .background-img {
-    padding: 8vh 0 10vh;
-    min-height: 30vh;
+  padding: 8vh 0 10vh;
+  min-height: 30vh;
 
-    h1 {
-        color: $primary-font-color;
-        padding-left: 5vw;
-    }
+  h1 {
+    color: $primary-font-color;
+    padding-left: 5vw;
+  }
 
-    h3 {
-        color: $secondary-font-color;
-        padding-left: 5vw;
-    }
+  h3 {
+    color: $secondary-font-color;
+    padding-left: 5vw;
+  }
 }
 
 .back-button {
-    color: $secondary-font-color;
+  color: $secondary-font-color;
 }
 
 .blog-post {
-    align-content: center;
+  align-content: center;
 
-    img {
-        justify-content: center;
-        min-height: 100%;
-    }
+  img {
+    justify-content: center;
+    min-height: 100%;
+  }
 
-    h1 {
-        color: $primary-font-color;
-    }
+  h1 {
+    color: $primary-font-color;
+  }
 
-    h3 {
-        color: $secondary-font-color;
-    }
+  h3 {
+    color: $secondary-font-color;
+  }
 
-    p {
-        color: $primary-font-color;
+  p {
+    color: $primary-font-color;
+  }
+
+  div {
+    pre {
+      background-color: rgba(245, 242, 240, 0.70);
     }
+  }
 }
 
 .blogPostCardContainer {
-    .blogPostCard {
-        position: relative;
-        overflow-y: hidden;
+  .blogPostCard {
+    position: relative;
+    overflow-y: hidden;
 
-        .blogPostCardImg {
-            position: absolute;
-            object-fit: cover;
-            height: 100%;
-            picture {
-                opacity: 0.3;
-            }
-        }
+    .blogPostCardImg {
+      position: absolute;
+      object-fit: cover;
+      height: 100%;
 
-        .blogPostCardContent {
-            position: relative;
-
-            h1 {
-                color: $primary-font-color;
-                text-decoration: underline;
-                font-size: 18pt;
-            }
-
-            p {
-                color: $primary-font-color;
-
-                // todo: dynamic clipping of content?
-                //overflow: hidden;
-                //text-overflow: ellipsis;
-                //display: -webkit-box;
-                //-webkit-line-clamp: vh/100; /* number of lines to show */
-                //line-clamp: 2;
-                //-webkit-box-orient: vertical;
-            }
-
-            .blogDate {
-                color: $secondary-font-color;
-            }
-        }
+      picture {
+        opacity: 0.3;
+      }
     }
 
-    padding-bottom: 2vh;
+    .blogPostCardContent {
+      position: relative;
+
+      h1 {
+        color: $primary-font-color;
+        text-decoration: underline;
+        font-size: 18pt;
+      }
+
+      p {
+        color: $primary-font-color;
+
+        // todo: dynamic clipping of content?
+        //overflow: hidden;
+        //text-overflow: ellipsis;
+        //display: -webkit-box;
+        //-webkit-line-clamp: vh/100; /* number of lines to show */
+        //line-clamp: 2;
+        //-webkit-box-orient: vertical;
+      }
+
+      .blogDate {
+        color: $secondary-font-color;
+      }
+    }
+  }
+
+  padding-bottom: 2vh;
 }
 
 table {
-    align-self: center;
-    border-collapse: collapse;
-    overflow-y: visible;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  align-self: center;
+  border-collapse: collapse;
+  overflow-y: visible;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
-    thead tr {
-        background-color: #5082d4;
-        color: #ffffff;
-        text-align: left;
+  thead tr {
+    background-color: #5082d4;
+    color: #ffffff;
+    text-align: left;
 
-        th {
-            padding: 0 5px 0 0;
-        }
+    th {
+      padding: 0 5px 0 0;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #dddddd;
     }
 
-    tbody {
-        tr {
-            border-bottom: 1px solid #dddddd;
-        }
-
-        tr:nth-of-type(even) {
-            background-color: #f3f3f3;
-        }
+    tr:nth-of-type(even) {
+      background-color: #f3f3f3;
     }
+  }
 
-    td {
-        padding: 0 3px;
-    }
+  td {
+    padding: 0 3px;
+  }
 }
