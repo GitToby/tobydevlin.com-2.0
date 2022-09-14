@@ -41,7 +41,6 @@ const About = () => {
             <Form
                 name="contact"
                 data-netlify
-                data-netlify-recaptcha
                 noValidate
                 validated={validated}
                 onSubmit={handleSubmit}
@@ -119,9 +118,6 @@ const About = () => {
                     <Form.Group className="mb-2" as={Col} sm="6">
                         <Form.Check name="response" type="checkbox" label="Request Response" />
                     </Form.Group>
-                    <Col sm="6">
-                        <div data-netlify-recaptcha="true"></div>
-                    </Col>
                 </Row>
                 <Row>
                     <Button className="mb-2" variant="primary" type="submit">
