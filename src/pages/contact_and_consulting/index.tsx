@@ -24,11 +24,11 @@ const About = () => {
 
     return (
         <Content>
-            <SEO pageTitle="Contact" isBlogPost={false} pageDescription={pageDescription} />
+            <SEO pageTitle="Contact" isBlogPost={false} pageDescription={pageDescription}/>
             <h1 data-aos={titleAnimation} data-aos-duration={titleAnimationDuration} data-aos-delay="0">
                 Contact Form.
             </h1>
-            <hr />
+            <hr/>
             <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration}>
                 If you'd like to get in contact with me the best way is via this form. Im usually available on various
                 platforms too, if you'd like to reach out via{' '}
@@ -41,7 +41,7 @@ const About = () => {
             <Form
                 name="contact"
                 data-netlify
-                noValidate
+                data-netlify-recaptcha
                 validated={validated}
                 onSubmit={handleSubmit}
                 action="/contact_and_consulting/success"
@@ -51,18 +51,18 @@ const About = () => {
                 <Row>
                     <FormGroup className="mb-2" as={Col} md="4" sm="12">
                         <FloatingLabel label="First Name*">
-                            <Form.Control name="firstName" required placeholder="" />
+                            <Form.Control name="firstName" required placeholder=""/>
                             <Form.Control.Feedback type="invalid">Please provide a first name.</Form.Control.Feedback>
                         </FloatingLabel>
                     </FormGroup>
                     <FormGroup className="mb-2" as={Col} md="4" sm="12">
                         <FloatingLabel label="Middle Name(s)">
-                            <Form.Control name="middleNames" placeholder="" />
+                            <Form.Control name="middleNames" placeholder=""/>
                         </FloatingLabel>
                     </FormGroup>
                     <FormGroup className="mb-2" as={Col} md="4" sm="12">
                         <FloatingLabel label="Last Name*">
-                            <Form.Control name="lastName" required placeholder="" />
+                            <Form.Control name="lastName" required placeholder=""/>
                             <Form.Control.Feedback type="invalid">Please provide a last name.</Form.Control.Feedback>
                         </FloatingLabel>
                     </FormGroup>
@@ -71,13 +71,13 @@ const About = () => {
                 <Row>
                     <FormGroup className="mb-2" as={Col} sm="6">
                         <FloatingLabel label="Contact Email*">
-                            <Form.Control name="email" required type="email" placeholder="" />
+                            <Form.Control name="email" required type="email" placeholder=""/>
                             <Form.Control.Feedback type="invalid">Please provide a valid email.</Form.Control.Feedback>
                         </FloatingLabel>
                     </FormGroup>
                     <FormGroup className="mb-2" as={Col} sm="6">
                         <FloatingLabel label="Contact Phone">
-                            <Form.Control name="phone" type="phone" pattern="[0-9]{9}" placeholder="" />
+                            <Form.Control name="phone" type="phone" pattern="[0-9]{9}" placeholder=""/>
                         </FloatingLabel>
                     </FormGroup>
                 </Row>
@@ -116,8 +116,11 @@ const About = () => {
 
                 <Row>
                     <Form.Group className="mb-2" as={Col} sm="6">
-                        <Form.Check name="response" type="checkbox" label="Request Response" />
+                        <Form.Check name="response" type="checkbox" label="Request Response"/>
                     </Form.Group>
+                    <Col sm="6">
+                        <div data-netlify-recaptcha="true"></div>
+                    </Col>
                 </Row>
                 <Row>
                     <Button className="mb-2" variant="primary" type="submit">
