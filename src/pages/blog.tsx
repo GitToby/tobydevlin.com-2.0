@@ -8,6 +8,9 @@ import BlogPostCard from '../components/blogPostCard';
 import {FormControl, InputGroup, Spinner} from 'react-bootstrap';
 import SEO from '../components/SEO';
 import {ImageDataLike} from 'gatsby-plugin-image';
+import {customEventTypes} from "../helper/constants";
+import {fireGtagEvent} from "../helper/util";
+
 
 interface BlogProps {
     data: BlogHomeQuery;
@@ -20,6 +23,7 @@ const Blog = (props: BlogProps) => {
     function filterPosts(e: SyntheticEvent) {
         setIsLoading(true);
         let target = e.target as HTMLInputElement;
+        fireGtagEvent(customEventTypes.blogSearch, {searchText: target.value})
         let res = props.data.allMarkdownRemark.edges.filter((post) => {
             let searchResContent = post.node.internal.content.toLowerCase().indexOf(target.value.toLowerCase());
             let searchResTitle = post.node.frontmatter.title.toLowerCase().indexOf(target.value.toLowerCase());

@@ -6,7 +6,7 @@ import {Container} from 'react-bootstrap';
 import * as styles from '../styles/content.module.scss';
 import SEO from '../components/SEO';
 import Particles from 'react-tsparticles';
-import {particlesOptions} from '../helper/settings';
+import {particlesOptions} from '../helper/constants';
 
 interface ContentProps {
     children: React.ReactNode;

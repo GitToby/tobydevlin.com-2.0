@@ -10,7 +10,7 @@ import {
     paraAnimationDuration,
     titleAnimation,
     titleAnimationDuration
-} from '../helper/settings';
+} from '../helper/constants';
 import SEO from '../components/SEO';
 import {OutboundLink} from 'gatsby-plugin-google-gtag';
 import {StaticImage} from 'gatsby-plugin-image';

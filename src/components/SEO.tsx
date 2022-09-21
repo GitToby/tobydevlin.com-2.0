@@ -9,7 +9,7 @@ type SEOProps = {
 
 const SEO = (props: SEOProps) => {
     return (
-        <Helmet title={props.pageTitle} defaultTitle="Stuff and things..." titleTemplate="TobyDevlin.com | %s">
+        <Helmet title={props.pageTitle} defaultTitle="TobyDevlin.com." titleTemplate="TobyDevlin.com | %s">
             <link rel="canonical" href="https://tobydevlin.com" />
 
             {/* Meta tags */}

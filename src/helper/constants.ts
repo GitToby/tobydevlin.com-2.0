@@ -6,6 +6,10 @@ export const links = {
     linkedin: 'https://www.linkedin.com/in/toby-devlin'
 }
 
+export const customEventTypes = {
+    blogSearch: "blogSearch",
+    contactFormLoad: "contactFormLoad"
+}
 
 export const titleAnimation = 'fade-right';
 export const titleAnimationDuration = 1000;
