@@ -1,5 +1,16 @@
 import {ISourceOptions} from 'tsparticles';
 
+export const links = {
+    gitlab: 'https://gitlab.com/MrAdjunctPanda',
+    github: 'https://github.com/GitToby',
+    linkedin: 'https://www.linkedin.com/in/toby-devlin'
+}
+
+export const customEventTypes = {
+    blogSearch: "blogSearch",
+    contactFormLoad: "contactFormLoad"
+}
+
 export const titleAnimation = 'fade-right';
 export const titleAnimationDuration = 1000;
 

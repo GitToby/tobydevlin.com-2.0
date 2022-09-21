@@ -2,12 +2,13 @@ import React, {FunctionComponent} from 'react';
 import Content from '../containers/content';
 // @ts-ignore
 import * as styles from '../styles/portfolio.module.scss';
-import {Button, Card, Row} from 'react-bootstrap';
-import {titleAnimation, titleAnimationDuration} from '../helper/settings';
+import {Card, Row} from 'react-bootstrap';
+import {titleAnimation, titleAnimationDuration} from '../helper/constants';
 import SEO from '../components/SEO';
 import {GatsbyImage, getImage, IGatsbyImageData} from 'gatsby-plugin-image';
 import {graphql} from 'gatsby';
 import {PortfolioDataQuery} from '../../graphql-types';
+import {OutboundLink} from "gatsby-plugin-google-gtag";
 
 interface PortfolioCardProps {
     name: string;
@@ -21,13 +22,13 @@ const SiteCard: FunctionComponent<PortfolioCardProps> = (props) => {
     const imageData = getImage(props.imgData);
     return (
         <Card className={styles.card}>
-            <Card.Img variant="top" as={GatsbyImage} image={imageData} alt={props.imgAlt} />
+            <Card.Img variant="top" as={GatsbyImage} image={imageData} alt={props.imgAlt}/>
             <Card.Body>
                 <Card.Title>{props.name}</Card.Title>
                 <Card.Text>{props.description}</Card.Text>
-                <Button variant="primary" onClick={() => window.open(props.url, '_blank')}>
+                <OutboundLink href={props.url}>
                     Go there
-                </Button>
+                </OutboundLink>
             </Card.Body>
         </Card>
     );
@@ -66,11 +67,11 @@ const Portfolio = (props: PortfolioProps) => {
     ];
     return (
         <Content>
-            <SEO pageTitle="Portfolio" isBlogPost={false} />
+            <SEO pageTitle="Portfolio" isBlogPost={false}/>
             <h1 data-aos={titleAnimation} data-aos-duration={titleAnimationDuration} data-aos-delay="0">
                 Other Projects I've Created.
             </h1>
-            <hr />
+            <hr/>
             {portfolioData.map((data, idx) => (
                 <Row className={styles.cardContainer}>
                     <SiteCard
@@ -80,7 +81,7 @@ const Portfolio = (props: PortfolioProps) => {
                         url={data.url}
                         description={data.description}
                     />
-                    <br />
+                    <br/>
                 </Row>
             ))}
         </Content>

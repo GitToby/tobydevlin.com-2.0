@@ -6,7 +6,7 @@ import {GatsbyImage, getImage, ImageDataLike} from 'gatsby-plugin-image';
 import {Link} from 'gatsby';
 
 class BlogPostCardProps {
-    idx: number;
+    post_no: number;
     imgData: ImageDataLike;
     slug: string;
     title: string;
@@ -19,11 +19,11 @@ const BlogPostCard = (props: BlogPostCardProps) => {
     const imageData = getImage(props.imgData);
     return (
         <Card className={style.blogPostCard}>
-            <Card.Img className={style.blogPostCardImg} as={GatsbyImage} image={imageData} alt="asdf" />
+            <Card.Img className={style.blogPostCardImg} as={GatsbyImage} image={imageData} alt={props.title} />
             <Card.ImgOverlay className={style.blogPostCardContent}>
                 <Card.Body>
                     <Card.Title as="h1">
-                        <Link to={props.slug}>{props.title}</Link>
+                        #{props.post_no}: <Link to={props.slug}>{props.title}</Link>
                     </Card.Title>
                     <Card.Subtitle className={style.blogDate}>
                         {props.date} | tags: <i>{props.tags.join(', ')}</i>
