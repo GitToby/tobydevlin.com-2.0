@@ -3,7 +3,7 @@ import {ISourceOptions} from 'tsparticles';
 export const links = {
     gitlab: 'https://gitlab.com/MrAdjunctPanda',
     github: 'https://github.com/GitToby',
-    linkedin: 'https://www.linkedin.com/in/toby-devlin-741b45106'
+    linkedin: 'https://www.linkedin.com/in/toby-devlin'
 }
 
 
