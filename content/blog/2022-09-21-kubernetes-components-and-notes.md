@@ -5,35 +5,36 @@ title: Kubernetes Components with Terraform & Notes
 publish: true
 image: /content/img/netlifyCMS/k8s-logo.png
 tags:
-    - kubernetes
-    - cloud native
-    - dev-ops
+  - kubernetes
+  - cloud native
+  - dev-ops
 ---
-# k8s
 
-deployment configuration - how ti create and update versions of your application. once you apply it the control plane
-schedules the instances to run on individual nodes. After the initial apply the control plane manages the instances and
-makes sure they are up-to-date, ensuring a healthcheck and self-healing when nodes go down.
+Kubernetes is a production ready open-source system for running & orchestrating containers. It manages instances,
+self-heals, adds abstractions to make networking a breeze and allows multiple logical apps to run on the same logical
+deployment.
 
-worker nodes can have multiple (100s) pods running. each node has processes `containter runtime`, `kublet`
-and `kube-proxy` running. without these runtimes it will fail - the **Container** runtime runs the pods & images,
-kubelet
-interacts with the **Container** runtime & the k8s master deployments, kube-proxy is responsible for sending requests to
-other services without impacting network performance
+## Components of the System
 
-the master node has simmilar; 4 services must be running. `api server`, which is responsible for interacting with the
-outside world and recieving the metadata changes including validation of requests. the `scheduler` app which is
+**_Worker nodes_** can have multiple (100s) pods running. Each node has processes `containter runtime`, `kublet`
+and `kube-proxy` running. without these runtimes it will fail - the `containter runtime` runtime runs any number of 
+**Container** images Wintin the **Pod**, such as docker or podman images. `kublet` interacts with the **Container**s 
+and the kubernetes master Pods needed, `kube-proxy` is responsible for sending requests to other services without 
+impacting network performance.
+
+The **_Master node_** has similar; 4 services must be running. `api server`, which is responsible for interacting with 
+the outside world and receiving the metadata changes including validation of requests. the `scheduler` app which is
 responsible for actual placement of jobs & pods. It interacts with the `kubelet` on nodes asking them to start the
-jobds. `controller manager` is responsible for understanding the existing layout of the state of the cluster,
+jobs. `controller manager` is responsible for understanding the existing layout of the state of the cluster,
 understanding which jobs have failed or need restarting, i.e. are out outside the resource definition bounds, and sends
 requests to the scheduler to get the resources spun back up. `etcd`  is a key-value store which acts as the 'brain' of
 the cluster, interacting with the other services to provide them the information needed to run. It is the stateful part
-of the k8s cluster
+of the k8s cluster.
 
-# components of the build
+## Resource Types
 
-Below is the major components of an application running on kubernetes. We will be creating an example deployment using
-the Terraform kubernetes provider.
+Below is the major components of an application running on kubernetes. There are many more types of resources k8s
+provides but these are the major ones. We will be creating an example deployment usingthe Terraform kubernetes provider.
 
 ![k8s overview](https://miro.medium.com/1*eVqphQ2aNKxqHPMPxjRzAA.png)
 
@@ -51,21 +52,22 @@ the [k8s docs](https://kubernetes.io/docs/reference/kubernetes-api/).
 
 These components are for deploying replicas of images. Every deployment consists of a collection of pods, which in turn
 are collections of containers. Normally a **Pod** is a logical deployment of your application and has a single
-container,
-unless there are required service sidecars such as metric reporters and the like.
+container, unless there are required service sidecars such as metric reporters and the like. The control plane
+schedules the **Pods** to run on individual **Nodes**. After the initial apply the control plane manages the **Pod**
+instances and makes sure they are up-to-date, ensuring a healthcheck and self-healing when nodes go down.
 
 Other concepts that are defined alongside the **Pod** include **Container** images port exposures & update strategy.
-Each section in the docs for the [**
-Deployment**](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/deployment-v1) and [**Stateful
-Set**](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/stateful-set-v1/) will describe what can
-be placed in the spec and how it effects the resource
+Each section in the docs for the 
+[**Deployment**](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/deployment-v1) 
+and [**Stateful Set**](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/stateful-set-v1/) 
+will describe what can be placed in the spec and how it effects the resource.
 
 The difference between a stateful set and a deployment are to do with how the pods interact with volumes via volume
 claims, [this blog post](https://medium.com/stakater/k8s-deployments-vs-statefulsets-vs-daemonsets-60582f0c62d4) is much
 more in depth. There is also a **DaemonSet** object which enables a single **Pod** to be run on each of the nodes in a
 cluster, rather than defining application availability it is used more as a cluster management tool.
 
-```terraform
+```hcl
 locals {
   whoamiLabelVal    = "whoamiExample"
   whoamiAppLabelMap = {
@@ -133,7 +135,7 @@ Ultimately as you move up the service layers you get more and more exposed to th
 another way to create interactions, especially if it is for public access and not for other internal consumption. An
 **Ingress** is a layer that sits on the boundary to the outside world and the cluster.
 
-```terraform
+```hcl
 resource "kubernetes_service" "whoami_service" {
   metadata {
     name   = "whoami"
@@ -179,7 +181,7 @@ powerful service to manage spikes in traffic, attacks and isolation.
 updating the data in these resources k8s will change the underlying data on the fly. To refresh the **Deployment** with
 the new data, assuming they correct mappings are made in the definitions, is to restart the Pods.
 
-```terraform
+```hcl
 resource "kubernetes_config_map" "whoami" {
   immutable = true
   metadata {
@@ -198,7 +200,7 @@ In terraform the data can be applied to pods by adding the below to the **Deploy
 and
 apply all the values of the config map to the containers
 
-```terraform
+```hcl
 container {
   ...
   env_from {
@@ -213,7 +215,7 @@ container {
 Similar for **Secrets**, but creating **Secrets** there is a level of encryption applied to maintain the safety of the
 data inside. It has the same form as the ConfigMap aboveTo apply this to a **Deployment** just add the below
 
-```terraform
+```hcl
 container {
   ...
   env_from {
@@ -235,7 +237,7 @@ Typically, the entry point is already some defined information already stored as
 this information you can create volume mounts with the following additions to the **Pod** & **Container** definitions
 within the **Deployment**:
 
-```terraform
+```hcl
 ...
 volume {
   name = "imasecret"

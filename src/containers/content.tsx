@@ -14,7 +14,7 @@ interface ContentProps {
 }
 
 const Content = (props: ContentProps) => {
-    const [showScroll, setShowScroll] = useState(props.add_scroll)
+    const [showScroll, setShowScroll] = useState(props.add_scroll ? props.add_scroll : false)
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, true);
@@ -29,8 +29,6 @@ const Content = (props: ContentProps) => {
         const at_bottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight
         if (at_bottom) {
             setShowScroll(false)
-        } else {
-            setShowScroll(true)
         }
     }
 
