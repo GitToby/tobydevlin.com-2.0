@@ -6,7 +6,7 @@ import {paraAnimation, paraAnimationDuration, titleAnimation, titleAnimationDura
 import SEO from '../../components/SEO';
 import {OutboundLink} from 'gatsby-plugin-google-gtag';
 import {Link} from 'gatsby';
-import {PopupButton, Widget} from "@typeform/embed-react";
+import {Widget} from "@typeform/embed-react";
 
 const pageDescription = 'Get in contact with Toby';
 

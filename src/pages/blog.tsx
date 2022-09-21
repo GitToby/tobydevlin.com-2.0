@@ -34,11 +34,11 @@ const Blog = (props: BlogProps) => {
     }
 
     return (
-        <Content>
-            <SEO pageTitle="Blog" isBlogPost={false} />
+        <Content add_scroll>
+            <SEO pageTitle="Blog" isBlogPost={false}/>
             <div data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
                 <h1>Welcome to the Blog!</h1>
-                <hr />
+                <hr/>
             </div>
             <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
                 AI write about things sometime. I update this every now and then when I come across something I want to
@@ -54,9 +54,9 @@ const Blog = (props: BlogProps) => {
                         onChange={filterPosts}
                     />
                 </InputGroup>
-                <hr />
+                <hr/>
             </div>
-            {isLoading && <Spinner animation={'border'} />}
+            {isLoading && <Spinner animation={'border'}/>}
             {posts.length > 0 &&
                 posts
                     .filter((post: any) => {
@@ -75,7 +75,7 @@ const Blog = (props: BlogProps) => {
                                 className={style.blogPostCardContainer}
                             >
                                 <BlogPostCard
-                                    idx={idx}
+                                    post_no={posts.length - idx}
                                     imgData={imgData}
                                     slug={fields.slug}
                                     title={frontmatter.title}
