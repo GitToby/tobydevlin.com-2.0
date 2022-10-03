@@ -2,14 +2,14 @@ import React from 'react';
 import Content from '../../containers/content';
 // @ts-ignore
 import * as styles from '../../styles/blog.module.scss';
-import {paraAnimation, paraAnimationDuration, titleAnimation, titleAnimationDuration} from '../../helper/settings';
+import {paraAnimation, paraAnimationDuration, titleAnimation, titleAnimationDuration} from '../../helper/constants';
 import SEO from '../../components/SEO';
 import * as queryString from 'querystring';
 import {Link} from 'gatsby';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft, faArrowRight} from '@fortawesome/free-solid-svg-icons';
 
-const About = (props: any) => {
+const Success = (props: any) => {
     const parsed = queryString.parse(props.location.search.replace(/^\?/, ''));
     const firstName: string = parsed.firstName as string;
 
@@ -43,4 +43,4 @@ const About = (props: any) => {
     );
 };
 
-export default About;
+export default Success;

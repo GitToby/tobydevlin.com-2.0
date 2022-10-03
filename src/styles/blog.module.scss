@@ -29,6 +29,7 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
   img {
     justify-content: center;
     min-height: 100%;
+    width: 100%;
   }
 
   h1 {
@@ -70,7 +71,6 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
 
       h1 {
         color: $primary-font-color;
-        text-decoration: underline;
         font-size: 18pt;
       }
 

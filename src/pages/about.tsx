@@ -5,14 +5,16 @@ import * as styles from '../styles/about.module.scss';
 import {
     blockAnimation,
     blockAnimationDuration,
+    links,
     paraAnimation,
     paraAnimationDuration,
     titleAnimation,
     titleAnimationDuration
-} from '../helper/settings';
+} from '../helper/constants';
 import SEO from '../components/SEO';
 import {OutboundLink} from 'gatsby-plugin-google-gtag';
 import {StaticImage} from 'gatsby-plugin-image';
+import {Link} from "gatsby";
 
 const _pathToImg = '../../static/images/backdrops';
 
@@ -22,18 +24,19 @@ const About = () => {
 
     return (
         <Content>
-            <SEO pageTitle="About" isBlogPost={false} />
+            <SEO pageTitle="About" isBlogPost={false}/>
             <h1 data-aos={titleAnimation} data-aos-duration={titleAnimationDuration} data-aos-delay="0">
                 About Me.
             </h1>
-            <hr />
-            <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
-                I'm a full stack software & data engineer, originally from south England, studied in Wales and now live
-                in London. I like to cycle, explore and eat food. Sometimes, when the weather is right, I like to take
-                time to write code that does stuff. I have a wealth of experience across all aspects of software,
-                security and data engineering from user interfaces and back ends to cloud infrastructure, networking,
-                analytical engineering and product ownership. This, on top of the fact I have spent a number of years
-                doing freelance and charity consulting.
+            <hr/>
+            <p className={styles.aboutPara} data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
+                <i>Hi!</i> I'm toby, a full stack software & data engineer. I grew up in south England, studied in Wales
+                and now live and work in Australia. I like to cycle, explore and eat food. Sometimes, when the weather
+                is just right, I like to write code that does stuff. Some of these projects do things, others just look
+                nice; most can be found on my <OutboundLink href={links.github}>GitHub</OutboundLink>. I have a wealth
+                of experience across all aspects of software, security and data engineering from user interfaces and
+                back ends to cloud infrastructure, networking, analytical engineering and product ownership. This, on
+                top of the fact I have spent a number of years doing freelance and charity consulting.
             </p>
             <div
                 data-aos={blockAnimation}
@@ -50,13 +53,15 @@ const About = () => {
                     height={200}
                 />
             </div>
-            <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
+            <p className={styles.aboutPara} data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
                 Not enjoying writing very much, I studied mathematics at Cardiff University before moving on to learn
                 software development. Python & Java are my go to languages, but I also like responsive, dynamic UIs in
-                JavaScript (Typescript for type safety though). If I had to do it over I'd get learning with Rust
-                faster! Im currently working on professional and personal projects in the Data Engineering domain,
-                building solutions to unlock terabyte scale insights with distributed data. Ultimately I'd love to be
-                working with data streams and lower level IoT devices to unlock the power of the edge!
+                Typescript + React. Im currently working on professional and personal projects in the intersection
+                of Data & Application Engineering domains, building solutions to unlock terabyte scale insights with
+                distributed data. Ultimately I love to be working with data streams and working to overcome some of the
+                flaws in today's domain driven design approaches to software. In my personal time i like to tinker with
+                lower level IoT devices, running code in less abstracted languages such as Rust & Go to overcome the
+                lethargic nature of python and unlock the power of the edge!
             </p>
             <div
                 data-aos={blockAnimation}
@@ -73,13 +78,13 @@ const About = () => {
                     height={200}
                 />
             </div>
-            <p data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
+            <p className={styles.aboutPara} data-aos={paraAnimation} data-aos-duration={paraAnimationDuration} data-aos-delay={i++ * paraTimeDif}>
                 If you want to get in contact, I'm available on{' '}
-                <OutboundLink href="https://www.linkedin.com/in/toby-devlin/">my LinkedIn</OutboundLink>, feel free to
-                shoot me a message. If a project of mine has caught your eye and you have questions feel free to shoot
-                me a message on that platform. In the event you like this website and want to copy it, feel free to
-                smack a fork on its
-                <OutboundLink href="https://github.com/GitToby/tobydevlin.com-2.0">github mirror</OutboundLink>.
+                <OutboundLink href={links.linkedin}>my LinkedIn</OutboundLink>, or send me a message using the <Link
+                to={'/contact_and_consulting'}> contact form</Link>. If a project of mine has caught your eye and you
+                have questions feel free to shoot me a message on that platform. In the event you like this website and
+                want to copy it, its all open source so feel free to smack a fork on its {' '}
+                <OutboundLink href={`${links.github}/tobydevlin.com-2.0`}>github mirror</OutboundLink>.
             </p>
             <div
                 data-aos={blockAnimation}
