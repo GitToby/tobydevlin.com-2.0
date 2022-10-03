@@ -70,8 +70,8 @@ const About = () => {
                 className={styles.imgFiller}
             >
                 <StaticImage
-                    src={`${_pathToImg}/toby-devlin-blog-website-background-woods-crop.jpeg`}
-                    alt="London"
+                    src={`${_pathToImg}/tobydevlin-com-home-image-ny-30h-crop.jpg`}
+                    alt="NYC"
                     placeholder="blurred"
                     layout="fixed"
                     width={1400}
@@ -92,14 +92,6 @@ const About = () => {
                 data-aos-delay={i++ * paraTimeDif}
                 className={styles.imgFiller}
             >
-                <StaticImage
-                    src={`${_pathToImg}/tobydevlin-com-home-image-ny-30h-crop.jpg`}
-                    alt="London"
-                    placeholder="blurred"
-                    layout="fixed"
-                    width={1400}
-                    height={200}
-                />
             </div>
         </Content>
     );
