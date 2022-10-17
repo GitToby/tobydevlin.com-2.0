@@ -76,14 +76,6 @@ $background-imag-gradient-color: rgba(245, 245, 245, 0.5);
 
       p {
         color: $primary-font-color;
-
-        // todo: dynamic clipping of content?
-        //overflow: hidden;
-        //text-overflow: ellipsis;
-        //display: -webkit-box;
-        //-webkit-line-clamp: vh/100; /* number of lines to show */
-        //line-clamp: 2;
-        //-webkit-box-orient: vertical;
       }
 
       .blogDate {
