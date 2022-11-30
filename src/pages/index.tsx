@@ -12,7 +12,7 @@ const Index = () => (
             <h1 id={styles.title}>I'm Toby,</h1>
         </div>
         <div>
-            <h2 id={styles.subtitle}>a 🇦🇺 based full stack & data consultant</h2>
+            <h2 id={styles.subtitle}>a <span className={styles.emoji}>🇦🇺</span> based full stack & data consultant</h2>
         </div>
         <div>
             <p>
