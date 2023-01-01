@@ -8,7 +8,8 @@
     "license": "MIT",
     "readme": "./README.md",
     "scripts": {
-        "start": "npm run develop",
+        "start": "yarn run develop",
+        "install": "yarn install",
         "develop": "gatsby develop",
         "build": "gatsby build",
         "serve": "gatsby serve",

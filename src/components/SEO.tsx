@@ -1,5 +1,6 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
+import Scripts from "./scripts";
 
 type SEOProps = {
     pageTitle?: string;
@@ -10,12 +11,13 @@ type SEOProps = {
 const SEO = (props: SEOProps) => {
     return (
         <Helmet title={props.pageTitle} defaultTitle="TobyDevlin.com." titleTemplate="TobyDevlin.com | %s">
-            <link rel="canonical" href="https://tobydevlin.com" />
+            <link rel="canonical" href="https://tobydevlin.com"/>
 
             {/* Meta tags */}
-            <meta name="description" content={props.pageDescription} />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta name="description" content={props.pageDescription}/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+            <Scripts/>
         </Helmet>
     );
 };
