@@ -44,7 +44,7 @@
         "gatsby-remark-mathjax": "^1.0.0",
         "gatsby-remark-prismjs": "^6.19.0",
         "gatsby-source-filesystem": "^4.19.0",
-        "gatsby-transformer-remark": "^5.19.0",
+        "gatsby-transformer-remark": "^5.25.1",
         "gatsby-transformer-sharp": "^4.19.0",
         "gbimage-bridge": "^0.2.2",
         "katex": "^0.13.18",
