@@ -4,11 +4,11 @@
     "author": "Toby Devlin",
     "description": "Tobydevlin.com implemented in Gatsby and Typescript.",
     "homepage": "https://tobydevlin.com",
-    "version": "2.5.2",
+    "version": "2.6.0",
     "license": "MIT",
     "readme": "./README.md",
     "scripts": {
-        "start": "npm run develop",
+        "start": "yarn run develop",
         "develop": "gatsby develop",
         "build": "gatsby build",
         "serve": "gatsby serve",
